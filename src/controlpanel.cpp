@@ -1,6 +1,6 @@
 /*
  * QMPDClient - An MPD client written in Qt 4.
- * Copyright (C) 2005-2008 Håvard Tautra Knutsen <havtknut@tihlde.org>
+ * Copyright (C) 2005-2008 Hï¿½vard Tautra Knutsen <havtknut@tihlde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -20,6 +20,7 @@
 #include "config.h"
 #include "controlpanel.h"
 #include "coverartdialog.h"
+#include "lyricsdialog.h"
 #include "mpd.h"
 #include "mpdconnection.h"
 #include "mpdsong.h"
@@ -29,8 +30,9 @@
 #include <QDir>
 
 ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent),
-		m_coverArt(new CoverArtDialog(this)) {
+		m_coverArt(new CoverArtDialog(this)), m_lyricsDialog(new LyricsDialog(this)) {
 	Q_ASSERT(m_coverArt);
+	Q_ASSERT(m_lyricsDialog);
 	setupUi(this);
 	coverArtButton->setVisible(false);
 
@@ -49,6 +51,7 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent),
 	connect(MPD::instance(), SIGNAL(playingSongUpdated(const MPDSong &)), this, SLOT(setSong(const MPDSong &)));
 	connect(Config::instance(), SIGNAL(showCoverArtChanged(bool)), this, SLOT(showCoverArtChanged(bool)));
 	connect(coverArtButton, SIGNAL(clicked()), m_coverArt, SLOT(show()));
+	connect(lyricsButton, SIGNAL(clicked()), m_lyricsDialog, SLOT(show()));
 
 	// Short cuts
 	m_fwdKey = new QShortcut(Qt::CTRL | Qt::Key_Right, this);
@@ -102,6 +105,8 @@ void ControlPanel::setSong(const MPDSong &s) {
 	artistLabel->setText(artist);
 
 	m_coverArt->setSong(s);
+	m_lyricsDialog->setSong(s);
+	if(!m_lyricsDialog->isHidden()) m_lyricsDialog->updateLyrics();
 	const bool hasCoverArt = m_coverArt->hasCoverArt();
 	if (hasCoverArt) {
 		coverArtButton->setIcon(m_coverArt->coverArt());

@@ -17,31 +17,26 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef CONTROLPANEL_H
-#define CONTROLPANEL_H
+#ifndef LYRICS_DIALOG_H
+#define LYRICS_DIALOG_H
 
-#include "ui_controlpanel.h"
+#include "ui_lyricsdialog.h"
+#include <QHttp>
 
-class CoverArtDialog;
-class LyricsDialog;
 class MPDSong;
-class QShortcut;
 
-class ControlPanel : public QWidget, private Ui::ControlPanel {
+class LyricsDialog : public QDialog, private Ui::LyricsDialog {
 	Q_OBJECT
 public:
-	ControlPanel(QWidget *);
-
-public slots:
-	void updateTranslation();
-
-private slots:
+	LyricsDialog(QWidget *);
 	void setSong(const MPDSong &);
-	void showCoverArtChanged(bool);
-
+	void updateLyrics();
 private:
-	CoverArtDialog *m_coverArt;
-	LyricsDialog *m_lyricsDialog;
-	QShortcut *m_fwdKey, *m_rwdKey, *m_volUpKey, *m_volDnKey;
+	QHttp m_http;
+	QString m_artist, m_title;
+public slots:
+	void show();
+private slots:
+	void gotResponse(int, bool);
 };
 #endif

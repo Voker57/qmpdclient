@@ -13,22 +13,10 @@
    <string/>
   </property>
   <layout class="QGridLayout" >
-   <property name="leftMargin" >
+   <property name="margin" >
     <number>1</number>
    </property>
-   <property name="topMargin" >
-    <number>1</number>
-   </property>
-   <property name="rightMargin" >
-    <number>1</number>
-   </property>
-   <property name="bottomMargin" >
-    <number>1</number>
-   </property>
-   <property name="horizontalSpacing" >
-    <number>0</number>
-   </property>
-   <property name="verticalSpacing" >
+   <property name="spacing" >
     <number>0</number>
    </property>
    <item row="0" column="0" >
@@ -36,16 +24,7 @@
      <property name="spacing" >
       <number>6</number>
      </property>
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
+     <property name="margin" >
       <number>0</number>
      </property>
      <item>
@@ -130,21 +109,12 @@
      </item>
     </layout>
    </item>
-   <item row="0" column="10" >
+   <item row="0" column="11" >
     <layout class="QHBoxLayout" >
      <property name="spacing" >
       <number>6</number>
      </property>
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
+     <property name="margin" >
       <number>0</number>
      </property>
      <item>
@@ -167,16 +137,7 @@
      <property name="spacing" >
       <number>6</number>
      </property>
-     <property name="leftMargin" >
-      <number>0</number>
-     </property>
-     <property name="topMargin" >
-      <number>0</number>
-     </property>
-     <property name="rightMargin" >
-      <number>0</number>
-     </property>
-     <property name="bottomMargin" >
+     <property name="margin" >
       <number>0</number>
      </property>
      <item>
@@ -211,7 +172,7 @@
      </item>
     </layout>
    </item>
-   <item rowspan="2" row="0" column="9" >
+   <item rowspan="2" row="0" column="10" >
     <spacer>
      <property name="orientation" >
       <enum>Qt::Horizontal</enum>
@@ -219,7 +180,7 @@
      <property name="sizeType" >
       <enum>QSizePolicy::Minimum</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>16</width>
        <height>20</height>
@@ -227,12 +188,12 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="10" >
+   <item row="1" column="11" >
     <spacer>
      <property name="orientation" >
       <enum>Qt::Vertical</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>108</width>
        <height>30</height>
@@ -267,7 +228,7 @@
      <property name="sizeType" >
       <enum>QSizePolicy::Minimum</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>16</width>
        <height>20</height>
@@ -291,7 +252,7 @@
      </property>
     </widget>
    </item>
-   <item rowspan="2" row="0" column="8" >
+   <item rowspan="2" row="0" column="9" >
     <widget class="QPushButton" name="coverArtButton" >
      <property name="sizePolicy" >
       <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
@@ -304,7 +265,7 @@
      </property>
     </widget>
    </item>
-   <item rowspan="2" row="0" column="7" >
+   <item rowspan="2" row="0" column="8" >
     <spacer>
      <property name="orientation" >
       <enum>Qt::Horizontal</enum>
@@ -312,13 +273,20 @@
      <property name="sizeType" >
       <enum>QSizePolicy::Minimum</enum>
      </property>
-     <property name="sizeHint" >
+     <property name="sizeHint" stdset="0" >
       <size>
        <width>10</width>
        <height>20</height>
       </size>
      </property>
     </spacer>
+   </item>
+   <item rowspan="2" row="0" column="7" >
+    <widget class="QPushButton" name="lyricsButton" >
+     <property name="text" >
+      <string>Lyrics</string>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
