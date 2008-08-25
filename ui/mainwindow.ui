@@ -1,0 +1,226 @@
+<ui version="4.0" >
+ <author>Håvard Tautra Knutsen</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>911</width>
+    <height>658</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string/>
+  </property>
+  <property name="windowIcon" >
+   <iconset resource="../qmpdclient.qrc" >:/icons/svg/qmpdclient.svg</iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget" >
+   <layout class="QVBoxLayout" >
+    <property name="margin" >
+     <number>3</number>
+    </property>
+    <property name="spacing" >
+     <number>6</number>
+    </property>
+    <item>
+     <widget class="ControlPanel" native="1" name="controlPanel" >
+      <property name="sizePolicy" >
+       <sizepolicy>
+        <hsizetype>13</hsizetype>
+        <vsizetype>0</vsizetype>
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" >
+      <property name="margin" >
+       <number>0</number>
+      </property>
+      <property name="spacing" >
+       <number>4</number>
+      </property>
+      <item>
+       <widget class="IdealBar" native="1" name="leftBar" />
+      </item>
+      <item>
+       <widget class="IdealSplitter" name="splitter" >
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QStackedWidget" name="leftStack" >
+         <property name="currentIndex" >
+          <number>-1</number>
+         </property>
+        </widget>
+        <widget class="QStackedWidget" name="rightStack" >
+         <property name="currentIndex" >
+          <number>-1</number>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="IdealBar" native="1" name="rightBar" >
+        <property name="layoutDirection" >
+         <enum>Qt::RightToLeft</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar" >
+   <property name="geometry" >
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>911</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_File" >
+    <property name="title" >
+     <string>&amp;MPD</string>
+    </property>
+    <widget class="QMenu" name="connectMenu" >
+     <property name="title" >
+      <string>&amp;Connect to...</string>
+     </property>
+    </widget>
+    <addaction name="connectMenu" />
+    <addaction name="disconnectMenu" />
+    <addaction name="rescanMenu" />
+    <addaction name="separator" />
+    <addaction name="preferencesMenu" />
+    <addaction name="separator" />
+    <addaction name="quitMenu" />
+   </widget>
+   <widget class="QMenu" name="menu_Help" >
+    <property name="title" >
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="about" />
+    <addaction name="aboutQt" />
+   </widget>
+   <addaction name="menu_File" />
+   <addaction name="menu_Help" />
+  </widget>
+  <widget class="QStatusBar" name="statusbar" >
+   <property name="sizeGripEnabled" >
+    <bool>false</bool>
+   </property>
+  </widget>
+  <action name="about" >
+   <property name="icon" >
+    <iconset resource="../qmpdclient.qrc" >:/icons/svg/qmpdclient.svg</iconset>
+   </property>
+   <property name="text" >
+    <string>&amp;About...</string>
+   </property>
+   <property name="iconText" >
+    <string>About...</string>
+   </property>
+   <property name="shortcut" >
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="aboutQt" >
+   <property name="text" >
+    <string>About &amp;Qt...</string>
+   </property>
+   <property name="iconText" >
+    <string>About Qt...</string>
+   </property>
+   <property name="shortcut" >
+    <string>Shift+F1</string>
+   </property>
+  </action>
+  <action name="disconnectMenu" >
+   <property name="text" >
+    <string>&amp;Disconnect</string>
+   </property>
+   <property name="statusTip" >
+    <string>Disconnect from server</string>
+   </property>
+   <property name="whatsThis" >
+    <string>Disconnect from server</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="rescanMenu" >
+   <property name="text" >
+    <string>&amp;Rescan library</string>
+   </property>
+   <property name="statusTip" >
+    <string>Rescan songs</string>
+   </property>
+   <property name="whatsThis" >
+    <string>Rescan songs</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="preferencesMenu" >
+   <property name="text" >
+    <string>&amp;Preferences...</string>
+   </property>
+   <property name="statusTip" >
+    <string>Show preferences dialog...</string>
+   </property>
+   <property name="whatsThis" >
+    <string>Show preferences dialog...</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+P</string>
+   </property>
+   <property name="menuRole" >
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="quitMenu" >
+   <property name="text" >
+    <string>&amp;Quit</string>
+   </property>
+   <property name="statusTip" >
+    <string>Quit QMPDClient</string>
+   </property>
+   <property name="whatsThis" >
+    <string>Quit QMPDClient</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ControlPanel</class>
+   <extends>QWidget</extends>
+   <header>controlpanel.h</header>
+  </customwidget>
+  <customwidget>
+   <class>IdealBar</class>
+   <extends>QWidget</extends>
+   <header>idealbar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>IdealSplitter</class>
+   <extends>QSplitter</extends>
+   <header>idealsplitter.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../qmpdclient.qrc" />
+ </resources>
+ <connections/>
+</ui>

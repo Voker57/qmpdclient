@@ -1,0 +1,221 @@
+<ui version="4.0" >
+ <class>LibraryPanel</class>
+ <widget class="QWidget" name="LibraryPanel" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>651</width>
+    <height>653</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string/>
+  </property>
+  <layout class="QVBoxLayout" >
+   <property name="margin" >
+    <number>0</number>
+   </property>
+   <property name="spacing" >
+    <number>6</number>
+   </property>
+   <item>
+    <widget class="QSplitter" name="libraryHSplit" >
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <widget class="QSplitter" name="libraryVSplit" >
+      <property name="orientation" >
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <widget class="QWidget" name="widget1" >
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="artFilLabel" >
+            <property name="text" >
+             <string>&amp;Artist filter:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>artistFilter</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="LineEdit" name="artistFilter" />
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="ArtistView" name="artistView" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+          <property name="dragDropMode" >
+           <enum>QAbstractItemView::DragOnly</enum>
+          </property>
+          <property name="selectionMode" >
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+          <property name="uniformItemSizes" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="widget2" >
+       <layout class="QVBoxLayout" >
+        <property name="margin" >
+         <number>0</number>
+        </property>
+        <property name="spacing" >
+         <number>6</number>
+        </property>
+        <item>
+         <layout class="QHBoxLayout" >
+          <property name="margin" >
+           <number>0</number>
+          </property>
+          <property name="spacing" >
+           <number>6</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="albFilLabel" >
+            <property name="text" >
+             <string>Al&amp;bum filter:</string>
+            </property>
+            <property name="buddy" >
+             <cstring>albumFilter</cstring>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="LineEdit" name="albumFilter" />
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="AlbumView" name="albumView" >
+          <property name="enabled" >
+           <bool>false</bool>
+          </property>
+          <property name="dragDropMode" >
+           <enum>QAbstractItemView::DragOnly</enum>
+          </property>
+          <property name="selectionMode" >
+           <enum>QAbstractItemView::ExtendedSelection</enum>
+          </property>
+          <property name="uniformItemSizes" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="widget123" >
+      <layout class="QVBoxLayout" >
+       <property name="margin" >
+        <number>0</number>
+       </property>
+       <property name="spacing" >
+        <number>6</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" >
+         <property name="margin" >
+          <number>0</number>
+         </property>
+         <property name="spacing" >
+          <number>6</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label" >
+           <property name="text" >
+            <string>Son&amp;g filter:</string>
+           </property>
+           <property name="buddy" >
+            <cstring>songFilter</cstring>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="LineEdit" name="songFilter" />
+         </item>
+        </layout>
+       </item>
+       <item>
+        <widget class="SongView" name="songView" >
+         <property name="enabled" >
+          <bool>false</bool>
+         </property>
+         <property name="dragDropMode" >
+          <enum>QAbstractItemView::DragOnly</enum>
+         </property>
+         <property name="selectionMode" >
+          <enum>QAbstractItemView::ExtendedSelection</enum>
+         </property>
+         <property name="rootIsDecorated" >
+          <bool>false</bool>
+         </property>
+         <property name="uniformRowHeights" >
+          <bool>true</bool>
+         </property>
+         <property name="itemsExpandable" >
+          <bool>false</bool>
+         </property>
+         <property name="sortingEnabled" >
+          <bool>true</bool>
+         </property>
+         <property name="allColumnsShowFocus" >
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SongView</class>
+   <extends>QTreeView</extends>
+   <header>songview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>AlbumView</class>
+   <extends>QListView</extends>
+   <header>albumview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>ArtistView</class>
+   <extends>QListView</extends>
+   <header>artistview.h</header>
+  </customwidget>
+  <customwidget>
+   <class>LineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>lineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../qmpdclient.qrc" />
+ </resources>
+ <connections/>
+</ui>

@@ -1,0 +1,23 @@
+*nix
+----
+1. Change PREFIX in qmpdclient.pro if /usr/local is not desirable
+2. qmake
+3. make (gmake on some platforms)
+4. su -c "make install"
+
+Eventual extra datafiles go into the following locations:
+/usr/local/share/QMPDClient/[styles|iconsets|translations]	(Substitute /usr/local for appropriate prefix)
+or $HOME/.local/share/QMPDClient/[styles|iconsets|translations]
+
+
+Win32
+-----
+Use installer, or:
+qmake
+make
+Copy release\qmpdclient.exe to an appropriate location (INSTDIR).
+
+Eventual extra datafiles go into the following locations:
+C:\Program Files\QMPDClient\[styles|iconsets|translations]  (Substitute C:\Prog.. for install dir)
+or C:\Documents and Settings\Username\Application Data\QMPDClient\[styles|iconsets|translations]
+

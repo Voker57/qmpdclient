@@ -1,0 +1,147 @@
+1.0.9
+New features
+- Cover art support (Thanks to David Bitseff)
+- Volume slider in tray menu
+- Middle click on tray icon toggles pause
+- New tray icon art (Thanks to Gleb Pekny)
+
+Bug fixes
+- A few missing translations were added
+- Finally proper transparent tray icon with Qt 4.3
+- Wheel over tray icon works with Qt 4.3
+- Comment tag is now shown, and can be searched on like all others
+- Server settings were not properly saved
+- Server settings are now saved in clear text
+- Fixed segfault on start on some archs (Thanks to Rene Hausleitner)
+- Fixed several cache problems
+- Fixed bug where double-click action was performed twice for some lists
+
+1.0.8
+New features
+- Queue support (Thanks to David Bitseff)
+- Iconset support
+- Style support (Qt 4.3+)
+- Configurable shortcuts
+- Freedesktop notifications via dbus
+- Caching of database
+- Performance improvements
+- Multimedia keys support on win32
+- Option to filter songs on albums only
+- Support Disc, Comment and Performer tags
+
+Bug fixes
+- Prettier tray icon on win32 and osx
+- Fixed tray icon tool tip on win32 and osx
+- Better eliding of artist/album title
+- Don't bind all modifiers of multimedia keys
+- Fixed problem with removing playing songs with dynamic playlist
+- Translations can be changed without restarting the client
+- and lots more..
+
+1.0.7
+New features:
+- Trayicon on win32 and mac os x
+- Inline clear button in filter lines
+- Can now rescan single directories from directory browser
+- XMMS-like playlist with user definable markup
+- Alternating row colors are optional
+- Can choose to display remaning time by clicking the time label
+
+Bugfixes:
+- Fixed changing port in server list
+- Fixed OpenBSD crash
+- When adding albums, files are now sorted by track number
+
+Other stuff:
+- Use Qt's ResizeToContents and Stretch in combination for simpler autoresizecolumn code
+- Use qrand/qsrand to pick random songs in dyamic playlist, this seems to prevent
+  two instances of qmpdclient from choosing the same songs at the same time.
+- Implicit Data Sharing in most data classes.
+- Use qSort with LessThan funciton instead of own implementation.
+
+1.0.6.2
+Bugfixes:
+- Saved playlists not showing with older MPD versions.
+- Two Play/Enqueue actions in radio menu.
+- Multiple entries in songlist after filter.
+- Multiple "Not tagged" entries in album list.
+- Added keyboard shortcut for deleting radio stations.
+
+1.0.6.1
+Bugfixes:
+- Build problem with Qt 4.2
+- Notification positioning on X11 with Qt 4.2
+- Endless event loop in timeslider (Thanks to Bernhard Walle)
+		
+1.0.6
+New features:
+- Vertical tabs, views can be hidden.
+- Optional column auto resizing.
+- View contents of saved playlists.
+- Mousewheel over tray icon adjusts volume.
+- Middle mousebutton makes continuous selections.
+- Multiple selections in artist, album and directory list.
+- Auto scroll playlist while drag and dropping.
+- Escape key minimizes to tray, if trayicon enabled.
+- Multiple output devices support.
+- Translations are now optional.
+- Moved column configuration to context menu.
+- Optional opaque splitter resizing to improve snappiness.
+- Improved right click behaviour in lists.
+
+Bugfixes:
+- Fixed crash when disconnected from mpd/mpd is stopped.
+- Sort song view on startup, and correct sort on empty columns.
+- Fixed drag and drop of utf8 charcters.
+- Font changing work again.
+- Multimedia keys work again.
+- Fixed saving playlist with the same name bug.
+- Now shows time as h:m:ss if song is more than an hour.
+
+1.0.5
+- Added shuffle queue.
+- Moving several files upwards in queue reversed order of songs. Fixed.
+- Fixed dropline in queue view.
+- Configurable timeout.
+- Configurable popup-positions and duration.
+- Fixed infinite recursion problem in directory browser.
+- Tray icon will now reinstall itself if systray dissapears, and reapperars.
+- Filters for artist and album views.
+- Option for ensure current playing song visible.
+- Which columns are visible, and their order is now configurable.
+- Multiple files in Information dialog.
+- Lots of shortcuts and text strings were changed to conform, and to suit i18n better.
+- Dynamic playlist.
+
+1.0.4
+- Queueview jumps to top when changed. Mayother bugs for all itemviews.
+- Width of titles and such are now calculated from the window size.
+- Reworked time-slider to make it look better with motif theme.
+- Sorting in song view.
+- Fixed too sensitive systray tooltips.
+- Maybe fixed connection closed issue.
+
+1.0.3
+- Dim tray-icon when disconnected.
+- Option for auto-reconnect, with user-specifiable interval.
+- Optional recursive view in directory browser.
+- Fixed drag and drop of strange filenames, by changing from qurl, to qstring.
+- Systray actions work again.
+- Timeslider reflects streaming status.
+
+1.0.2
+- Disable minimize to systray check when systray is disabled.
+- Maintain order of tracks when adding to queue.
+- Draw drag'n'drop dropspot.
+- Drop item is the middle of the queue.
+- Directories splitter size was saved wrong if never shown.
+
+1.0.1
+- Search in files.
+- Made pretty tooltip.
+- Remember list-header sizes.
+- Implemented minimizing to system tray.
+- Disabled timeslider and labels for streams.
+- Fixes win32 time slider glitches.
+- Made tool-tips on trayicon work again.
+- Removed unneccesary Q_OBJECT macros to reduce compile time
