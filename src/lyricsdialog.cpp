@@ -1,6 +1,7 @@
 /*
  * QMPDClient - An MPD client written in Qt 4.
  * Copyright (C) 2005-2008 H�vard Tautra Knutsen <havtknut@tihlde.org>
+ * Copyright (C) 2008 Voker57 <voker57@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -26,8 +27,9 @@
 
 LyricsDialog::LyricsDialog(QWidget *parent) : QDialog(parent) {
 	setupUi(this);
-	m_http.setHost("lyricwiki.org");
-	connect(&m_http, SIGNAL(requestFinished(int,bool)), this, SLOT(gotResponse(int,bool)));
+	lyricsBrowser->setOpenLinks(false);
+	m_http = new QHttp("lyricwiki.org", 80, this);
+	connect(m_http, SIGNAL(requestFinished(int,bool)), this, SLOT(gotResponse(int,bool)));
 }
 
 void LyricsDialog::show()
@@ -38,11 +40,12 @@ void LyricsDialog::show()
 
 void LyricsDialog::updateLyrics() {
 	lyricsBrowser->setPlainText(tr("Getting lyrics from server..."));
-	QString art = QUrl::toPercentEncoding(m_artist);
-	QString tit = QUrl::toPercentEncoding(m_title);
-	QString req="http://lyricwiki.org/api.php?func=getSong&artist="+art+"&song="+tit+"&fmt=html";
-	m_http.get(req);
-
+	QUrl req("http://lyricwiki.org/api.php");
+	req.addQueryItem("func", "getSong");
+	req.addQueryItem("artist", m_artist);
+	req.addQueryItem("song", m_title);
+	req.addQueryItem("fmt","html");
+	m_http->get(req.toEncoded());
 }
 
 
@@ -54,10 +57,10 @@ void LyricsDialog::setSong(const MPDSong &s) {
 }
 
 void LyricsDialog::gotResponse(int id, bool error) {
-	if(error) lyricsBrowser->setPlainText(m_http.errorString());
+	if(error) lyricsBrowser->setPlainText(m_http->errorString());
 	else
 	{
-		QByteArray txt = m_http.readAll();
-		lyricsBrowser->setHtml(txt);
+		QByteArray txt = m_http->readAll();
+		lyricsBrowser->setHtml(QString::fromUtf8(txt.data()));
 	}
 }

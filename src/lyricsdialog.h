@@ -1,6 +1,7 @@
 /*
  * QMPDClient - An MPD client written in Qt 4.
  * Copyright (C) 2005-2008 H�vard Tautra Knutsen <havtknut@tihlde.org>
+ * Copyright (C) 2008 Voker57 <voker57@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,9 +22,9 @@
 #define LYRICS_DIALOG_H
 
 #include "ui_lyricsdialog.h"
-#include <QHttp>
 
 class MPDSong;
+class QHttp;
 
 class LyricsDialog : public QDialog, private Ui::LyricsDialog {
 	Q_OBJECT
@@ -32,7 +33,7 @@ public:
 	void setSong(const MPDSong &);
 	void updateLyrics();
 private:
-	QHttp m_http;
+	QHttp * m_http;
 	QString m_artist, m_title;
 public slots:
 	void show();
