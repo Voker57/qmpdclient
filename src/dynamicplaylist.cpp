@@ -1,6 +1,6 @@
 /*
  * QMPDClient - An MPD client written in Qt 4.
- * Copyright (C) 2005-2008 Håvard Tautra Knutsen <havtknut@tihlde.org>
+ * Copyright (C) 2005-2008 Hvard Tautra Knutsen <havtknut@tihlde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -37,9 +37,8 @@ void DynamicPlaylist::autoAdd(const MPDSong &song) {
 	if (song.isNull() || !Config::instance()->autoAddSongs())
 		return;
 
-	if (m_playlist.indexOf(song) == m_playlist.size() - (1 + Config::instance()->autoAddPos())) {
-		MPDSongList add = MPDCache::instance()->randomSongs(Config::instance()->autoAddCount());
-		Q_ASSERT(add.size() == Config::instance()->autoAddCount());
+	if (m_playlist.indexOf(song) >= m_playlist.size() - (1 + Config::instance()->autoAddPos())) {
+		MPDSongList add = MPDCache::instance()->randomSongs(1 + Config::instance()->autoAddPos() - (m_playlist.size() - m_playlist.indexOf(song)));
 		MPD::instance()->addSongs(add);
 	}
 }

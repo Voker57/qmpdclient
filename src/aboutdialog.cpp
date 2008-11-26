@@ -1,6 +1,6 @@
 /*
  * QMPDClient - An MPD client written in Qt 4.
- * Copyright (C) 2005-2008 Håvard Tautra Knutsen <havtknut@tihlde.org>
+ * Copyright (C) 2005-2008 Hvard Tautra Knutsen <havtknut@tihlde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,6 +18,7 @@
  */
 
 #include "aboutdialog.h"
+#include "config.h"
 
 AboutDialog::AboutDialog(QWidget *parent) : QDialog(parent) {
 	setupUi(this);

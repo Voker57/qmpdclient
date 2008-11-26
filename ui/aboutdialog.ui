@@ -1,10 +1,9 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <author>Håvard Tautra Knutsen</author>
- <comment></comment>
- <exportmacro></exportmacro>
  <class>AboutDialog</class>
- <widget class="QDialog" name="AboutDialog" >
-  <property name="geometry" >
+ <widget class="QDialog" name="AboutDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -12,47 +11,47 @@
     <height>387</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>About QMPDClient</string>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="margin" >
-    <number>9</number>
-   </property>
-   <property name="spacing" >
+  <layout class="QVBoxLayout">
+   <property name="spacing">
     <number>6</number>
    </property>
+   <property name="margin">
+    <number>9</number>
+   </property>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
      <item>
-      <widget class="QLabel" name="pixmapLabel" >
-       <property name="text" >
+      <widget class="QLabel" name="pixmapLabel">
+       <property name="text">
         <string/>
        </property>
-       <property name="pixmap" >
+       <property name="pixmap">
         <pixmap/>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QLabel" name="titleLabel" >
-       <property name="text" >
+      <widget class="QLabel" name="titleLabel">
+       <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>40</width>
          <height>20</height>
@@ -63,87 +62,90 @@
     </layout>
    </item>
    <item>
-    <widget class="QTabWidget" name="tabWidget" >
-     <widget class="QWidget" name="aboutTab" >
-      <attribute name="title" >
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="aboutTab">
+      <attribute name="title">
        <string>&amp;About</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>9</number>
-       </property>
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
+       <property name="margin">
+        <number>9</number>
+       </property>
        <item>
-        <widget class="QTextBrowser" name="aboutText" />
+        <widget class="QTextBrowser" name="aboutText"/>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="authorsTab" >
-      <attribute name="title" >
+     <widget class="QWidget" name="authorsTab">
+      <attribute name="title">
        <string>A&amp;uthors</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>9</number>
-       </property>
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
+       <property name="margin">
+        <number>9</number>
+       </property>
        <item>
-        <widget class="QTextBrowser" name="authorText" />
+        <widget class="QTextBrowser" name="authorText"/>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="thanksToTab" >
-      <attribute name="title" >
+     <widget class="QWidget" name="thanksToTab">
+      <attribute name="title">
        <string>&amp;Thanks to</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>9</number>
-       </property>
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
+       <property name="margin">
+        <number>9</number>
+       </property>
        <item>
-        <widget class="QTextBrowser" name="thanksText" />
+        <widget class="QTextBrowser" name="thanksText"/>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="licenseTab" >
-      <attribute name="title" >
+     <widget class="QWidget" name="licenseTab">
+      <attribute name="title">
        <string>&amp;License agreement</string>
       </attribute>
-      <layout class="QVBoxLayout" >
-       <property name="margin" >
-        <number>9</number>
-       </property>
-       <property name="spacing" >
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
+       <property name="margin">
+        <number>9</number>
+       </property>
        <item>
-        <widget class="QTextBrowser" name="licenseText" />
+        <widget class="QTextBrowser" name="licenseText"/>
        </item>
       </layout>
      </widget>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
+     </property>
+     <property name="margin">
+      <number>0</number>
      </property>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>131</width>
          <height>31</height>
@@ -152,8 +154,8 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="okButton" >
-       <property name="text" >
+      <widget class="QPushButton" name="okButton">
+       <property name="text">
         <string>&amp;OK</string>
        </property>
       </widget>
@@ -162,9 +164,8 @@
    </item>
   </layout>
  </widget>
- <pixmapfunction></pixmapfunction>
  <resources>
-  <include location="../qmpdclient.qrc" />
+  <include location="../qmpdclient.qrc"/>
  </resources>
  <connections/>
 </ui>

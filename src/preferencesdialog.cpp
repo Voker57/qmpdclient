@@ -1,6 +1,6 @@
 /*
  * QMPDClient - An MPD client written in Qt 4.
- * Copyright (C) 2005-2008 Håvard Tautra Knutsen <havtknut@tihlde.org>
+ * Copyright (C) 2005-2008 Hvard Tautra Knutsen <havtknut@tihlde.org>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -321,12 +321,10 @@ void PreferencesDialog::initLanguagePage() {
 
 void PreferencesDialog::initDynamicPlaylistPage() {
 	autoAddCheck->setChecked(Config::instance()->autoAddSongs());
-	autoAddCountSpin->setValue(Config::instance()->autoAddCount());
 	autoAddPosSpin->setValue(Config::instance()->autoAddPos());
 	autoRemoveCheck->setChecked(Config::instance()->autoRemoveSongs());
 
 	connect(autoAddCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAutoAddSongs(bool)));
-	connect(autoAddCountSpin, SIGNAL(valueChanged(int)), Config::instance(), SLOT(setAutoAddCount(int)));
 	connect(autoAddPosSpin, SIGNAL(valueChanged(int)), Config::instance(), SLOT(setAutoAddPos(int)));
 	connect(autoRemoveCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAutoRemoveSongs(bool)));
 }
@@ -355,7 +353,7 @@ void PreferencesDialog::initNotificationsPage() {
 	notificationsTimeoutSpinner->setValue(Config::instance()->notificationsTimeout());
 	notificationsCheck->setChecked(Config::instance()->notificationsEnabled());
 
-	// Needs to be done here, when buttonGroup is ready
+	// Needs to be done here, when buttonGroup  is ready
 	int i = 0, idx = 0;
 	foreach(Notifications::Type t, Notifications::notifiers()) {
 		notificationCombo->addItem(Notifications::name(t), t);
