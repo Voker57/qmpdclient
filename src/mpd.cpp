@@ -56,7 +56,7 @@ void MPD::addSongs(const MPDSongList &songs, bool enqueue, int toPos) const {
 	Q_ASSERT(d);
 	if (!d->isConnected() || songs.isEmpty())
 		return;
-	
+
 	mpd_beginList();
 	if (!enqueue)
 		mpd_call(MPD::addSongs, Clear);

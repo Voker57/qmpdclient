@@ -52,7 +52,9 @@ void DynamicPlaylist::autoRemove(const MPDSong &song) {
 	// Find song's new ID.
 	foreach(MPDSong s, m_playlist) {
 		if (!m_lastPlaying.isNull() && s.url() == m_lastPlaying.url()) {
-			MPD::instance()->removeSongs(MPDSongList() << s);
+			MPDSongList list;
+			list << s;
+			MPD::instance()->removeSongs(list);
 			break;
 		}
 	}
