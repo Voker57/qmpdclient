@@ -39,6 +39,7 @@ MPDCache *MPDCache::m_instance = 0;
 
 // Constructors and such
 MPDCache::MPDCache() : d(new MPDCachePrivate) {
+	qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
 	setObjectName("MPDCache");
 	connect(Config::instance(), SIGNAL(showAllChanged(bool)), this, SLOT(setShowAll(bool)));
 	connect(MPDConnection::instance(), SIGNAL(disconnected(const QString &)), this, SLOT(disconnected()));
@@ -293,7 +294,6 @@ MPDSongList MPDCache::randomSongs(int n) {
 	if (d->files.isEmpty())
 		return songs;
 
-	qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
 	for (int i = 0; i < n; i++)
 		songs << MPDSong::createTest(d->files.at(qrand() % d->files.size()));
 	return songs;
