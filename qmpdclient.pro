@@ -193,7 +193,7 @@ unix {
         SOURCES += src/qmpdclient_x11.cpp
 
         # Check for dbus support
-        contains(QT_CONFIG, qdbus){
+        contains(QT_CONFIG, dbus){
             message(DBus notifier: enabled)
             CONFIG += qdbus
             SOURCES += src/notifications_dbus.cpp
