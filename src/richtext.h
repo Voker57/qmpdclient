@@ -34,7 +34,7 @@ static QString elideRichText(const QString &preTag, const QString &text, const Q
 		dummy.setText(preTag + text.left(n) + postTag);
 	}
 	if (n < text.size())
-		return preTag + text.left(n-3) + "..." + postTag;
+                return preTag + text.left(n-4) + "..." + postTag;
 	return preTag + text + postTag;
 }
 #endif
