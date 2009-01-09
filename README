@@ -3,3 +3,7 @@ QMPDClient, an MPD client written in Qt 4.
 (c) 2005-2008, Håvard Tautra Knutsen
 
 http://havtknut.tihlde.org/qmpdclient/
+
+QMPDClient-ne, additions by Voker57
+
+http://github.com/Voker57/qmpdclient-ne/tree/master
