@@ -39,5 +39,6 @@ public slots:
 	void show();
 private slots:
 	void gotResponse(int, bool);
+	void setUserSong();
 };
 #endif

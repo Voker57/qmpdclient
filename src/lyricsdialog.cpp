@@ -39,6 +39,9 @@ void LyricsDialog::show()
 }
 
 void LyricsDialog::updateLyrics() {
+	setWindowTitle(QString("Lyrics: %1 by %2").arg(m_title, m_artist));
+	artistEdit->setText(m_artist);
+	titleEdit->setText(m_title);
 	lyricsBrowser->setPlainText(tr("Getting lyrics from server..."));
 	QUrl req("http://lyricwiki.org/api.php");
 	req.addQueryItem("func", "getSong");
@@ -50,17 +53,24 @@ void LyricsDialog::updateLyrics() {
 
 
 void LyricsDialog::setSong(const MPDSong &s) {
-	setWindowTitle(s.artist()+" - "+s.title());
 	m_artist=s.artist();
 	m_title=s.title();
 	if(!isHidden()) updateLyrics();
 }
 
 void LyricsDialog::gotResponse(int id, bool error) {
+	Q_UNUSED(id);
 	if(error) lyricsBrowser->setPlainText(m_http->errorString());
 	else
 	{
 		QByteArray txt = m_http->readAll();
 		lyricsBrowser->setHtml(QString::fromUtf8(txt.data()));
 	}
+}
+
+void LyricsDialog::setUserSong()
+{
+	m_artist = artistEdit->text();
+	m_title = titleEdit->text();
+	updateLyrics();
 }
