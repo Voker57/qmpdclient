@@ -851,7 +851,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="dynamicPlalistPage">
+         <widget class="QWidget" name="dynamicPlaylistPage">
           <layout class="QVBoxLayout">
            <property name="spacing">
             <number>6</number>
