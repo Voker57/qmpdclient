@@ -27,6 +27,7 @@
 #include <QUrl>
 #include <QStringList>
 #include <QCryptographicHash>
+#include <QTimer>
 
 #include <QDebug>
 
@@ -36,8 +37,11 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent)
 	m_npUrl = "";
 	m_subUrl = "";
 	m_state = State_Null;
+	m_scrobbleTimer = new QTimer();
+	m_scrobbleTimer->setSingleShot(true);
 	m_netAccess = new QNetworkAccessManager(this);
 	connect(m_netAccess, SIGNAL(finished(QNetworkReply *)), this, SLOT(gotNetReply(QNetworkReply *)));
+	connect(m_scrobbleTimer, SIGNAL(timeout()), this, SLOT(stageCurrentTrack()));
 }
 
 void LastFmSubmitter::setSong(const MPDSong & s)
@@ -45,6 +49,16 @@ void LastFmSubmitter::setSong(const MPDSong & s)
 	if(m_currentSong != s)
 	{
 		m_currentSong = s;
+		m_currentStarted = time(NULL);
+		if(s.secs() > 30)
+		{
+			m_scrobbleTimer->setInterval(s.secs() < 480 ? 240 : s.secs()/2);	m_scrobbleTimer->start();
+		}
+		if(!songQueue.isEmpty())
+		{
+			scrobbleSong(songQueue.head());
+			songQueue.empty();
+		}
 		sendNowPlaying();
 	}
 }
@@ -67,6 +81,26 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s)
 	data += QString("b=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
 	data += QString("l=%1&").arg(s.secs());
 	data += QString("n=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
+	qDebug() << data;
+	m_netAccess->post(QNetworkRequest(QUrl(m_npUrl)), data.toAscii());
+}
+
+void LastFmSubmitter::stageCurrentTrack()
+{
+	songQueue.enqueue(m_currentSong);
+}
+
+void LastFmSubmitter::scrobbleSong(MPDSong & s)
+{
+	// this is even uglier, i'll better go get some sleep after it
+	// TODO: make use of mass submission
+	QString data = QString("s=%1&o%5B0%5D=P&").arg(m_session);
+	data += QString("a%5B0%5D=%1&").arg(QString(QUrl::toPercentEncoding(s.artist())));
+	data += QString("t%5B0%5D=%1&").arg(QString(QUrl::toPercentEncoding(s.title())));
+	data += QString("b%5B0%5D=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
+	data += QString("l%5B0%5D=%1&").arg(s.secs());
+	data += QString("i%5B0%5D=%1&").arg(m_currentStarted);
+	data += QString("n%5B0%5D=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
 	m_state=State_Scrobbling;
 	qDebug() << data;
 	m_netAccess->post(QNetworkRequest(QUrl(m_npUrl)), data.toAscii());
@@ -113,10 +147,13 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 		m_npUrl=data[2];
 		m_subUrl=data[3];
 		m_state=State_Idle;
-	} else if(m_state==State_Scrobbling)
+	}
+	// Ok... maybe we were scrobbling something?
+	else if(m_state==State_Scrobbling)
 	{
 		// TODO: Add tracking stuff there
 		m_state=State_Idle;
-		qDebug() << data;
 	}
+	// What are you talking about then?
+	qDebug() << "Reply:" << data;
 }

@@ -43,16 +43,19 @@ protected:
 	void ensureHandshaked();
 	void sendNowPlaying();
 	void scrobbleNp(MPDSong & s);
+	void scrobbleSong(MPDSong & s);
 	QString m_session;
 	QString m_npUrl;
 	QString m_subUrl;
 	int m_state;
+	int m_currentStarted;
 	QNetworkAccessManager * m_netAccess;
 	QQueue<MPDSong> songQueue;
 	MPDSong m_currentSong;
 	QTimer * m_scrobbleTimer;
 protected slots:
 	void gotNetReply(QNetworkReply *);
+	void stageCurrentTrack();
 };
 
 #endif // LASTFMSUBMITTER_H
