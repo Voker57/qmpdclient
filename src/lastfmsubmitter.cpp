@@ -35,14 +35,41 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent)
 	m_session = "";
 	m_npUrl = "";
 	m_subUrl = "";
+	m_state = State_Null;
 	m_netAccess = new QNetworkAccessManager(this);
 	connect(m_netAccess, SIGNAL(finished(QNetworkReply *)), this, SLOT(gotNetReply(QNetworkReply *)));
 }
 
 void LastFmSubmitter::setSong(const MPDSong & s)
 {
-	Q_UNUSED(s);
-	ensureHandshaked();
+	if(m_currentSong != s)
+	{
+		m_currentSong = s;
+		sendNowPlaying();
+	}
+}
+
+void LastFmSubmitter::sendNowPlaying()
+{
+	// FIXME: sometimes np is lost
+	if(m_state == State_Null)
+		doHandshake();
+	else
+		scrobbleNp(m_currentSong);
+}
+
+void LastFmSubmitter::scrobbleNp(MPDSong & s)
+{
+	// kinda ugly code
+	QString data = QString("s=%1&").arg(m_session);
+	data += QString("a=%1&").arg(QString(QUrl::toPercentEncoding(s.artist())));
+	data += QString("t=%1&").arg(QString(QUrl::toPercentEncoding(s.title())));
+	data += QString("b=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
+	data += QString("l=%1&").arg(s.secs());
+	data += QString("n=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
+	m_state=State_Scrobbling;
+	qDebug() << data;
+	m_netAccess->post(QNetworkRequest(QUrl(m_npUrl)), data.toAscii());
 }
 
 void LastFmSubmitter::ensureHandshaked()
@@ -53,6 +80,7 @@ void LastFmSubmitter::ensureHandshaked()
 
 void LastFmSubmitter::doHandshake()
 {
+	if(m_state == State_Handshake) return;
 	QUrl hsUrl = QUrl("http://post.audioscrobbler.com/");
 	hsUrl.addQueryItem("hs", "true");
 	hsUrl.addQueryItem("p", "1.2.1");
@@ -71,12 +99,24 @@ void LastFmSubmitter::doHandshake()
 		QCryptographicHash::Md5).toHex()
 	);
 	qDebug() << hsUrl.toString();
+	m_state = State_Handshake;
 	m_netAccess->get(QNetworkRequest(hsUrl));
 }
 
 void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 {
-	qDebug() << reply->readAll();
-	// Is this is a handshake reply? GTFO otherwise
-
+	QStringList data = QString(reply->readAll()).split("\n");
+	// Is this is a handshake reply?
+	if(data.size() >= 4 && m_state == State_Handshake)
+	{
+		m_session=data[1];
+		m_npUrl=data[2];
+		m_subUrl=data[3];
+		m_state=State_Idle;
+	} else if(m_state==State_Scrobbling)
+	{
+		// TODO: Add tracking stuff there
+		m_state=State_Idle;
+		qDebug() << data;
+	}
 }

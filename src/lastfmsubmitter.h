@@ -24,24 +24,33 @@
 #include "mpdsong.h"
 
 #include <QString>
+#include <QQueue>
 #include <QObject>
 
 class QNetworkAccessManager;
 class QNetworkReply;
+class QTimer;
 
 class LastFmSubmitter : public QObject
 {
 	Q_OBJECT
+	enum {State_Null, State_Handshake, State_Idle, State_Scrobbling};
 public:
 	LastFmSubmitter(QObject * parent = 0);
 	void setSong(const MPDSong & s);
+protected:
 	void doHandshake();
 	void ensureHandshaked();
-protected:
+	void sendNowPlaying();
+	void scrobbleNp(MPDSong & s);
 	QString m_session;
 	QString m_npUrl;
 	QString m_subUrl;
+	int m_state;
 	QNetworkAccessManager * m_netAccess;
+	QQueue<MPDSong> songQueue;
+	MPDSong m_currentSong;
+	QTimer * m_scrobbleTimer;
 protected slots:
 	void gotNetReply(QNetworkReply *);
 };
