@@ -26,6 +26,7 @@ class CoverArtDialog;
 class LyricsDialog;
 class MPDSong;
 class QShortcut;
+class LastFmSubmitter;
 
 class ControlPanel : public QWidget, private Ui::ControlPanel {
 	Q_OBJECT
@@ -42,6 +43,7 @@ private slots:
 private:
 	CoverArtDialog *m_coverArt;
 	LyricsDialog *m_lyricsDialog;
+	LastFmSubmitter * m_lastFm;
 	QShortcut *m_fwdKey, *m_rwdKey, *m_volUpKey, *m_volDnKey;
 };
 #endif

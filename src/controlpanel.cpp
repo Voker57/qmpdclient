@@ -21,6 +21,7 @@
 #include "controlpanel.h"
 #include "coverartdialog.h"
 #include "lyricsdialog.h"
+#include "lastfmsubmitter.h"
 #include "mpd.h"
 #include "mpdconnection.h"
 #include "mpdsong.h"
@@ -31,8 +32,10 @@
 
 ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent),
 		m_coverArt(new CoverArtDialog(this)), m_lyricsDialog(new LyricsDialog(this)) {
+	m_lastFm = new LastFmSubmitter(this);
 	Q_ASSERT(m_coverArt);
 	Q_ASSERT(m_lyricsDialog);
+	Q_ASSERT(m_lastFm);
 	setupUi(this);
 	coverArtButton->setVisible(false);
 
@@ -104,6 +107,7 @@ void ControlPanel::setSong(const MPDSong &s) {
 	titleLabel->setText(title);
 	artistLabel->setText(artist);
 
+	if(Config::instance()->submitSongsToLastFm()) m_lastFm->setSong(s);
 	m_coverArt->setSong(s);
 	m_lyricsDialog->setSong(s);
 	if(!m_lyricsDialog->isHidden()) m_lyricsDialog->updateLyrics();

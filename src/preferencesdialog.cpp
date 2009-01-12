@@ -48,6 +48,7 @@ struct PreferencesDialogPrivate {
 	QTreeWidgetItem *iconsItem, *localeItem, *dynamicPlaylistItem;
 	QTreeWidgetItem *shortcutsItem, *stylesItem, *notificationsItem;
 	QTreeWidgetItem *tagguesserItem, *trayIconItem, *coverArtItem;
+	QTreeWidgetItem *lastFmItem;
 };
 
 PreferencesDialog::PreferencesDialog(QWidget *parent) : QDialog(parent), d(new PreferencesDialogPrivate) {
@@ -76,6 +77,7 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) : QDialog(parent), d(new P
 	initShortcutPage();
 	initTagGuesserPage();
 	initTrayIconPage();
+	initLastFmPage();
 
 	updateTranslation();
 	show();
@@ -111,6 +113,7 @@ void PreferencesDialog::initCategoryList() {
 	d->tagguesserItem = new QTreeWidgetItem(categoryList);
 	d->trayIconItem = new QTreeWidgetItem(categoryList);
 	d->trayIconItem->setIcon(0, QIcon(":/icons/qmpdclient16.png"));
+	d->lastFmItem = new QTreeWidgetItem(categoryList);
 
 	// Make item-index relations
 	for (int i = 0, index = 0; i < categoryList->topLevelItemCount(); i++, index++) {
@@ -397,6 +400,15 @@ void PreferencesDialog::initTrayIconPage() {
 	connect(startHiddenCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setStartHidden(bool)));
 }
 
+void PreferencesDialog::initLastFmPage() {
+	submitSongsToLastFmCheck->setChecked(Config::instance()->submitSongsToLastFm());
+	lastFmUsernameEdit->setText(Config::instance()->lastFmUsername());
+	lastFmPasswordEdit->setText(Config::instance()->lastFmPassword());
+	connect(lastFmUsernameEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmUsername(QString)));
+	connect(lastFmPasswordEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmPassword(QString)));
+	connect(submitSongsToLastFmCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setSubmitSongsToLastFm(bool)));
+}
+
 PreferencesDialog::~PreferencesDialog() {
 	delete d;
 }
@@ -427,6 +439,7 @@ void PreferencesDialog::updateTranslation() {
 	Q_ASSERT(d->shortcutsItem);
 	Q_ASSERT(d->tagguesserItem);
 	Q_ASSERT(d->trayIconItem);
+	Q_ASSERT(d->lastFmItem);
 	d->connectionItem->setText(0, tr("Connection"));
 	d->looknfeelItem->setText(0, tr("Look and feel"));
 	d->libraryItem->setText(0, tr("Library"));
@@ -440,6 +453,7 @@ void PreferencesDialog::updateTranslation() {
 	d->shortcutsItem->setText(0, tr("Shortcuts"));
 	d->tagguesserItem->setText(0, tr("Tag guesser"));
 	d->trayIconItem->setText(0, tr("Tray icon"));
+	d->lastFmItem->setText(0, tr("Last.Fm"));
 
 	categoryList->setCurrentItem(selected);
 
