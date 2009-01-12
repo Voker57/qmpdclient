@@ -118,9 +118,8 @@ void LastFmSubmitter::doHandshake()
 	QUrl hsUrl = QUrl("http://post.audioscrobbler.com/");
 	hsUrl.addQueryItem("hs", "true");
 	hsUrl.addQueryItem("p", "1.2.1");
-	// Until qmpdc-ne gets client ID
-	hsUrl.addQueryItem("c", "tst");
-	hsUrl.addQueryItem("v", "1.0");
+	hsUrl.addQueryItem("c", "qmn");
+	hsUrl.addQueryItem("v", "1.0.9");
 	hsUrl.addQueryItem("u", Config::instance()->lastFmUsername());
 	hsUrl.addQueryItem("t", QString::number(time(NULL)));
 	// Epic call
