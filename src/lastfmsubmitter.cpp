@@ -155,6 +155,14 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 	{
 		// TODO: Add tracking stuff there
 		m_state=State_Idle;
+	} // Was i bad player and now there's bad session?
+	else if(data.size()>0)
+	{
+		if(data[0] == "BADSESSION")
+		{
+			m_state = State_Null;
+			doHandshake();
+		}
 	}
 	// What are you talking about then?
 	qDebug() << "Reply:" << data;
