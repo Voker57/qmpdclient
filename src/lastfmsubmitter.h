@@ -25,6 +25,7 @@
 
 #include <QString>
 #include <QQueue>
+#include <QPair>
 #include <QObject>
 
 class QNetworkAccessManager;
@@ -43,14 +44,14 @@ protected:
 	void ensureHandshaked();
 	void sendNowPlaying();
 	void scrobbleNp(MPDSong & s);
-	void scrobbleSong(MPDSong & s);
+	void scrobbleSongs();
 	QString m_session;
 	QString m_npUrl;
 	QString m_subUrl;
 	int m_state;
 	int m_currentStarted;
 	QNetworkAccessManager * m_netAccess;
-	QQueue<MPDSong> songQueue;
+	QQueue<QPair<MPDSong, int> > m_songQueue;
 	MPDSong m_currentSong;
 	QTimer * m_scrobbleTimer;
 protected slots:

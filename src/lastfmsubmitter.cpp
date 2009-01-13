@@ -56,10 +56,9 @@ void LastFmSubmitter::setSong(const MPDSong & s)
 			qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
 			m_scrobbleTimer->start();
 		}
-		if(!songQueue.isEmpty())
+		if(!m_songQueue.isEmpty())
 		{
-			scrobbleSong(songQueue.head());
-			songQueue.clear();
+			scrobbleSongs();
 		}
 		sendNowPlaying();
 	}
@@ -90,20 +89,24 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s)
 void LastFmSubmitter::stageCurrentTrack()
 {
 	qDebug() << "timer fired";
-	songQueue.enqueue(m_currentSong);
+	m_songQueue.enqueue(QPair<MPDSong, int>(m_currentSong, m_currentStarted));
 }
 
-void LastFmSubmitter::scrobbleSong(MPDSong & s)
+void LastFmSubmitter::scrobbleSongs()
 {
-	// this is even uglier, i'll better go get some sleep after it
-	// TODO: make use of mass submission
-	QString data = QString("s=%1&o[0]=P&r[0]=&m[0]=&").arg(m_session);
-	data += QString("a[0]=%1&").arg(QString(QUrl::toPercentEncoding(s.artist())));
-	data += QString("t[0]=%1&").arg(QString(QUrl::toPercentEncoding(s.title())));
-	data += QString("b[0]=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
-	data += QString("l[0]=%1&").arg(s.secs());
-	data += QString("i[0]=%1&").arg(m_currentStarted);
-	data += QString("n[0]=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
+	QString data = QString("s=%1&").arg(m_session);
+	int i = 0;
+	while(!m_songQueue.isEmpty())
+	{
+		QPair<MPDSong, int> sPair = m_songQueue.dequeue();
+		data += QString("o[%2]=P&r[%2]=&m[%2]=&a[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.artist())), QString::number(i));
+		data += QString("t[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.title())), QString::number(i));
+		data += QString("b[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.album())), QString::number(i));
+		data += QString("l[%2]=%1&").arg(QString::number(sPair.first.secs()), QString::number(i));
+		data += QString("i[%2]=%1&").arg(QString::number(sPair.second), QString::number(i));
+		data += QString("n[%2]=%1").arg(QString(QUrl::toPercentEncoding(sPair.first.track())), QString::number(i));
+		++i;
+	}
 	m_state=State_Scrobbling;
 	qDebug() << data;
 	m_netAccess->post(QNetworkRequest(QUrl(m_subUrl)), data.toAscii());
@@ -150,14 +153,16 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 		m_subUrl=data[3];
 		m_state=State_Idle;
 	}
-	// Ok... maybe we were scrobbling something?
-	else if(m_state==State_Scrobbling)
-	{
-		// TODO: Add tracking stuff there
-		m_state=State_Idle;
-	} // Was i bad player and now there's bad session?
+	 // Was i bad player and now there's bad session?
 	else if(data.size()>0)
 	{
+		// Ok... maybe we were scrobbling something?
+		if(m_state==State_Scrobbling)
+		{
+			m_state=State_Idle;
+			if(data[0] == "OK")
+				m_songQueue.clear();
+		}
 		if(data[0] == "BADSESSION")
 		{
 			m_state = State_Null;
