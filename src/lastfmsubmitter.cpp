@@ -29,7 +29,7 @@
 #include <QCryptographicHash>
 #include <QTimer>
 
-#include <QDebug>
+// #include <QDebug>
 
 LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent)
 {
@@ -53,7 +53,7 @@ void LastFmSubmitter::setSong(const MPDSong & s)
 		if(s.secs() > 30)
 		{
 			m_scrobbleTimer->setInterval((s.secs() < 480 ? s.secs()/2 : 240) * 1000);
-			qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
+			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
 			m_scrobbleTimer->start();
 		}
 		if(!m_songQueue.isEmpty() && ensureHandshaked())
@@ -80,13 +80,13 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s)
 	data += QString("b=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
 	data += QString("l=%1&").arg(s.secs());
 	data += QString("n=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
-	qDebug() << data;
+	// qDebug() << data;
 	m_netAccess->post(QNetworkRequest(QUrl(m_npUrl)), data.toAscii());
 }
 
 void LastFmSubmitter::stageCurrentTrack()
 {
-	qDebug() << "timer fired";
+	// qDebug() << "timer fired";
 	m_songQueue.enqueue(QPair<MPDSong, int>(m_currentSong, m_currentStarted));
 }
 
@@ -105,7 +105,7 @@ void LastFmSubmitter::scrobbleSongs()
 		data += QString("n[%2]=%1").arg(QString(QUrl::toPercentEncoding(sPair.first.track())), QString::number(i));
 		++i;
 	}
-	qDebug() << data;
+	// qDebug() << data;
 	m_netAccess->post(QNetworkRequest(QUrl(m_subUrl)), data.toAscii());
 }
 
@@ -135,7 +135,7 @@ void LastFmSubmitter::doHandshake()
 			QByteArray::number((uint)time(NULL)),
 		QCryptographicHash::Md5).toHex()
 	);
-	qDebug() << hsUrl.toString();
+	// qDebug() << hsUrl.toString();
 	m_netAccess->get(QNetworkRequest(hsUrl));
 }
 
@@ -173,5 +173,5 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 		}
 	}
 	// What are you talking about then?
-	qDebug() << "Reply:" << reqUrl.toString() << data;
+	// qDebug() << "Reply:" << reqUrl.toString() << data;
 }
