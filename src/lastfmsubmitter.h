@@ -1,6 +1,7 @@
 /*
  * QMPDClient - An MPD client written in Qt 4.
  * Copyright (C) 2005-2008 Håvard Tautra Knutsen <havtknut@tihlde.org>
+ * Copyright (C) 2009 Voker57 <voker57@gmail.com>
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,33 +18,44 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef CONTROLPANEL_H
-#define CONTROLPANEL_H
+#ifndef LASTFMSUBMITTER_H
+#define LASTFMSUBMITTER_H
 
-#include "ui_controlpanel.h"
+#include "mpdsong.h"
 
-class CoverArtDialog;
-class LyricsDialog;
-class MPDSong;
-class QShortcut;
-class LastFmSubmitter;
+#include <QString>
+#include <QQueue>
+#include <QPair>
+#include <QObject>
 
-class ControlPanel : public QWidget, private Ui::ControlPanel {
+class QNetworkAccessManager;
+class QNetworkReply;
+class QTimer;
+
+class LastFmSubmitter : public QObject
+{
 	Q_OBJECT
 public:
-	ControlPanel(QWidget *);
-
-public slots:
-	void updateTranslation();
-
-private slots:
-	void setSong(const MPDSong &);
-	void showCoverArtChanged(bool);
-
-private:
-	CoverArtDialog *m_coverArt;
-	LyricsDialog *m_lyricsDialog;
-	LastFmSubmitter * m_lastFm;
-	QShortcut *m_fwdKey, *m_rwdKey, *m_volUpKey, *m_volDnKey;
+	LastFmSubmitter(QObject * parent = 0);
+	void setSong(const MPDSong & s);
+protected:
+	void doHandshake();
+	bool ensureHandshaked();
+	void sendNowPlaying();
+	void scrobbleNp(MPDSong & s);
+	void scrobbleSongs();
+	QString m_session;
+	QString m_npUrl;
+	QString m_subUrl;
+	QString m_hsUrl;
+	int m_currentStarted;
+	QNetworkAccessManager * m_netAccess;
+	QQueue<QPair<MPDSong, int> > m_songQueue;
+	MPDSong m_currentSong;
+	QTimer * m_scrobbleTimer;
+protected slots:
+	void gotNetReply(QNetworkReply *);
+	void stageCurrentTrack();
 };
-#endif
+
+#endif // LASTFMSUBMITTER_H

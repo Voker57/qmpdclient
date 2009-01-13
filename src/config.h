@@ -89,6 +89,11 @@ public:
 	bool autoAddSongs() const;
 	bool autoRemoveSongs() const;
 
+	// Last.fm
+	bool submitSongsToLastFm() const;
+	QString lastFmUsername() const;
+	QString lastFmPassword() const;
+
 	// Tag guesser
 	QString guessPattern() const;
 	bool tagGuesserEnabled() const;
@@ -173,6 +178,11 @@ public slots:
 	void setGuessPattern(const QString &);
 	void setTagGuesserEnabled(bool);
 	void setTestFilename(const QString &);
+
+	// Last.fm
+	void setSubmitSongsToLastFm(bool);
+	void setLastFmUsername(const QString &);
+	void setLastFmPassword(const QString &);
 
 signals:
 	void alternatingChanged(bool);

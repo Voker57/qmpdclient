@@ -4,12 +4,14 @@
         <file>COPYING</file>
         <file>README</file>
         <file>THANKSTO</file>
-        <file>icons/crystal_amarok/iconset.conf</file>
+        <file>icons/as.png</file>
+        <file>icons/crystal_amarok/add.png</file>
         <file>icons/crystal_amarok/amarok/collection.png</file>
         <file>icons/crystal_amarok/amarok/playlist.png</file>
         <file>icons/crystal_amarok/amarok/random.png</file>
         <file>icons/crystal_amarok/amarok/repeat.png</file>
         <file>icons/crystal_amarok/amarok/shuffle.png</file>
+        <file>icons/crystal_amarok/crop.png</file>
         <file>icons/crystal_amarok/crystal/clear.png</file>
         <file>icons/crystal_amarok/crystal/configure.png</file>
         <file>icons/crystal_amarok/crystal/connect.png</file>
@@ -30,8 +32,7 @@
         <file>icons/crystal_amarok/crystal/style.png</file>
         <file>icons/crystal_amarok/crystal/time.png</file>
         <file>icons/crystal_amarok/crystal/tree.png</file>
-        <file>icons/crystal_amarok/add.png</file>
-        <file>icons/crystal_amarok/crop.png</file>
+        <file>icons/crystal_amarok/iconset.conf</file>
         <file>icons/crystal_amarok/next.png</file>
         <file>icons/crystal_amarok/pause.png</file>
         <file>icons/crystal_amarok/play.png</file>

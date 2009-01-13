@@ -69,6 +69,8 @@ private:
 	void initNotificationsPage();
 	void initTagGuesserPage();
 	void initTrayIconPage();
+	void initLastFmPage();
+
 	void setFontString(const QFont &);
 
 	PreferencesDialogPrivate *d;

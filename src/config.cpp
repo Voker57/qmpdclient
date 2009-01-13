@@ -583,3 +583,33 @@ MPDSongList Config::radioStations() const {
 	}
 	return songs;
 }
+
+/*
+ * Last.fm
+ */
+
+bool Config::submitSongsToLastFm() const {
+	return value("/lastfm/submit").toBool();
+}
+
+QString Config::lastFmUsername() const {
+	return value("/lastfm/username").toString();
+}
+
+QString Config::lastFmPassword() const {
+	return value("/lastfm/password").toString();
+}
+
+void Config::setSubmitSongsToLastFm(bool b) {
+	setValue("/lastfm/submit", b);
+}
+
+void Config::setLastFmUsername(const QString &s) {
+	setValue("/lastfm/username", s);
+}
+
+void Config::setLastFmPassword(const QString &s) {
+	setValue("/lastfm/password", s);
+}
+
+
