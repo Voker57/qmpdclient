@@ -58,6 +58,7 @@ void PlaylistsView::setContentView(PlaylistsContentView *cv) {
 void PlaylistsView::deletePlaylist() {
 	Q_ASSERT(m_model);
 	MPDCache::instance()->deletePlaylists(m_model->songs(selectedIndexes()));
+	selectionChanged();
 }
 
 MPDSongList PlaylistsView::selectedSongs() const {
