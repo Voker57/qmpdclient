@@ -146,12 +146,15 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 {
 	QStringList data = QString(reply->readAll()).split("\n");
 	// Is this is a handshake reply?
-	if(data.size() >= 4 && m_state == State_Handshake)
+	if(m_state == State_Handshake)
 	{
-		m_session=data[1];
-		m_npUrl=data[2];
-		m_subUrl=data[3];
-		m_state=State_Idle;
+		if(data.size() >= 4 && data[0]=="OK")
+		{
+			m_session=data[1];
+			m_npUrl=data[2];
+			m_subUrl=data[3];
+			m_state=State_Idle;
+		} else m_state = State_Null;
 	}
 	 // Was i bad player and now there's bad session?
 	else if(data.size()>0)
