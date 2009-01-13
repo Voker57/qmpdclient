@@ -52,12 +52,14 @@ void LastFmSubmitter::setSong(const MPDSong & s)
 		m_currentStarted = time(NULL);
 		if(s.secs() > 30)
 		{
-			m_scrobbleTimer->setInterval(s.secs() < 480 ? 240 : s.secs()/2);	m_scrobbleTimer->start();
+			m_scrobbleTimer->setInterval((s.secs() < 480 ? s.secs()/2 : 240) * 1000);
+			qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
+			m_scrobbleTimer->start();
 		}
 		if(!songQueue.isEmpty())
 		{
 			scrobbleSong(songQueue.head());
-			songQueue.empty();
+			songQueue.clear();
 		}
 		sendNowPlaying();
 	}
