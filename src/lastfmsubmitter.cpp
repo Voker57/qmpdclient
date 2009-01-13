@@ -35,8 +35,8 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent)
 {
 	m_session = "";
 	m_npUrl = "";
+	m_hsUrl="http://post.audioscrobbler.com/";
 	m_subUrl = "";
-	m_state = State_Null;
 	m_scrobbleTimer = new QTimer();
 	m_scrobbleTimer->setSingleShot(true);
 	m_netAccess = new QNetworkAccessManager(this);
@@ -56,7 +56,7 @@ void LastFmSubmitter::setSong(const MPDSong & s)
 			qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
 			m_scrobbleTimer->start();
 		}
-		if(!m_songQueue.isEmpty())
+		if(!m_songQueue.isEmpty() && ensureHandshaked())
 		{
 			scrobbleSongs();
 		}
@@ -67,9 +67,7 @@ void LastFmSubmitter::setSong(const MPDSong & s)
 void LastFmSubmitter::sendNowPlaying()
 {
 	// FIXME: sometimes np is lost
-	if(m_state == State_Null)
-		doHandshake();
-	else
+	if(ensureHandshaked())
 		scrobbleNp(m_currentSong);
 }
 
@@ -107,21 +105,21 @@ void LastFmSubmitter::scrobbleSongs()
 		data += QString("n[%2]=%1").arg(QString(QUrl::toPercentEncoding(sPair.first.track())), QString::number(i));
 		++i;
 	}
-	m_state=State_Scrobbling;
 	qDebug() << data;
 	m_netAccess->post(QNetworkRequest(QUrl(m_subUrl)), data.toAscii());
 }
 
-void LastFmSubmitter::ensureHandshaked()
+bool LastFmSubmitter::ensureHandshaked()
 {
-	if(m_session.isEmpty())
-		doHandshake();
+	if(!m_session.isEmpty())
+		return true;
+	doHandshake();
+	return false;
 }
 
 void LastFmSubmitter::doHandshake()
 {
-	if(m_state == State_Handshake) return;
-	QUrl hsUrl = QUrl("http://post.audioscrobbler.com/");
+	QUrl hsUrl = QUrl(m_hsUrl);
 	hsUrl.addQueryItem("hs", "true");
 	hsUrl.addQueryItem("p", "1.2.1");
 	hsUrl.addQueryItem("c", "qmn");
@@ -138,40 +136,42 @@ void LastFmSubmitter::doHandshake()
 		QCryptographicHash::Md5).toHex()
 	);
 	qDebug() << hsUrl.toString();
-	m_state = State_Handshake;
 	m_netAccess->get(QNetworkRequest(hsUrl));
 }
 
 void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 {
 	QStringList data = QString(reply->readAll()).split("\n");
+	if(data.size()==0)
+		return;
+	QUrl reqUrl = reply->url();
+	reqUrl.setQueryItems(QList<QPair<QString, QString> >());
+
 	// Is this is a handshake reply?
-	if(m_state == State_Handshake)
+	if(reqUrl.toString()==m_hsUrl)
 	{
 		if(data.size() >= 4 && data[0]=="OK")
 		{
 			m_session=data[1];
 			m_npUrl=data[2];
 			m_subUrl=data[3];
-			m_state=State_Idle;
-		} else m_state = State_Null;
+		}
 	}
-	else if(data.size()>0)
+	else
 	{
 		// Ok... maybe we were scrobbling something?
-		if(m_state==State_Scrobbling)
+		if(reqUrl.toString() == m_subUrl)
 		{
-			m_state=State_Idle;
 			if(data[0] == "OK")
 				m_songQueue.clear();
 		}
 		// Was i bad player and now there's bad session?
 		if(data[0] == "BADSESSION")
 		{
-			m_state = State_Null;
+			m_session.clear();
 			doHandshake();
 		}
 	}
 	// What are you talking about then?
-	qDebug() << "Reply:" << data;
+	qDebug() << "Reply:" << reqUrl.toString() << data;
 }

@@ -35,20 +35,19 @@ class QTimer;
 class LastFmSubmitter : public QObject
 {
 	Q_OBJECT
-	enum {State_Null, State_Handshake, State_Idle, State_Scrobbling};
 public:
 	LastFmSubmitter(QObject * parent = 0);
 	void setSong(const MPDSong & s);
 protected:
 	void doHandshake();
-	void ensureHandshaked();
+	bool ensureHandshaked();
 	void sendNowPlaying();
 	void scrobbleNp(MPDSong & s);
 	void scrobbleSongs();
 	QString m_session;
 	QString m_npUrl;
 	QString m_subUrl;
-	int m_state;
+	QString m_hsUrl;
 	int m_currentStarted;
 	QNetworkAccessManager * m_netAccess;
 	QQueue<QPair<MPDSong, int> > m_songQueue;
