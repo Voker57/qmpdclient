@@ -156,7 +156,6 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 			m_state=State_Idle;
 		} else m_state = State_Null;
 	}
-	 // Was i bad player and now there's bad session?
 	else if(data.size()>0)
 	{
 		// Ok... maybe we were scrobbling something?
@@ -166,6 +165,7 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 			if(data[0] == "OK")
 				m_songQueue.clear();
 		}
+		// Was i bad player and now there's bad session?
 		if(data[0] == "BADSESSION")
 		{
 			m_state = State_Null;
