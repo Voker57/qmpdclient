@@ -114,6 +114,7 @@ void PreferencesDialog::initCategoryList() {
 	d->trayIconItem = new QTreeWidgetItem(categoryList);
 	d->trayIconItem->setIcon(0, QIcon(":/icons/qmpdclient16.png"));
 	d->lastFmItem = new QTreeWidgetItem(categoryList);
+	d->lastFmItem->setIcon(0, QIcon(":/icons/as.png"));
 
 	// Make item-index relations
 	for (int i = 0, index = 0; i < categoryList->topLevelItemCount(); i++, index++) {

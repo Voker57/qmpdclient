@@ -33,7 +33,7 @@ The exception in section 6 of the GNU Lesser General Public License covers
 the use of elements of this art library in a GUI.
 kde-artists [at] kde.org
 
-++++++++++++++++++++++++++++++++++++++++++++   
+++++++++++++++++++++++++++++++++++++++++++++
 
 Below is the text of the LGPL version 2.1
 
@@ -458,4 +458,3 @@ library `Frob' (a library for tweaking knobs) written by James Random Hacker.
 <signature of Ty Coon>, 1 April 1990
 Ty Coon, President of Vice
 That's all there is to it!
-
