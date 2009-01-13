@@ -89,6 +89,7 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s)
 
 void LastFmSubmitter::stageCurrentTrack()
 {
+	qDebug() << "timer fired";
 	songQueue.enqueue(m_currentSong);
 }
 
@@ -96,16 +97,16 @@ void LastFmSubmitter::scrobbleSong(MPDSong & s)
 {
 	// this is even uglier, i'll better go get some sleep after it
 	// TODO: make use of mass submission
-	QString data = QString("s=%1&o%5B0%5D=P&").arg(m_session);
-	data += QString("a%5B0%5D=%1&").arg(QString(QUrl::toPercentEncoding(s.artist())));
-	data += QString("t%5B0%5D=%1&").arg(QString(QUrl::toPercentEncoding(s.title())));
-	data += QString("b%5B0%5D=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
-	data += QString("l%5B0%5D=%1&").arg(s.secs());
-	data += QString("i%5B0%5D=%1&").arg(m_currentStarted);
-	data += QString("n%5B0%5D=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
+	QString data = QString("s=%1&o[0]=P&r[0]=&m[0]=&").arg(m_session);
+	data += QString("a[0]=%1&").arg(QString(QUrl::toPercentEncoding(s.artist())));
+	data += QString("t[0]=%1&").arg(QString(QUrl::toPercentEncoding(s.title())));
+	data += QString("b[0]=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
+	data += QString("l[0]=%1&").arg(s.secs());
+	data += QString("i[0]=%1&").arg(m_currentStarted);
+	data += QString("n[0]=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
 	m_state=State_Scrobbling;
 	qDebug() << data;
-	m_netAccess->post(QNetworkRequest(QUrl(m_npUrl)), data.toAscii());
+	m_netAccess->post(QNetworkRequest(QUrl(m_subUrl)), data.toAscii());
 }
 
 void LastFmSubmitter::ensureHandshaked()
