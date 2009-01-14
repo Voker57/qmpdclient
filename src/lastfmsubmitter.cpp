@@ -174,4 +174,5 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
 	}
 	// What are you talking about then?
 	// qDebug() << "Reply:" << reqUrl.toString() << data;
+	delete reply;
 }
