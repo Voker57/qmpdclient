@@ -41,6 +41,43 @@
         <file>icons/crystal_amarok/removeall.png</file>
         <file>icons/crystal_amarok/stop.png</file>
         <file>icons/crystal_amarok/volume.png</file>
+        <file>icons/oxygen/application-exit.png</file>
+        <file>icons/oxygen/configure.png</file>
+        <file>icons/oxygen/dialog-information.png</file>
+        <file>icons/oxygen/document-save-as.png</file>
+        <file>icons/oxygen/edit-clear.png</file>
+        <file>icons/oxygen/edit-copy.png</file>
+        <file>icons/oxygen/edit-cut.png</file>
+        <file>icons/oxygen/edit-paste.png</file>
+        <file>icons/oxygen/feed-subscribe.png</file>
+        <file>icons/oxygen/fill-color.png</file>
+        <file>icons/oxygen/folder-sound.png</file>
+        <file>icons/oxygen/games-config-background.png</file>
+        <file>icons/oxygen/go-jump.png</file>
+        <file>icons/oxygen/iconset.conf</file>
+        <file>icons/oxygen/list-add.png</file>
+        <file>icons/oxygen/list-remove.png</file>
+        <file>icons/oxygen/media-playback-pause.png</file>
+        <file>icons/oxygen/media-playback-start.png</file>
+        <file>icons/oxygen/media-playback-stop.png</file>
+        <file>icons/oxygen/media-skip-backward.png</file>
+        <file>icons/oxygen/media-skip-forward.png</file>
+        <file>icons/oxygen/network-connect.png</file>
+        <file>icons/oxygen/network-disconnect.png</file>
+        <file>icons/oxygen/network-server.png</file>
+        <file>icons/oxygen/player-time.png</file>
+        <file>icons/oxygen/player-volume.png</file>
+        <file>icons/oxygen/preferences-desktop-icons.png</file>
+        <file>icons/oxygen/preferences-desktop-keyboard.png</file>
+        <file>icons/oxygen/preferences-desktop-locale.png</file>
+        <file>icons/oxygen/preferences-desktop-notification.png</file>
+        <file>icons/oxygen/preferences-desktop-theme.png</file>
+        <file>icons/oxygen/roll.png</file>
+        <file>icons/oxygen/task-recurring.png</file>
+        <file>icons/oxygen/view-list-tree.png</file>
+        <file>icons/oxygen/view-media-playlist.png</file>
+        <file>icons/oxygen/view-refresh.png</file>
+        <file>icons/oxygen/x-media-podcast.png</file>
         <file>icons/qmpdclient16.png</file>
         <file>icons/qmpdclient16d.png</file>
         <file>icons/qmpdclient22.png</file>
