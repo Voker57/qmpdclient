@@ -52,7 +52,7 @@ QVariant StringListModel::data(const QModelIndex &index, int role) const {
 		return m_list.at(index.row() - 1);
 	} else if (role == Qt::FontRole) {
 		if ((m_showAll && (index.row() == 0 || m_list.at(index.row() - 1).isEmpty()))
-		        || !m_showAll && m_list.at(index.row()).isEmpty()) {
+				|| (!m_showAll && m_list.at(index.row()).isEmpty())) {
 			QFont font = Config::instance()->font();
 			font.setBold(true);
 			return font;
