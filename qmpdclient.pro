@@ -165,6 +165,11 @@ SOURCES += src/aafilter.cpp \
     src/trayicon.cpp \
     src/verticalbutton.cpp \
     src/lastfmsubmitter.cpp
+
+# translations
+LANG_PATH = $$PWD/lang
+TRANSLATIONS = $$LANG_PATH/ru_RU.ts
+
 MOC_DIR = .moc
 OBJECTS_DIR = .obj
 RCC_DIR = .res
