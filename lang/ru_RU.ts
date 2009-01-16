@@ -190,7 +190,7 @@
     <message>
         <location filename="../ui/controlpanel.ui" line="287"/>
         <source>Lyrics</source>
-        <translation type="unfinished"></translation>
+        <translation>Текст</translation>
     </message>
 </context>
 <context>
@@ -284,7 +284,7 @@
     <message>
         <location filename="../src/lyricsdialog.cpp" line="45"/>
         <source>Getting lyrics from server...</source>
-        <translation>Получение музыки с сервера...</translation>
+        <translation>Получение текста композиции с сервера...</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="14"/>
@@ -1364,7 +1364,7 @@ Please use another name:</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="873"/>
         <source>&amp;When less than that songs left:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Когда композиций меньше чем:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1557"/>
