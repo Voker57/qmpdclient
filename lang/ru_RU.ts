@@ -284,27 +284,27 @@
     <message>
         <location filename="../src/lyricsdialog.cpp" line="45"/>
         <source>Getting lyrics from server...</source>
-        <translation type="unfinished"></translation>
+        <translation>Получение музыки с сервера...</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Диалог</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="22"/>
         <source>Artist</source>
-        <translation type="unfinished">Исполнитель</translation>
+        <translation>Исполнитель</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="35"/>
         <source>Title</source>
-        <translation type="unfinished">Название</translation>
+        <translation>Название</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="48"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Поиск</translation>
     </message>
 </context>
 <context>
@@ -1354,12 +1354,12 @@ Please use another name:</source>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="457"/>
         <source>Last.Fm</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="858"/>
         <source>&amp;Fill up playlist with random songs</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Заполнить плейлист случайными композициями</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="873"/>
@@ -1369,17 +1369,17 @@ Please use another name:</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1557"/>
         <source>Submit played songs to Last.Fm</source>
-        <translation type="unfinished"></translation>
+        <translation>Отправлять проигрываемую композицию на Last.Fm</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1568"/>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Пользователь:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1585"/>
         <source>Password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Пароль:</translation>
     </message>
 </context>
 <context>

@@ -6,3 +6,4 @@
 /Makefile*
 /qtc-gdbmacros
 /qmpdclient
+/lang/*.qm
