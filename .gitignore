@@ -1,5 +1,7 @@
-.ui
-*.moc
-*.res
-*.obj
+/.ui
+/.moc
+/.res
+/.obj
 *~
+/Makefile*
+/qtc-gdbmacros
