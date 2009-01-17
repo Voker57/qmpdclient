@@ -265,6 +265,19 @@ void MPDCache::deletePlaylists(const MPDSongList &songs) {
 	d->updatePlaylists(true);
 }
 
+void MPDCache::deletePlaylist(const QString &playlistName)
+{
+	if (!d->isConnected()) return;
+
+	foreach(MPDSong s, d->playlistMap.keys()) {
+		mpd_call(MPDCache::deletePlaylists, Rm, playlistName.toAscii());
+	}
+
+	mpd_endList();
+	mpd_cleanup();
+	d->updatePlaylists(true);
+}
+
 bool MPDCache::playlistExists(const QString &name) const {
 	if (!d->isConnected())
 		return false;

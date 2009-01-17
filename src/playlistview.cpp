@@ -191,16 +191,26 @@ void PlaylistView::paintEvent(QPaintEvent *e) {
 
 void PlaylistView::savePlaylist() {
 	bool ok;
+	int button;
+
 	QString plName = QInputDialog::getText(this, tr("Save playlist as..."),
-	                                       tr("Playlist name:"), QLineEdit::Normal, "", &ok);
+										   tr("Playlist name:"), QLineEdit::Normal, "", &ok);
 	while (ok && !plName.isEmpty()) {
 		if (!MPDCache::instance()->playlistExists(plName)) {
 			MPDCache::instance()->savePlaylist(plName);
 			break;
 		}
-		QString msg = tr("A playlist with that name already exists.\nPlease use another name:");
-		plName = QInputDialog::getText(this, tr("Save playlist as..."),
-		                               msg, QLineEdit::Normal, "", &ok);
+
+		button = QMessageBox::question(this, tr("Attention!"),
+							  tr("A playlist with that name already exists.\nOverwrite?"),
+							  QMessageBox::Yes, QMessageBox::No);
+
+		if (button != QMessageBox::Yes) {
+			QString msg = tr("A playlist with that name already exists.\nPlease use another name:");
+			plName = QInputDialog::getText(this, tr("Save playlist as..."),
+										   msg, QLineEdit::Normal, "", &ok);
+		}
+		else MPDCache::instance()->deletePlaylist(plName);
 	}
 }
 
