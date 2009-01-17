@@ -32,6 +32,7 @@ public:
 	void setSong(const MPDSong &);
 
 private:
-	QPixmap m_pixmap;
+	QPixmap m_pixmap, m_pixmap_small;
 };
-#endif
+
+#endif //COVERART_DIALOG_H
