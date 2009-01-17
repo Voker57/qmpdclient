@@ -20,7 +20,8 @@
 #include "playlistpanel.h"
 #include "mpd.h"
 
-PlaylistPanel::PlaylistPanel() {
+PlaylistPanel::PlaylistPanel()
+{
 	setupUi(this);
 
 	// Random and such

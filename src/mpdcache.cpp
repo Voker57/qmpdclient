@@ -252,7 +252,8 @@ MPDSongList MPDCache::songsByPlaylists(const MPDSongList &pls) {
 }
 
 // Misc methods
-void MPDCache::deletePlaylists(const MPDSongList &songs) {
+void MPDCache::deletePlaylists(const MPDSongList &songs)
+{
 	if (!d->isConnected() || songs.isEmpty())
 		return;
 
@@ -260,6 +261,19 @@ void MPDCache::deletePlaylists(const MPDSongList &songs) {
 	foreach(MPDSong song, songs) {
 		mpd_call(MPDCache::deletePlaylists, Rm, song.url().toUtf8());
 	}
+	mpd_endList();
+	mpd_cleanup();
+	d->updatePlaylists(true);
+}
+
+void MPDCache::deletePlaylist(const QString &playlistName)
+{
+	if (!d->isConnected()) return;
+
+	foreach(MPDSong s, d->playlistMap.keys()) {
+		mpd_call(MPDCache::deletePlaylists, Rm, playlistName.toAscii());
+	}
+
 	mpd_endList();
 	mpd_cleanup();
 	d->updatePlaylists(true);

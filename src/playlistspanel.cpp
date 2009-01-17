@@ -20,7 +20,8 @@
 #include "playlistspanel.h"
 #include "config.h"
 
-PlaylistsPanel::PlaylistsPanel() {
+PlaylistsPanel::PlaylistsPanel()
+{
 	setupUi(this);
 	playlistsView->setContentView(playlistsContentView);
 	playlistsSplit->restoreState(Config::instance()->playlistsSplitterSizes());

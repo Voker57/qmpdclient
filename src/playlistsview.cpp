@@ -17,13 +17,15 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <QMenu>
 #include "mpdcache.h"
 #include "mpdsongmodel.h"
 #include "playlistsview.h"
 #include "plconview.h"
-#include <QMenu>
 
-PlaylistsView::PlaylistsView(QWidget *parent) : MPDSongView(parent) {
+PlaylistsView::PlaylistsView(QWidget *parent)
+	: MPDSongView(parent)
+{
 	Q_ASSERT(m_menu);
 	setObjectName("playlistsview");
 	setHeaderView(new PlaylistsHeader(this));

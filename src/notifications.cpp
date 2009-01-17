@@ -17,16 +17,18 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <QApplication>
+#include <QDesktopWidget>
+
 #include "config.h"
 #include "debug.h"
 #include "mpdsong.h"
 #include "notifications.h"
 #include "passivepopup.h"
 #include "richtext.h"
-#include <QApplication>
-#include <QDesktopWidget>
 
-QString Notifications::name(Type t) {
+QString Notifications::name(Type t)
+{
 	switch (t) {
 		case FREEDESKTOP:
 			return "Freedesktop";
@@ -35,7 +37,8 @@ QString Notifications::name(Type t) {
 	}
 }
 
-QString Notifications::makeTitle(const MPDSong &s) {
+QString Notifications::makeTitle(const MPDSong &s)
+{
 	int desktopWidth = QApplication::desktop()->width();
 	QString title = elideRichText("", s.title().isEmpty() ? s.filename() : s.title()  , "", desktopWidth / 2) + "\n";
 	QString artist = elideRichText("", s.artist(), "", desktopWidth / 4);
@@ -48,7 +51,8 @@ QString Notifications::makeTitle(const MPDSong &s) {
 	return title;
 }
 
-void Notifications::notify(const QString &text) {
+void Notifications::notify(const QString &text)
+{
 	if (Config::instance()->notifier() == FREEDESKTOP && m_dbus) {
 		m_dbus = notifyDBus(text);
 		if (m_dbus) // DBus notify succeeded
@@ -60,7 +64,8 @@ void Notifications::notify(const QString &text) {
 	new PassivePopup("QMPDClient", text, QPixmap(":/icons/qmpdclient48.png"), pos, Config::instance()->notificationsTimeout());
 }
 
-void Notifications::setSong(const MPDSong &s) {
+void Notifications::setSong(const MPDSong &s)
+{
 	if (s.isNull()) {
 		m_previousUrl = QString();
 		return;

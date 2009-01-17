@@ -39,6 +39,7 @@ public:
 	MPDSongList songsByPlaylists(const MPDSongList &);
 
 	void deletePlaylists(const MPDSongList &playlists);
+	void deletePlaylist(const QString &playlistName);
 	bool playlistExists(const QString &playlistName) const;
 	void savePlaylist(const QString &playlistName);
 

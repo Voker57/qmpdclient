@@ -22,8 +22,12 @@
 
 #include "ui_playlistspanel.h"
 
-class PlaylistsPanel : public QWidget, private Ui::PlaylistsPanel {
+class PlaylistsPanel
+	: public QWidget,
+	private Ui::PlaylistsPanel
+{
 	Q_OBJECT
+
 public:
 	PlaylistsPanel();
 
@@ -33,4 +37,5 @@ public slots:
 private slots:
 	void on_playlistsSplit_splitterMoved(int, int);
 };
+
 #endif
