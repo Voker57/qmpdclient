@@ -364,67 +364,67 @@
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../src/mainwindow.cpp" line="123"/>
+        <location filename="../src/mainwindow.cpp" line="126"/>
         <source>&amp;Playlist</source>
         <translation>&amp;Список</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="124"/>
+        <location filename="../src/mainwindow.cpp" line="127"/>
         <source>&amp;Library</source>
         <translation>&amp;Библиотека</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="125"/>
+        <location filename="../src/mainwindow.cpp" line="128"/>
         <source>&amp;Directories</source>
         <translation>&amp;Каталог</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="126"/>
+        <location filename="../src/mainwindow.cpp" line="129"/>
         <source>&amp;Internet Radio</source>
         <translation>&amp;Интернет-радио</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="127"/>
+        <location filename="../src/mainwindow.cpp" line="130"/>
         <source>Pla&amp;ylists</source>
         <translation>&amp;Списки</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="177"/>
+        <location filename="../src/mainwindow.cpp" line="181"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="195"/>
+        <location filename="../src/mainwindow.cpp" line="199"/>
         <source>Ctrl+C</source>
         <translation>Ctrl+С</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="232"/>
+        <location filename="../src/mainwindow.cpp" line="236"/>
         <source>artists</source>
         <translation>исполнителей</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="234"/>
+        <location filename="../src/mainwindow.cpp" line="238"/>
         <source>albums</source>
         <translation>альбомов</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="236"/>
+        <location filename="../src/mainwindow.cpp" line="240"/>
         <source>songs</source>
         <translation>песен</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="238"/>
+        <location filename="../src/mainwindow.cpp" line="242"/>
         <source>days</source>
         <translation>дней</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="240"/>
+        <location filename="../src/mainwindow.cpp" line="244"/>
         <source>hours</source>
         <translation>часов</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="242"/>
+        <location filename="../src/mainwindow.cpp" line="246"/>
         <source>minutes</source>
         <translation>минут</translation>
     </message>
@@ -564,17 +564,17 @@
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="128"/>
+        <location filename="../src/mainwindow.cpp" line="131"/>
         <source>Minimize to tray</source>
         <translation>Свернуть в трей</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="194"/>
+        <location filename="../src/mainwindow.cpp" line="198"/>
         <source>Connect to first server</source>
         <translation>Соединиться с первым сервером</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="275"/>
+        <location filename="../src/mainwindow.cpp" line="279"/>
         <source>Done</source>
         <translation>Завершено</translation>
     </message>
@@ -875,57 +875,57 @@ Overwrite?</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="514"/>
+        <location filename="../src/preferencesdialog.cpp" line="524"/>
         <source>Title</source>
         <translation>Название</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="462"/>
+        <location filename="../src/preferencesdialog.cpp" line="472"/>
         <source>Date</source>
         <translation>Дата</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="511"/>
+        <location filename="../src/preferencesdialog.cpp" line="521"/>
         <source>Artist</source>
         <translation>Исполнитель</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="463"/>
+        <location filename="../src/preferencesdialog.cpp" line="473"/>
         <source>Composer</source>
         <translation>Композитор</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="512"/>
+        <location filename="../src/preferencesdialog.cpp" line="522"/>
         <source>Album</source>
         <translation>Альбом</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="464"/>
+        <location filename="../src/preferencesdialog.cpp" line="474"/>
         <source>Filename</source>
         <translation>Имя файла</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="513"/>
+        <location filename="../src/preferencesdialog.cpp" line="523"/>
         <source>Track</source>
         <translation>Дорожка</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="465"/>
+        <location filename="../src/preferencesdialog.cpp" line="475"/>
         <source>URL</source>
         <translation>Расположение</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="466"/>
+        <location filename="../src/preferencesdialog.cpp" line="476"/>
         <source>Genre</source>
         <translation>Жанр</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="496"/>
+        <location filename="../src/preferencesdialog.cpp" line="506"/>
         <source>bold</source>
         <translation>жирный</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="498"/>
+        <location filename="../src/preferencesdialog.cpp" line="508"/>
         <source>italic</source>
         <translation>курсив</translation>
     </message>
@@ -935,7 +935,7 @@ Overwrite?</source>
         <translation type="obsolete">Настройки</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="444"/>
+        <location filename="../src/preferencesdialog.cpp" line="454"/>
         <source>Connection</source>
         <translation>Соединение</translation>
     </message>
@@ -945,37 +945,37 @@ Overwrite?</source>
         <translation type="obsolete">Установки сервера</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="445"/>
+        <location filename="../src/preferencesdialog.cpp" line="455"/>
         <source>Look and feel</source>
         <translation>Внешний вид</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="448"/>
+        <location filename="../src/preferencesdialog.cpp" line="458"/>
         <source>Playlist</source>
         <translation>Список воспроизведения</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="451"/>
+        <location filename="../src/preferencesdialog.cpp" line="461"/>
         <source>Language</source>
         <translation>Язык</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="452"/>
+        <location filename="../src/preferencesdialog.cpp" line="462"/>
         <source>Dynamic playlist</source>
         <translation>Динамический список</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="453"/>
+        <location filename="../src/preferencesdialog.cpp" line="463"/>
         <source>Notifications</source>
         <translation>Уведомления</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="455"/>
+        <location filename="../src/preferencesdialog.cpp" line="465"/>
         <source>Tag guesser</source>
         <translation>Запрос по меткам</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="456"/>
+        <location filename="../src/preferencesdialog.cpp" line="466"/>
         <source>Tray icon</source>
         <translation>Значок в трее</translation>
     </message>
@@ -1005,7 +1005,7 @@ Overwrite?</source>
         <translation>Задержка &amp;подключения:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1065"/>
+        <location filename="../ui/preferencesdialog.ui" line="1127"/>
         <source>seconds</source>
         <translation>секунды</translation>
     </message>
@@ -1105,12 +1105,12 @@ Overwrite?</source>
         <translation>&amp;Центрировать играемую песню</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="948"/>
+        <location filename="../ui/preferencesdialog.ui" line="1010"/>
         <source>Enable &amp;translations</source>
         <translation>&amp;Использовать перевод</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="476"/>
+        <location filename="../src/preferencesdialog.cpp" line="486"/>
         <source>Use system locale</source>
         <translation>Системные настройки языка</translation>
     </message>
@@ -1135,87 +1135,87 @@ Overwrite?</source>
         <translation type="obsolete">Число песен для &amp;добавления:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="918"/>
+        <location filename="../ui/preferencesdialog.ui" line="980"/>
         <source>&amp;Remove played songs from playlist</source>
         <translation>&amp;Удалить песню из списка</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="983"/>
+        <location filename="../ui/preferencesdialog.ui" line="1045"/>
         <source>&amp;Enable notifications</source>
         <translation>&amp;Включить уведомление</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1052"/>
+        <location filename="../ui/preferencesdialog.ui" line="1114"/>
         <source>&amp;Show for:</source>
         <translation>&amp;Показывать:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1103"/>
+        <location filename="../ui/preferencesdialog.ui" line="1165"/>
         <source>Position</source>
         <translation>Положение</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1134"/>
+        <location filename="../ui/preferencesdialog.ui" line="1196"/>
         <source>Bottom-right</source>
         <translation>Внизу справа</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1150"/>
+        <location filename="../ui/preferencesdialog.ui" line="1212"/>
         <source>Desktop</source>
         <translation>Рабочий стол</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1182"/>
+        <location filename="../ui/preferencesdialog.ui" line="1244"/>
         <source>Right-middle</source>
         <translation>Справа по середине</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1198"/>
+        <location filename="../ui/preferencesdialog.ui" line="1260"/>
         <source>Top-right</source>
         <translation>Вверху справа</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1220"/>
+        <location filename="../ui/preferencesdialog.ui" line="1282"/>
         <source>Bottom-middle</source>
         <translation>Внизу по середине</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1242"/>
+        <location filename="../ui/preferencesdialog.ui" line="1304"/>
         <source>Top-middle</source>
         <translation>Вверху по середине</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1277"/>
+        <location filename="../ui/preferencesdialog.ui" line="1339"/>
         <source>Left-middle</source>
         <translation>Слева по середине</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1293"/>
+        <location filename="../ui/preferencesdialog.ui" line="1355"/>
         <source>Top-left</source>
         <translation>Вверху слева</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1309"/>
+        <location filename="../ui/preferencesdialog.ui" line="1371"/>
         <source>Bottom-left</source>
         <translation>Внизу слева</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1370"/>
+        <location filename="../ui/preferencesdialog.ui" line="1432"/>
         <source>&amp;Enable tag guesser</source>
         <translation>&amp;Включить запрос по меткам</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1388"/>
+        <location filename="../ui/preferencesdialog.ui" line="1450"/>
         <source>&amp;Guess pattern:</source>
         <translation>&amp;Шаблон запроса:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1398"/>
+        <location filename="../ui/preferencesdialog.ui" line="1460"/>
         <source>&amp;Test filename:</source>
         <translation>&amp;Образец названия:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1408"/>
+        <location filename="../ui/preferencesdialog.ui" line="1470"/>
         <source>%b = Band/Artist
 %a = Album
 %n = Track number
@@ -1229,42 +1229,42 @@ Overwrite?</source>
 %i = Игнорировать часть названия</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1439"/>
+        <location filename="../ui/preferencesdialog.ui" line="1501"/>
         <source>Guess results</source>
         <translation>Результат запроса</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1451"/>
+        <location filename="../ui/preferencesdialog.ui" line="1513"/>
         <source>Track:</source>
         <translation>Дорожка:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1458"/>
+        <location filename="../ui/preferencesdialog.ui" line="1520"/>
         <source>Title:</source>
         <translation>Название:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1465"/>
+        <location filename="../ui/preferencesdialog.ui" line="1527"/>
         <source>Album:</source>
         <translation>Альбом:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1472"/>
+        <location filename="../ui/preferencesdialog.ui" line="1534"/>
         <source>Artist:</source>
         <translation>Исполнитель:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1505"/>
+        <location filename="../ui/preferencesdialog.ui" line="1567"/>
         <source>&amp;Enable tray icon</source>
         <translation>&amp;Включить значок в трее</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1520"/>
+        <location filename="../ui/preferencesdialog.ui" line="1582"/>
         <source>Close button &amp;minimizes to tray</source>
         <translation>Кнопка закрыть &amp;сворачивает в трей</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1527"/>
+        <location filename="../ui/preferencesdialog.ui" line="1589"/>
         <source>Start QMPDClient &amp;hidden</source>
         <translation>&amp;Скрытый старт</translation>
     </message>
@@ -1284,37 +1284,37 @@ Overwrite?</source>
         <translation type="obsolete">&amp;Отмена</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="474"/>
+        <location filename="../src/preferencesdialog.cpp" line="484"/>
         <source>Default style</source>
         <translation>Стиль по умолчанию</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="446"/>
+        <location filename="../src/preferencesdialog.cpp" line="456"/>
         <source>Library</source>
         <translation>Библиотека</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="447"/>
+        <location filename="../src/preferencesdialog.cpp" line="457"/>
         <source>Directories</source>
         <translation>Каталог</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="449"/>
+        <location filename="../src/preferencesdialog.cpp" line="459"/>
         <source>Icons</source>
         <translation>Значки</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="450"/>
+        <location filename="../src/preferencesdialog.cpp" line="460"/>
         <source>Cover art</source>
         <translation>Обложка</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="454"/>
+        <location filename="../src/preferencesdialog.cpp" line="464"/>
         <source>Shortcuts</source>
         <translation>Ссылки</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="472"/>
+        <location filename="../src/preferencesdialog.cpp" line="482"/>
         <source>Styles</source>
         <translation>Стили</translation>
     </message>
@@ -1354,44 +1354,64 @@ Overwrite?</source>
         <translation>&amp;Путь к каталогу с музыкой MPD:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1006"/>
+        <location filename="../ui/preferencesdialog.ui" line="1068"/>
         <source>&amp;Notifier:</source>
         <translation>&amp;Уведомитель:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1656"/>
+        <location filename="../ui/preferencesdialog.ui" line="1718"/>
         <source>&amp;Close</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <location filename="../src/preferencesdialog.cpp" line="457"/>
+        <location filename="../src/preferencesdialog.cpp" line="467"/>
         <source>Last.Fm</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="858"/>
+        <location filename="../ui/preferencesdialog.ui" line="920"/>
         <source>&amp;Fill up playlist with random songs</source>
         <translation>&amp;Заполнить список случайными композициями</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="873"/>
+        <location filename="../ui/preferencesdialog.ui" line="935"/>
         <source>&amp;When less than that songs left:</source>
         <translation>&amp;Когда композиций меньше чем:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1557"/>
+        <location filename="../ui/preferencesdialog.ui" line="1616"/>
         <source>Submit played songs to Last.Fm</source>
         <translation>Отправлять проигрываемую композицию на Last.Fm</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1568"/>
+        <location filename="../ui/preferencesdialog.ui" line="1630"/>
         <source>Username:</source>
         <translation>Пользователь:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1585"/>
+        <location filename="../ui/preferencesdialog.ui" line="1647"/>
         <source>Password:</source>
         <translation>Пароль:</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="842"/>
+        <source>Max Height:</source>
+        <translation>Максимальная ширина:</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="851"/>
+        <source>1024</source>
+        <translation type="obsolete">1024</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="868"/>
+        <source>Max Width:</source>
+        <translation>Максимальная высота:</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="874"/>
+        <source>768</source>
+        <translation type="obsolete">768</translation>
     </message>
 </context>
 <context>

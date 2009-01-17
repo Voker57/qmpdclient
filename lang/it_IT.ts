@@ -225,10 +225,12 @@
 <context>
     <name>MainWindow</name>
     <message>
+        <location filename="../src/mainwindow.cpp" line="127"/>
         <source>&amp;Library</source>
         <translation type="obsolete">&amp;Collezione</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="128"/>
         <source>&amp;Directories</source>
         <translation type="obsolete">&amp;Cartelle</translation>
     </message>
@@ -261,6 +263,7 @@
         <translation type="obsolete">Shift+F1</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="199"/>
         <source>Ctrl+C</source>
         <translation type="obsolete">Ctrl+C</translation>
     </message>
@@ -297,30 +300,37 @@
         <translation type="obsolete">Ctrl+Q</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="236"/>
         <source>artists</source>
         <translation type="obsolete">artisti</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="238"/>
         <source>albums</source>
         <translation type="obsolete">album</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="240"/>
         <source>songs</source>
         <translation type="obsolete">brani</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="242"/>
         <source>days</source>
         <translation type="obsolete">giorni</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="244"/>
         <source>hours</source>
         <translation type="obsolete">ore</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="246"/>
         <source>minutes</source>
         <translation type="obsolete">minuti</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="126"/>
         <source>&amp;Playlist</source>
         <translation type="obsolete">&amp;Playlist</translation>
     </message>
@@ -329,14 +339,17 @@
         <translation type="obsolete">Ctrl+R</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="130"/>
         <source>Pla&amp;ylists</source>
         <translation type="obsolete">Pla&amp;ylists</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="129"/>
         <source>&amp;Internet Radio</source>
         <translation type="obsolete">Web &amp;Radio</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="181"/>
         <source>Error</source>
         <translation type="obsolete">Errore</translation>
     </message>
@@ -349,10 +362,12 @@
         <translation type="obsolete">&amp;MPD</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="279"/>
         <source>Done</source>
         <translation type="obsolete">Fatto</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="131"/>
         <source>Minimize to tray</source>
         <translation type="obsolete">Minimizza nel vassoio</translation>
     </message>
@@ -368,6 +383,7 @@
         <source>Show preferences dialog...</source>
         <translation type="obsolete">Mostra la finestra delle preferenze...</translation>
     </message>
+        <location filename="../src/mainwindow.cpp" line="198"/>
 </context>
 <context>
     <name>MetaInfoDialog</name>
@@ -575,18 +591,22 @@ Per favore, usa un altro nome:</translation>
 <context>
     <name>PreferencesDialog</name>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="454"/>
         <source>Connection</source>
         <translation type="obsolete">Connessione</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="455"/>
         <source>Look and feel</source>
         <translation type="obsolete">Aspetto</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="465"/>
         <source>Tag guesser</source>
         <translation type="obsolete">Stima tag</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="466"/>
         <source>Tray icon</source>
         <translation type="obsolete">Vassoio di sistema</translation>
     </message>
@@ -603,10 +623,12 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">Azione al doppio click</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1432"/>
         <source>&amp;Enable tag guesser</source>
         <translation type="obsolete">Abilita la &amp;stima dei tag</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1470"/>
         <source>%b = Band/Artist
 %a = Album
 %n = Track number
@@ -621,106 +643,132 @@ Per favore, usa un altro nome:</translation>
 </translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1501"/>
         <source>Guess results</source>
         <translation type="obsolete">Risultato della stima</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1513"/>
         <source>Track:</source>
         <translation type="obsolete">Traccia:</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1520"/>
         <source>Title:</source>
         <translation type="obsolete">Titolo:</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1527"/>
         <source>Album:</source>
         <translation type="obsolete">Album:</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1534"/>
         <source>Artist:</source>
         <translation type="obsolete">Artista:</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1567"/>
         <source>&amp;Enable tray icon</source>
         <translation type="obsolete">Abilita l&apos;icona nel &amp;vassoio di sistema</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1582"/>
         <source>Close button &amp;minimizes to tray</source>
         <translation type="obsolete">Il pulsante di chiusura &amp;minimizza nel vassoio di sistema</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1589"/>
         <source>Start QMPDClient &amp;hidden</source>
         <translation type="obsolete">Avvia QMPDClient &amp;minimizzato</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1165"/>
         <source>Position</source>
         <translation type="obsolete">Posizione</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1196"/>
         <source>Bottom-right</source>
         <translation type="obsolete">In basso a destra</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1212"/>
         <source>Desktop</source>
         <translation type="obsolete">Desktop</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1244"/>
         <source>Right-middle</source>
         <translation type="obsolete">In mezzo a destra</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1260"/>
         <source>Top-right</source>
         <translation type="obsolete">In alto a destra</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1282"/>
         <source>Bottom-middle</source>
         <translation type="obsolete">In basso al centro</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1304"/>
         <source>Top-middle</source>
         <translation type="obsolete">In alto al centro</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1339"/>
         <source>Left-middle</source>
         <translation type="obsolete">In mezzo a sinistra</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1355"/>
         <source>Top-left</source>
         <translation type="obsolete">In alto a sinistra</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1371"/>
         <source>Bottom-left</source>
         <translation type="obsolete">In basso a sinistra</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="506"/>
         <source>bold</source>
         <translation type="obsolete">grassetto</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="508"/>
         <source>italic</source>
         <translation type="obsolete">corsivo</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="521"/>
         <source>Artist</source>
         <translation type="obsolete">Artista</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="522"/>
         <source>Album</source>
         <translation type="obsolete">Album</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="523"/>
         <source>Track</source>
         <translation type="obsolete">Traccia</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="524"/>
         <source>Title</source>
         <translation type="obsolete">Titolo</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="462"/>
         <source>Dynamic playlist</source>
         <translation type="obsolete">Playlist dinamica</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="463"/>
         <source>Notifications</source>
         <translation type="obsolete">Notfiche</translation>
     </message>
@@ -737,6 +785,7 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">Accoda &amp;elemento</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1045"/>
         <source>&amp;Enable notifications</source>
         <translation type="obsolete">Abilita &amp;notifiche</translation>
     </message>
@@ -745,6 +794,7 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">Aggiungi brani &amp;casuali alla playlist</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="980"/>
         <source>&amp;Remove played songs from playlist</source>
         <translation type="obsolete">&amp;Rimuovi dalla playlist i brani già riprodotti</translation>
     </message>
@@ -757,10 +807,12 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">Tipo di carattere:</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1450"/>
         <source>&amp;Guess pattern:</source>
         <translation type="obsolete">Mo&amp;dello per la stima:</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1460"/>
         <source>&amp;Test filename:</source>
         <translation type="obsolete">Nome f&amp;ile di esempio:</translation>
     </message>
@@ -773,6 +825,7 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">&amp;Numero di brani da aggiungere:</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1127"/>
         <source>seconds</source>
         <translation type="obsolete">secondi</translation>
     </message>
@@ -781,6 +834,7 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">S&amp;econdi tra due tentativi di riconnessione:</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1114"/>
         <source>&amp;Show for:</source>
         <translation type="obsolete">Mo&amp;stra per:</translation>
     </message>
@@ -789,6 +843,7 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">Cro&amp;ssfade per:</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="461"/>
         <source>Language</source>
         <translation type="obsolete">Lingua</translation>
     </message>
@@ -813,10 +868,12 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">Centra il brano in &amp;riproduzione</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="486"/>
         <source>Use system locale</source>
         <translation type="obsolete">Utilizza la localizzazione di sistema</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1010"/>
         <source>Enable &amp;translations</source>
         <translation type="obsolete">Abilita &amp;traduzioni</translation>
     </message>
@@ -845,26 +902,32 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">Ridimensionamento o&amp;paco dei separatori</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="472"/>
         <source>Date</source>
         <translation type="obsolete">Data</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="473"/>
         <source>Composer</source>
         <translation type="obsolete">Compositore</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="474"/>
         <source>Filename</source>
         <translation type="obsolete">Nome file</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="475"/>
         <source>URL</source>
         <translation type="obsolete">URL</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="476"/>
         <source>Genre</source>
         <translation type="obsolete">Genere</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="458"/>
         <source>Playlist</source>
         <translation type="obsolete">Playlist</translation>
     </message>
@@ -881,26 +944,32 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">&amp;Formato del titolo:</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="459"/>
         <source>Icons</source>
         <translation type="obsolete">Icone</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="482"/>
         <source>Styles</source>
         <translation type="obsolete">Stili</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="484"/>
         <source>Default style</source>
         <translation type="obsolete">Stile di default</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1718"/>
         <source>&amp;Close</source>
         <translation type="obsolete">&amp;Chiudi</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="456"/>
         <source>Library</source>
         <translation type="obsolete">Libreria</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="457"/>
         <source>Directories</source>
         <translation type="obsolete">Cartelle</translation>
     </message>
@@ -925,13 +994,32 @@ Per favore, usa un altro nome:</translation>
         <translation type="obsolete">Vista &amp;ricorsiva della directory (lento)</translation>
     </message>
     <message>
+        <location filename="../ui/preferencesdialog.ui" line="1068"/>
         <source>&amp;Notifier:</source>
         <translation type="obsolete">&amp;Notificatore:</translation>
     </message>
     <message>
+        <location filename="../src/preferencesdialog.cpp" line="464"/>
         <source>Shortcuts</source>
         <translation type="obsolete">Collegamenti</translation>
     </message>
+        <location filename="../src/preferencesdialog.cpp" line="460"/>
+        <location filename="../src/preferencesdialog.cpp" line="467"/>
+        <location filename="../ui/preferencesdialog.ui" line="920"/>
+        <location filename="../ui/preferencesdialog.ui" line="935"/>
+        <location filename="../ui/preferencesdialog.ui" line="1616"/>
+        <location filename="../ui/preferencesdialog.ui" line="1630"/>
+        <location filename="../ui/preferencesdialog.ui" line="1647"/>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="842"/>
+        <source>Max Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="868"/>
+        <source>Max Width:</source>
 </context>
 <context>
     <name>QObject</name>

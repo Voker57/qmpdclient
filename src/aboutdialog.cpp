@@ -38,5 +38,5 @@ AboutDialog::AboutDialog(QWidget *parent) : QDialog(parent) {
 	thanksText->setPlainText(thanksText->loadResource(QTextDocument::HtmlResource, QUrl("THANKSTO")).toString());
 	licenseText->setSearchPaths(paths);
 	licenseText->setPlainText(licenseText->loadResource(QTextDocument::HtmlResource, QUrl("COPYING")).toString());
-	show();
+	exec();
 }

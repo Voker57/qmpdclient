@@ -51,9 +51,13 @@ void CoverArtDialog::setSong(const MPDSong &s) {
 		coverArtImageLabel->setText(QObject::tr("No cover art found."));
 	}
 	else {
+		int mh = Config::instance()->coverArtMaxHeight().toInt();
+		int mw = Config::instance()->coverArtMaxWidth().toInt();
+		if (mh == 0) mh = 1024;
+		if (mw == 0) mw = 768;
 		// resize image
-		if (m_pixmap.height() > 1024) m_pixmap = m_pixmap.scaledToHeight(1024, Qt::SmoothTransformation);
-		if (m_pixmap.width() > 768) m_pixmap = m_pixmap.scaledToWidth(768, Qt::SmoothTransformation);
+		if (m_pixmap.height() > mh) m_pixmap = m_pixmap.scaledToHeight(mh, Qt::SmoothTransformation);
+		if (m_pixmap.width() > mw) m_pixmap = m_pixmap.scaledToWidth(mw, Qt::SmoothTransformation);
 		coverArtImageLabel->setPixmap(m_pixmap); // set image
 	}
 

@@ -283,9 +283,13 @@ void PreferencesDialog::initStylePage() {
 void PreferencesDialog::initCoverArtPage() {
 	showCoverCheck->setChecked(Config::instance()->showCoverArt());
 	coverDirEdit->setText(Config::instance()->coverArtDir());
+	coverMaxHeight->setText(Config::instance()->coverArtMaxHeight());
+	coverMaxWidth->setText(Config::instance()->coverArtMaxWidth());
 
 	connect(showCoverCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setShowCoverArt(bool)));
 	connect(coverDirEdit, SIGNAL(textChanged(const QString &)), Config::instance(), SLOT(setCoverArtDir(const QString &)));
+	connect(coverMaxHeight, SIGNAL(textChanged(const QString &)), Config::instance(), SLOT(setCoverMaxHeight(const QString &)));
+	connect(coverMaxWidth, SIGNAL(textChanged(const QString &)), Config::instance(), SLOT(setCoverMaxWidth(const QString &)));
 }
 
 void PreferencesDialog::initLanguagePage() {

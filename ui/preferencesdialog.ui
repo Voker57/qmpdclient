@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>550</width>
-    <height>420</height>
+    <height>421</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -71,7 +71,7 @@
        <item>
         <widget class="QStackedWidget" name="widgetStack">
          <property name="currentIndex">
-          <number>15</number>
+          <number>8</number>
          </property>
          <widget class="QWidget" name="connectionPage">
           <layout class="QVBoxLayout">
@@ -803,7 +803,7 @@
           </layout>
          </widget>
          <widget class="QWidget" name="coverArtPage">
-          <layout class="QVBoxLayout">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
             <widget class="QGroupBox" name="showCoverCheck">
              <property name="title">
@@ -812,19 +812,81 @@
              <property name="checkable">
               <bool>true</bool>
              </property>
-             <layout class="QHBoxLayout">
-              <item>
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0">
                <widget class="QLabel" name="label">
                 <property name="text">
                  <string>&amp;Path to MPD music root:</string>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
                 <property name="buddy">
                  <cstring>coverDirEdit</cstring>
                 </property>
                </widget>
               </item>
-              <item>
-               <widget class="QLineEdit" name="coverDirEdit"/>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="coverDirEdit">
+                <property name="inputMask">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string notr="true"/>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_12">
+                <property name="text">
+                 <string>Max Height:</string>
+                </property>
+                <property name="textFormat">
+                 <enum>Qt::PlainText</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>coverMaxHeight</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="coverMaxHeight">
+                <property name="inputMask">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string notr="true">1024</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_13">
+                <property name="text">
+                 <string>Max Width:</string>
+                </property>
+                <property name="textFormat">
+                 <enum>Qt::PlainText</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+                <property name="buddy">
+                 <cstring>coverMaxWidth</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="coverMaxWidth">
+                <property name="inputMask">
+                 <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string notr="true">768</string>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>
@@ -1550,13 +1612,13 @@
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <widget class="QGroupBox" name="submitSongsToLastFmCheck">
-             <property name="checked">
-              <bool>false</bool>
-             </property>
              <property name="title">
               <string>Submit played songs to Last.Fm</string>
              </property>
              <property name="checkable">
+              <bool>true</bool>
+             </property>
+             <property name="checked">
               <bool>true</bool>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -1699,8 +1761,6 @@
   <tabstop>startHiddenCheck</tabstop>
   <tabstop>closeButton</tabstop>
  </tabstops>
- <resources>
-  <include location="../qmpdclient.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
