@@ -173,7 +173,7 @@ SOURCES += src/aafilter.cpp \
 
 # translations
 LANG_PATH = $$PWD/lang
-TRANSLATIONS = $$LANG_PATH/ru_RU.ts
+TRANSLATIONS = $$LANG_PATH/ru_RU.ts $$LANG_PATH/de_DE.ts  $$LANG_PATH/it_IT.ts  $$LANG_PATH/nn_NO.ts $$LANG_PATH/pt_BR.ts  $$LANG_PATH/sv_SE.ts  $$LANG_PATH/uk_UA.ts  $$LANG_PATH/zh_TW.ts $$LANG_PATH/fr_FR.ts $$LANG_PATH/nl_NL.ts $$LANG_PATH/no_NO.ts   $$LANG_PATH/tr_TR.ts  $$LANG_PATH/zh_CN.ts
 
 MOC_DIR = .moc
 OBJECTS_DIR = .obj
