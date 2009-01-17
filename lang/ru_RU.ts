@@ -72,7 +72,7 @@
 <context>
     <name>ControlPanel</name>
     <message>
-        <location filename="../src/controlpanel.cpp" line="85"/>
+        <location filename="../src/controlpanel.cpp" line="84"/>
         <source>Not connected</source>
         <comment>qmpdclient is not connected to MPD</comment>
         <translation>Нет соединения</translation>
@@ -143,22 +143,22 @@
         <translation type="obsolete">Перемотка проигрываемой песни (Ctrl+Влево/Вправо)</translation>
     </message>
     <message>
-        <location filename="../src/controlpanel.cpp" line="77"/>
+        <location filename="../src/controlpanel.cpp" line="76"/>
         <source>Seek forward</source>
         <translation>Перемотка вперед</translation>
     </message>
     <message>
-        <location filename="../src/controlpanel.cpp" line="78"/>
+        <location filename="../src/controlpanel.cpp" line="77"/>
         <source>Seek backward</source>
         <translation>Перемотка назад</translation>
     </message>
     <message>
-        <location filename="../src/controlpanel.cpp" line="79"/>
+        <location filename="../src/controlpanel.cpp" line="78"/>
         <source>Increase volume</source>
         <translation>Увеличить громкость</translation>
     </message>
     <message>
-        <location filename="../src/controlpanel.cpp" line="80"/>
+        <location filename="../src/controlpanel.cpp" line="79"/>
         <source>Decrease volume</source>
         <translation>Уменьшить громкость</translation>
     </message>

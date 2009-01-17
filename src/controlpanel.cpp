@@ -31,7 +31,7 @@
 #include <QDir>
 
 ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent),
-		m_coverArt(new CoverArtDialog(this)), m_lyricsDialog(new LyricsDialog(this)), m_lastFm(LastFmSubmitter(this)) {
+		m_coverArt(new CoverArtDialog(this)), m_lyricsDialog(new LyricsDialog(this)), m_lastFm(new LastFmSubmitter(this)) {
 	Q_ASSERT(m_coverArt);
 	Q_ASSERT(m_lyricsDialog);
 	Q_ASSERT(m_lastFm);

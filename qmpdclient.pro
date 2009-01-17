@@ -3,8 +3,10 @@ PREFIX = /usr/local
 
 # Most people need not muck about below here
 !contains(QT_MAJOR_VERSION, 4):error(QMPDClient requires Qt 4)
-CONFIG += qt \
-    debug # release
+CONFIG += qt
+
+# addition ldflags for release build
+QMAKE_LFLAGS_RELEASE += -O2 -g0 -s
 
 # CONFIG -= debug # Needed to avoid console on win32
 TEMPLATE = app
@@ -210,3 +212,8 @@ unix {
     INSTALLS += target
     target.path = $$PREFIX/bin
 }
+
+# update translations after build
+QMAKE_EXTRA_TARGETS += translate
+translate.commands = lupdate $$PWD/qmpdclient.pro -ts $$TRANSLATIONS
+TARGET = translate
