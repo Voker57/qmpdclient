@@ -20,6 +20,8 @@
 #include "aboutdialog.h"
 #include "config.h"
 
+#include <QTextCodec>
+
 AboutDialog::AboutDialog(QWidget *parent) : QDialog(parent) {
 	setupUi(this);
 	setAttribute(Qt::WA_DeleteOnClose, true);
@@ -31,12 +33,13 @@ AboutDialog::AboutDialog(QWidget *parent) : QDialog(parent) {
 
 	const QStringList paths = QStringList() << ":/";
 	aboutText->setSearchPaths(paths);
-	aboutText->setPlainText(aboutText->loadResource(QTextDocument::HtmlResource, QUrl("README")).toString());
+	QTextCodec *codec = QTextCodec::codecForName("UTF-8");
+	aboutText->setPlainText(codec->toUnicode(aboutText->loadResource(QTextDocument::HtmlResource, QUrl("README")).toByteArray()));
 	authorText->setSearchPaths(paths);
-	authorText->setPlainText(authorText->loadResource(QTextDocument::HtmlResource, QUrl("AUTHORS")).toString());
+	authorText->setPlainText(codec->toUnicode(authorText->loadResource(QTextDocument::HtmlResource, QUrl("AUTHORS")).toByteArray()));
 	thanksText->setSearchPaths(paths);
-	thanksText->setPlainText(thanksText->loadResource(QTextDocument::HtmlResource, QUrl("THANKSTO")).toString());
+	thanksText->setPlainText(codec->toUnicode(thanksText->loadResource(QTextDocument::HtmlResource, QUrl("THANKSTO")).toByteArray()));
 	licenseText->setSearchPaths(paths);
-	licenseText->setPlainText(licenseText->loadResource(QTextDocument::HtmlResource, QUrl("COPYING")).toString());
+	licenseText->setPlainText(codec->toUnicode(licenseText->loadResource(QTextDocument::HtmlResource, QUrl("COPYING")).toByteArray()));
 	exec();
 }
