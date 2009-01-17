@@ -213,7 +213,8 @@ unix {
     target.path = $$PREFIX/bin
 }
 
-# update translations after build
+# update translations (make translate)
 QMAKE_EXTRA_TARGETS += translate
-translate.commands = lupdate $$PWD/qmpdclient.pro -ts $$TRANSLATIONS
-TARGET = translate
+translate.commands = lupdate $$PWD/qmpdclient.pro -ts $$TRANSLATIONS; \
+    lrelease $$TRANSLATIONS
+

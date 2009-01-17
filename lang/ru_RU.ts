@@ -258,17 +258,17 @@
     <message>
         <location filename="../ui/librarypanel.ui" line="50"/>
         <source>&amp;Artist filter:</source>
-        <translation>Выбрать по &amp;исполнителю:</translation>
+        <translation>Фильтр по &amp;исполнителю:</translation>
     </message>
     <message>
         <location filename="../ui/librarypanel.ui" line="99"/>
         <source>Al&amp;bum filter:</source>
-        <translation>Выбрать по &amp;альбому:</translation>
+        <translation>Фильтр по &amp;альбому:</translation>
     </message>
     <message>
         <location filename="../ui/librarypanel.ui" line="149"/>
         <source>Son&amp;g filter:</source>
-        <translation>Выбрать по &amp;песне:</translation>
+        <translation>Фильтр по &amp;песне:</translation>
     </message>
 </context>
 <context>
@@ -693,12 +693,12 @@
     <message>
         <location filename="../ui/playlistpanel.ui" line="68"/>
         <source>Toggle repeat playlist</source>
-        <translation>Включить повтор списка</translation>
+        <translation>Переключить повторение списка</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="97"/>
         <source>Jump to song...</source>
-        <translation>На песню...</translation>
+        <translation>Перейти к песне...</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="110"/>
@@ -1359,7 +1359,7 @@ Please use another name:</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="858"/>
         <source>&amp;Fill up playlist with random songs</source>
-        <translation>&amp;Заполнить плейлист случайными композициями</translation>
+        <translation>&amp;Заполнить список случайными композициями</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="873"/>
