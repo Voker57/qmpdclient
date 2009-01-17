@@ -30,8 +30,12 @@
 #include <QPixmap>
 #include <QDir>
 
-ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent),
-		m_coverArt(new CoverArtDialog(this)), m_lyricsDialog(new LyricsDialog(this)), m_lastFm(new LastFmSubmitter(this)) {
+ControlPanel::ControlPanel(QWidget *parent)
+	: QWidget(parent),
+	m_coverArt(new CoverArtDialog(this)),
+	m_lyricsDialog(new LyricsDialog(this)),
+	m_lastFm(new LastFmSubmitter(this))
+{
 	Q_ASSERT(m_coverArt);
 	Q_ASSERT(m_lyricsDialog);
 	Q_ASSERT(m_lastFm);
@@ -79,7 +83,8 @@ void ControlPanel::updateTranslation() {
 	m_volDnKey->setWhatsThis(tr("Decrease volume"));
 }
 
-void ControlPanel::setSong(const MPDSong &s) {
+void ControlPanel::setSong(const MPDSong &s)
+{
 	if (s.isNull()) {
 		titleLabel->setText(MPDConnection::instance()->isConnected() ? "" : QString("<h3>%1</h3>").arg(tr("Not connected", "qmpdclient is not connected to MPD")));
 		artistLabel->setText("");
@@ -93,9 +98,11 @@ void ControlPanel::setSong(const MPDSong &s) {
 	// Ensure labels are not too small if window is hidden
 	const int titleWidth = isVisible() ? titleLabel->width() : width() - 200;
 	const int artistWidth = isVisible() ? artistLabel->width() : width() - 200;
+
 	QString title = elideRichText("<h3>", s.title() , "</h3>", titleWidth);
 	QString artist = s.artist();
 	QString album = s.album();
+
 	if (!artist.isEmpty() && !album.isEmpty())
 		artist = elideRichText("<b>", QString("%1 - %2").arg(artist).arg(album), "</b>", artistWidth);
 	else if (!artist.isEmpty())
@@ -106,10 +113,12 @@ void ControlPanel::setSong(const MPDSong &s) {
 	titleLabel->setText(title);
 	artistLabel->setText(artist);
 
-	if(Config::instance()->submitSongsToLastFm()) m_lastFm->setSong(s);
+	if (Config::instance()->submitSongsToLastFm()) m_lastFm->setSong(s);
 	m_coverArt->setSong(s);
 	m_lyricsDialog->setSong(s);
-	if(!m_lyricsDialog->isHidden()) m_lyricsDialog->updateLyrics();
+
+	if (!m_lyricsDialog->isHidden()) m_lyricsDialog->updateLyrics();
+
 	const bool hasCoverArt = m_coverArt->hasCoverArt();
 	if (hasCoverArt) {
 		coverArtButton->setIcon(m_coverArt->coverArt());
@@ -118,6 +127,7 @@ void ControlPanel::setSong(const MPDSong &s) {
 	coverArtButton->setVisible(Config::instance()->showCoverArt() && hasCoverArt);
 }
 
-void ControlPanel::showCoverArtChanged(bool a) {
+void ControlPanel::showCoverArtChanged(bool a)
+{
 	coverArtButton->setVisible(a && m_coverArt->hasCoverArt());
 }

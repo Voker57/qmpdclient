@@ -1,3 +1,12 @@
+1.1.x
+New features
+- Add lyrics support
+- Add Last.Fm tune publishing.
+- Resize cover art if image more than 1024*768
+
+Bug fixies
+- Window with cover art not resize.
+
 1.0.9
 New features
 - Cover art support (Thanks to David Bitseff)

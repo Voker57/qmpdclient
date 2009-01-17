@@ -17,35 +17,50 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <QDir>
 #include "coverartdialog.h"
 #include "config.h"
 #include "mpdsong.h"
-#include <QDir>
 
-CoverArtDialog::CoverArtDialog(QWidget *parent) : QDialog(parent) {
+CoverArtDialog::CoverArtDialog(QWidget *parent)
+	: QDialog(parent)
+{
+	setWindowFlags(Qt::Tool);
 	setupUi(this);
 }
 
-QPixmap CoverArtDialog::coverArt() const {
+QPixmap CoverArtDialog::coverArt() const
+{
 	return m_pixmap;
 }
 
-bool CoverArtDialog::hasCoverArt() const {
+bool CoverArtDialog::hasCoverArt() const
+{
 	return !m_pixmap.isNull();
 }
 
-void CoverArtDialog::setSong(const MPDSong &s) {
+void CoverArtDialog::setSong(const MPDSong &s)
+{
 	QDir imageDir((QFileInfo(Config::instance()->coverArtDir(), s.directory())).absoluteFilePath());
+
 	imageDir.setFilter(QDir::Files | QDir::Hidden | QDir::NoDotAndDotDot | QDir::Readable);
 	imageDir.setSorting(QDir::Name);
 	imageDir.setNameFilters(QStringList() << "*.jpg" << "*.jpeg" << "*.gif" << "*.png");
+
 	const QString imageFile = imageDir.entryInfoList().value(0).absoluteFilePath();
 
 	setWindowTitle(QString("file:/").append(imageFile));
 	m_pixmap = QPixmap(imageFile);
-	if (m_pixmap.isNull())
+
+	if (m_pixmap.isNull()) {
 		coverArtImageLabel->setText(QObject::tr("No cover art found."));
-	else
-		coverArtImageLabel->setPixmap(m_pixmap);
-	resize(minimumSizeHint());
+	}
+	else {
+		// resize image
+		if (m_pixmap.height() > 1024) m_pixmap = m_pixmap.scaledToHeight(1024, Qt::SmoothTransformation);
+		if (m_pixmap.width() > 768) m_pixmap = m_pixmap.scaledToWidth(768, Qt::SmoothTransformation);
+		coverArtImageLabel->setPixmap(m_pixmap); // set image
+	}
+
+	setFixedSize(minimumSizeHint());
 }

@@ -16,6 +16,7 @@ DEFINES += NAMEVER='"\\"QMPDClient \
     $$VERSION\\""'
 INCLUDEPATH += src
 QT += network
+
 FORMS += ui/aboutdialog.ui \
     ui/addradiodialog.ui \
     ui/controlpanel.ui \
@@ -30,6 +31,7 @@ FORMS += ui/aboutdialog.ui \
     ui/preferencesdialog.ui \
     ui/radiopanel.ui \
     ui/lyricsdialog.ui
+
 HEADERS += src/aafilter.h \
     src/aboutdialog.h \
     src/abstractmodel.h \
@@ -102,6 +104,7 @@ HEADERS += src/aafilter.h \
     src/trayicon.h \
     src/verticalbutton.h \
     src/lastfmsubmitter.h
+
 SOURCES += src/aafilter.cpp \
     src/aboutdialog.cpp \
     src/abstractmodel.cpp \

@@ -24,7 +24,8 @@
 
 class MPDSong;
 
-class CoverArtDialog : public QDialog, private Ui::CoverArtDialog {
+class CoverArtDialog : public QDialog, private Ui::CoverArtDialog
+{
 public:
 	CoverArtDialog(QWidget *);
 	QPixmap coverArt() const;
@@ -32,6 +33,7 @@ public:
 	void setSong(const MPDSong &);
 
 private:
-	QPixmap m_pixmap;
+	QPixmap m_pixmap, m_pixmap_small;
 };
-#endif
+
+#endif //COVERART_DIALOG_H
