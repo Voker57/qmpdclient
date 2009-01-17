@@ -25,11 +25,13 @@
 #include "playlistitemdelegate.h"
 #include "playlistmodel.h"
 #include "playlistview.h"
+
 #include <QDragMoveEvent>
 #include <QInputDialog>
 #include <QMenu>
 #include <QPainter>
 #include <QShortcut>
+#include <QMessageBox>
 
 PlaylistView::PlaylistView(QWidget *parent) : AbstractList(parent) {
 	Q_ASSERT(m_menu);
