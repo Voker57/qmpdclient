@@ -63,6 +63,8 @@ public:
 	QString styleFile() const;
 	bool showCoverArt() const;
 	QString coverArtDir() const;
+	QString coverArtMaxHeight() const;
+	QString coverArtMaxWidth() const;
 
 	// Shortcuts
 	QString shortcut(const QString &) const;
@@ -143,6 +145,8 @@ public slots:
 	void setStyleFile(const QString &);
 	void setShowCoverArt(bool);
 	void setCoverArtDir(const QString &);
+	void setCoverMaxHeight(const QString &);
+	void setCoverMaxWidth(const QString &);
 
 	// Shortcuts
 	void setOriginalShortcut(const QString &action, const QString &shortcut);

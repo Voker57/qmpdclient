@@ -183,6 +183,14 @@ void Config::setCoverArtDir(const QString &dir) {
 	setValue("/coverart/music_root", dir);
 }
 
+void Config::setCoverMaxHeight(const QString &height) {
+	setValue("/coverart/max_height", height);
+}
+
+void Config::setCoverMaxWidth(const QString &width) {
+	setValue("/coverart/max_width", width);
+}
+
 void Config::setFont(const QFont &font) {
 	setValue("/looknfeel/font", font);
 	emit fontChanged(font);
@@ -231,6 +239,16 @@ bool Config::showCoverArt() const {
 QString Config::coverArtDir() const {
 	QString path = value("/coverart/music_root", "/music").toString();
 	return path;
+}
+
+QString Config::coverArtMaxHeight() const {
+	QString mh = value("/coverart/max_height", "1024").toString();
+	return mh;
+}
+
+QString Config::coverArtMaxWidth() const {
+	QString mw = value("/coverart/max_width", "768").toString();
+	return mw;
 }
 
 bool Config::opaqueResize() const {

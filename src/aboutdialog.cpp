@@ -41,5 +41,5 @@ AboutDialog::AboutDialog(QWidget *parent) : QDialog(parent) {
 	thanksText->setPlainText(codec->toUnicode(thanksText->loadResource(QTextDocument::HtmlResource, QUrl("THANKSTO")).toByteArray()));
 	licenseText->setSearchPaths(paths);
 	licenseText->setPlainText(codec->toUnicode(licenseText->loadResource(QTextDocument::HtmlResource, QUrl("COPYING")).toByteArray()));
-	show();
+	exec();
 }

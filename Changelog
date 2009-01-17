@@ -1,3 +1,8 @@
+- Added Last.Fm tracks submission
+- Resize cover art if image is larger than desired
+- Add max height and width sizes for cover art in preferences
+- Window with cover art do not resize
+- Opening of multiple about dialogs
 1.0.9
 New features
 - Cover art support (Thanks to David Bitseff)
