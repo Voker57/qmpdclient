@@ -1,11 +1,13 @@
-1.1.x
+1.1.0
 New features
-- Add lyrics support
-- Add Last.Fm tune publishing.
-- Resize cover art if image more than 1024*768
+- Lyrics displaying
+- Add Last.Fm tracks submission
+- Resize cover art if image is larger than 1024*768
 
-Bug fixies
-- Window with cover art not resize.
+Bug fixes
+- Window with cover art not resize
+- Playlists are not refreshed if one was deleted
+- Automatic deletion of songs in dynamic playlist
 
 1.0.9
 New features
