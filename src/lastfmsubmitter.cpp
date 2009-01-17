@@ -31,8 +31,7 @@
 
 // #include <QDebug>
 
-LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent)
-{
+LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_session = "";
 	m_npUrl = "";
 	m_hsUrl="http://post.audioscrobbler.com/";
@@ -44,8 +43,7 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent)
 	connect(m_scrobbleTimer, SIGNAL(timeout()), this, SLOT(stageCurrentTrack()));
 }
 
-void LastFmSubmitter::setSong(const MPDSong & s)
-{
+void LastFmSubmitter::setSong(const MPDSong & s) {
 	if(m_currentSong != s)
 	{
 		m_currentSong = s;
@@ -64,15 +62,13 @@ void LastFmSubmitter::setSong(const MPDSong & s)
 	}
 }
 
-void LastFmSubmitter::sendNowPlaying()
-{
+void LastFmSubmitter::sendNowPlaying() {
 	// FIXME: sometimes np is lost
 	if(ensureHandshaked())
 		scrobbleNp(m_currentSong);
 }
 
-void LastFmSubmitter::scrobbleNp(MPDSong & s)
-{
+void LastFmSubmitter::scrobbleNp(MPDSong & s) {
 	// kinda ugly code
 	QString data = QString("s=%1&").arg(m_session);
 	data += QString("a=%1&").arg(QString(QUrl::toPercentEncoding(s.artist())));
@@ -84,14 +80,12 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s)
 	m_netAccess->post(QNetworkRequest(QUrl(m_npUrl)), data.toAscii());
 }
 
-void LastFmSubmitter::stageCurrentTrack()
-{
+void LastFmSubmitter::stageCurrentTrack() {
 	// qDebug() << "timer fired";
 	m_songQueue.enqueue(QPair<MPDSong, int>(m_currentSong, m_currentStarted));
 }
 
-void LastFmSubmitter::scrobbleSongs()
-{
+void LastFmSubmitter::scrobbleSongs() {
 	QString data = QString("s=%1&").arg(m_session);
 	int i = 0;
 	while(!m_songQueue.isEmpty())
@@ -109,16 +103,14 @@ void LastFmSubmitter::scrobbleSongs()
 	m_netAccess->post(QNetworkRequest(QUrl(m_subUrl)), data.toAscii());
 }
 
-bool LastFmSubmitter::ensureHandshaked()
-{
+bool LastFmSubmitter::ensureHandshaked() {
 	if(!m_session.isEmpty())
 		return true;
 	doHandshake();
 	return false;
 }
 
-void LastFmSubmitter::doHandshake()
-{
+void LastFmSubmitter::doHandshake() {
 	QUrl hsUrl = QUrl(m_hsUrl);
 	hsUrl.addQueryItem("hs", "true");
 	hsUrl.addQueryItem("p", "1.2.1");
@@ -139,8 +131,7 @@ void LastFmSubmitter::doHandshake()
 	m_netAccess->get(QNetworkRequest(hsUrl));
 }
 
-void LastFmSubmitter::gotNetReply(QNetworkReply * reply)
-{
+void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 	QStringList data = QString(reply->readAll()).split("\n");
 	if(data.size()==0)
 		return;

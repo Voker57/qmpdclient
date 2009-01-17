@@ -30,12 +30,7 @@
 #include <QPixmap>
 #include <QDir>
 
-ControlPanel::ControlPanel(QWidget *parent)
-	: QWidget(parent),
-	m_coverArt(new CoverArtDialog(this)),
-	m_lyricsDialog(new LyricsDialog(this)),
-	m_lastFm(new LastFmSubmitter(this))
-{
+ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), 	m_coverArt(new CoverArtDialog(this)), 	m_lyricsDialog(new LyricsDialog(this)), m_lastFm(new LastFmSubmitter(this)) {
 	Q_ASSERT(m_coverArt);
 	Q_ASSERT(m_lyricsDialog);
 	Q_ASSERT(m_lastFm);
@@ -83,8 +78,7 @@ void ControlPanel::updateTranslation() {
 	m_volDnKey->setWhatsThis(tr("Decrease volume"));
 }
 
-void ControlPanel::setSong(const MPDSong &s)
-{
+void ControlPanel::setSong(const MPDSong &s) {
 	if (s.isNull()) {
 		titleLabel->setText(MPDConnection::instance()->isConnected() ? "" : QString("<h3>%1</h3>").arg(tr("Not connected", "qmpdclient is not connected to MPD")));
 		artistLabel->setText("");
@@ -127,7 +121,6 @@ void ControlPanel::setSong(const MPDSong &s)
 	coverArtButton->setVisible(Config::instance()->showCoverArt() && hasCoverArt);
 }
 
-void ControlPanel::showCoverArtChanged(bool a)
-{
+void ControlPanel::showCoverArtChanged(bool a) {
 	coverArtButton->setVisible(a && m_coverArt->hasCoverArt());
 }

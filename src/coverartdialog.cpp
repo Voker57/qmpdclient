@@ -22,25 +22,20 @@
 #include "config.h"
 #include "mpdsong.h"
 
-CoverArtDialog::CoverArtDialog(QWidget *parent)
-	: QDialog(parent)
-{
+CoverArtDialog::CoverArtDialog(QWidget *parent) : QDialog(parent) {
 	setWindowFlags(Qt::Tool);
 	setupUi(this);
 }
 
-QPixmap CoverArtDialog::coverArt() const
-{
+QPixmap CoverArtDialog::coverArt() const {
 	return m_pixmap;
 }
 
-bool CoverArtDialog::hasCoverArt() const
-{
+bool CoverArtDialog::hasCoverArt() const {
 	return !m_pixmap.isNull();
 }
 
-void CoverArtDialog::setSong(const MPDSong &s)
-{
+void CoverArtDialog::setSong(const MPDSong &s) {
 	QDir imageDir((QFileInfo(Config::instance()->coverArtDir(), s.directory())).absoluteFilePath());
 
 	imageDir.setFilter(QDir::Files | QDir::Hidden | QDir::NoDotAndDotDot | QDir::Readable);

@@ -32,8 +32,7 @@ LyricsDialog::LyricsDialog(QWidget *parent) : QDialog(parent) {
 	connect(m_http, SIGNAL(requestFinished(int,bool)), this, SLOT(gotResponse(int,bool)));
 }
 
-void LyricsDialog::show()
-{
+void LyricsDialog::show() {
 	updateLyrics();
 	QDialog::show();
 }
@@ -68,8 +67,7 @@ void LyricsDialog::gotResponse(int id, bool error) {
 	}
 }
 
-void LyricsDialog::setUserSong()
-{
+void LyricsDialog::setUserSong() {
 	m_artist = artistEdit->text();
 	m_title = titleEdit->text();
 	updateLyrics();
