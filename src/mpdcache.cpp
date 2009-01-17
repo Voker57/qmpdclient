@@ -269,6 +269,7 @@ void MPDCache::deletePlaylist(const QString &playlistName)
 {
 	if (!d->isConnected()) return;
 
+	mpd_beginList();
 	foreach(MPDSong s, d->playlistMap.keys()) {
 		mpd_call(MPDCache::deletePlaylists, Rm, playlistName.toAscii());
 	}
