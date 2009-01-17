@@ -72,7 +72,7 @@
 <context>
     <name>ControlPanel</name>
     <message>
-        <location filename="../src/controlpanel.cpp" line="84"/>
+        <location filename="../src/controlpanel.cpp" line="89"/>
         <source>Not connected</source>
         <comment>qmpdclient is not connected to MPD</comment>
         <translation>Нет соединения</translation>
@@ -143,22 +143,22 @@
         <translation type="obsolete">Перемотка проигрываемой песни (Ctrl+Влево/Вправо)</translation>
     </message>
     <message>
-        <location filename="../src/controlpanel.cpp" line="76"/>
+        <location filename="../src/controlpanel.cpp" line="80"/>
         <source>Seek forward</source>
         <translation>Перемотка вперед</translation>
     </message>
     <message>
-        <location filename="../src/controlpanel.cpp" line="77"/>
+        <location filename="../src/controlpanel.cpp" line="81"/>
         <source>Seek backward</source>
         <translation>Перемотка назад</translation>
     </message>
     <message>
-        <location filename="../src/controlpanel.cpp" line="78"/>
+        <location filename="../src/controlpanel.cpp" line="82"/>
         <source>Increase volume</source>
         <translation>Увеличить громкость</translation>
     </message>
     <message>
-        <location filename="../src/controlpanel.cpp" line="79"/>
+        <location filename="../src/controlpanel.cpp" line="83"/>
         <source>Decrease volume</source>
         <translation>Уменьшить громкость</translation>
     </message>
@@ -729,87 +729,99 @@
 <context>
     <name>PlaylistView</name>
     <message>
-        <location filename="../src/playlistview.cpp" line="97"/>
+        <location filename="../src/playlistview.cpp" line="99"/>
         <source>J&amp;ump to song...</source>
         <translation>&amp;Перейти к песне...</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="98"/>
+        <location filename="../src/playlistview.cpp" line="100"/>
         <source>Ctrl+U</source>
         <comment>This is the shortcut for &apos;Jump to song in playlist&apos;</comment>
         <translation>Ctrl+U</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="100"/>
+        <location filename="../src/playlistview.cpp" line="102"/>
         <source>&amp;Remove</source>
         <translation>&amp;Удалить</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="95"/>
+        <location filename="../src/playlistview.cpp" line="97"/>
         <source>&amp;Crop playlist</source>
         <translation>&amp;Обрезать список</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="101"/>
+        <location filename="../src/playlistview.cpp" line="103"/>
         <source>Remove &amp;all</source>
         <translation>Удалить &amp;всё</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="99"/>
+        <location filename="../src/playlistview.cpp" line="101"/>
         <source>Ra&amp;ndom play</source>
         <translation>&amp;Проигрывать вперемешку</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="102"/>
+        <location filename="../src/playlistview.cpp" line="104"/>
         <source>Re&amp;peat play</source>
         <translation>&amp;Повторять</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="104"/>
+        <location filename="../src/playlistview.cpp" line="106"/>
         <source>S&amp;huffle playlist</source>
         <translation>&amp;Случайный список</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="103"/>
+        <location filename="../src/playlistview.cpp" line="105"/>
         <source>&amp;Save playlist...</source>
         <translation>&amp;Сохранить список...</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="96"/>
+        <location filename="../src/playlistview.cpp" line="98"/>
         <source>&amp;Information...</source>
         <translation>Сведени&amp;я...</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="202"/>
+        <location filename="../src/playlistview.cpp" line="213"/>
         <source>Save playlist as...</source>
         <translation>Сохранить список как...</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="195"/>
+        <location filename="../src/playlistview.cpp" line="200"/>
         <source>Playlist name:</source>
         <translation>Название списка:</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="201"/>
+        <location filename="../src/playlistview.cpp" line="212"/>
         <source>A playlist with that name already exists.
 Please use another name:</source>
         <translation>Список воспроизведения с таким названием существует.
 Пожалуйста используйте другое название:</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="105"/>
+        <location filename="../src/playlistview.cpp" line="107"/>
         <source>Add to queue</source>
         <translation>Добавить в очередь</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="106"/>
+        <location filename="../src/playlistview.cpp" line="108"/>
         <source>Remove from queue</source>
         <translation>Удалить из очереди</translation>
     </message>
     <message>
-        <location filename="../src/playlistview.cpp" line="107"/>
+        <location filename="../src/playlistview.cpp" line="109"/>
         <source>Focus playlist</source>
         <translation>Показать список</translation>
+    </message>
+    <message>
+        <location filename="../src/playlistview.cpp" line="207"/>
+        <source>Attention!</source>
+        <translation>Внимание!</translation>
+    </message>
+    <message>
+        <location filename="../src/playlistview.cpp" line="208"/>
+        <source>A playlist with that name already exists.
+Overwrite?</source>
+        <translation>Список с таким именем уже существует.
+Хотите перезаписать?</translation>
     </message>
 </context>
 <context>
@@ -825,23 +837,23 @@ Please use another name:</source>
         <translation type="obsolete">&amp;Выбрать:</translation>
     </message>
     <message>
-        <location filename="../ui/playlistspanel.ui" line="247"/>
+        <location filename="../ui/playlistspanel.ui" line="194"/>
         <source>Delete selected playlists</source>
         <translation>Удалить выделенный список</translation>
     </message>
     <message>
-        <location filename="../ui/playlistspanel.ui" line="250"/>
+        <location filename="../ui/playlistspanel.ui" line="197"/>
         <source>D&amp;elete playlists</source>
         <translation>&amp;Удалить список</translation>
     </message>
     <message>
-        <location filename="../ui/playlistspanel.ui" line="85"/>
+        <location filename="../ui/playlistspanel.ui" line="59"/>
         <source>Fil&amp;ter:</source>
         <comment>Filter the list of saved playlists</comment>
         <translation>&amp;Фильтр:</translation>
     </message>
     <message>
-        <location filename="../ui/playlistspanel.ui" line="170"/>
+        <location filename="../ui/playlistspanel.ui" line="126"/>
         <source>&amp;Filter:</source>
         <comment>Filter the contents of saved playlists</comment>
         <translation>&amp;Фильтр:</translation>
@@ -850,7 +862,7 @@ Please use another name:</source>
 <context>
     <name>PlaylistsView</name>
     <message>
-        <location filename="../src/playlistsview.cpp" line="43"/>
+        <location filename="../src/playlistsview.cpp" line="45"/>
         <source>&amp;Delete</source>
         <translation>&amp;Удалить</translation>
     </message>
@@ -1391,7 +1403,7 @@ Please use another name:</source>
         <translation>Каталог</translation>
     </message>
     <message>
-        <location filename="../src/playlistsview.cpp" line="79"/>
+        <location filename="../src/playlistsview.cpp" line="81"/>
         <source>Playlist</source>
         <translation>Список воспроизведения</translation>
     </message>
@@ -1489,7 +1501,7 @@ Please use another name:</source>
         <translation type="obsolete">Не отмечено</translation>
     </message>
     <message>
-        <location filename="../src/coverartdialog.cpp" line="47"/>
+        <location filename="../src/coverartdialog.cpp" line="56"/>
         <source>No cover art found.</source>
         <translation>Обложек не найдено.</translation>
     </message>
