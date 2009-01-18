@@ -80,7 +80,6 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) : QDialog(parent), d(new P
 	initLastFmPage();
 
 	updateTranslation();
-	show();
 	categoryList->setCurrentItem(d->connectionItem);
 
 	for (int i = 0; i < d->serverModel->columnCount(); i++)
@@ -92,6 +91,8 @@ PreferencesDialog::PreferencesDialog(QWidget *parent) : QDialog(parent), d(new P
 		if (!child->setProperty("alternatingRowColors", Config::instance()->alternatingRowColors()))
 			qWarning("Couldn't set alternatingRowColors for object: %s", qPrintable(child->objectName()));
 	}
+
+	exec();
 }
 
 void PreferencesDialog::initCategoryList() {
