@@ -41,7 +41,6 @@ public:
 protected:
 	void doHandshake();
 	bool ensureHandshaked();
-	void sendNowPlaying();
 	void scrobbleNp(MPDSong & s);
 	void scrobbleSongs();
 	QString m_session;
@@ -53,9 +52,12 @@ protected:
 	QQueue<QPair<MPDSong, int> > m_songQueue;
 	MPDSong m_currentSong;
 	QTimer * m_scrobbleTimer;
+	QTimer * m_npTimer;
 protected slots:
 	void gotNetReply(QNetworkReply *);
 	void stageCurrentTrack();
+	void sendNowPlaying();
+
 };
 
 #endif // LASTFMSUBMITTER_H

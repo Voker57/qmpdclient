@@ -36,11 +36,15 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_npUrl = "";
 	m_hsUrl="http://post.audioscrobbler.com/";
 	m_subUrl = "";
-	m_scrobbleTimer = new QTimer();
+	m_scrobbleTimer = new QTimer(this);
 	m_scrobbleTimer->setSingleShot(true);
+	m_npTimer = new QTimer(this);
+	m_npTimer->setSingleShot(true);
+	m_npTimer->setInterval(5000);
 	m_netAccess = new QNetworkAccessManager(this);
 	connect(m_netAccess, SIGNAL(finished(QNetworkReply *)), this, SLOT(gotNetReply(QNetworkReply *)));
 	connect(m_scrobbleTimer, SIGNAL(timeout()), this, SLOT(stageCurrentTrack()));
+	connect(m_npTimer, SIGNAL(timeout()), this, SLOT(sendNowPlaying()));
 }
 
 void LastFmSubmitter::setSong(const MPDSong & s) {
@@ -58,7 +62,7 @@ void LastFmSubmitter::setSong(const MPDSong & s) {
 		{
 			scrobbleSongs();
 		}
-		sendNowPlaying();
+		m_npTimer->start();
 	}
 }
 
