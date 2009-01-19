@@ -48,7 +48,7 @@ MPDSongList StringListView::selectedSongs() const {
  * Return a string with "The " lopped off, if it exists
  */
 QString StringListView::normalizeString(const QString l) {
-	if (l.length() > 4 && l.startsWith("The ")) {
+	if (l.length() > 4 && l.startsWith("The ", Qt::CaseInsensitive)) {
 		return l.mid(4).trimmed();
 	}
 
