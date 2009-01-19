@@ -1,15 +1,17 @@
 1.1.0
 New features
-- Lyrics displaying
 - Added Last.Fm tracks submission
-- Resize cover art if image is larger than desired
-- Add max height and width sizes for cover art in preferences
 
+1.0.10
+New features
+- Lyrics display from LyricWiki [http://lyricwiki.org]
+- Added max height and width for cover art in preferences
+- Normalized sorting (ignores leading 'The ')
 Bug fixes
 - Window with cover art do not resize
 - Playlists are not refreshed if one was deleted
-- Automatic deletion of songs in dynamic playlist
-- Opening of multiple about dialogs
+- Automatic deletion of songs in dynamic playlist doesn't work
+- Opening of multiple about dialogs is possible
 
 1.0.9
 New features
@@ -68,7 +70,7 @@ Bugfixes:
 Other stuff:
 - Use Qt's ResizeToContents and Stretch in combination for simpler autoresizecolumn code
 - Use qrand/qsrand to pick random songs in dyamic playlist, this seems to prevent
-  two instances of qmpdclient from choosing the same songs at the same time.
+- Prevent two instances of qmpdclient from choosing the same songs at the same time.
 - Implicit Data Sharing in most data classes.
 - Use qSort with LessThan funciton instead of own implementation.
 
