@@ -24,7 +24,6 @@
 #include "stringlistview.h"
 #include <QMap>
 #include <QMenu>
-#include <QDebug>
 
 StringListView::StringListView(QWidget *parent) : AbstractList(parent) {
 	Q_ASSERT(m_menu);
@@ -83,9 +82,9 @@ void StringListView::filter(const QString &needle) {
 void StringListView::setStrings(const QStringList &strings) {
 	Q_ASSERT(m_model);
 
-	QStringList sorted = StringListView::normalizedSort(strings);
+	m_strings = StringListView::normalizedSort(strings);
 
-	m_model->setStringList(m_strings = sorted);
+	m_model->setStringList(m_strings);
 	setCurrentIndex(m_model->index(0));
 }
 
