@@ -38,6 +38,9 @@ public:
 		return compareRows(l, r) < 0;
 	}
 
+	/**
+	 * Do a compare with normalized strings
+	 */
 	int normalizedCompareCols(const QString l, const QString r) const {
 		QString nl = StringListView::normalizeString(l);
 		QString nr = StringListView::normalizeString(r);

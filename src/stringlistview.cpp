@@ -45,15 +45,23 @@ MPDSongList StringListView::selectedSongs() const {
 	return MPDCache::instance()->songsByAA(aaFilter());
 }
 
+/**
+ * Return a string with "The " lopped off, if it exists
+ */
 QString StringListView::normalizeString(const QString l) {
-	if (l.startsWith("The ")) {
+	if (l.length() > 4 && l.startsWith("The ")) {
 		return l.mid(4).trimmed();
 	}
 
 	return l.trimmed();
 }
 
+/**
+ * Return a sorted string list with strings normalized
+ */
 QStringList StringListView::normalizedSort(const QStringList &strings) {
+
+	// Recommended way to have arbitrary sorting from QT docs
 	QMap<QString, QString> map;
 	foreach (QString str, strings) {
 		map.insert(StringListView::normalizeString(str), str);
