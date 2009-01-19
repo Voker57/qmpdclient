@@ -34,6 +34,9 @@ public:
 	QStringList selectedStrings() const;
 	MPDSongList selectedSongs() const;
 
+	static QString normalizeString(const QString l);
+	static QStringList normalizedSort(const QStringList &strings);
+
 public slots:
 	void filter(const QString &);
 	void setStrings(const QStringList &);

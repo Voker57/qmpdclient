@@ -22,7 +22,9 @@
 #include "mpdsonglist.h"
 #include "stringlistmodel.h"
 #include "stringlistview.h"
+#include <QMap>
 #include <QMenu>
+#include <QDebug>
 
 StringListView::StringListView(QWidget *parent) : AbstractList(parent) {
 	Q_ASSERT(m_menu);
@@ -43,6 +45,28 @@ MPDSongList StringListView::selectedSongs() const {
 	return MPDCache::instance()->songsByAA(aaFilter());
 }
 
+QString StringListView::normalizeString(const QString l) {
+	if (l.startsWith("The ")) {
+		return l.mid(4).trimmed();
+	}
+
+	return l.trimmed();
+}
+
+QStringList StringListView::normalizedSort(const QStringList &strings) {
+	QMap<QString, QString> map;
+	foreach (QString str, strings) {
+		map.insert(StringListView::normalizeString(str), str);
+	}
+
+	QStringList sorted;
+	QMapIterator<QString, QString> ii(map);
+	while (ii.hasNext()) {
+		sorted += ii.next().value();
+	}
+	return sorted;
+}
+
 void StringListView::filter(const QString &needle) {
 	Q_ASSERT(m_model);
 	m_model->setStringList(m_strings.filter(QRegExp(needle, Qt::CaseInsensitive)));
@@ -50,7 +74,10 @@ void StringListView::filter(const QString &needle) {
 
 void StringListView::setStrings(const QStringList &strings) {
 	Q_ASSERT(m_model);
-	m_model->setStringList(m_strings = strings);
+
+	QStringList sorted = StringListView::normalizedSort(strings);
+
+	m_model->setStringList(m_strings = sorted);
 	setCurrentIndex(m_model->index(0));
 }
 

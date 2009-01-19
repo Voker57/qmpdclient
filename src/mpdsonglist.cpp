@@ -19,6 +19,7 @@
 
 #include "headerview.h"
 #include "mpdsonglist.h"
+#include "stringlistview.h"
 
 #define STD_COMP(M) \
 res = compareCols(l.M(), r.M()); \
@@ -38,8 +39,8 @@ public:
 	}
 
 	int normalizedCompareCols(const QString l, const QString r) const {
-		QString nl = MPDSongList::normalizeString(l);
-		QString nr = MPDSongList::normalizeString(r);
+		QString nl = StringListView::normalizeString(l);
+		QString nr = StringListView::normalizeString(r);
 
 		return compareCols(nl, nr);
 	}
@@ -158,13 +159,4 @@ void MPDSongList::sort(int column, Qt::SortOrder order) {
 		return;
 	MPDSongListLessThan lt(column, order);
 	qSort(begin(), end(), lt);
-}
-
-
-QString MPDSongList::normalizeString(const QString l) {
-	if (l.startsWith("The ")) {
-		return l.mid(4).trimmed();
-	}
-
-	return l.trimmed();
 }
