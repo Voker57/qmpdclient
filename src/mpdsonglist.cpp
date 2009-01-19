@@ -37,17 +37,9 @@ public:
 		return compareRows(l, r) < 0;
 	}
 
-	QString normalizeQString(const QString l) const {
-		if (l.startsWith("The ")) {
-			return l.mid(4).trimmed();
-		}
-
-		return l.trimmed();
-	}
-
 	int normalizedCompareCols(const QString l, const QString r) const {
-		QString nl = normalizeQString(l);
-		QString nr = normalizeQString(r);
+		QString nl = MPDSongList::normalizeString(l);
+		QString nr = MPDSongList::normalizeString(r);
 
 		return compareCols(nl, nr);
 	}
@@ -166,4 +158,13 @@ void MPDSongList::sort(int column, Qt::SortOrder order) {
 		return;
 	MPDSongListLessThan lt(column, order);
 	qSort(begin(), end(), lt);
+}
+
+
+QString MPDSongList::normalizeString(const QString l) {
+	if (l.startsWith("The ")) {
+		return l.mid(4).trimmed();
+	}
+
+	return l.trimmed();
 }
