@@ -71,7 +71,7 @@
        <item>
         <widget class="QStackedWidget" name="widgetStack">
          <property name="currentIndex">
-          <number>8</number>
+          <number>15</number>
          </property>
          <widget class="QWidget" name="connectionPage">
           <layout class="QVBoxLayout">
@@ -828,10 +828,10 @@
               </item>
               <item row="0" column="1">
                <widget class="QLineEdit" name="coverDirEdit">
-                <property name="inputMask">
+                <property name="text">
                  <string notr="true"/>
                 </property>
-                <property name="text">
+                <property name="inputMask">
                  <string notr="true"/>
                 </property>
                </widget>
@@ -854,11 +854,11 @@
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="coverMaxHeight">
-                <property name="inputMask">
-                 <string notr="true"/>
-                </property>
                 <property name="text">
                  <string notr="true">1024</string>
+                </property>
+                <property name="inputMask">
+                 <string notr="true"/>
                 </property>
                </widget>
               </item>
@@ -880,11 +880,11 @@
               </item>
               <item row="2" column="1">
                <widget class="QLineEdit" name="coverMaxWidth">
-                <property name="inputMask">
-                 <string notr="true"/>
-                </property>
                 <property name="text">
                  <string notr="true">768</string>
+                </property>
+                <property name="inputMask">
+                 <string notr="true"/>
                 </property>
                </widget>
               </item>
@@ -1612,53 +1612,45 @@
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
             <widget class="QGroupBox" name="submitSongsToLastFmCheck">
+             <property name="checked">
+              <bool>true</bool>
+             </property>
              <property name="title">
-              <string>Submit played songs to Last.Fm</string>
+              <string>Submit played tracks to Last.Fm</string>
              </property>
              <property name="checkable">
               <bool>true</bool>
              </property>
-             <property name="checked">
-              <bool>true</bool>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_2">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout">
-                <item>
-                 <widget class="QLabel" name="label_10">
-                  <property name="text">
-                   <string>Username:</string>
-                  </property>
-                  <property name="buddy">
-                   <cstring>lastFmUsernameEdit</cstring>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="lastFmUsernameEdit"/>
-                </item>
-               </layout>
+             <layout class="QFormLayout" name="formLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_10">
+                <property name="text">
+                 <string>Username:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>lastFmUsernameEdit</cstring>
+                </property>
+               </widget>
               </item>
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_2">
-                <item>
-                 <widget class="QLabel" name="label_11">
-                  <property name="text">
-                   <string>Password:</string>
-                  </property>
-                  <property name="buddy">
-                   <cstring>lastFmPasswordEdit</cstring>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QLineEdit" name="lastFmPasswordEdit">
-                  <property name="echoMode">
-                   <enum>QLineEdit::Password</enum>
-                  </property>
-                 </widget>
-                </item>
-               </layout>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lastFmUsernameEdit"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_11">
+                <property name="text">
+                 <string>Password:</string>
+                </property>
+                <property name="buddy">
+                 <cstring>lastFmPasswordEdit</cstring>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lastFmPasswordEdit">
+                <property name="echoMode">
+                 <enum>QLineEdit::Password</enum>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>
