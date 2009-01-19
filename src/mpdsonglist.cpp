@@ -37,6 +37,21 @@ public:
 		return compareRows(l, r) < 0;
 	}
 
+	QString normalizeQString(const QString l) const {
+		if (l.startsWith("The ")) {
+			return l.mid(4).trimmed();
+		}
+
+		return l.trimmed();
+	}
+
+	int normalizedCompareCols(const QString l, const QString r) const {
+		QString nl = normalizeQString(l);
+		QString nr = normalizeQString(r);
+
+		return compareCols(nl, nr);
+	}
+
 	int compareCols(const QString l, const QString r) const {
 		return QString::localeAwareCompare(l, r);
 	}
@@ -91,7 +106,7 @@ public:
 				break;
 
 			case HeaderView::TITLE:
-				res = compareCols(l.title(), r.title());
+				res = normalizedCompareCols(l.title(), r.title());
 				if (!res) res = compareCols(l.artist(), r.artist());
 				if (!res) res = compareCols(l.album(), r.album());
 				if (!res) res = compareTrack(l, r);
@@ -128,7 +143,7 @@ public:
 				break;
 
 			default: // ALBUM
-				res = compareCols(l.album(), r.album());
+				res = normalizedCompareCols(l.album(), r.album());
 				if (!res) res = compareCols(l.artist(), r.artist());
 				if (!res) res = compareTrack(l, r);
 				if (!res) res = compareCols(l.title(), r.title());
