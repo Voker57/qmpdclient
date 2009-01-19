@@ -29,5 +29,7 @@ public:
 	MPDSongList();
 	MPDSongList(const QList<MPDSong> &);
 	void sort(int column, Qt::SortOrder order);
+
+	static QString normalizeString(const QString l);
 };
 #endif
