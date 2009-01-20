@@ -22,7 +22,7 @@
 
 #include "ui_librarypanel.h"
 
-class LibraryPanel : public QWidget, private Ui::LibraryPanel {
+class LibraryPanel : public QWidget, public Ui::LibraryPanel {
 	Q_OBJECT
 public:
 	LibraryPanel();

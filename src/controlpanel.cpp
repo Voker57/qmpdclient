@@ -28,6 +28,7 @@
 #include <QShortcut>
 #include <QPixmap>
 #include <QDir>
+#include <QUrl>
 
 ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent),
 		m_coverArt(new CoverArtDialog(this)), m_lyricsDialog(new LyricsDialog(this)) {
@@ -90,16 +91,18 @@ void ControlPanel::setSong(const MPDSong &s) {
 
 	// Ensure labels are not too small if window is hidden
 	const int titleWidth = isVisible() ? titleLabel->width() : width() - 200;
-	const int artistWidth = isVisible() ? artistLabel->width() : width() - 200;
+//	const int artistWidth = isVisible() ? artistLabel->width() : width() - 200;
 	QString title = elideRichText("<h3>", s.title() , "</h3>", titleWidth);
 	QString artist = s.artist();
 	QString album = s.album();
 	if (!artist.isEmpty() && !album.isEmpty())
-		artist = elideRichText("<b>", QString("%1 - %2").arg(artist).arg(album), "</b>", artistWidth);
+		artist = QString(
+"<b><a href='library://%1'>%2</a></b> - <b><a href='library://%1/%3'>%4</a></b>").arg(QUrl::toPercentEncoding(artist), artist, QUrl::toPercentEncoding(album), album);
 	else if (!artist.isEmpty())
-		artist = elideRichText("<b>", artist, "</b>", artistWidth);
+		artist += QString(
+"<b><a href='library://%1'>%2</a></b>").arg(QUrl::toPercentEncoding(artist),artist);
 	else if (!album.isEmpty())
-		artist += elideRichText("<b>", album, "</b>", artistWidth);
+		artist += QString("<b><a href='library://%3/%1'>%2</a></b>").arg(QUrl::toPercentEncoding(album),album, QUrl::toPercentEncoding(artist));
 
 	titleLabel->setText(title);
 	artistLabel->setText(artist);

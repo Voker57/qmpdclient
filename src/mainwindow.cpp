@@ -60,7 +60,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	leftBar->link(leftStack, splitter);
 	rightBar->link(rightStack, splitter);
 	m_playlistTab = leftBar->addPanel(new PlaylistPanel, true);
-	m_libraryTab = rightBar->addPanel(new LibraryPanel);
+	m_libraryTab = rightBar->addPanel(m_libraryPanel = new LibraryPanel);
 	m_directoriesTab = rightBar->addPanel(new DirectoryPanel);
 	m_radioTab = rightBar->addPanel(new RadioPanel);
 	m_playlistsTab = rightBar->addPanel(new PlaylistsPanel);
@@ -102,6 +102,9 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	if (Config::instance()->trayIconEnabled())
 		m_trayIcon->show();
 	connect(m_trayIcon, SIGNAL(clicked()), this, SLOT(showHide()));
+
+	// Labels
+	connect(controlPanel->artistLabel, SIGNAL(linkActivated(QString)), this, SLOT(useLibraryUrl(QString)));
 
 	// Restore state
 	serverListChanged(Config::instance()->servers());
@@ -275,4 +278,41 @@ void MainWindow::updateDone() {
 		statusBar()->showMessage(tr("Done"), 2000);
 	else
 		statusBar()->clearMessage();
+}
+
+void MainWindow::findArtist(QString &name) {
+	m_libraryPanel->artistFilter->setText(name);
+}
+
+void MainWindow::findAlbum(QString &artist, QString &album) {
+	findArtist(artist);
+	m_libraryPanel->albumFilter->setText(album);
+}
+
+void MainWindow::findTrack(QString &artist, QString &album, QString &track) {
+	findAlbum(artist, album);
+	m_libraryPanel->songFilter->setText(track);
+}
+
+void MainWindow::useLibraryUrl(QString url) {
+	if(!url.startsWith("library://"))
+		return;
+	url.remove(0, 10);
+	QStringList list = url.split('/');
+	for(int i=0; i<list.size(); ++i)
+	{
+		list[i]=QUrl::fromPercentEncoding(list[i].toAscii());
+	}
+	switch(list.size())
+	{
+		case 1:
+		findArtist(list[0]);
+		break;
+		case 2:
+		findAlbum(list[0], list[1]);
+		break;
+		case 3:
+		findTrack(list[0], list[1], list[2]);
+		break;
+	}
 }

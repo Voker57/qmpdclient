@@ -27,7 +27,7 @@ class LyricsDialog;
 class MPDSong;
 class QShortcut;
 
-class ControlPanel : public QWidget, private Ui::ControlPanel {
+class ControlPanel : public QWidget, public Ui::ControlPanel {
 	Q_OBJECT
 public:
 	ControlPanel(QWidget *);
