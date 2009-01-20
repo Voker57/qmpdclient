@@ -28,12 +28,16 @@ class ServerInfo;
 class TrayIcon;
 class QProgressBar;
 class QShortcut;
+class LibraryPanel;
 
 class MainWindow : public QMainWindow, private Ui::MainWindow {
 	Q_OBJECT
 
 public:
 	MainWindow();
+	void findArtist(QString &artist);
+	void findAlbum(QString &artist, QString &album);
+	void findTrack(QString &artist, QString &album, QString &track);
 
 public slots:
 	void showHide();
@@ -57,6 +61,7 @@ private slots:
 	void updateStart(int, const QString &);
 	void updateProgress(int);
 	void updateDone();
+	void useLibraryUrl(QString);
 
 private:
 	void retranslate();
@@ -69,5 +74,6 @@ private:
 	QPushButton *m_playlistTab, *m_libraryTab, *m_directoriesTab, *m_radioTab, *m_playlistsTab;
 	QShortcut *m_hideKey;
 	TrayIcon *m_trayIcon;
+	LibraryPanel *m_libraryPanel;
 };
 #endif
