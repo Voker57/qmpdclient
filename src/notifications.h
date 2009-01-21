@@ -22,11 +22,17 @@
 
 #include <QObject>
 
+#include "coverartdialog.h"
+
 class MPDSong;
 class QDBusInterface;
+class CoverArtDialog;
 
-class Notifications : public QObject {
+class Notifications
+	: public QObject
+{
 	Q_OBJECT
+
 public:
 	Notifications(QObject *);
 	enum Type { CUSTOM = 0, FREEDESKTOP = 1 };
@@ -45,6 +51,7 @@ private:
 	bool m_dbus;
 	QDBusInterface *m_interface;
 	QString m_previousUrl;
+	CoverArtDialog *m_coverArt;
 };
 
 #endif

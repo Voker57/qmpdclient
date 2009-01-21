@@ -23,6 +23,7 @@
 #include "notifications.h"
 #include "passivepopup.h"
 #include "richtext.h"
+#include "coverartdialog.h"
 #include <QApplication>
 #include <QDesktopWidget>
 
@@ -56,8 +57,18 @@ void Notifications::notify(const QString &text) {
 		DEBUG("DBus notify failed, falling back to custom notifier.");
 	}
 
+	// TODO: height and width set optionaly
+	QPixmap icon;
+	if (Config::instance()->showCoverArt() && m_coverArt->hasCoverArt()) {
+		icon = m_coverArt->coverArt();
+		if (icon.height() > 64) icon = icon.scaledToHeight(64, Qt::SmoothTransformation);
+		if (icon.width() > 64) icon = icon.scaledToWidth(64, Qt::SmoothTransformation);
+	} else {
+		icon = QPixmap(":/icons/qmpdclient48.png");
+	}
+
 	PassivePopup::Position pos = static_cast<PassivePopup::Position>(Config::instance()->notificationsPosition());
-	new PassivePopup("QMPDClient", text, QPixmap(":/icons/qmpdclient48.png"), pos, Config::instance()->notificationsTimeout());
+	new PassivePopup("QMPDClient", text, icon, pos, Config::instance()->notificationsTimeout());
 }
 
 void Notifications::setSong(const MPDSong &s) {
@@ -71,6 +82,7 @@ void Notifications::setSong(const MPDSong &s) {
 		return;
 	}
 
+	m_coverArt->setSong(s);
 	notify(makeTitle(s));
 
 	m_previousUrl = s.url();
