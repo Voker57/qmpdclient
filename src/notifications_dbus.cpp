@@ -20,22 +20,26 @@
 #include "notifications.h"
 #include "config.h"
 #include "mpd.h"
+
 #include <QApplication>
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QStringList>
 
-Notifications::Notifications(QObject *parent) : QObject(parent),
-		m_dbus(true),
-		m_interface(new QDBusInterface("org.freedesktop.Notifications", "/org/freedesktop/Notifications")) {
+Notifications::Notifications(QObject *parent)
+	: QObject(parent),
+	m_dbus(true),
+	m_interface(new QDBusInterface("org.freedesktop.Notifications", "/org/freedesktop/Notifications")),
+	m_coverArt(new CoverArtDialog(0)) {
 	setObjectName("notifications");
 	connect(MPD::instance(), SIGNAL(playingSongUpdated(const MPDSong &)), this, SLOT(setSong(const MPDSong &)));
 }
 
 bool Notifications::notifyDBus(const QString &text) {
 	Q_ASSERT(m_interface);
-	if (!m_interface->isValid())
-		return false;
+
+	if (!m_interface->isValid()) return false;
+
 	QString member = "Notify";
 	QVariantList params;
 	params << qApp->applicationName() << static_cast<unsigned int>(0);
@@ -43,6 +47,7 @@ bool Notifications::notifyDBus(const QString &text) {
 	params << qApp->applicationName() << text;
 	params << QStringList() << QMap<QString, QVariant>() << Config::instance()->notificationsTimeout()*1000;
 	QDBusMessage reply = m_interface->callWithArgumentList(QDBus::Block, member, params);
+
 	if (reply.type() == QDBusMessage::ErrorMessage) {
 		QDBusError err = reply;
 		qWarning("Error: %s\n%s", qPrintable(err.name()), qPrintable(err.message()));
@@ -51,6 +56,7 @@ bool Notifications::notifyDBus(const QString &text) {
 		qWarning("Invalid reply type %d", int(reply.type()));
 		return false;
 	}
+
 	return true;
 }
 

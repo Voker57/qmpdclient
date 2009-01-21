@@ -22,17 +22,22 @@
 #include "mpd.h"
 #include "mpdsong.h"
 
-Notifications::Notifications(QObject *parent) : QObject(parent),
-		m_dbus(false),
-		m_interface(0) {
+Notifications::Notifications(QObject *parent)
+	: QObject(parent),
+	m_dbus(false),
+	m_interface(0),
+	m_coverArt(new CoverArtDialog(0))
+{
 	setObjectName("notifications");
 	connect(MPD::instance(), SIGNAL(playingSongUpdated(const MPDSong &)), this, SLOT(setSong(const MPDSong &)));
 }
 
-bool Notifications::notifyDBus(const QString &) {
+bool Notifications::notifyDBus(const QString &)
+{
 	return false;
 }
 
-QList<Notifications::Type> Notifications::notifiers() {
+QList<Notifications::Type> Notifications::notifiers()
+{
 	return QList<Type>() << CUSTOM;
 }
