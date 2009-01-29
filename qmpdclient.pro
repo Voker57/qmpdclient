@@ -40,6 +40,7 @@ HEADERS += src/aafilter.h \
     src/abstractview_impl.h \
     src/albumview.h \
     src/artistview.h \
+    src/clickablelabel.h \
     src/config.h \
     src/controlpanel.h \
     src/coverartdialog.h \
@@ -111,6 +112,7 @@ SOURCES += src/aafilter.cpp \
     src/abstractview.cpp \
     src/albumview.cpp \
     src/artistview.cpp \
+    src/clickablelabel.cpp \
     src/config.cpp \
     src/controlpanel.cpp \
     src/coverartdialog.cpp \
