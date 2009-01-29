@@ -39,7 +39,6 @@
 #include <QDesktopWidget>
 #include <QProgressBar>
 #include <QShortcut>
-#include <QDebug> 		// XXX
 
 MainWindow::MainWindow() : QMainWindow(0) {
 	setupUi(this);
@@ -328,6 +327,7 @@ void MainWindow::rightStackCurrentChanged(int index) {
 
 void MainWindow::shortAnnounce(QString str) {
 	statusBar()->showMessage(str, 5000);
+}
 
 /**
  * Jump to the currently playing song (select in artist/album/song list)
@@ -342,10 +342,6 @@ void MainWindow::jumpToCurrentSong() {
 	// XXX set the focus to the libary tab
 
 	// Get current song name, album, artist and go update stuff
-	
-	// XXX figure out a way to clear without having to reload all songs
-	m_libraryPanel->artistView->clearSelection();
 	m_libraryPanel->artistView->selectString(m_song.artist());
-	m_libraryPanel->albumView->clearSelection();
 	m_libraryPanel->albumView->selectString(m_song.album());
 }
