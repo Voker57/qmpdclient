@@ -34,6 +34,10 @@ void StringListModel::setShowAll(bool a) {
 	reset();
 }
 
+bool StringListModel::showAll() const{
+	return m_showAll;
+}
+
 QVariant StringListModel::data(const QModelIndex &index, int role) const {
 	if (!index.isValid() || index.row() < 0 || index.row() > m_list.size())
 		return QVariant();

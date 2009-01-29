@@ -45,6 +45,25 @@ MPDSongList StringListView::selectedSongs() const {
 }
 
 /**
+ * Given a string, select it
+ * Do nothing if string can not be found
+ */
+void StringListView::selectString(const QString &str) {
+
+	// search the list to see if we can find the entry
+	int index = m_strings.indexOf(str);
+	if (index < 0)
+		return;
+
+	if (m_model->showAll())
+		index++;
+
+	setCurrentIndex(m_model->index(index));
+	selectionChanged();
+}
+
+
+/**
  * Return a string with "The " lopped off, if it exists
  */
 QString StringListView::normalizeString(const QString l) {

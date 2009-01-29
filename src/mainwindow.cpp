@@ -333,8 +333,18 @@ void MainWindow::shortAnnounce(QString str) {
  * If no song is being played, do not jump.
  */
 void MainWindow::jumpToCurrentSong() {
-	// find if song is being played, 
-	// if not, return early
+	MPD * inst = MPD::instance();
+	if (!(inst->isPlaying() || inst->isPaused())) {
+		return;
+	}
+
+	// XXX set the focus to the libary tab
+
+	// Get current song name, album, artist and go update stuff
 	
-	// Get current song name, album, artist
+	// XXX figure out a way to clear without having to reload all songs
+	m_libraryPanel->artistView->clearSelection();
+	m_libraryPanel->artistView->selectString(m_song.artist());
+	m_libraryPanel->albumView->clearSelection();
+	m_libraryPanel->albumView->selectString(m_song.album());
 }
