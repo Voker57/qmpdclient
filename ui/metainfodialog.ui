@@ -60,8 +60,8 @@
       </spacer>
      </item>
      <item>
-	  <widget class="ClickableLabel" name="l_coverArt">
-       <property name="text">
+      <widget class="ClickableLabel" name="l_coverArt" native="true">
+       <property name="text" stdset="0">
         <string/>
        </property>
       </widget>
@@ -350,6 +350,13 @@
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ClickableLabel</class>
+   <extends>QWidget</extends>
+   <header>clickablelabel.h</header>
+  </customwidget>
+ </customwidgets>
  <tabstops>
   <tabstop>okButton</tabstop>
   <tabstop>prevButton</tabstop>
