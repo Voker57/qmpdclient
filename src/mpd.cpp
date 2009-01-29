@@ -136,6 +136,16 @@ int MPD::crossfade() const {
 	return d->isConnected() ? d->status.crossfade() : 0;
 }
 
+bool MPD::isPlaying() const {
+	Q_ASSERT(d);
+	return d->isPlaying();
+}
+
+bool MPD::isPaused() const {
+	Q_ASSERT(d);
+	return d->isPaused();
+}
+
 void MPD::toggleOutputDevice(int id, bool enable) const {
 	Q_ASSERT(d);
 	if (!d->isConnected())

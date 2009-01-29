@@ -39,6 +39,9 @@ public:
 	void removeSongs(const MPDSongList &songs) const;
 	void jumpPlaylistSong(const MPDSong &song) const;
 
+	bool isPlaying() const;
+	bool isPaused() const;
+
 	// Server
 	int crossfade() const;
 	void toggleOutputDevice(int id, bool enabled) const;
