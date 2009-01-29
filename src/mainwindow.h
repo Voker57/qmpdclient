@@ -64,6 +64,7 @@ private slots:
 	void updateDone();
 	void useLibraryUrl(QString);
 	void rightStackCurrentChanged(int);
+	void jumpToCurrentSong();
 
 private:
 	void retranslate();

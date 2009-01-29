@@ -87,6 +87,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	// Menu action signals
 	connect(disconnectMenu, SIGNAL(triggered()), MPDConnection::instance(), SLOT(disconnectFromMPD()));
 	connect(rescanMenu, SIGNAL(triggered()), MPDCache::instance(), SLOT(rescan()));
+	connect(jumpToSong, SIGNAL(triggered()), this, SLOT(jumpToCurrentSong()));
 	connect(aboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 	connect(quitMenu, SIGNAL(triggered()), qApp, SLOT(quit()));
 	connect(rightStack, SIGNAL(currentChanged(int)), this, SLOT(rightStackCurrentChanged(int)));
@@ -326,4 +327,14 @@ void MainWindow::rightStackCurrentChanged(int index) {
 
 void MainWindow::shortAnnounce(QString str) {
 	statusBar()->showMessage(str, 5000);
+
+/**
+ * Jump to the currently playing song (select in artist/album/song list)
+ * If no song is being played, do not jump.
+ */
+void MainWindow::jumpToCurrentSong() {
+	// find if song is being played, 
+	// if not, return early
+	
+	// Get current song name, album, artist
 }

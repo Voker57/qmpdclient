@@ -97,6 +97,8 @@
     <addaction name="disconnectMenu" />
     <addaction name="rescanMenu" />
     <addaction name="separator" />
+    <addaction name="jumpToSong" />
+    <addaction name="separator" />
     <addaction name="preferencesMenu" />
     <addaction name="separator" />
     <addaction name="quitMenu" />
@@ -167,6 +169,20 @@
    </property>
    <property name="shortcut" >
     <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="jumpToSong" >
+   <property name="text" >
+    <string>&amp;Jump To Current Song...</string>
+   </property>
+   <property name="statusTip" >
+    <string>Jump to current song...</string>
+   </property>
+   <property name="whatsThis" >
+    <string>Jump to current song...</string>
+   </property>
+   <property name="shortcut" >
+    <string>Ctrl+J</string>
    </property>
   </action>
   <action name="preferencesMenu" >
