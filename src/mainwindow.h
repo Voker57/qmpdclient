@@ -60,6 +60,7 @@ private slots:
 	void updateProgress(int);
 	void updateDone();
 	void rightStackCurrentChanged(int);
+	void jumpToCurrentSong();
 	void playlistUpdated(const MPDSongList &);
 
 private:

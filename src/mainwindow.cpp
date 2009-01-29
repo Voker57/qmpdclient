@@ -90,6 +90,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	// Menu action signals
 	connect(disconnectMenu, SIGNAL(triggered()), MPDConnection::instance(), SLOT(disconnectFromMPD()));
 	connect(rescanMenu, SIGNAL(triggered()), MPDCache::instance(), SLOT(rescan()));
+	connect(jumpToSong, SIGNAL(triggered()), this, SLOT(jumpToCurrentSong()));
 	connect(aboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 	connect(quitMenu, SIGNAL(triggered()), qApp, SLOT(quit()));
 	connect(rightStack, SIGNAL(currentChanged(int)), this, SLOT(rightStackCurrentChanged(int)));
@@ -299,6 +300,16 @@ void MainWindow::playlistUpdated(const MPDSongList &list)
 	for(MPDSongList::const_iterator it = list.constBegin(); it != list.constEnd(); ++it)
 	{
 		tsecs+=(*it).secs();
+
+/**
+ * Jump to the currently playing song (select in artist/album/song list)
+ * If no song is being played, do not jump.
+ */
+void MainWindow::jumpToCurrentSong() {
+	// find if song is being played, 
+	// if not, return early
+	
+	// Get current song name, album, artist
 	}
 	const int day = tsecs / (60 * 60 * 24);
 	tsecs -= day * 60 * 60 * 24;
