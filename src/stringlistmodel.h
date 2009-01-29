@@ -34,6 +34,7 @@ public:
 	QString string(const QModelIndex &) const;
 	QStringList stringList(const QModelIndexList &) const;
 	QStringList stringList() const;
+	bool showAll() const;
 	void setStringList(const QStringList &);
 	void setShowAll(bool);
 	int rowCount(const QModelIndex & = QModelIndex()) const;
