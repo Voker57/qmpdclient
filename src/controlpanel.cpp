@@ -107,15 +107,17 @@ void ControlPanel::setSong(const MPDSong &s) {
 	titleLabel->setText(title);
 	artistLabel->setText(artist);
 
-	m_coverArt->setSong(s);
 	m_lyricsDialog->setSong(s);
 	if(!m_lyricsDialog->isHidden()) m_lyricsDialog->updateLyrics();
-	const bool hasCoverArt = m_coverArt->hasCoverArt();
-	if (hasCoverArt) {
-		coverArtButton->setIcon(m_coverArt->coverArt());
-		coverArtButton->setIconSize(QSize(50, 50));
+	if (Config::instance()->showCoverArt()) {
+		m_coverArt->setSong(s);
+		if (m_coverArt->hasCoverArt()) {
+			coverArtButton->setIcon(m_coverArt->coverArt());
+			coverArtButton->setIconSize(QSize(50, 50));
+			coverArtButton->setVisible(true);
+		}
+		else coverArtButton->setVisible(false);
 	}
-	coverArtButton->setVisible(Config::instance()->showCoverArt() && hasCoverArt);
 }
 
 void ControlPanel::showCoverArtChanged(bool a) {

@@ -17,35 +17,23 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
-#ifndef METAINFODIALOG_H
-#define METAINFODIALOG_H
+#include <QMouseEvent>
 
-#include "ui_metainfodialog.h"
-#include "mpdsonglist.h"
-#include "coverartdialog.h"
+#include "clickablelabel.h"
 
-class CoverArtDialog;
-
-class MetaInfoDialog
-	: public QDialog,
-	private Ui::MetaInfoDialog
+ClickableLabel::ClickableLabel(QWidget * parent, Qt::WindowFlags f)
+	:QLabel(parent, f)
 {
-	Q_OBJECT
+}
 
-public:
-	MetaInfoDialog(QWidget *, const MPDSongList &);
+ClickableLabel::~ClickableLabel()
+{
+}
 
-private slots:
-	void on_nextButton_clicked();
-	void on_prevButton_clicked();
-
-private:
-	void setSong();
-	void setFieldsVisible(bool);
-
-	int m_pos;
-	MPDSongList m_songs;
-	CoverArtDialog *m_coverArt;
-};
-
-#endif
+void ClickableLabel::mouseReleaseEvent(QMouseEvent * event)
+{
+	if (event->button() == Qt::LeftButton) {
+		emit clicked();
+	}
+	QLabel::mouseReleaseEvent(event);
+}
