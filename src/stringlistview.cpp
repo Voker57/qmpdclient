@@ -24,6 +24,7 @@
 #include "stringlistview.h"
 #include <QMap>
 #include <QMenu>
+#include <QItemSelectionModel>
 
 StringListView::StringListView(QWidget *parent) : AbstractList(parent) {
 	Q_ASSERT(m_menu);
@@ -58,8 +59,8 @@ void StringListView::selectString(const QString &str) {
 	if (m_model->showAll())
 		index++;
 
-	setCurrentIndex(m_model->index(index));
-	selectionChanged();
+	selectionModel()->setCurrentIndex(m_model->index(index), 
+			QItemSelectionModel::ClearAndSelect);
 }
 
 
