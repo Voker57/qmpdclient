@@ -25,8 +25,7 @@
 MetaInfoDialog::MetaInfoDialog(QWidget *parent, const MPDSongList &songs)
 	: QDialog(parent),
 	m_pos(0),
-	m_coverArt(new CoverArtDialog(this))
-{
+	m_coverArt(new CoverArtDialog(this)) {
 	setAttribute(Qt::WA_DeleteOnClose, true);
 
 	m_songs = songs;
@@ -48,8 +47,7 @@ MetaInfoDialog::MetaInfoDialog(QWidget *parent, const MPDSongList &songs)
 	show();
 }
 
-void MetaInfoDialog::setFieldsVisible(bool e)
-{
+void MetaInfoDialog::setFieldsVisible(bool e) {
 	artistEdit->setVisible(e);
 	albumEdit->setVisible(e);
 	trackEdit->setVisible(e);
@@ -72,8 +70,7 @@ void MetaInfoDialog::setFieldsVisible(bool e)
 	performerLabel->setVisible(e);
 }
 
-void MetaInfoDialog::setSong()
-{
+void MetaInfoDialog::setSong() {
 	progressLabel->setText(QString(tr("(%1 of %2)", "This is used in the context 'File number (%1 of %2)'.")).arg(m_pos + 1).arg(m_songs.size()));
 	MPDSong song = m_songs.at(m_pos);
 
@@ -104,16 +101,14 @@ void MetaInfoDialog::setSong()
 	performerEdit->setText(song.performer());
 }
 
-void MetaInfoDialog::on_nextButton_clicked()
-{
+void MetaInfoDialog::on_nextButton_clicked() {
 	m_pos++;
 	nextButton->setEnabled(m_pos < m_songs.size() - 1);
 	prevButton->setEnabled(true);
 	setSong();
 }
 
-void MetaInfoDialog::on_prevButton_clicked()
-{
+void MetaInfoDialog::on_prevButton_clicked() {
 	m_pos--;
 	prevButton->setEnabled(m_pos > 0);
 	nextButton->setEnabled(true);

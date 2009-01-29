@@ -28,8 +28,7 @@ class CoverArtDialog;
 
 class MetaInfoDialog
 	: public QDialog,
-	private Ui::MetaInfoDialog
-{
+	private Ui::MetaInfoDialog {
 	Q_OBJECT
 
 public:
