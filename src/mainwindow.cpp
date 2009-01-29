@@ -39,6 +39,7 @@
 #include <QDesktopWidget>
 #include <QProgressBar>
 #include <QShortcut>
+#include <QDebug> 		// XXX
 
 MainWindow::MainWindow() : QMainWindow(0) {
 	setupUi(this);
