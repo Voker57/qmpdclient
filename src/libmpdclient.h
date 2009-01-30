@@ -1,5 +1,5 @@
 /* libmpdclient
-   (c)2003-2006 by Warren Dukes (warren.dukes@gmail.com)
+   (c) 2003-2008 The Music Player Daemon Project
    This project's homepage is: http://www.musicpd.org
 
    Redistribution and use in source and binary forms, with or without
@@ -39,6 +39,10 @@
 
 #include <sys/time.h>
 #include <stdarg.h>
+#ifdef MPD_GLIB
+#include <glib.h>
+#endif
+
 #define MPD_BUFFER_MAX_LENGTH	50000
 #define MPD_ERRORSTR_MAX_LENGTH	1000
 #define MPD_WELCOME_MESSAGE	"OK MPD "
@@ -93,13 +97,37 @@ typedef enum mpd_TagItems
 	MPD_TAG_NUM_OF_ITEM_TYPES
 } mpd_TagItems;
 
-extern char * mpdTagItemKeys[MPD_TAG_NUM_OF_ITEM_TYPES];
+extern const char *const mpdTagItemKeys[MPD_TAG_NUM_OF_ITEM_TYPES];
 
 /* internal stuff don't touch this struct */
 typedef struct _mpd_ReturnElement {
 	char * name;
 	char * value;
 } mpd_ReturnElement;
+
+enum {
+	/** song database has been updated*/
+	IDLE_DATABASE = 0x1,
+
+	/** a stored playlist has been modified, created, deleted or
+	    renamed */
+	IDLE_STORED_PLAYLIST = 0x2,
+
+	/** the current playlist has been modified */
+	IDLE_PLAYLIST = 0x4,
+
+	/** the player state has changed: play, stop, pause, seek, ... */
+	IDLE_PLAYER = 0x8,
+
+	/** the volume has been modified */
+	IDLE_MIXER = 0x10,
+
+	/** an audio output device has been enabled or disabled */
+	IDLE_OUTPUT = 0x20,
+
+	/** options have changed: crossfade, random, repeat, ... */
+	IDLE_OPTIONS = 0x40,
+};
 
 /* mpd_Connection
  * holds info about connection to mpd
@@ -126,7 +154,17 @@ typedef struct _mpd_Connection {
 	mpd_ReturnElement * returnElement;
 	struct timeval timeout;
 	char *request;
+	int idle;
+	void (*notify_cb) (struct _mpd_Connection *connection, unsigned flags, void *userdata);
+	void (*startIdle) (struct _mpd_Connection *connection);
+	void (*stopIdle) (struct _mpd_Connection *connection);
+	void *userdata;
+#ifdef MPD_GLIB
+        int source_id;
+#endif
 } mpd_Connection;
+
+typedef void (*mpd_NotificationCb) (mpd_Connection *connection, unsigned flags, void *userdata);
 
 /* mpd_newConnection
  * use this to open a new connection
@@ -308,7 +346,7 @@ void mpd_freeSong(mpd_Song * song);
 /* mpd_songDup
  * works like strDup, but for a mpd_Song
  */
-mpd_Song * mpd_songDup(mpd_Song * song);
+mpd_Song * mpd_songDup(const mpd_Song * song);
 
 /* DIRECTORY STUFF */
 
@@ -334,7 +372,7 @@ void mpd_freeDirectory(mpd_Directory * directory);
 /* mpd_directoryDup
  * works like strdup, but for mpd_Directory
  */
-mpd_Directory * mpd_directoryDup(mpd_Directory * directory);
+mpd_Directory * mpd_directoryDup(const mpd_Directory * directory);
 
 /* PLAYLISTFILE STUFF */
 
@@ -360,7 +398,7 @@ void mpd_freePlaylistFile(mpd_PlaylistFile * playlist);
 /* mpd_playlistFileDup
  * works like strdup, but for mpd_PlaylistFile
  */
-mpd_PlaylistFile * mpd_playlistFileDup(mpd_PlaylistFile * playlist);
+mpd_PlaylistFile * mpd_playlistFileDup(const mpd_PlaylistFile * playlist);
 
 /* INFO ENTITY STUFF */
 
@@ -516,7 +554,7 @@ void mpd_sendVolumeCommand(mpd_Connection * connection, int volumeChange);
 
 void mpd_sendCrossfadeCommand(mpd_Connection * connection, int seconds);
 
-void mpd_sendUpdateCommand(mpd_Connection * connection, const char * path);
+void mpd_sendUpdateCommand(mpd_Connection * connection, const char *path);
 
 /* returns the update job id, call this after a update command*/
 int mpd_getUpdateId(mpd_Connection * connection);
@@ -663,6 +701,15 @@ void mpd_sendPlaylistMoveCommand(mpd_Connection *connection,
 
 void mpd_sendPlaylistDeleteCommand(mpd_Connection *connection,
                                    char *playlist, int pos);
+
+void mpd_startIdle(mpd_Connection *connection, mpd_NotificationCb notify_cb, void *userdata);
+
+void mpd_stopIdle(mpd_Connection *connection);
+
+#ifdef MPD_GLIB
+void mpd_glibInit(mpd_Connection *connection);
+#endif
+
 #ifdef __cplusplus
 }
 #endif
