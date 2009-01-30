@@ -405,7 +405,13 @@ void MPDCachePrivate::load() {
 	if (cachePath.isNull() || server.isNull())
 		return;
 
-	QFile in(QString("%1%2_%3.cache").arg(cachePath).arg(server.address()).arg(server.port()));
+	QString file(QString("%1%2_%3.cache").arg(cachePath).arg(server.address()).arg(server.port()));
+	if (server.address().startsWith('/')) {
+		file = QString("%1%2.cache").arg(cachePath).arg(server.address().replace('/', "_"));
+	}
+
+	QFile in(file);
+
 	if (!in.open(QIODevice::ReadOnly)) {
 		DEBUG("Could not open cache for reading: %s", qPrintable(in.fileName()));
 		return;
@@ -490,7 +496,14 @@ void MPDCachePrivate::save() {
 	if (cachePath.isNull() || server.isNull())
 		return;
 
-	QFile in(QString("%1%2_%3.cache").arg(cachePath).arg(server.address()).arg(server.port()));
+	QString file(QString("%1%2_%3.cache").arg(cachePath).arg(server.address()).arg(server.port()));
+
+	if (server.address().startsWith("/")) {
+		file = QString("%1%2.cache").arg(cachePath).arg(server.address().replace('/', "_"));
+	}
+
+	QFile in(file);
+
 	if (!in.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
 		DEBUG("Could not open cache for writing: %s", qPrintable(in.fileName()));
 		return;
