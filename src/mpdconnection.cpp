@@ -216,12 +216,12 @@ bool MPDConnection::finishCommand() {
 			case MPD_ERROR_SENDING:
 			case MPD_ERROR_CONNCLOSED:
 				// These are the serious errors. Set errormsg.
-				qWarning("Error: `%s´ (error code %d). Disconnecting.", qPrintable(errormsg), d->connection->error);
+				qWarning("Error: `%s (error code %d). Disconnecting.", qPrintable(errormsg), d->connection->error);
 				disconnectFromMPD(errormsg);
 				return false;
 			default:
 				// Just warnings. We ignore them.
-				qWarning("Warning: `%s´ (error code %d). Ignoring.", qPrintable(errormsg), d->connection->error);
+				qWarning("Warning: `%s (error code %d). Ignoring.", qPrintable(errormsg), d->connection->error);
 		}
 		qWarning("Problem occured while executing command: %s, called from: %s", qPrintable(d->command), qPrintable(d->caller));
 		d->caller = d->command = QString();
