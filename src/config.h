@@ -120,7 +120,6 @@ public:
 	// View's properties
 	void setHeaderViewState(const QString &, const QByteArray &);
 	QByteArray headerViewState(const QString &) const;
-	void setRightStackMode(int);
 
 	// Radio stations
 	void addRadioStation(const QString &title, const QString &url);
