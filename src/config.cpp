@@ -521,6 +521,10 @@ void Config::setRightBarTab(int t) {
 	setValue("/qmpdclient/righttab", t);
 }
 
+int Config::rightBarTab() {
+	return value("/qmpdclient/righttab").toInt();
+}
+
 void Config::setDirectorySplitterSizes(const QByteArray &l) {
 	setValue("/qmpdclient/directorysplittersizes", l);
 }

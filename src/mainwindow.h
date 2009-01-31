@@ -62,6 +62,7 @@ private slots:
 	void updateProgress(int);
 	void updateDone();
 	void useLibraryUrl(QString);
+	void rightStackCurrentChanged(int);
 
 private:
 	void retranslate();
