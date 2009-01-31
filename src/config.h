@@ -108,6 +108,7 @@ public:
 	void setMainSplitterSizes(const QByteArray &);
 	void setPlaylistsSplitterSizes(const QByteArray &);
 	void setRightBarTab(int);
+	int rightBarTab();
 	void setWindowSize(const QSize &);
 	QByteArray directorySplitterSizes() const;
 	QByteArray libraryHSplitterSizes() const;
@@ -119,6 +120,7 @@ public:
 	// View's properties
 	void setHeaderViewState(const QString &, const QByteArray &);
 	QByteArray headerViewState(const QString &) const;
+	void setRightStackMode(int);
 
 	// Radio stations
 	void addRadioStation(const QString &title, const QString &url);
@@ -142,6 +144,7 @@ public slots:
 	void setRecurse(bool);
 	void setShowAll(bool);
 	void setShowRemaining(bool);
+
 	// Look and feel subpages
 	void setFilterByAlbumOnly(bool);
 	void setIconSet(const QString &);

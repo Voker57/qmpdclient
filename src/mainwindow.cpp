@@ -88,6 +88,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	connect(rescanMenu, SIGNAL(triggered()), MPDCache::instance(), SLOT(rescan()));
 	connect(aboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 	connect(quitMenu, SIGNAL(triggered()), qApp, SLOT(quit()));
+	connect(rightStack, SIGNAL(currentChanged(int)), this, SLOT(rightStackCurrentChanged(int)));
 
 	// Config signals
 	connect(Config::instance(), SIGNAL(serverListChanged(const QList<ServerInfo> &)), this, SLOT(serverListChanged(const QList<ServerInfo> &)));
@@ -112,6 +113,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	resize(Config::instance()->windowSize());
 	if (!m_trayIcon->isVisible() || !Config::instance()->trayIconEnabled() || !Config::instance()->startHidden())
 		show();
+	rightStack->setCurrentIndex(Config::instance()->rightBarTab());
 }
 
 void MainWindow::updateTranslation() {
@@ -315,4 +317,9 @@ void MainWindow::useLibraryUrl(QString url) {
 		findTrack(list[0], list[1], list[2]);
 		break;
 	}
+}
+
+void MainWindow::rightStackCurrentChanged(int index)
+{
+	Config::instance()->setRightBarTab(index);
 }

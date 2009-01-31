@@ -521,6 +521,10 @@ void Config::setRightBarTab(int t) {
 	setValue("/qmpdclient/righttab", t);
 }
 
+int Config::rightBarTab() {
+	return value("/qmpdclient/righttab").toInt();
+}
+
 void Config::setDirectorySplitterSizes(const QByteArray &l) {
 	setValue("/qmpdclient/directorysplittersizes", l);
 }
@@ -629,5 +633,3 @@ void Config::setLastFmUsername(const QString &s) {
 void Config::setLastFmPassword(const QString &s) {
 	setValue("/lastfm/password", s);
 }
-
-
