@@ -45,5 +45,7 @@ private:
 	LyricsDialog *m_lyricsDialog;
 	LastFmSubmitter * m_lastFm;
 	QShortcut *m_fwdKey, *m_rwdKey, *m_volUpKey, *m_volDnKey;
+signals:
+	void infoMsg(QString);
 };
 #endif

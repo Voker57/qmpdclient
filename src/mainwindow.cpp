@@ -82,6 +82,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	connect(MPDCache::instance(), SIGNAL(updateStart(int, const QString &)), this, SLOT(updateStart(int, const QString &)));
 	connect(MPDCache::instance(), SIGNAL(updateProgress(int)), this, SLOT(updateProgress(int)));
 	connect(MPDCache::instance(), SIGNAL(updateDone()), this, SLOT(updateDone()));
+	connect(controlPanel, SIGNAL(infoMsg(QString)),this, SLOT(shortAnnounce(QString)));
 
 	// Menu action signals
 	connect(disconnectMenu, SIGNAL(triggered()), MPDConnection::instance(), SLOT(disconnectFromMPD()));
@@ -322,4 +323,9 @@ void MainWindow::useLibraryUrl(QString url) {
 void MainWindow::rightStackCurrentChanged(int index)
 {
 	Config::instance()->setRightBarTab(index);
+}
+
+void MainWindow::shortAnnounce(QString str)
+{
+	statusBar()->showMessage(str, 5000);
 }

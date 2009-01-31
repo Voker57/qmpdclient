@@ -54,6 +54,7 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), 	m_coverArt(new C
 	connect(Config::instance(), SIGNAL(showCoverArtChanged(bool)), this, SLOT(showCoverArtChanged(bool)));
 	connect(coverArtButton, SIGNAL(clicked()), m_coverArt, SLOT(show()));
 	connect(lyricsButton, SIGNAL(clicked()), m_lyricsDialog, SLOT(show()));
+	connect(m_lastFm, SIGNAL(infoMsg(QString)), this, SIGNAL(infoMsg(QString)));
 
 	// Short cuts
 	m_fwdKey = new QShortcut(Qt::CTRL | Qt::Key_Right, this);

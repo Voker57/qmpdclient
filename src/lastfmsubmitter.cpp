@@ -87,11 +87,13 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s) {
 void LastFmSubmitter::stageCurrentTrack() {
 	// qDebug() << "timer fired";
 	m_songQueue.enqueue(QPair<MPDSong, int>(m_currentSong, m_currentStarted));
+	emit infoMsg(tr("Will scrobble this track."));
 }
 
 void LastFmSubmitter::scrobbleSongs() {
 	QString data = QString("s=%1&").arg(m_session);
 	int i = 0;
+	emit infoMsg(tr("Scrobbling %1 songs...").arg(m_songQueue.size()));
 	while(!m_songQueue.isEmpty())
 	{
 		QPair<MPDSong, int> sPair = m_songQueue.dequeue();
@@ -158,7 +160,10 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 		if(reqUrl.toString() == m_subUrl)
 		{
 			if(data[0] == "OK")
+			{
 				m_songQueue.clear();
+				emit infoMsg(tr("Successfully scrobbled"));
+			}
 		}
 		// Was i bad player and now there's bad session?
 		if(data[0] == "BADSESSION")

@@ -57,7 +57,8 @@ protected slots:
 	void gotNetReply(QNetworkReply *);
 	void stageCurrentTrack();
 	void sendNowPlaying();
-
+signals:
+	void infoMsg(QString);
 };
 
 #endif // LASTFMSUBMITTER_H
