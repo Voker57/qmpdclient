@@ -320,12 +320,10 @@ void MainWindow::useLibraryUrl(QString url) {
 	}
 }
 
-void MainWindow::rightStackCurrentChanged(int index)
-{
+void MainWindow::rightStackCurrentChanged(int index) {
 	Config::instance()->setRightBarTab(index);
 }
 
-void MainWindow::shortAnnounce(QString str)
-{
+void MainWindow::shortAnnounce(QString str) {
 	statusBar()->showMessage(str, 5000);
 }
