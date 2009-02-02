@@ -96,13 +96,11 @@ void ControlPanel::setSong(const MPDSong &s) {
 	QString artist = s.artist();
 	QString album = s.album();
 	if (!artist.isEmpty() && !album.isEmpty())
-		artist = QString(
-"<b><a href='library://%1'>%2</a></b> - <b><a href='library://%1/%3'>%4</a></b>").arg(QUrl::toPercentEncoding(artist), artist, QUrl::toPercentEncoding(album), album);
+		artist = QString("<b>%1</b> - <b>%2</b>").arg(artist, album);
 	else if (!artist.isEmpty())
-		artist += QString(
-"<b><a href='library://%1'>%2</a></b>").arg(QUrl::toPercentEncoding(artist),artist);
+		artist += QString("<b>%1</b>").arg(artist);
 	else if (!album.isEmpty())
-		artist += QString("<b><a href='library://%3/%1'>%2</a></b>").arg(QUrl::toPercentEncoding(album),album, QUrl::toPercentEncoding(artist));
+		artist += QString("<b>%1</b>").arg(album);
 
 	titleLabel->setText(title);
 	artistLabel->setText(artist);
