@@ -54,5 +54,7 @@ void Reconnect::disconnected(const QString &error) {
 }
 
 void Reconnect::reconnect() {
+	if (m_server.isNull())
+		return;
 	MPDConnection::instance()->connectToMPD(m_server);
 }
