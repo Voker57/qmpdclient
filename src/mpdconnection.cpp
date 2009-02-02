@@ -203,8 +203,8 @@ QList<MPDOutput> MPDConnection::outputs() {
 }
 
 bool MPDConnection::finishCommand() {
-	mpd_finishCommand(d->connection);
-	if (d->connection->error) {
+	if (d->connection->error)
+	 {
 		QString errormsg = QString::fromUtf8(d->connection->errorStr).replace("\n", "");
 		switch (d->connection->error) {
 			case MPD_ERROR_TIMEOUT:
@@ -227,7 +227,8 @@ bool MPDConnection::finishCommand() {
 		d->caller = d->command = QString();
 		mpd_clearError(d->connection);
 		return false;
-	}
+	} else
+		mpd_finishCommand(d->connection);
 	// Clear error code, just in case.
 	mpd_clearError(d->connection);
 	return true;
