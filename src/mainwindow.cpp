@@ -323,3 +323,6 @@ void MainWindow::rightStackCurrentChanged(int index)
 {
 	Config::instance()->setRightBarTab(index);
 }
+
+	// Select library tab
+	m_libraryTab->click();
