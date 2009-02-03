@@ -340,7 +340,8 @@ void MainWindow::jumpToCurrentSong() {
 	}
 
 	// Select library tab
-	m_libraryTab->click();
+	// this may be not the perfect solution
+	rightStack->setCurrentIndex(0);
 
 	// Get current song name, album, artist and go update stuff
 	m_libraryPanel->artistView->selectString(m_song.artist());
