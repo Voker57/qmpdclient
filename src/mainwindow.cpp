@@ -325,4 +325,5 @@ void MainWindow::rightStackCurrentChanged(int index)
 }
 
 	// Select library tab
-	m_libraryTab->click();
+	// this may be not the perfect solution
+	rightStack->setCurrentIndex(0);
