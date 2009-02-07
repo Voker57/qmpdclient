@@ -215,6 +215,7 @@ QList<QPointer<QObject> > QMPDClient::safeChildren() {
 int g_debugLevel = 0; // Reference to global debug variable declared in debug.h
 
 int main(int argc, char **argv) {
+	QMPDClient app(argc, argv);
 	for (int i = 0; i < argc; i++) {
 		const QString arg = QString::fromLocal8Bit(argv[i]);
 		if (arg.startsWith("-v")) {
@@ -223,5 +224,5 @@ int main(int argc, char **argv) {
 			break;
 		}
 	}
-	return QMPDClient(argc, argv).exec();
+	return app.exec();
 }
