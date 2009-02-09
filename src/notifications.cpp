@@ -19,7 +19,6 @@
 
 #include "config.h"
 #include "debug.h"
-#include "mpdsong.h"
 #include "notifications.h"
 #include "passivepopup.h"
 #include "richtext.h"
@@ -72,18 +71,13 @@ void Notifications::notify(const QString &text) {
 }
 
 void Notifications::setSong(const MPDSong &s) {
-	if (s.isNull()) {
-		m_previousUrl = QString();
-		return;
-	}
-
-	if (m_previousUrl == s.url() || !Config::instance()->notificationsEnabled() || Config::instance()->notificationsTimeout() < 1) {
-		m_previousUrl = s.url();
+	if (m_previousSong == s || !Config::instance()->notificationsEnabled() || Config::instance()->notificationsTimeout() < 1) {
+		m_previousSong = s;
 		return;
 	}
 
 	m_coverArt->setSong(s);
 	notify(makeTitle(s));
 
-	m_previousUrl = s.url();
+	m_previousSong = s;
 }
