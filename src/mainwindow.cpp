@@ -106,9 +106,6 @@ MainWindow::MainWindow() : QMainWindow(0) {
 		m_trayIcon->show();
 	connect(m_trayIcon, SIGNAL(clicked()), this, SLOT(showHide()));
 
-	// Labels
-	connect(controlPanel->artistLabel, SIGNAL(linkActivated(QString)), this, SLOT(useLibraryUrl(QString)));
-
 	// Restore state
 	serverListChanged(Config::instance()->servers());
 	splitter->restore(Config::instance()->mainSplitterSizes());
