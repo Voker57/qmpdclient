@@ -52,6 +52,12 @@ void LastFmSubmitter::setSong(const MPDSong & s) {
 	{
 		m_currentSong = s;
 		m_currentStarted = time(NULL);
+		if(s.type() == MPDSong::PLAYLISTSTREAM)
+		{
+			m_scrobbleTimer->setInterval(60*1000); // How else should i handle _stream_?
+			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
+			m_scrobbleTimer->start();
+		} else
 		if(s.secs() > 30)
 		{
 			m_scrobbleTimer->setInterval((s.secs() < 480 ? s.secs()/2 : 240) * 1000);
