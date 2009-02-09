@@ -136,7 +136,7 @@ void LastFmSubmitter::doHandshake() {
 	hsUrl.addQueryItem("hs", "true");
 	hsUrl.addQueryItem("p", "1.2.1");
 	hsUrl.addQueryItem("c", "qmn");
-	hsUrl.addQueryItem("v", "1.0.9");
+	hsUrl.addQueryItem("v", VERSION);
 	hsUrl.addQueryItem("u", Config::instance()->lastFmUsername());
 	hsUrl.addQueryItem("t", QString::number(time(NULL)));
 	// Epic call
