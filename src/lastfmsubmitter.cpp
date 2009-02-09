@@ -169,7 +169,11 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 			m_subUrl=data[3];
 			if(m_npPending)
 				sendNowPlaying();
-		}
+		} else if(data[0]=="BADAUTH")
+		{
+			emit infoMsg(tr("Last.Fm authentication failed: check your credentials"));
+		} else if(data[0]=="BADTIME")
+			emit infoMsg(tr("Cannot submit to Last.Fm: system clock is skewed"));
 	}
 	else
 	{
@@ -187,6 +191,11 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 		{
 			m_session.clear();
 			doHandshake();
+		}
+		if(data[0].startsWith("FAILED"))
+		{
+			QStringList dat = data[0].split(" ");
+			if(dat.size() >1) emit infoMsg(tr("Last.Fm error: %1").arg(dat[1]));
 		}
 	}
 	// What are you talking about then?
