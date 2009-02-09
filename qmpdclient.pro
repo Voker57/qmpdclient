@@ -12,8 +12,9 @@ QMAKE_LFLAGS_RELEASE += -O2 -g0 -s
 TEMPLATE = app
 RESOURCES = qmpdclient.qrc
 VERSION = 1.1.0
-DEFINES += NAMEVER='"\\"QMPDClient \
+DEFINES += NAMEVER='"\\"QMPDClient-ne \
     $$VERSION\\""'
+DEFINES += VERSION='"\\"$$VERSION\\""'
 INCLUDEPATH += src
 QT += network
 
