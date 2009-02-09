@@ -35,9 +35,6 @@ class MainWindow : public QMainWindow, private Ui::MainWindow {
 
 public:
 	MainWindow();
-	void findArtist(QString &artist);
-	void findAlbum(QString &artist, QString &album);
-	void findTrack(QString &artist, QString &album, QString &track);
 
 public slots:
 	void showHide();
@@ -63,7 +60,6 @@ private slots:
 	void updateStart(int, const QString &);
 	void updateProgress(int);
 	void updateDone();
-	void useLibraryUrl(QString);
 	void rightStackCurrentChanged(int);
 	void jumpToCurrentSong();
 

@@ -284,43 +284,6 @@ void MainWindow::updateDone() {
 		statusBar()->clearMessage();
 }
 
-void MainWindow::findArtist(QString &name) {
-	m_libraryPanel->artistFilter->setText(name);
-}
-
-void MainWindow::findAlbum(QString &artist, QString &album) {
-	findArtist(artist);
-	m_libraryPanel->albumFilter->setText(album);
-}
-
-void MainWindow::findTrack(QString &artist, QString &album, QString &track) {
-	findAlbum(artist, album);
-	m_libraryPanel->songFilter->setText(track);
-}
-
-void MainWindow::useLibraryUrl(QString url) {
-	if(!url.startsWith("library://"))
-		return;
-	url.remove(0, 10);
-	QStringList list = url.split('/');
-	for(int i=0; i<list.size(); ++i)
-	{
-		list[i]=QUrl::fromPercentEncoding(list[i].toAscii());
-	}
-	switch(list.size())
-	{
-		case 1:
-		findArtist(list[0]);
-		break;
-		case 2:
-		findAlbum(list[0], list[1]);
-		break;
-		case 3:
-		findTrack(list[0], list[1], list[2]);
-		break;
-	}
-}
-
 void MainWindow::rightStackCurrentChanged(int index) {
 	Config::instance()->setRightBarTab(index);
 }
