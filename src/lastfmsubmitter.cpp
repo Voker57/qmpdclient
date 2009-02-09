@@ -32,6 +32,7 @@
 // #include <QDebug>
 
 LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
+	m_npPending = false;
 	m_session = "";
 	m_npUrl = "";
 	m_hsUrl="http://post.audioscrobbler.com/";
@@ -73,9 +74,12 @@ void LastFmSubmitter::setSong(const MPDSong & s) {
 }
 
 void LastFmSubmitter::sendNowPlaying() {
-	// FIXME: sometimes np is lost
+	m_npPending = true;
 	if(ensureHandshaked())
+	{
 		scrobbleNp(m_currentSong);
+		m_npPending = false;
+	}
 }
 
 void LastFmSubmitter::scrobbleNp(MPDSong & s) {
@@ -163,6 +167,8 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 			m_session=data[1];
 			m_npUrl=data[2];
 			m_subUrl=data[3];
+			if(m_npPending)
+				sendNowPlaying();
 		}
 	}
 	else

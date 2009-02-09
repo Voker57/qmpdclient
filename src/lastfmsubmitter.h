@@ -53,6 +53,7 @@ protected:
 	MPDSong m_currentSong;
 	QTimer * m_scrobbleTimer;
 	QTimer * m_npTimer;
+	bool m_npPending;
 protected slots:
 	void gotNetReply(QNetworkReply *);
 	void stageCurrentTrack();
