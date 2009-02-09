@@ -268,6 +268,10 @@ bool MPDSong::operator==(const MPDSong &other) const {
 		return false;
 	if (type() == PLAYLISTSONG)
 		return url() == other.url() && id() == other.id();
+	if(type() == PLAYLISTSTREAM)
+	{
+		return title()==other.title() && artist()==other.artist() && album() == other.album();
+	}
 	return url() == other.url();
 }
 
