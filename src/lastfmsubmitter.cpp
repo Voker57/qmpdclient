@@ -103,7 +103,12 @@ void LastFmSubmitter::scrobbleSongs() {
 	while(!m_songQueue.isEmpty())
 	{
 		QPair<MPDSong, int> sPair = m_songQueue.dequeue();
-		data += QString("o[%2]=P&r[%2]=&m[%2]=&a[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.artist())), QString::number(i));
+		data += QString("r[%2]=&m[%2]=&a[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.artist())), QString::number(i));
+		data += QString("o[%2]=%1&").arg(
+			(
+		(sPair.first.type() == MPDSong::STREAM) || (sPair.first.type() == MPDSong::PLAYLISTSTREAM)) ? "E" : "P",
+			QString::number(i)
+			);
 		data += QString("t[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.title())), QString::number(i));
 		data += QString("b[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.album())), QString::number(i));
 		data += QString("l[%2]=%1&").arg(QString::number(sPair.first.secs()), QString::number(i));
