@@ -33,10 +33,14 @@
 
 LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_npPending = false;
+	m_failed = 0;
 	m_session = "";
 	m_npUrl = "";
 	m_hsUrl="http://post.audioscrobbler.com/";
 	m_subUrl = "";
+	m_hardFailTimer = new QTimer(this);
+	m_hardFailTimer->setInterval(60*1000);
+	m_hardFailTimer->setSingleShot(true);
 	m_scrobbleTimer = new QTimer(this);
 	m_scrobbleTimer->setSingleShot(true);
 	m_npTimer = new QTimer(this);
@@ -46,6 +50,7 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	connect(m_netAccess, SIGNAL(finished(QNetworkReply *)), this, SLOT(gotNetReply(QNetworkReply *)));
 	connect(m_scrobbleTimer, SIGNAL(timeout()), this, SLOT(stageCurrentTrack()));
 	connect(m_npTimer, SIGNAL(timeout()), this, SLOT(sendNowPlaying()));
+	connect(m_hardFailTimer, SIGNAL(timeout()), this, SLOT(doHandshake()));
 }
 
 void LastFmSubmitter::setSong(const MPDSong & s) {
@@ -132,6 +137,7 @@ bool LastFmSubmitter::ensureHandshaked() {
 }
 
 void LastFmSubmitter::doHandshake() {
+	if(m_hardFailTimer->isActive()) return;
 	QUrl hsUrl = QUrl(m_hsUrl);
 	hsUrl.addQueryItem("hs", "true");
 	hsUrl.addQueryItem("p", "1.2.1");
@@ -159,11 +165,13 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 	QUrl reqUrl = reply->url();
 	reqUrl.setQueryItems(QList<QPair<QString, QString> >());
 
+	bool handled= false;
 	// Is this is a handshake reply?
 	if(reqUrl.toString()==m_hsUrl)
 	{
 		if(data.size() >= 4 && data[0]=="OK")
 		{
+			handled = true;
 			m_session=data[1];
 			m_npUrl=data[2];
 			m_subUrl=data[3];
@@ -171,33 +179,53 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 				sendNowPlaying();
 		} else if(data[0]=="BADAUTH")
 		{
+			handled = true;
 			emit infoMsg(tr("Last.Fm authentication failed: check your credentials"));
 		} else if(data[0]=="BADTIME")
+		{
+			handled = true;
 			emit infoMsg(tr("Cannot submit to Last.Fm: system clock is skewed"));
+		}
 	}
 	else
+	// Ok... maybe we were scrobbling something?
+	if(reqUrl.toString() == m_subUrl)
 	{
-		// Ok... maybe we were scrobbling something?
-		if(reqUrl.toString() == m_subUrl)
+		if(data[0] == "OK")
 		{
-			if(data[0] == "OK")
-			{
-				m_songQueue.clear();
-				emit infoMsg(tr("Successfully scrobbled"));
-			}
+			handled = true;
+			m_songQueue.clear();
+			emit infoMsg(tr("Successfully scrobbled"));
 		}
-		// Was i bad player and now there's bad session?
-		if(data[0] == "BADSESSION")
-		{
-			m_session.clear();
-			doHandshake();
-		}
-		if(data[0].startsWith("FAILED"))
-		{
-			QStringList dat = data[0].split(" ");
-			if(dat.size() >1) emit infoMsg(tr("Last.Fm error: %1").arg(dat[1]));
-		}
+	} else if(reqUrl.toString() == m_npUrl && data[0] == "OK")
+	{
+		handled=true;
+		emit infoMsg(tr("Now Playing sent"));
 	}
-	// What are you talking about then?
-	// qDebug() << "Reply:" << reqUrl.toString() << data;
+	// Was i bad player and now there's bad session?
+	if(data[0] == "BADSESSION")
+	{
+		handled = true;
+		m_session.clear();
+		doHandshake();
+	}
+	if(data[0].startsWith("FAILED"))
+	{
+		QStringList dat = data[0].split(" ");
+		if(dat.size() >1) emit infoMsg(tr("Last.Fm error: %1").arg(dat[1]));
+	}
+
+	if(!handled)
+	{
+		m_failed++;
+	//	qDebug() << "Reply:" << reqUrl.toString() << data;
+	}
+	else m_failed=0;
+
+	if(m_failed > 2 && !m_hardFailTimer->isActive())
+	{
+		m_session.clear();
+		m_hardFailTimer->setInterval((m_failed > 120 ? 120 : m_failed)*60*1000);
+		m_hardFailTimer->start();
+	}
 }

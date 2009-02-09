@@ -39,7 +39,6 @@ public:
 	LastFmSubmitter(QObject * parent = 0);
 	void setSong(const MPDSong & s);
 protected:
-	void doHandshake();
 	bool ensureHandshaked();
 	void scrobbleNp(MPDSong & s);
 	void scrobbleSongs();
@@ -53,11 +52,14 @@ protected:
 	MPDSong m_currentSong;
 	QTimer * m_scrobbleTimer;
 	QTimer * m_npTimer;
+	QTimer * m_hardFailTimer;
 	bool m_npPending;
+	int m_failed;
 protected slots:
 	void gotNetReply(QNetworkReply *);
 	void stageCurrentTrack();
 	void sendNowPlaying();
+	void doHandshake();
 signals:
 	void infoMsg(QString);
 };
