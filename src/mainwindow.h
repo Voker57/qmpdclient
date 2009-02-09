@@ -43,6 +43,7 @@ public slots:
 	void showHide();
 	void updateTranslation();
 	void shortAnnounce(QString);
+	void announce(QString);
 
 private slots:
 	// Auto connected

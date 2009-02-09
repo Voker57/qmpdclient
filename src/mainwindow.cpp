@@ -82,7 +82,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	connect(MPDCache::instance(), SIGNAL(updateStart(int, const QString &)), this, SLOT(updateStart(int, const QString &)));
 	connect(MPDCache::instance(), SIGNAL(updateProgress(int)), this, SLOT(updateProgress(int)));
 	connect(MPDCache::instance(), SIGNAL(updateDone()), this, SLOT(updateDone()));
-	connect(controlPanel, SIGNAL(infoMsg(QString)),this, SLOT(shortAnnounce(QString)));
+	connect(controlPanel, SIGNAL(infoMsg(QString)),this, SLOT(announce(QString)));
 
 	// Menu action signals
 	connect(disconnectMenu, SIGNAL(triggered()), MPDConnection::instance(), SLOT(disconnectFromMPD()));
@@ -327,6 +327,10 @@ void MainWindow::rightStackCurrentChanged(int index) {
 
 void MainWindow::shortAnnounce(QString str) {
 	statusBar()->showMessage(str, 5000);
+}
+
+void MainWindow::announce(QString str) {
+	statusBar()->showMessage(str);
 }
 
 /**
