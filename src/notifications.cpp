@@ -71,13 +71,14 @@ void Notifications::notify(const QString &text) {
 }
 
 void Notifications::setSong(const MPDSong &s) {
-	if (m_previousSong == s || !Config::instance()->notificationsEnabled() || Config::instance()->notificationsTimeout() < 1) {
+	if (m_previousSong.isNull() || m_previousSong == s || !Config::instance()->notificationsEnabled() || Config::instance()->notificationsTimeout() < 1) {
 		m_previousSong = s;
 		return;
 	}
-
-	m_coverArt->setSong(s);
-	notify(makeTitle(s));
-
+	if(!s.isNull())
+	{
+		m_coverArt->setSong(s);
+		notify(makeTitle(s));
+	}
 	m_previousSong = s;
 }
