@@ -26,6 +26,7 @@
 #include "mpd.h"
 #include "mpdcache.h"
 #include "mpdconnection.h"
+#include "mpdsonglist.h"
 #include "mpdstats.h"
 #include "playlistpanel.h"
 #include "playlistspanel.h"
@@ -45,11 +46,13 @@ MainWindow::MainWindow() : QMainWindow(0) {
 
 	// Status bar
 	m_statsLabel = new QLabel;
+	m_playlistStatsLabel = new QLabel;
 	m_progressBar = new QProgressBar;
 	m_progressBar->hide();
 	m_progressBar->setMaximumWidth(100);
 	m_progressBar->setMaximumHeight(m_statsLabel->minimumSizeHint().height());
 	statusBar()->addPermanentWidget(m_progressBar);
+	statusBar()->addPermanentWidget(m_playlistStatsLabel);
 	statusBar()->addPermanentWidget(m_statsLabel);
 
 	// Show program name and version
@@ -79,6 +82,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 
 	connect(MPD::instance(), SIGNAL(statsUpdated(const MPDStats &)), this, SLOT(setStats(const MPDStats &)));
 	connect(MPD::instance(), SIGNAL(playingSongUpdated(const MPDSong &)), this, SLOT(setSong(const MPDSong &)));
+	connect(MPD::instance(), SIGNAL(playlistUpdated(const MPDSongList &)), SLOT(playlistUpdated(const MPDSongList &)));
 	connect(MPDCache::instance(), SIGNAL(updateStart(int, const QString &)), this, SLOT(updateStart(int, const QString &)));
 	connect(MPDCache::instance(), SIGNAL(updateProgress(int)), this, SLOT(updateProgress(int)));
 	connect(MPDCache::instance(), SIGNAL(updateDone()), this, SLOT(updateDone()));
@@ -229,7 +233,7 @@ void MainWindow::setStats(const MPDStats &stats) {
 	const int hour = secs / (60 * 60);
 	secs -= hour * 60 * 60;
 	const int min = secs / 60;
-	m_statsLabel->setText(QString(" %1 %2, %3 %4, %5 %6. (%7 %8 %9 %10 %11 %12) ")
+	m_statsLabel->setText(tr("Library:  %1 %2, %3 %4, %5 %6. (%7 %8 %9 %10 %11 %12) ")
 	                      .arg(stats.numberOfArtists())
 	                      .arg(tr("artists"))
 	                      .arg(stats.numberOfAlbums())
@@ -287,3 +291,24 @@ void MainWindow::rightStackCurrentChanged(int index)
 	// Select library tab
 	// this may be not the perfect solution
 	rightStack->setCurrentIndex(0);
+}
+
+void MainWindow::playlistUpdated(const MPDSongList &list)
+{
+	unsigned long tsecs = 0;
+	for(MPDSongList::const_iterator it = list.constBegin(); it != list.constEnd(); ++it)
+	{
+		tsecs+=(*it).secs();
+	}
+	const int day = tsecs / (60 * 60 * 24);
+	tsecs -= day * 60 * 60 * 24;
+	const int hour = tsecs / (60 * 60);
+	tsecs -= hour * 60 * 60;
+	const int min = tsecs / 60;
+	tsecs -= min*60;
+	QString txt = tr("Playlist: ");
+	if(day) txt += tr("%1 days, ").arg(day);
+	if(hour) txt += tr("%1 hours, ").arg(hour);
+	if(min) txt += tr("%1 minutes, ").arg(min);
+	txt += tr("%1 seconds.").arg(tsecs);
+	m_playlistStatsLabel->setText(txt);

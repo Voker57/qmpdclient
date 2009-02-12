@@ -29,6 +29,7 @@ class TrayIcon;
 class QProgressBar;
 class QShortcut;
 class LibraryPanel;
+class MPDSongList;
 
 class MainWindow : public QMainWindow, private Ui::MainWindow {
 	Q_OBJECT
@@ -59,6 +60,7 @@ private slots:
 	void updateProgress(int);
 	void updateDone();
 	void rightStackCurrentChanged(int);
+	void playlistUpdated(const MPDSongList &);
 
 private:
 	void retranslate();
@@ -66,6 +68,7 @@ private:
 	MPDSong m_song;
 	MPDStats m_stats;
 	QLabel *m_statsLabel;
+	QLabel *m_playlistStatsLabel;
 	QList<QAction*> m_actions;
 	QProgressBar *m_progressBar;
 	QPushButton *m_playlistTab, *m_libraryTab, *m_directoriesTab, *m_radioTab, *m_playlistsTab;
