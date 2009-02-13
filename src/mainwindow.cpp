@@ -90,7 +90,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	// Menu action signals
 	connect(disconnectMenu, SIGNAL(triggered()), MPDConnection::instance(), SLOT(disconnectFromMPD()));
 	connect(rescanMenu, SIGNAL(triggered()), MPDCache::instance(), SLOT(rescan()));
-	connect(jumpToSong, SIGNAL(triggered()), this, SLOT(jumpToCurrentSong()));
+	connect(locateSong, SIGNAL(triggered()), this, SLOT(locateCurrentSong()));
 	connect(aboutQt, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
 	connect(quitMenu, SIGNAL(triggered()), qApp, SLOT(quit()));
 	connect(rightStack, SIGNAL(currentChanged(int)), this, SLOT(rightStackCurrentChanged(int)));
@@ -289,34 +289,12 @@ void MainWindow::rightStackCurrentChanged(int index)
 	Config::instance()->setRightBarTab(index);
 }
 
-	// Select library tab
-	// this may be not the perfect solution
-	rightStack->setCurrentIndex(0);
-}
-
 void MainWindow::playlistUpdated(const MPDSongList &list)
 {
 	unsigned long tsecs = 0;
 	for(MPDSongList::const_iterator it = list.constBegin(); it != list.constEnd(); ++it)
 	{
 		tsecs+=(*it).secs();
-}
-
-/**
- * Jump to the currently playing song (select in artist/album/song list)
- * If no song is being played, do not jump.
- */
-void MainWindow::jumpToCurrentSong() {
-	MPD * inst = MPD::instance();
-	if (!(inst->isPlaying() || inst->isPaused())) {
-		return;
-	}
-
-	// XXX set the focus to the libary tab
-
-	// Get current song name, album, artist and go update stuff
-	m_libraryPanel->artistView->selectString(m_song.artist());
-	m_libraryPanel->albumView->selectString(m_song.album());
 	}
 	const int day = tsecs / (60 * 60 * 24);
 	tsecs -= day * 60 * 60 * 24;
@@ -330,3 +308,23 @@ void MainWindow::jumpToCurrentSong() {
 	if(min) txt += tr("%1 minutes, ").arg(min);
 	txt += tr("%1 seconds.").arg(tsecs);
 	m_playlistStatsLabel->setText(txt);
+}
+
+/**
+ * Jump to the currently playing song (select in artist/album/song list)
+ * If no song is being played, do not jump.
+ */
+void MainWindow::locateCurrentSong() {
+	MPD * inst = MPD::instance();
+	if (!(inst->isPlaying() || inst->isPaused())) {
+		return;
+	}
+
+	// Select library tab
+	// this may be not the perfect solution
+	rightStack->setCurrentIndex(0);
+
+	// Get current song name, album, artist and go update stuff
+	m_libraryPanel->artistView->selectString(m_song.artist());
+	m_libraryPanel->albumView->selectString(m_song.album());
+}

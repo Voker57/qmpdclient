@@ -1,4 +1,5 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <author>Håvard Tautra Knutsen</author>
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow" >
@@ -97,7 +98,7 @@
     <addaction name="disconnectMenu" />
     <addaction name="rescanMenu" />
     <addaction name="separator" />
-    <addaction name="jumpToSong" />
+    <addaction name="locateSong"/>
     <addaction name="separator" />
     <addaction name="preferencesMenu" />
     <addaction name="separator" />
@@ -171,18 +172,18 @@
     <string>Ctrl+R</string>
    </property>
   </action>
-  <action name="jumpToSong" >
+  <action name="locateSong">
    <property name="text" >
-    <string>&amp;Jump To Current Song...</string>
+    <string>L&amp;ocate current song</string>
    </property>
    <property name="statusTip" >
-    <string>Jump to current song...</string>
+    <string>Locate current song in library...</string>
    </property>
    <property name="whatsThis" >
-    <string>Jump to current song...</string>
+    <string>Locate current song in library...</string>
    </property>
    <property name="shortcut" >
-    <string>Ctrl+J</string>
+    <string>Ctrl+O</string>
    </property>
   </action>
   <action name="preferencesMenu" >
