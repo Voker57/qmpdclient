@@ -44,7 +44,7 @@ void DynamicPlaylist::autoAdd(const MPDSong &song) {
 }
 
 void DynamicPlaylist::autoRemove(const MPDSong &song) {
-	if (song.isNull() || song == m_lastPlaying || !Config::instance()->autoRemoveSongs()) {
+	if (m_lastPlaying.isNull() || song.isNull() || song.id() == m_lastPlaying.id() || !Config::instance()->autoRemoveSongs()) {
 		m_lastPlaying = song;
 		return;
 	}
