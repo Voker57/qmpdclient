@@ -93,7 +93,7 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s) {
 	data += QString("a=%1&").arg(QString(QUrl::toPercentEncoding(s.artist())));
 	data += QString("t=%1&").arg(QString(QUrl::toPercentEncoding(s.title())));
 	data += QString("b=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
-	data += QString("l=%1&").arg(s.secs() >0 ? QString::number(s.secs()) : "");
+	data += QString("l=%1&").arg(s.secs() >0 ? QString::number(s.secs()) : "100");
 	data += QString("n=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
 	// qDebug() << data;
 	m_netAccess->post(QNetworkRequest(QUrl(m_npUrl)), data.toAscii());
