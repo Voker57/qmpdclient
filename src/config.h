@@ -95,6 +95,7 @@ public:
 	bool submitSongsToLastFm() const;
 	QString lastFmUsername() const;
 	QString lastFmPassword() const;
+	bool lastFmHashedPassword() const;
 
 	// Tag guesser
 	QString guessPattern() const;
@@ -189,6 +190,7 @@ public slots:
 	void setSubmitSongsToLastFm(bool);
 	void setLastFmUsername(const QString &);
 	void setLastFmPassword(const QString &);
+	void setLastFmHashedPassword(bool);
 
 signals:
 	void alternatingChanged(bool);

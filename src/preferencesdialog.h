@@ -51,6 +51,7 @@ private slots:
 	void outputChanged(QTreeWidgetItem *, int);
 	void serverSelectionChanged();
 	void styleChanged(QListWidgetItem *);
+	void hashLastFmPassword();
 
 private:
 	void initCategoryList();

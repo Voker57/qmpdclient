@@ -148,10 +148,12 @@ void LastFmSubmitter::doHandshake() {
 	// Epic call
 	hsUrl.addQueryItem("a",
 		QCryptographicHash::hash(
+			(Config::instance()->lastFmHashedPassword() ?
+			Config::instance()->lastFmPassword().toAscii() :
 			QCryptographicHash::hash(
 				Config::instance()->lastFmPassword().toAscii(),
-				QCryptographicHash::Md5).toHex() +
-			QByteArray::number((uint)time(NULL)),
+				QCryptographicHash::Md5).toHex() )
+			+ QByteArray::number((uint)time(NULL)),
 		QCryptographicHash::Md5).toHex()
 	);
 	// qDebug() << hsUrl.toString();

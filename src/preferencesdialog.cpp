@@ -35,6 +35,7 @@
 #include <QHeaderView>
 #include <QKeyEvent>
 #include <QLocale>
+#include <QCryptographicHash>
 
 struct PreferencesDialogPrivate {
 	PreferencesDialogPrivate() : serverItem(0) {}
@@ -409,10 +410,12 @@ void PreferencesDialog::initTrayIconPage() {
 void PreferencesDialog::initLastFmPage() {
 	submitSongsToLastFmCheck->setChecked(Config::instance()->submitSongsToLastFm());
 	lastFmUsernameEdit->setText(Config::instance()->lastFmUsername());
+	lastFmMd5PasswordRadio->setChecked(Config::instance()->lastFmHashedPassword());
 	lastFmPasswordEdit->setText(Config::instance()->lastFmPassword());
 	connect(lastFmUsernameEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmUsername(QString)));
 	connect(lastFmPasswordEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmPassword(QString)));
 	connect(submitSongsToLastFmCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setSubmitSongsToLastFm(bool)));
+	connect(lastFmMd5PasswordRadio, SIGNAL(toggled(bool)), Config::instance(), SLOT(setLastFmHashedPassword(bool)));
 }
 
 PreferencesDialog::~PreferencesDialog() {
@@ -639,4 +642,9 @@ void PreferencesDialog::outputChanged(QTreeWidgetItem *i, int col) {
 void PreferencesDialog::styleChanged(QListWidgetItem *i) {
 	if (i)
 		Config::instance()->setStyleFile(i->data(Qt::UserRole).toString());
+}
+
+void PreferencesDialog::hashLastFmPassword() {
+	lastFmMd5PasswordRadio->setChecked(true);
+	lastFmPasswordEdit->setText(QCryptographicHash::hash(lastFmPasswordEdit->text().toAscii(), QCryptographicHash::Md5).toHex());
 }

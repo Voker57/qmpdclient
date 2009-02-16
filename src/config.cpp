@@ -622,6 +622,10 @@ QString Config::lastFmPassword() const {
 	return value("/lastfm/password").toString();
 }
 
+bool Config::lastFmHashedPassword() const {
+	return value("/lastfm/hashedpassword").toBool();
+}
+
 void Config::setSubmitSongsToLastFm(bool b) {
 	setValue("/lastfm/submit", b);
 }
@@ -632,4 +636,8 @@ void Config::setLastFmUsername(const QString &s) {
 
 void Config::setLastFmPassword(const QString &s) {
 	setValue("/lastfm/password", s);
+}
+
+void Config::setLastFmHashedPassword(bool b) {
+	setValue("/lastfm/hashedpassword", b);
 }
