@@ -71,7 +71,7 @@
        <item>
         <widget class="QStackedWidget" name="widgetStack">
          <property name="currentIndex">
-          <number>15</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="connectionPage">
           <layout class="QVBoxLayout">
@@ -623,6 +623,13 @@
             <widget class="QCheckBox" name="showAllCheck">
              <property name="text">
               <string>&amp;Show 'All' and 'Not tagged' (Slow)</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="disregardTheCheck">
+             <property name="text">
+              <string>Disregard leading 'The ' when sorting</string>
              </property>
             </widget>
            </item>

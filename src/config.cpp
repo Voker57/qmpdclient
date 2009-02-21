@@ -641,3 +641,11 @@ void Config::setLastFmPassword(const QString &s) {
 void Config::setLastFmHashedPassword(bool b) {
 	setValue("/lastfm/hashedpassword", b);
 }
+
+bool Config::disregardLeadingThe() const {
+	return !value("/looknfeel/respectleadingthe").toBool();
+}
+
+void Config::setDisregardLeadingThe(bool b) {
+	setValue("/looknfeel/respectleadingthe", !b);
+}
