@@ -605,3 +605,12 @@ MPDSongList Config::radioStations() const {
 	}
 	return songs;
 }
+
+
+bool Config::disregardLeadingThe() const {
+	return !value("/looknfeel/respectleadingthe").toBool();
+}
+
+void Config::setDisregardLeadingThe(bool b) {
+	setValue("/looknfeel/respectleadingthe", !b);
+}

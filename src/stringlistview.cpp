@@ -22,6 +22,7 @@
 #include "mpdsonglist.h"
 #include "stringlistmodel.h"
 #include "stringlistview.h"
+#include "config.h"
 #include <QMap>
 #include <QMenu>
 #include <QItemSelectionModel>
@@ -102,7 +103,7 @@ void StringListView::filter(const QString &needle) {
 void StringListView::setStrings(const QStringList &strings) {
 	Q_ASSERT(m_model);
 
-	m_strings = StringListView::normalizedSort(strings);
+	m_strings = Config::instance()->disregardLeadingThe() ? StringListView::normalizedSort(strings) : strings;
 
 	m_model->setStringList(m_strings);
 	setCurrentIndex(m_model->index(0));
