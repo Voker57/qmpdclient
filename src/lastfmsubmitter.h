@@ -40,8 +40,7 @@ public:
 	void setSong(const MPDSong & s);
 protected:
 	bool ensureHandshaked();
-	void scrobbleNp(MPDSong & s);
-	void scrobbleSongs();
+	void scrobbleNp(MPDSong & s);	
 	QString m_session;
 	QString m_npUrl;
 	QString m_subUrl;
@@ -51,13 +50,15 @@ protected:
 	QQueue<QPair<MPDSong, int> > m_songQueue;
 	MPDSong m_currentSong;
 	QTimer * m_scrobbleTimer;
+	QTimer * m_scrobbleRetryTimer;
 	QTimer * m_npTimer;
 	QTimer * m_hardFailTimer;
 	bool m_npPending;
 	int m_failed;
 protected slots:
 	void gotNetReply(QNetworkReply *);
-	void stageCurrentTrack();
+	void scrobbleCurrent();
+	void scrobbleQueued();
 	void sendNowPlaying();
 	void doHandshake();
 signals:
