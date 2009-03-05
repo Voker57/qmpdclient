@@ -40,7 +40,8 @@ public:
 	void setSong(const MPDSong & s);
 protected:
 	bool ensureHandshaked();
-	void scrobbleNp(MPDSong & s);	
+	void scrobbleNp(MPDSong & s);
+	QByteArray getPasswordHash();
 	QString m_session;
 	QString m_npUrl;
 	QString m_subUrl;
@@ -53,7 +54,7 @@ protected:
 	QTimer * m_scrobbleRetryTimer;
 	QTimer * m_npTimer;
 	QTimer * m_hardFailTimer;
-	bool m_npPending;
+	bool m_npPending, m_awaitingHS;
 	int m_failed;
 protected slots:
 	void gotNetReply(QNetworkReply *);
