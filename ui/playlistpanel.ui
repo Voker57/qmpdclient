@@ -78,6 +78,18 @@
      </item>
      <item>
       <widget class="QToolButton" name="dynamicButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Minimum">
+         <horstretch>16</horstretch>
+         <verstretch>16</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>16</width>
+         <height>20</height>
+        </size>
+       </property>
        <property name="toolTip">
         <string>Toggle dynamic playlist</string>
        </property>
