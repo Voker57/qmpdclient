@@ -19,6 +19,7 @@
 
 #include "playlistpanel.h"
 #include "mpd.h"
+#include "config.h"
 
 PlaylistPanel::PlaylistPanel() {
 	setupUi(this);
@@ -26,8 +27,10 @@ PlaylistPanel::PlaylistPanel() {
 	// Random and such
 	connect(MPD::instance(), SIGNAL(randomUpdated(bool)), randomButton, SLOT(setChecked(bool)));
 	connect(MPD::instance(), SIGNAL(repeatUpdated(bool)), repeatButton, SLOT(setChecked(bool)));
+	connect(Config::instance(), SIGNAL(autoAddSongsChanged(bool)), dynamicButton, SLOT(setChecked(bool)));
 	connect(randomButton, SIGNAL(toggled(bool)), MPD::instance(), SLOT(setRandom(bool)));
 	connect(repeatButton, SIGNAL(toggled(bool)), MPD::instance(), SLOT(setRepeat(bool)));
+	connect(dynamicButton, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAutoAddSongs(bool)));
 
 	// Button clicks
 	connect(cropButton, SIGNAL(clicked()), playlistView, SLOT(cropItems()));

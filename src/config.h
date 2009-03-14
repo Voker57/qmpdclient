@@ -208,6 +208,7 @@ signals:
 	void showCoverArtChanged(bool);
 	void styleChanged(const QString &);
 	void trayIconChanged(bool);
+	void autoAddSongsChanged(bool);
 
 private:
 	Config();

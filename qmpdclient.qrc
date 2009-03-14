@@ -55,6 +55,7 @@
         <file>icons/oxygen/folder-sound.png</file>
         <file>icons/oxygen/games-config-background.png</file>
         <file>icons/oxygen/go-jump.png</file>
+		<file>icons/oxygen/games-solve.png</file>
         <file>icons/oxygen/iconset.conf</file>
         <file>icons/oxygen/list-add.png</file>
         <file>icons/oxygen/list-remove.png</file>
