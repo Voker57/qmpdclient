@@ -484,6 +484,7 @@ QString Config::testFilename() const {
  */
 void Config::setAutoAddSongs(bool a) {
 	setValue("/dynamicplaylist/add", a);
+	emit autoAddSongsChanged(a);
 }
 
 void Config::setAutoAddCount(int c) {

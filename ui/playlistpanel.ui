@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>PlaylistPanel</class>
- <widget class="QWidget" name="PlaylistPanel" >
-  <property name="geometry" >
+ <widget class="QWidget" name="PlaylistPanel">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,81 +10,94 @@
     <height>368</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string/>
   </property>
-  <layout class="QVBoxLayout" >
-   <property name="margin" >
-    <number>0</number>
-   </property>
-   <property name="spacing" >
+  <layout class="QVBoxLayout">
+   <property name="spacing">
     <number>6</number>
    </property>
+   <property name="margin">
+    <number>0</number>
+   </property>
    <item>
-    <widget class="PlaylistView" name="playlistView" >
-     <property name="enabled" >
+    <widget class="PlaylistView" name="playlistView">
+     <property name="enabled">
       <bool>false</bool>
      </property>
-     <property name="horizontalScrollBarPolicy" >
+     <property name="horizontalScrollBarPolicy">
       <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
-     <property name="showDropIndicator" stdset="0" >
+     <property name="showDropIndicator" stdset="0">
       <bool>false</bool>
      </property>
-     <property name="dragDropMode" >
+     <property name="dragDropMode">
       <enum>QAbstractItemView::DragDrop</enum>
      </property>
-     <property name="selectionMode" >
+     <property name="selectionMode">
       <enum>QAbstractItemView::ExtendedSelection</enum>
      </property>
-     <property name="uniformItemSizes" >
+     <property name="uniformItemSizes">
       <bool>true</bool>
      </property>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="margin" >
-      <number>0</number>
-     </property>
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
      <item>
-      <widget class="QToolButton" name="randomButton" >
-       <property name="toolTip" >
+      <widget class="QToolButton" name="randomButton">
+       <property name="toolTip">
         <string>Toggle random mode</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
-       <property name="checkable" >
+       <property name="checkable">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="repeatButton" >
-       <property name="toolTip" >
+      <widget class="QToolButton" name="repeatButton">
+       <property name="toolTip">
         <string>Toggle repeat playlist</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
-       <property name="checkable" >
+       <property name="checkable">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QToolButton" name="dynamicButton">
+       <property name="toolTip">
+        <string>Toggle dynamic playlist</string>
+       </property>
+       <property name="text">
+        <string>D</string>
+       </property>
+       <property name="checkable">
         <bool>true</bool>
        </property>
       </widget>
      </item>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::MinimumExpanding</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>9</width>
          <height>10</height>
@@ -92,53 +106,59 @@
       </spacer>
      </item>
      <item>
-      <widget class="QToolButton" name="jumpToButton" >
-       <property name="toolTip" >
+      <widget class="QToolButton" name="jumpToButton">
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
+       <property name="toolTip">
         <string>Jump to song...</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
+       </property>
+       <property name="checkable">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="shuffleButton" >
-       <property name="enabled" >
+      <widget class="QToolButton" name="shuffleButton">
+       <property name="enabled">
         <bool>true</bool>
        </property>
-       <property name="toolTip" >
+       <property name="toolTip">
         <string>Shuffle playlist</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="saveAsButton" >
-       <property name="enabled" >
+      <widget class="QToolButton" name="saveAsButton">
+       <property name="enabled">
         <bool>true</bool>
        </property>
-       <property name="toolTip" >
+       <property name="toolTip">
         <string>Save playlist...</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
-       <property name="autoExclusive" >
+       <property name="autoExclusive">
         <bool>false</bool>
        </property>
       </widget>
      </item>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeType" >
+       <property name="sizeType">
         <enum>QSizePolicy::Minimum</enum>
        </property>
-       <property name="sizeHint" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>5</width>
          <height>20</height>
@@ -147,37 +167,37 @@
       </spacer>
      </item>
      <item>
-      <widget class="QToolButton" name="removeButton" >
-       <property name="enabled" >
+      <widget class="QToolButton" name="removeButton">
+       <property name="enabled">
         <bool>false</bool>
        </property>
-       <property name="toolTip" >
+       <property name="toolTip">
         <string>Remove selected songs from playlist</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="cropButton" >
-       <property name="enabled" >
+      <widget class="QToolButton" name="cropButton">
+       <property name="enabled">
         <bool>false</bool>
        </property>
-       <property name="toolTip" >
+       <property name="toolTip">
         <string>Remove all but selected songs from playlist</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="clearButton" >
-       <property name="toolTip" >
+      <widget class="QToolButton" name="clearButton">
+       <property name="toolTip">
         <string>Remove all songs from playlist</string>
        </property>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
       </widget>
@@ -193,8 +213,6 @@
    <header>playlistview.h</header>
   </customwidget>
  </customwidgets>
- <resources>
-  <include location="../qmpdclient.qrc" />
- </resources>
+ <resources/>
  <connections/>
 </ui>

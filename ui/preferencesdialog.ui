@@ -78,7 +78,7 @@
        <item>
         <widget class="QStackedWidget" name="widgetStack">
          <property name="currentIndex">
-          <number>0</number>
+          <number>9</number>
          </property>
          <widget class="QWidget" name="connectionPage">
           <layout class="QVBoxLayout">
@@ -842,10 +842,10 @@
               </item>
               <item row="0" column="1">
                <widget class="QLineEdit" name="coverDirEdit">
-                <property name="text">
+                <property name="inputMask">
                  <string notr="true"/>
                 </property>
-                <property name="inputMask">
+                <property name="text">
                  <string notr="true"/>
                 </property>
                </widget>
@@ -868,11 +868,11 @@
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="coverMaxHeight">
-                <property name="text">
-                 <string notr="true">1024</string>
-                </property>
                 <property name="inputMask">
                  <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string notr="true">1024</string>
                 </property>
                </widget>
               </item>
@@ -894,11 +894,11 @@
               </item>
               <item row="2" column="1">
                <widget class="QLineEdit" name="coverMaxWidth">
-                <property name="text">
-                 <string notr="true">768</string>
-                </property>
                 <property name="inputMask">
                  <string notr="true"/>
+                </property>
+                <property name="text">
+                 <string notr="true">768</string>
                 </property>
                </widget>
               </item>
@@ -1622,6 +1622,12 @@
            </item>
           </layout>
          </widget>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
         </widget>
        </item>
       </layout>
