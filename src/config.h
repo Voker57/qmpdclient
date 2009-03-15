@@ -97,6 +97,7 @@ public:
 	QString lastFmUsername() const;
 	QString lastFmPassword() const;
 	bool lastFmHashedPassword() const;
+	int lastFmScrobblerTimer() const;
 
 	// Tag guesser
 	QString guessPattern() const;
@@ -193,6 +194,7 @@ public slots:
 	void setLastFmUsername(const QString &);
 	void setLastFmPassword(const QString &);
 	void setLastFmHashedPassword(bool);
+	void setLastFmScrobblerTimer(int);
 
 signals:
 	void alternatingChanged(bool);

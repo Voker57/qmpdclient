@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
-    <height>421</height>
+    <width>560</width>
+    <height>431</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -1703,6 +1703,91 @@
                 </layout>
                </widget>
               </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_8">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>150</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="title">
+                 <string>Timer</string>
+                </property>
+                <property name="flat">
+                 <bool>false</bool>
+                </property>
+                <property name="checkable">
+                 <bool>false</bool>
+                </property>
+                <widget class="QSlider" name="lastFmScrobblerTimerSlider">
+                 <property name="geometry">
+                  <rect>
+                   <x>170</x>
+                   <y>40</y>
+                   <width>131</width>
+                   <height>23</height>
+                  </rect>
+                 </property>
+                 <property name="minimum">
+                  <number>50</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                 <property name="value">
+                  <number>50</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                </widget>
+                <widget class="QLabel" name="label_11">
+                 <property name="geometry">
+                  <rect>
+                   <x>10</x>
+                   <y>40</y>
+                   <width>161</width>
+                   <height>18</height>
+                  </rect>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Percent of song played:</string>
+                 </property>
+                </widget>
+                <widget class="QSpinBox" name="lastFmScrobblerTimerSpiner">
+                 <property name="geometry">
+                  <rect>
+                   <x>300</x>
+                   <y>37</y>
+                   <width>58</width>
+                   <height>28</height>
+                  </rect>
+                 </property>
+                 <property name="minimum">
+                  <number>50</number>
+                 </property>
+                 <property name="maximum">
+                  <number>100</number>
+                 </property>
+                </widget>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>
@@ -1710,6 +1795,9 @@
             <spacer name="verticalSpacer">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Maximum</enum>
              </property>
              <property name="sizeHint" stdset="0">
               <size>

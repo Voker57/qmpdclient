@@ -627,6 +627,10 @@ bool Config::lastFmHashedPassword() const {
 	return value("/lastfm/hashedpassword").toBool();
 }
 
+int Config::lastFmScrobblerTimer() const {
+	return value("/lastfm/scrobblertimer").toInt();
+}
+
 void Config::setSubmitSongsToLastFm(bool b) {
 	setValue("/lastfm/submit", b);
 }
@@ -641,6 +645,10 @@ void Config::setLastFmPassword(const QString &s) {
 
 void Config::setLastFmHashedPassword(bool b) {
 	setValue("/lastfm/hashedpassword", b);
+}
+
+void Config::setLastFmScrobblerTimer(int value) {
+	setValue("/lastfm/scrobblertimer", value);
 }
 
 bool Config::disregardLeadingThe() const {

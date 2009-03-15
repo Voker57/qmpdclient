@@ -52,6 +52,8 @@ private slots:
 	void serverSelectionChanged();
 	void styleChanged(QListWidgetItem *);
 	void hashLastFmPassword();
+	void setLastFmSlider(int);
+	void setLastFmSpiner(int);
 
 private:
 	void initCategoryList();

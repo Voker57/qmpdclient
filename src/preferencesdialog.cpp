@@ -414,10 +414,16 @@ void PreferencesDialog::initLastFmPage() {
 	lastFmUsernameEdit->setText(Config::instance()->lastFmUsername());
 	lastFmMd5PasswordRadio->setChecked(Config::instance()->lastFmHashedPassword());
 	lastFmPasswordEdit->setText(Config::instance()->lastFmPassword());
+	lastFmScrobblerTimerSlider->setValue(Config::instance()->lastFmScrobblerTimer());
+	lastFmScrobblerTimerSpiner->setValue(Config::instance()->lastFmScrobblerTimer());
 	connect(lastFmUsernameEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmUsername(QString)));
 	connect(lastFmPasswordEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmPassword(QString)));
 	connect(submitSongsToLastFmCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setSubmitSongsToLastFm(bool)));
 	connect(lastFmMd5PasswordRadio, SIGNAL(toggled(bool)), Config::instance(), SLOT(setLastFmHashedPassword(bool)));
+	connect(lastFmScrobblerTimerSpiner, SIGNAL(valueChanged(int)), this, SLOT(setLastFmSlider(int)));
+	connect(lastFmScrobblerTimerSlider, SIGNAL(sliderMoved(int)), this, SLOT(setLastFmSpiner(int)));
+	connect(lastFmScrobblerTimerSlider, SIGNAL(sliderMoved(int)), Config::instance(), SLOT(setLastFmScrobblerTimer(int)));
+	connect(lastFmScrobblerTimerSpiner, SIGNAL(valueChanged(int)), Config::instance(), SLOT(setLastFmScrobblerTimer(int)));
 }
 
 PreferencesDialog::~PreferencesDialog() {
@@ -649,4 +655,12 @@ void PreferencesDialog::styleChanged(QListWidgetItem *i) {
 void PreferencesDialog::hashLastFmPassword() {
 	lastFmMd5PasswordRadio->setChecked(true);
 	lastFmPasswordEdit->setText(QCryptographicHash::hash(lastFmPasswordEdit->text().toAscii(), QCryptographicHash::Md5).toHex());
+}
+
+void PreferencesDialog::setLastFmSlider(int value) {
+    lastFmScrobblerTimerSlider->setValue(value);
+}
+
+void PreferencesDialog::setLastFmSpiner(int value) {
+    lastFmScrobblerTimerSpiner->setValue(value);
 }

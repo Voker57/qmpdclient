@@ -72,7 +72,7 @@ void LastFmSubmitter::setSong(const MPDSong & s) {
 		} else
 		if(s.secs() > 30)
 		{
-			m_scrobbleTimer->setInterval((s.secs() < 480 ? s.secs()/2 : 240) * 1000);
+			m_scrobbleTimer->setInterval(s.secs() < 480 ? s.secs()*Config::instance()->lastFmScrobblerTimer()*10 : 240000);
 			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
 			m_scrobbleTimer->start();
 		}
