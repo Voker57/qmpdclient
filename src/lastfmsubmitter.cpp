@@ -229,7 +229,7 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 			emit infoMsg(tr("Successfully scrobbled"));
 		}
 		else
-			m_songQueue.append(m_lastScrobbledSongs);
+			m_songQueue << (m_lastScrobbledSongs);
 
 	}
 	else if(reqUrl.toString() == m_npUrl && data[0] == "OK") {
