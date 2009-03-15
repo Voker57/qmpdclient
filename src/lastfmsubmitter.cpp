@@ -29,15 +29,17 @@
 #include <QCryptographicHash>
 #include <QTimer>
 
-// #include <QDebug>
+#include <QDebug>
 
 LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_npPending = false;
+	m_awaitingHS = false;
+	m_awaitingScrob = false;	
 	m_failed = 0;
 	m_session = "";
-	m_npUrl = "";
 	m_hsUrl="http://post.audioscrobbler.com/";
-	m_subUrl = "";
+	m_npUrl = ""; // we will get it after handshake
+	m_subUrl = ""; // we will get it after handshake
 	m_hardFailTimer = new QTimer(this);
 	m_hardFailTimer->setInterval(60*1000);
 	m_hardFailTimer->setSingleShot(true);
@@ -45,10 +47,14 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_scrobbleTimer->setSingleShot(true);
 	m_npTimer = new QTimer(this);
 	m_npTimer->setSingleShot(true);
-	m_npTimer->setInterval(5000);
+	m_npTimer->setInterval(3000);
+	m_scrobbleRetryTimer = new QTimer(this);
+	m_scrobbleRetryTimer->setSingleShot(true);
+	m_scrobbleRetryTimer->setInterval(10000);
 	m_netAccess = new QNetworkAccessManager(this);
 	connect(m_netAccess, SIGNAL(finished(QNetworkReply *)), this, SLOT(gotNetReply(QNetworkReply *)));
-	connect(m_scrobbleTimer, SIGNAL(timeout()), this, SLOT(stageCurrentTrack()));
+	connect(m_scrobbleTimer, SIGNAL(timeout()), this, SLOT(scrobbleCurrent()));
+	connect(m_scrobbleRetryTimer, SIGNAL(timeout()), this, SLOT(scrobbleQueued()));
 	connect(m_npTimer, SIGNAL(timeout()), this, SLOT(sendNowPlaying()));
 	connect(m_hardFailTimer, SIGNAL(timeout()), this, SLOT(doHandshake()));
 }
@@ -70,18 +76,13 @@ void LastFmSubmitter::setSong(const MPDSong & s) {
 			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
 			m_scrobbleTimer->start();
 		}
-		if(!m_songQueue.isEmpty() && ensureHandshaked())
-		{
-			scrobbleSongs();
-		}
 		m_npTimer->start();
 	}
 }
 
 void LastFmSubmitter::sendNowPlaying() {
 	m_npPending = true;
-	if(ensureHandshaked())
-	{
+	if (ensureHandshaked()) {
 		scrobbleNp(m_currentSong);
 		m_npPending = false;
 	}
@@ -95,20 +96,27 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s) {
 	data += QString("b=%1&").arg(QString(QUrl::toPercentEncoding(s.album())));
 	data += QString("l=%1&").arg(s.secs() >0 ? QString::number(s.secs()) : "100");
 	data += QString("n=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
-	// qDebug() << data;
+	//qDebug() << data;
 	m_netAccess->post(QNetworkRequest(QUrl(m_npUrl)), data.toAscii());
 }
 
-void LastFmSubmitter::stageCurrentTrack() {
-	// qDebug() << "timer fired";
+void LastFmSubmitter::scrobbleCurrent() {
 	m_songQueue.enqueue(QPair<MPDSong, int>(m_currentSong, m_currentStarted));
 	emit infoMsg(tr("Will scrobble this track."));
+	scrobbleQueued();
 }
 
-void LastFmSubmitter::scrobbleSongs() {
+void LastFmSubmitter::scrobbleQueued() {
+	if (!ensureHandshaked() || m_awaitingScrob) {
+		if (!m_scrobbleRetryTimer->isActive())
+			m_scrobbleRetryTimer->start();
+		return;
+	}
+
 	QString data = QString("s=%1&").arg(m_session);
 	int i = 0;
 	emit infoMsg(tr("Scrobbling %1 songs...").arg(m_songQueue.size()));
+	//qDebug() << "trying scrobble "<< m_songQueue.size() << " songs";
 	while(!m_songQueue.isEmpty())
 	{
 		QPair<MPDSong, int> sPair = m_songQueue.dequeue();
@@ -122,11 +130,16 @@ void LastFmSubmitter::scrobbleSongs() {
 		data += QString("b[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.album())), QString::number(i));
 		data += QString("l[%2]=%1&").arg(sPair.first.secs() >0 ? QString::number(sPair.first.secs()) : "", QString::number(i));
 		data += QString("i[%2]=%1&").arg(QString::number(sPair.second), QString::number(i));
-		data += QString("n[%2]=%1").arg(QString(QUrl::toPercentEncoding(sPair.first.track())), QString::number(i));
+		data += QString("n[%2]=%1&").arg(QString(QUrl::toPercentEncoding(sPair.first.track())), QString::number(i));
+		m_lastScrobbledSongs.enqueue(sPair);
 		++i;
 	}
-	// qDebug() << data;
-	m_netAccess->post(QNetworkRequest(QUrl(m_subUrl)), data.toAscii());
+	if (i>0) {
+		//qDebug() << "sending scrobble to " << m_subUrl.toAscii();
+		//qDebug() << "data: " << data.toAscii();
+		m_netAccess->post(QNetworkRequest(QUrl(m_subUrl)), data.toAscii());
+		m_awaitingScrob = true;
+	}
 }
 
 bool LastFmSubmitter::ensureHandshaked() {
@@ -136,8 +149,28 @@ bool LastFmSubmitter::ensureHandshaked() {
 	return false;
 }
 
+QByteArray LastFmSubmitter::getPasswordHash() {
+	QByteArray passwordHash;
+	if (Config::instance()->lastFmHashedPassword())
+		passwordHash = Config::instance()->lastFmPassword().toAscii();
+	else
+		passwordHash = QCryptographicHash::hash(
+			Config::instance()->lastFmPassword().toAscii(),
+			QCryptographicHash::Md5).toHex();
+
+	//accomplish it with current time
+	passwordHash = QCryptographicHash::hash(
+			passwordHash + QByteArray::number((uint)time(NULL)),
+			QCryptographicHash::Md5);
+
+	return passwordHash;
+}
+
 void LastFmSubmitter::doHandshake() {
-	if(m_hardFailTimer->isActive()) return;
+	if (m_hardFailTimer->isActive() || m_awaitingHS) {
+		//qDebug("handshaking delayed");
+		return;
+	}
 	QUrl hsUrl = QUrl(m_hsUrl);
 	hsUrl.addQueryItem("hs", "true");
 	hsUrl.addQueryItem("p", "1.2.1");
@@ -145,38 +178,35 @@ void LastFmSubmitter::doHandshake() {
 	hsUrl.addQueryItem("v", VERSION);
 	hsUrl.addQueryItem("u", Config::instance()->lastFmUsername());
 	hsUrl.addQueryItem("t", QString::number(time(NULL)));
-	// Epic call
-	hsUrl.addQueryItem("a",
-		QCryptographicHash::hash(
-			(Config::instance()->lastFmHashedPassword() ?
-			Config::instance()->lastFmPassword().toAscii() :
-			QCryptographicHash::hash(
-				Config::instance()->lastFmPassword().toAscii(),
-				QCryptographicHash::Md5).toHex() )
-			+ QByteArray::number((uint)time(NULL)),
-		QCryptographicHash::Md5).toHex()
-	);
-	// qDebug() << hsUrl.toString();
+	hsUrl.addQueryItem("a", getPasswordHash().toHex());
+
 	m_netAccess->get(QNetworkRequest(hsUrl));
+	//qDebug() << "handshake sent to " << hsUrl.toString();
+
+	m_awaitingHS = true;
 }
 
 void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
+	//qDebug("gotNetReply...");
 	QStringList data = QString(reply->readAll()).split("\n");
 	if(data.size()==0)
 		return;
 	QUrl reqUrl = reply->url();
 	reqUrl.setQueryItems(QList<QPair<QString, QString> >());
+	//qDebug( (QString("reply from ")+reqUrl.toString()).toAscii().data());
 
 	bool handled= false;
 	// Is this is a handshake reply?
 	if(reqUrl.toString()==m_hsUrl)
 	{
+		m_awaitingHS = false;
 		if(data.size() >= 4 && data[0]=="OK")
 		{
 			handled = true;
 			m_session=data[1];
 			m_npUrl=data[2];
 			m_subUrl=data[3];
+			//qDebug( (QString("hsake result: npurl: ")+m_npUrl+" suburl: "+m_subUrl).toAscii().data());
 			if(m_npPending)
 				sendNowPlaying();
 		} else if(data[0]=="BADAUTH")
@@ -191,16 +221,18 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 	}
 	else
 	// Ok... maybe we were scrobbling something?
-	if(reqUrl.toString() == m_subUrl)
-	{
-		if(data[0] == "OK")
-		{
+	if (reqUrl.toString() == m_subUrl) {
+		m_awaitingScrob = false;
+		if (data[0] == "OK") {
 			handled = true;
-			m_songQueue.clear();
+			m_lastScrobbledSongs.clear();
 			emit infoMsg(tr("Successfully scrobbled"));
 		}
-	} else if(reqUrl.toString() == m_npUrl && data[0] == "OK")
-	{
+		else
+			m_songQueue.append(m_lastScrobbledSongs);
+
+	}
+	else if(reqUrl.toString() == m_npUrl && data[0] == "OK") {
 		handled=true;
 		emit infoMsg(tr("Now Playing sent"));
 	}
@@ -214,13 +246,13 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 	if(data[0].startsWith("FAILED"))
 	{
 		QStringList dat = data[0].split(" ");
-		if(dat.size() >1) emit infoMsg(tr("Last.Fm error: %1").arg(dat[1]));
+		if(dat.size() >1) emit infoMsg(tr("Last.Fm error: %1").arg(dat.join(" ")));
 	}
 
 	if(!handled)
 	{
 		m_failed++;
-	//	qDebug() << "Reply:" << reqUrl.toString() << data;
+		//qDebug() << "Failed Reply:" << reqUrl.toString() << data;
 	}
 	else m_failed=0;
 

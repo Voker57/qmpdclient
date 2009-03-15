@@ -41,23 +41,26 @@ public:
 protected:
 	bool ensureHandshaked();
 	void scrobbleNp(MPDSong & s);
-	void scrobbleSongs();
+	QByteArray getPasswordHash();
 	QString m_session;
 	QString m_npUrl;
 	QString m_subUrl;
 	QString m_hsUrl;
-	int m_currentStarted;
+	int m_currentStarted;	
 	QNetworkAccessManager * m_netAccess;
-	QQueue<QPair<MPDSong, int> > m_songQueue;
+	QQueue<QPair<MPDSong, int> > m_songQueue, m_lastScrobbledSongs;
 	MPDSong m_currentSong;
 	QTimer * m_scrobbleTimer;
+	QTimer * m_scrobbleRetryTimer;
 	QTimer * m_npTimer;
 	QTimer * m_hardFailTimer;
-	bool m_npPending;
+	bool m_npPending, m_awaitingHS, m_awaitingScrob;
+	bool m_lastScrobbleFailed;
 	int m_failed;
 protected slots:
 	void gotNetReply(QNetworkReply *);
-	void stageCurrentTrack();
+	void scrobbleCurrent();
+	void scrobbleQueued();
 	void sendNowPlaying();
 	void doHandshake();
 signals:
