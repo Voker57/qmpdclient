@@ -30,6 +30,7 @@ PlaylistPanel::PlaylistPanel() {
 	connect(Config::instance(), SIGNAL(autoAddSongsChanged(bool)), dynamicButton, SLOT(setChecked(bool)));
 	connect(randomButton, SIGNAL(toggled(bool)), MPD::instance(), SLOT(setRandom(bool)));
 	connect(repeatButton, SIGNAL(toggled(bool)), MPD::instance(), SLOT(setRepeat(bool)));
+	dynamicButton->setChecked(Config::instance()->autoAddSongs());
 	connect(dynamicButton, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAutoAddSongs(bool)));
 
 	// Button clicks
