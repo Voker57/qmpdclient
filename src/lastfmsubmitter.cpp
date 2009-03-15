@@ -47,7 +47,7 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_scrobbleTimer->setSingleShot(true);
 	m_npTimer = new QTimer(this);
 	m_npTimer->setSingleShot(true);
-	m_npTimer->setInterval(3000);
+	m_npTimer->setInterval(5000);
 	m_scrobbleRetryTimer = new QTimer(this);
 	m_scrobbleRetryTimer->setSingleShot(true);
 	m_scrobbleRetryTimer->setInterval(10000);
