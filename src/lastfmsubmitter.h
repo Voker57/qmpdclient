@@ -37,6 +37,7 @@ class LastFmSubmitter : public QObject
 	Q_OBJECT
 public:
 	LastFmSubmitter(QObject * parent = 0);
+	~LastFmSubmitter();
 	void setSong(const MPDSong & s);
 protected:
 	bool ensureHandshaked();
@@ -65,6 +66,10 @@ protected slots:
 	void doHandshake();
 signals:
 	void infoMsg(QString);
+private:
+	void readScrobblerCache();
+	void writeScrobblerCache();
+	void createScrobblerCacheFileIfRequired();
 };
 
 #endif // LASTFMSUBMITTER_H

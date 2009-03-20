@@ -28,6 +28,8 @@
 #include <QStringList>
 #include <QCryptographicHash>
 #include <QTimer>
+#include <QFile>
+#include <QDir>
 
 #include <QDebug>
 
@@ -57,6 +59,21 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	connect(m_scrobbleRetryTimer, SIGNAL(timeout()), this, SLOT(scrobbleQueued()));
 	connect(m_npTimer, SIGNAL(timeout()), this, SLOT(sendNowPlaying()));
 	connect(m_hardFailTimer, SIGNAL(timeout()), this, SLOT(doHandshake()));
+
+	createScrobblerCacheFileIfRequired();
+	readScrobblerCache();
+	if (!m_songQueue.isEmpty()) {
+		scrobbleQueued();
+	}
+}
+
+LastFmSubmitter::~LastFmSubmitter() {
+	delete m_hardFailTimer;
+	delete m_scrobbleTimer;
+	delete m_npTimer;
+	delete m_scrobbleRetryTimer;
+	delete m_netAccess;
+	writeScrobblerCache();
 }
 
 void LastFmSubmitter::setSong(const MPDSong & s) {
@@ -263,5 +280,41 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 		m_session.clear();
 		m_hardFailTimer->setInterval((m_failed > 120 ? 120 : m_failed)*60*1000);
 		m_hardFailTimer->start();
+	}
+}
+
+void LastFmSubmitter::createScrobblerCacheFileIfRequired() {
+	if (!QFile::exists(QDir::toNativeSeparators(QDir::homePath() + "/.config/QMPDClient/scrobbler.cache"))) {
+		QFile scrobblerCacheFile(QDir::toNativeSeparators(QDir::homePath() + "/.config/QMPDClient/scrobbler.cache"));
+		scrobblerCacheFile.open(QIODevice::WriteOnly);
+		scrobblerCacheFile.close();
+	}
+}
+
+void LastFmSubmitter::readScrobblerCache() {
+	QFile scrobblerCacheFile(QDir::toNativeSeparators(QDir::homePath() + "/.config/QMPDClient/scrobbler.cache"));
+	if (scrobblerCacheFile.open(QIODevice::ReadOnly)) {
+		QDataStream in(&scrobblerCacheFile);
+		in >> m_songQueue;
+		scrobblerCacheFile.resize(0);
+		scrobblerCacheFile.close();
+	}
+}
+
+void LastFmSubmitter::writeScrobblerCache() {
+	bool sqEmpty = m_songQueue.isEmpty(), lssEmpty = m_lastScrobbledSongs.isEmpty();
+
+	if (!lssEmpty || !sqEmpty) {
+		QFile scrobblerCacheFile(QDir::toNativeSeparators(QDir::homePath() + "/.config/QMPDClient/scrobbler.cache"));
+		if (scrobblerCacheFile.open(QIODevice::WriteOnly)) {
+			QDataStream out(&scrobblerCacheFile);
+			if (!lssEmpty) {
+				out << m_lastScrobbledSongs;
+			}
+			if (!sqEmpty) {
+				out << m_songQueue;
+			}
+			scrobblerCacheFile.close();
+		}
 	}
 }
