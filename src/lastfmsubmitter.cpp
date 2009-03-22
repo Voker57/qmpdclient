@@ -20,6 +20,7 @@
 
 #include "lastfmsubmitter.h"
 #include "config.h"
+#include "mpd.h"
 
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
@@ -59,7 +60,7 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	connect(m_scrobbleRetryTimer, SIGNAL(timeout()), this, SLOT(scrobbleQueued()));
 	connect(m_npTimer, SIGNAL(timeout()), this, SLOT(sendNowPlaying()));
 	connect(m_hardFailTimer, SIGNAL(timeout()), this, SLOT(doHandshake()));
-
+	connect(MPD::instance(), SIGNAL(stateUpdated(bool)), this, SLOT(mpdStateUpdated(bool)));
 	createScrobblerCacheFileIfRequired();
 	readScrobblerCache();
 	if (!m_songQueue.isEmpty()) {
@@ -318,4 +319,12 @@ void LastFmSubmitter::writeScrobblerCache() {
 			scrobblerCacheFile.close();
 		}
 	}
+}
+
+void LastFmSubmitter::mpdStateUpdated(bool b)
+{
+	if(b && !m_scrobbleTimer->isActive())
+		m_scrobbleTimer->start();
+	else if(!b && m_scrobbleTimer->isActive())
+		m_scrobbleTimer->stop();
 }

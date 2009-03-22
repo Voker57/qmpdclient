@@ -64,6 +64,7 @@ protected slots:
 	void scrobbleQueued();
 	void sendNowPlaying();
 	void doHandshake();
+	void mpdStateUpdated(bool);
 signals:
 	void infoMsg(QString);
 private:
