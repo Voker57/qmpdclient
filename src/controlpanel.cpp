@@ -40,8 +40,10 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), 	m_coverArt(new C
 
 	connect(prevButton, SIGNAL(clicked()), MPD::instance(), SLOT(prev()));
 	connect(playButton, SIGNAL(clicked()), MPD::instance(), SLOT(play()));
+	connect(playButton, SIGNAL(clicked()), m_lastFm, SLOT(startScrobbleTimer()));
 	connect(pauseButton, SIGNAL(clicked()), MPD::instance(), SLOT(pause()));
 	connect(stopButton, SIGNAL(clicked()), MPD::instance(), SLOT(stop()));
+	connect(stopButton, SIGNAL(clicked()), m_lastFm, SLOT(stopScrobbleTimer()));
 	connect(nextButton, SIGNAL(clicked()), MPD::instance(), SLOT(next()));
 	connect(volumeSlider, SIGNAL(valueChanged(int)), MPD::instance(), SLOT(setVolume(int)));
 	connect(timeSlider, SIGNAL(timeChanged(int)), MPD::instance(), SLOT(seek(int)));

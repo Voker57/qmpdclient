@@ -318,3 +318,13 @@ void LastFmSubmitter::writeScrobblerCache() {
 		}
 	}
 }
+
+void LastFmSubmitter::startScrobbleTimer() {
+	m_npTimer->start();
+	m_scrobbleTimer->start();
+}
+
+void LastFmSubmitter::stopScrobbleTimer() {
+	m_npTimer->stop();
+	m_scrobbleTimer->stop();
+}

@@ -64,6 +64,8 @@ protected slots:
 	void scrobbleQueued();
 	void sendNowPlaying();
 	void doHandshake();
+	void startScrobbleTimer();
+	void stopScrobbleTimer();
 signals:
 	void infoMsg(QString);
 private:
