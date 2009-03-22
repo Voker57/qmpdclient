@@ -286,8 +286,9 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 void LastFmSubmitter::createScrobblerCacheFileIfRequired() {
 	if (!QFile::exists(QDir::toNativeSeparators(QDir::homePath() + "/.config/QMPDClient/scrobbler.cache"))) {
 		QFile scrobblerCacheFile(QDir::toNativeSeparators(QDir::homePath() + "/.config/QMPDClient/scrobbler.cache"));
-		scrobblerCacheFile.open(QIODevice::WriteOnly);
-		scrobblerCacheFile.close();
+		if (scrobblerCacheFile.open(QIODevice::WriteOnly)) {
+			scrobblerCacheFile.close();
+		}
 	}
 }
 
