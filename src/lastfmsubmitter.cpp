@@ -46,9 +46,9 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_hardFailTimer = new QTimer(this);
 	m_hardFailTimer->setInterval(60*1000);
 	m_hardFailTimer->setSingleShot(true);
-	m_scrobbleTimer = new QTimer(this);
+	m_scrobbleTimer = new PausableTimer();
 	m_scrobbleTimer->setSingleShot(true);
-	m_npTimer = new QTimer(this);
+	m_npTimer = new PausableTimer();
 	m_npTimer->setSingleShot(true);
 	m_npTimer->setInterval(5000);
 	m_scrobbleRetryTimer = new QTimer(this);
@@ -92,9 +92,13 @@ void LastFmSubmitter::setSong(const MPDSong & s) {
 		{
 			m_scrobbleTimer->setInterval(s.secs() < 480 ? s.secs()*Config::instance()->lastFmScrobblerTimer()*10 : 240000);
 			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
-			m_scrobbleTimer->start();
+			if (!m_scrobbleTimer->isActive() && MPD::instance()->isPlaying()) {
+				m_scrobbleTimer->start();
+			}
 		}
-		m_npTimer->start();
+		if (!m_npTimer->isActive() && MPD::instance()->isPlaying()) {
+			m_npTimer->start();
+		}
 	}
 }
 
@@ -104,6 +108,7 @@ void LastFmSubmitter::sendNowPlaying() {
 		scrobbleNp(m_currentSong);
 		m_npPending = false;
 	}
+	m_npTimer->setInterval(5000); // refreshes the interval, because previous song could  be paused
 }
 
 void LastFmSubmitter::scrobbleNp(MPDSong & s) {
@@ -323,8 +328,16 @@ void LastFmSubmitter::writeScrobblerCache() {
 
 void LastFmSubmitter::mpdStateUpdated(bool b)
 {
-	if(b && !m_scrobbleTimer->isActive())
-		m_scrobbleTimer->start();
-	else if(!b && m_scrobbleTimer->isActive())
+	if (MPD::instance()->isPaused()) {
+		m_scrobbleTimer->pause();
+		m_npTimer->pause();
+	}
+	else if (b && !m_scrobbleTimer->isActive()) {
+		m_scrobbleTimer->resume();
+		m_npTimer->resume();
+	}
+	else if (!b && m_scrobbleTimer->isActive()) {
 		m_scrobbleTimer->stop();
+		m_npTimer->stop();
+	}
 }

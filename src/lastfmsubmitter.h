@@ -22,6 +22,7 @@
 #define LASTFMSUBMITTER_H
 
 #include "mpdsong.h"
+#include "pausabletimer.h"
 
 #include <QString>
 #include <QQueue>
@@ -51,9 +52,9 @@ protected:
 	QNetworkAccessManager * m_netAccess;
 	QQueue<QPair<MPDSong, int> > m_songQueue, m_lastScrobbledSongs;
 	MPDSong m_currentSong;
-	QTimer * m_scrobbleTimer;
+	PausableTimer * m_scrobbleTimer;
 	QTimer * m_scrobbleRetryTimer;
-	QTimer * m_npTimer;
+	PausableTimer * m_npTimer;
 	QTimer * m_hardFailTimer;
 	bool m_npPending, m_awaitingHS, m_awaitingScrob;
 	bool m_lastScrobbleFailed;

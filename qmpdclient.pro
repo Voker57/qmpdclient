@@ -79,6 +79,7 @@ HEADERS += src/aafilter.h \
     src/mpdstatus.h \
     src/notifications.h \
     src/passivepopup.h \
+    src/pausabletimer.h \
     src/playlistitemdelegate.h \
     src/playlistmodel.h \
     src/playlistspanel.h \
@@ -147,6 +148,7 @@ SOURCES += src/aafilter.cpp \
     src/mpdstatus.cpp \
     src/notifications.cpp \
     src/passivepopup.cpp \
+    src/pausabletimer.cpp \
     src/playlistitemdelegate.cpp \
     src/playlistmodel.cpp \
     src/playlistpanel.cpp \
