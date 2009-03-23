@@ -16,10 +16,3 @@ void PausableTimer::pause() {
 		setInterval(interval() - elapsedTime*1000);
 	}
 }
-
-void PausableTimer::resume() {
-	if (!isActive()) {
-		startTime = time(NULL);
-		QTimer::start(interval());
-	}
-}

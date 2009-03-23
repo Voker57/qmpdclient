@@ -78,26 +78,19 @@ LastFmSubmitter::~LastFmSubmitter() {
 }
 
 void LastFmSubmitter::setSong(const MPDSong & s) {
-	if(m_currentSong != s)
-	{
+	if (m_currentSong != s) {
 		m_currentSong = s;
 		m_currentStarted = time(NULL);
-		if(s.type() == MPDSong::PLAYLISTSTREAM)
-		{
+		if (s.type() == MPDSong::PLAYLISTSTREAM && MPD::instance()->isPlaying()) {
 			m_scrobbleTimer->setInterval(60*1000); // How else should i handle _stream_?
 			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
-			m_scrobbleTimer->start();
-		} else
-		if(s.secs() > 30)
-		{
-			m_scrobbleTimer->setInterval(s.secs() < 480 ? s.secs()*Config::instance()->lastFmScrobblerTimer()*10 : 240000);
-			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
-			if (!m_scrobbleTimer->isActive() && MPD::instance()->isPlaying()) {
-				m_scrobbleTimer->start();
-			}
+			mpdStateUpdated(true);
 		}
-		if (!m_npTimer->isActive() && MPD::instance()->isPlaying()) {
-			m_npTimer->start();
+		else {
+			if (s.secs() > 30) {
+				m_scrobbleTimer->setInterval(s.secs() < 480 ? s.secs()*Config::instance()->lastFmScrobblerTimer()*10 : 240000);
+				mpdStateUpdated(true);
+			}
 		}
 	}
 }
@@ -326,18 +319,20 @@ void LastFmSubmitter::writeScrobblerCache() {
 	}
 }
 
-void LastFmSubmitter::mpdStateUpdated(bool b)
-{
-	if (MPD::instance()->isPaused()) {
-		m_scrobbleTimer->pause();
-		m_npTimer->pause();
-	}
-	else if (b && !m_scrobbleTimer->isActive()) {
-		m_scrobbleTimer->resume();
-		m_npTimer->resume();
-	}
-	else if (!b && m_scrobbleTimer->isActive()) {
-		m_scrobbleTimer->stop();
-		m_npTimer->stop();
+void LastFmSubmitter::mpdStateUpdated(bool b) {
+	if (Config::instance()->submitSongsToLastFm()) {
+		if (MPD::instance()->isPaused()) {
+			m_scrobbleTimer->pause();
+			m_npTimer->pause();
+		}
+		else if (b) {
+			m_scrobbleTimer->start();
+			m_npTimer->start();
+		}
+		else if (!b && m_scrobbleTimer->isActive()) {
+			m_scrobbleTimer->stop();
+			m_npTimer->stop();
+		}
+		qDebug() << m_scrobbleTimer->interval() << " " << m_npTimer->interval();
 	}
 }

@@ -10,10 +10,9 @@ class PausableTimer : public QTimer {
 		PausableTimer();
 		void start();
 		void pause();
-		void resume();
 
 	private:
-	time_t startTime;
+		time_t startTime;
 };
 
 #endif
