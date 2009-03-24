@@ -78,6 +78,7 @@ LastFmSubmitter::~LastFmSubmitter() {
 }
 
 void LastFmSubmitter::setSong(const MPDSong & s) {
+	m_scrobbleTimer->setInterval(s.secs() < 480 ? s.secs()*Config::instance()->lastFmScrobblerTimer()*10 : 240000);
 	if (m_currentSong != s) {
 		m_currentSong = s;
 		m_currentStarted = time(NULL);
@@ -86,11 +87,8 @@ void LastFmSubmitter::setSong(const MPDSong & s) {
 			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
 			mpdStateUpdated(true);
 		}
-		else {
-			if (s.secs() > 30) {
-				m_scrobbleTimer->setInterval(s.secs() < 480 ? s.secs()*Config::instance()->lastFmScrobblerTimer()*10 : 240000);
-				mpdStateUpdated(true);
-			}
+		else if (s.secs() > 30 && MPD::instance()->isPlaying()) {
+			mpdStateUpdated(true);
 		}
 	}
 }
@@ -329,10 +327,9 @@ void LastFmSubmitter::mpdStateUpdated(bool b) {
 			m_scrobbleTimer->start();
 			m_npTimer->start();
 		}
-		else if (!b && m_scrobbleTimer->isActive()) {
+		else if (!b) {
 			m_scrobbleTimer->stop();
 			m_npTimer->stop();
 		}
-		qDebug() << m_scrobbleTimer->interval() << " " << m_npTimer->interval();
 	}
 }
