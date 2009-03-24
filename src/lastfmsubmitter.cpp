@@ -47,6 +47,7 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_hardFailTimer->setInterval(60*1000);
 	m_hardFailTimer->setSingleShot(true);
 	m_scrobbleTimer = new PausableTimer();
+	m_scrobbleTimer->setInterval(9000000); // huge number to avoid scrobbling just started song start (rare case)
 	m_scrobbleTimer->setSingleShot(true);
 	m_npTimer = new PausableTimer();
 	m_npTimer->setSingleShot(true);
@@ -78,6 +79,7 @@ LastFmSubmitter::~LastFmSubmitter() {
 }
 
 void LastFmSubmitter::setSong(const MPDSong & s) {
+	m_npTimer->setInterval(5000);
 	m_scrobbleTimer->setInterval(s.secs() < 480 ? s.secs()*Config::instance()->lastFmScrobblerTimer()*10 : 240000);
 	if (m_currentSong != s) {
 		m_currentSong = s;
@@ -330,6 +332,7 @@ void LastFmSubmitter::mpdStateUpdated(bool b) {
 		else if (!b) {
 			m_scrobbleTimer->stop();
 			m_npTimer->stop();
+			m_npTimer->setInterval(5000);
 		}
 	}
 }
