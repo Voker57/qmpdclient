@@ -63,6 +63,8 @@ QVariant PlaylistModel::data(const QModelIndex &index, int role) const {
 		QFont font = QApplication::font();
 		font.setBold(true);
 		return font;
+	} else if (role == Qt::ToolTipRole) {
+		return QString("%1 - %2").arg(s.artist(), s.title());
 	}
 	return QVariant();
 }
