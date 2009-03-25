@@ -83,14 +83,15 @@ void LastFmSubmitter::setSong(const MPDSong & s) {
 	m_scrobbleTimer->setInterval(s.secs() < 480 ? s.secs()*Config::instance()->lastFmScrobblerTimer()*10 : 240000);
 	if (m_currentSong != s) {
 		m_currentSong = s;
-		m_currentStarted = time(NULL);
-		if (s.type() == MPDSong::PLAYLISTSTREAM && MPD::instance()->isPlaying()) {
-			m_scrobbleTimer->setInterval(60*1000); // How else should i handle _stream_?
-			// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
-			mpdStateUpdated(true);
-		}
-		else if (s.secs() > 30 && MPD::instance()->isPlaying()) {
-			mpdStateUpdated(true);
+		if (MPD::instance()->isPlaying()) {
+			if (s.type() == MPDSong::PLAYLISTSTREAM) {
+				m_scrobbleTimer->setInterval(60*1000); // How else should i handle _stream_?
+				// qDebug() << "starting scrobble timer" << m_scrobbleTimer->interval();
+				mpdStateUpdated(true);
+			}
+			else if (s.secs() > 30) {
+				mpdStateUpdated(true);
+			}
 		}
 	}
 }
@@ -101,7 +102,6 @@ void LastFmSubmitter::sendNowPlaying() {
 		scrobbleNp(m_currentSong);
 		m_npPending = false;
 	}
-	m_npTimer->setInterval(5000); // refreshes the interval, because previous song could  be paused
 }
 
 void LastFmSubmitter::scrobbleNp(MPDSong & s) {
@@ -253,6 +253,7 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 	else if(reqUrl.toString() == m_npUrl && data[0] == "OK") {
 		handled=true;
 		emit infoMsg(tr("Now Playing sent"));
+		m_npTimer->setInterval(5000); // refreshes the interval, because previous song could  be paused
 	}
 	// Was i bad player and now there's bad session?
 	if(data[0] == "BADSESSION")
@@ -326,6 +327,7 @@ void LastFmSubmitter::mpdStateUpdated(bool b) {
 			m_npTimer->pause();
 		}
 		else if (b) {
+			m_currentStarted = time(NULL);
 			m_scrobbleTimer->start();
 			m_npTimer->start();
 		}
