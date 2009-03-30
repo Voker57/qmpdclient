@@ -24,7 +24,7 @@ TYPE::TYPE(QWidget *parent) : PARENT(parent),
 		m_menu(new QMenu(this)) {
 	connect(MPDConnection::instance(), SIGNAL(connected(const ServerInfo &)), this, SLOT(connected()));
 	connect(MPDConnection::instance(), SIGNAL(disconnected(const QString &)), this, SLOT(disconnected()));
-	connect(this, SIGNAL(activated(const QModelIndex &)), this, SLOT(activated(const QModelIndex &)));
+	connect(this, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(activated(const QModelIndex &)));
 }
 
 QAction *TYPE::addMenuAction(const QString &objectName, QObject *receiver, const char *method, bool conditional) {
