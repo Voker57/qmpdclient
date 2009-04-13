@@ -235,25 +235,33 @@ void MainWindow::setStats(const MPDStats &stats) {
 	secs -= hour * 60 * 60;
 	const int min = secs / 60;
 	m_statsLabel->setText(tr("Library:  %1 %2, %3 %4, %5 %6. (%7 %8 %9 %10 %11 %12) ")
-	                      .arg(stats.numberOfArtists())
-	                      .arg(tr("artists"))
-	                      .arg(stats.numberOfAlbums())
-	                      .arg(tr("albums"))
-	                      .arg(stats.numberOfSongs())
-	                      .arg(tr("songs"))
-	                      .arg(day)
-	                      .arg(tr("days"))
-	                      .arg(hour)
-	                      .arg(tr("hours"))
-	                      .arg(min)
-	                      .arg(tr("minutes")));
+						  .arg(stats.numberOfArtists())
+						  .arg(tr("artists"))
+						  .arg(stats.numberOfAlbums())
+						  .arg(tr("albums"))
+						  .arg(stats.numberOfSongs())
+						  .arg(tr("songs"))
+						  .arg(day)
+						  .arg(tr("days"))
+						  .arg(hour)
+						  .arg(tr("hours"))
+						  .arg(min)
+						  .arg(tr("minutes")));
 	m_stats = stats;
 }
 
 void MainWindow::showHide() {
 	Q_ASSERT(m_trayIcon);
 	if (Config::instance()->trayIconEnabled() && Config::instance()->minimizeToTray() && m_trayIcon->isVisible())
-		isVisible() ? hide() : showNormal();
+	{
+		if(isVisible())
+			hide();
+		else
+		{
+			showNormal();
+			activateWindow();
+		}
+	}
 }
 
 void MainWindow::trayIconChanged(bool e) {
