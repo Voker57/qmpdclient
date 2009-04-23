@@ -22,6 +22,7 @@
 
 #include <QApplication>
 #include <QPointer>
+#include <QSessionManager>
 
 class MainWindow;
 class QTranslator;
@@ -39,6 +40,7 @@ public:
 #ifdef Q_WS_WIN
 	bool winEventFilter(MSG *, long *);
 #endif
+	void commitData(QSessionManager & manager);
 
 private slots:
 	void alternatingChanged(bool);
