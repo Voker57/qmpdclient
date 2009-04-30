@@ -12,7 +12,7 @@ QMAKE_LFLAGS_RELEASE += -O2 -g0 -s
 TEMPLATE = app
 RESOURCES = qmpdclient.qrc
 VERSION = 1.1.0
-DEFINES += NAMEVER='"\\"QMPDClient-ne \
+DEFINES += NAMEVER='"\\"QMPDClient \
     $$VERSION\\""'
 DEFINES += VERSION='"\\"$$VERSION\\""'
 INCLUDEPATH += src
@@ -186,7 +186,7 @@ RCC_DIR = .res
 UI_DIR = .ui
 
 # Platform specific
-win32 { 
+win32 {
     debug:CONFIG += console
     LIBS += -lws2_32
     RC_FILE = icons/resource.rc
@@ -195,22 +195,22 @@ win32 {
 }
 
 # Installation in done through own installer on win32
-unix { 
-    !mac { 
+unix {
+    !mac {
         SOURCES += src/qmpdclient_x11.cpp
-        
+
         # Check for dbus support
-        contains(QT_CONFIG, dbus) { 
+        contains(QT_CONFIG, dbus) {
             message(DBus notifier: enabled)
             CONFIG += qdbus
             SOURCES += src/notifications_dbus.cpp
         }
-        else { 
+        else {
             message(DBus notifier: disabled (Qt is not compiled with dbus support))
             SOURCES += src/notifications_nodbus.cpp
         }
     }
-    mac { 
+    mac {
         RC_FILE = icons/qmpdclient.icns
         SOURCES += src/qmpdclient_mac.cpp \
             src/notifications_nodbus.cpp
