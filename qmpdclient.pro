@@ -19,6 +19,7 @@ TEMPLATE = app
 RESOURCES = qmpdclient.qrc
 VERSION = 1.0.9
 DEFINES += NAMEVER='"\\"QMPDClient-ne \\""'
+    $$VERSION\\""'
 DEFINES += VERSION='"\\"$$VERSION\\""'
 INCLUDEPATH += src
 QT += network
@@ -201,7 +202,7 @@ unix {
         SOURCES += src/qmpdclient_x11.cpp
 
         # Check for dbus support
-        contains(QT_CONFIG, dbus){
+        contains(QT_CONFIG, dbus) {
             message(DBus notifier: enabled)
             CONFIG += qdbus
             SOURCES += src/notifications_dbus.cpp
