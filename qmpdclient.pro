@@ -223,3 +223,14 @@ unix {
     INSTALLS += target
     target.path = $$PREFIX/bin
 }
+
+system(which desktop-file-install > /dev/null)
+{
+	message(.desktop file support enabled)
+	desktop_file.extra = desktop-file-install qmpdclient.desktop
+	desktop_file.path=/
+	INSTALLS += desktop_file
+}
+else {
+	message(.desktop file support is not available; install desktop-file-utils)
+}
