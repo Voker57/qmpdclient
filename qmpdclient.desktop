@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=QMPDClient
+GenericName=A nicer MPD client
+Exec=qmpdclient
+Categories=Qt;Network;Music;
+Terminal=false
