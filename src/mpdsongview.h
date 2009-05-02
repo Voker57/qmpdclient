@@ -39,6 +39,9 @@ protected:
 
 	MPDSongModel *m_model;
 	QAction *m_enqueueAction, *m_informationAction, *m_playAction;
+
+protected slots:
+	void doubleClicked(const QModelIndex &);
 };
 
 class MPDSongViewHeader: public HeaderView {

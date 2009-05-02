@@ -22,6 +22,7 @@
 #include "mpdsonglist.h"
 #include "stringlistmodel.h"
 #include "stringlistview.h"
+#include "mpd.h"
 #include "config.h"
 #include <QMap>
 #include <QMenu>
@@ -35,6 +36,11 @@ StringListView::StringListView(QWidget *parent) : AbstractList(parent) {
 	m_playAction = addMenuAction("play", this, SLOT(play()));
 	m_menu->addSeparator();
 	m_informationAction = addMenuAction("information", this, SLOT(information()));
+	connect(this, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(doubleClicked(const QModelIndex &)));
+}
+
+void StringListView::doubleClicked(const QModelIndex &) {
+	MPD::instance()->addSongs(selectedSongs(), Config::instance()->enqueue());
 }
 
 QStringList StringListView::selectedStrings() const {
