@@ -49,5 +49,8 @@ protected:
 	StringListModel *m_model;
 	QStringList m_strings;
 	QAction *m_enqueueAction, *m_informationAction, *m_playAction;
+
+protected slots:
+	void doubleClicked(const QModelIndex &);
 };
 #endif

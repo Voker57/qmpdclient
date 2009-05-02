@@ -20,6 +20,8 @@
 #include "headerview.h"
 #include "mpdsongmodel.h"
 #include "mpdsongview.h"
+#include "mpd.h"
+#include "config.h"
 #include <QMenu>
 
 MPDSongView::MPDSongView(QWidget *parent) : AbstractTree(parent), m_model(0) {
@@ -28,6 +30,11 @@ MPDSongView::MPDSongView(QWidget *parent) : AbstractTree(parent), m_model(0) {
 	m_playAction = addMenuAction("play", this, SLOT(play()));
 	m_menu->addSeparator();
 	m_informationAction = addMenuAction("information", this, SLOT(information()));
+	connect(this, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(doubleClicked(const QModelIndex &)));
+}
+
+void MPDSongView::doubleClicked(const QModelIndex &) {
+	MPD::instance()->addSongs(selectedSongs(), Config::instance()->enqueue());
 }
 
 void MPDSongView::setHeaderView(HeaderView *header) {
