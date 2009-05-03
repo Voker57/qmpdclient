@@ -18,8 +18,7 @@ CONFIG += qt debug # release
 TEMPLATE = app
 RESOURCES = qmpdclient.qrc
 VERSION = 1.0.9
-DEFINES += NAMEVER='"\\"QMPDClient-ne \\""'
-    $$VERSION\\""'
+DEFINES += NAMEVER='"\\"QMPDClient $$VERSION\\""'
 DEFINES += VERSION='"\\"$$VERSION\\""'
 INCLUDEPATH += src
 QT += network
