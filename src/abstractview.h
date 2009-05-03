@@ -31,7 +31,6 @@ public slots:
 	void disconnected();
 
 private slots:
-	void activated(const QModelIndex &);
 	void enqueue();
 	void information();
 	void play();
@@ -50,7 +49,6 @@ public slots:
 	void disconnected();
 
 private slots:
-	void activated(const QModelIndex &);
 	void enqueue();
 	void information();
 	void play();
