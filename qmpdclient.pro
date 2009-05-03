@@ -225,5 +225,7 @@ unix {
 unix {
 	desktop_file.files = qmpdclient.desktop
 	desktop_file.path = $$PREFIX/share/applications
-	INSTALLS += desktop_file
+	icons.files = icons/qmpdclient64.png
+	icons.path = $$PREFIX/share/icons
+	INSTALLS += desktop_file icons
 }
