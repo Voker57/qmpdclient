@@ -79,7 +79,7 @@ QString StringListView::normalizeString(const QString l) {
 		return l.mid(4).trimmed();
 	}
 
-	return l.trimmed();
+	return l.trimmed().toLower();
 }
 
 /**
