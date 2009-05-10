@@ -76,7 +76,7 @@ void StringListView::selectString(const QString &str) {
  */
 QString StringListView::normalizeString(const QString l) {
 	if (l.length() > 4 && l.startsWith("The ", Qt::CaseInsensitive)) {
-		return l.mid(4).trimmed();
+		return l.mid(4).trimmed().toLower();
 	}
 
 	return l.trimmed().toLower();
