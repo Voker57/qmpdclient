@@ -37,7 +37,7 @@ public:
 	void selectString(const QString &str);
 
 	static QString normalizeString(const QString l);
-	static QStringList normalizedSort(const QStringList &strings);
+	static QStringList sort(const QStringList &strings, bool normalize);
 
 public slots:
 

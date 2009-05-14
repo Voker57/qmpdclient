@@ -76,21 +76,25 @@ void StringListView::selectString(const QString &str) {
  */
 QString StringListView::normalizeString(const QString l) {
 	if (l.length() > 4 && l.startsWith("The ", Qt::CaseInsensitive)) {
-		return l.mid(4).trimmed().toLower();
+		return l.mid(4).trimmed();
 	}
 
-	return l.trimmed().toLower();
+	return l.trimmed();
 }
 
 /**
- * Return a sorted string list with strings normalized
+ * Return a sorted string list, sorted alphabetically case insensitive
+ * @param QStringList list of strings
+ * @param bool to normalize or not to normalize
  */
-QStringList StringListView::normalizedSort(const QStringList &strings) {
-
+QStringList StringListView::sort(const QStringList &strings, bool normalize) {
 	// Recommended way to have arbitrary sorting from QT docs
 	QMap<QString, QString> map;
 	foreach (QString str, strings) {
-		map.insert(StringListView::normalizeString(str), str);
+		if (normalize)
+			map.insert(StringListView::normalizeString(str.toLower()), str);
+		else
+			map.insert(str.toLower(), str);
 	}
 
 	QStringList sorted;
@@ -109,7 +113,7 @@ void StringListView::filter(const QString &needle) {
 void StringListView::setStrings(const QStringList &strings) {
 	Q_ASSERT(m_model);
 
-	m_strings = Config::instance()->disregardLeadingThe() ? StringListView::normalizedSort(strings) : strings;
+	m_strings = StringListView::sort(strings, Config::instance()->disregardLeadingThe());
 
 	m_model->setStringList(m_strings);
 	setCurrentIndex(m_model->index(0));
