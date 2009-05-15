@@ -227,17 +227,19 @@ QMimeData *PlaylistModel::mimeData(const QModelIndexList &indexes) const {
 /*
  * Playlist queue
  */
-void PlaylistModel::addToQueue(const QModelIndexList &s) {
+void PlaylistModel::toggleQueue(const QModelIndexList &s) {
 	foreach(QModelIndex i, s) {
-		MPDSong s = m_visible.at(i.row());
-		m_queue.removeAll(s);
-		m_queue.append(s);
+		MPDSong song = m_visible.at(i.row());
+		if(m_queue.contains(song)) {
+			m_queue.removeAll(song);
+			dataChanged(i, i);
+		} else {
+			m_queue.append(song);
+		}
 	}
-}
-
-void PlaylistModel::removeFromQueue(const QModelIndexList &s) {
-	foreach(QModelIndex i, s) {
-		m_queue.removeAll(m_visible.at(i.row()));
+	foreach(MPDSong song, m_queue) {
+		QModelIndex i = indexOfSong(song);
+		dataChanged(i, i);
 	}
 }
 

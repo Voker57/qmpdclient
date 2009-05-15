@@ -49,7 +49,6 @@ private slots:
 	void setPlaylist(const MPDSongList &);
 	void setSong(const MPDSong &);
 	void queueSelectedSong();
-	void deQueueSelectedSong();
 
 private:
 	void dragLeaveEvent(QDragLeaveEvent *);
@@ -64,7 +63,7 @@ private:
 	PlaylistModel *m_model;
 	QAction *m_clearAction, *m_cropAction, *m_informationAction, *m_jumpToAction, *m_randomAction;
 	QAction *m_removeAction, *m_repeatAction, *m_saveAction, *m_shuffleAction;
-	QAction *m_queueAction, *m_deQueueAction;
+	QAction *m_queueAction;
 	QLine m_dropLine;
 	QShortcut *m_focusKey;
 };
