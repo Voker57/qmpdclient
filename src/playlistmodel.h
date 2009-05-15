@@ -44,8 +44,7 @@ public:
 	QStringList mimeTypes() const;
 	QMimeData *mimeData(const QModelIndexList &) const;
 
-	void addToQueue(const QModelIndexList &);
-	void removeFromQueue(const QModelIndexList &);
+	void toggleQueue(const QModelIndexList &s);
 	void advanceQueue();
 	QList<MPDSong> queue() const;
 

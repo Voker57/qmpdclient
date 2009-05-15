@@ -44,7 +44,7 @@ PlaylistView::PlaylistView(QWidget *parent) : AbstractList(parent) {
 	addAction(m_jumpToAction); // Needed for shortcut key to work
 	m_menu->addSeparator();
 	m_queueAction = addMenuAction("queue", this, SLOT(queueSelectedSong()));
-	m_deQueueAction = addMenuAction("deQueue", this, SLOT(deQueueSelectedSong()));
+	addAction(m_queueAction); // Needed for shortcut key to work
 
 	m_menu->addSeparator();
 	m_removeAction = addMenuAction("remove", this, SLOT(removeItems()));
@@ -92,7 +92,6 @@ void PlaylistView::updateTranslation() {
 	Q_ASSERT(m_saveAction);
 	Q_ASSERT(m_shuffleAction);
 	Q_ASSERT(m_queueAction);
-	Q_ASSERT(m_deQueueAction);
 	Q_ASSERT(m_focusKey);
 	m_cropAction->setText(tr("&Crop playlist"));
 	m_informationAction->setText(tr("&Information..."));
@@ -105,7 +104,7 @@ void PlaylistView::updateTranslation() {
 	m_saveAction->setText(tr("&Save playlist..."));
 	m_shuffleAction->setText(tr("S&huffle playlist"));
 	m_queueAction->setText(tr("Add to queue"));
-	m_deQueueAction->setText(tr("Remove from queue"));
+	m_queueAction->setShortcut(tr("Q", "This is the shortcut for 'Add to queue'"));
 	m_focusKey->setWhatsThis(tr("Focus playlist"));
 }
 
@@ -279,9 +278,5 @@ void PlaylistView::dragLeaveEvent(QDragLeaveEvent *e) {
 
 // Queue
 void PlaylistView::queueSelectedSong() {
-	m_model->addToQueue(selectedIndexes());
-}
-
-void PlaylistView::deQueueSelectedSong() {
-	m_model->removeFromQueue(selectedIndexes());
+	m_model->toggleQueue(selectedIndexes());
 }
