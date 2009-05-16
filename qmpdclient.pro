@@ -105,6 +105,7 @@ HEADERS += src/aafilter.h \
     src/timelabel.h \
     src/timeslider.h \
     src/trayicon.h \
+	src/traysonginfo.h \
     src/verticalbutton.h \
     src/lastfmsubmitter.h
 
@@ -173,6 +174,7 @@ SOURCES += src/aafilter.cpp \
     src/timelabel.cpp \
     src/timeslider.cpp \
     src/trayicon.cpp \
+	src/traysonginfo.cpp \
     src/verticalbutton.cpp \
     src/lastfmsubmitter.cpp
 

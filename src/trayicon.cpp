@@ -24,12 +24,14 @@
 #include "mpdconnection.h"
 #include "mpdsong.h"
 #include "richtext.h"
+#include "traysonginfo.h"
 #include <QApplication>
 #include <QBoxLayout>
 #include <QMenu>
 #include <QPainter>
 #include <QSlider>
 #include <QWheelEvent>
+#include <QDesktopWidget>
 #ifndef Q_WS_X11
 #include "macroexpander.h"
 #endif
@@ -78,6 +80,8 @@ TrayIcon::TrayIcon(QWidget *parent) : QSystemTrayIcon(parent),
 {
 	setObjectName("trayicon");
 	setIcon(m_disconnected);
+
+	m_songInfoWidget = new TraySongInfo();
 
 	QMenu *menu = new QMenu(parent);
 	m_showHideAction = menu->addAction("", parent, SLOT(showHide()));
@@ -147,6 +151,9 @@ void TrayIcon::action(QSystemTrayIcon::ActivationReason reason) {
 }
 
 void TrayIcon::setSong(const MPDSong &s) {
+	if (Config::instance()->extendedSongInfoEnabled())
+		m_songInfoWidget->setSong(s);
+
 	if (s.isNull()) {
 		QString msg = tr("Not playing", "This is for the trayicon tooltip, indicating that no song is playing");
 #ifndef Q_WS_X11
@@ -218,6 +225,8 @@ void TrayIcon::toggleEnabled(bool enabled) {
 }
 
 bool TrayIcon::event(QEvent *event) {
+	static int songInfoWidgetTimerId = -1;
+
 	if (event->type() == QEvent::Wheel) {
 		QWheelEvent *e = static_cast<QWheelEvent*>(event);
 		const int numDegrees = e->delta() / 8;
@@ -236,5 +245,33 @@ bool TrayIcon::event(QEvent *event) {
 		}
 		return true;
 	}
+	else if (event->type() == QEvent::ToolTip) {
+		if (Config::instance()->extendedSongInfoEnabled()) {
+			m_songInfoWidget->show();
+
+			int x = geometry().right() + m_songInfoWidget->width() < QApplication::desktop()->width() ?
+						geometry().right() :
+						geometry().left() - m_songInfoWidget->width();
+			int y = geometry().top() - m_songInfoWidget->height() > 0 ?
+						geometry().top() - m_songInfoWidget->height() :
+						geometry().bottom();
+
+			m_songInfoWidget->move(x, y);
+
+			songInfoWidgetTimerId = startTimer(100);
+			return true;
+		}
+	}
+	else if (event->type() == QEvent::Timer) {
+		if (static_cast<QTimerEvent*>(event)->timerId() == songInfoWidgetTimerId) {
+			if (!geometry().contains(QCursor::pos())) {
+				killTimer(songInfoWidgetTimerId);
+				songInfoWidgetTimerId = -1;
+
+				m_songInfoWidget->close();
+			}
+		}
+	}
+
 	return QSystemTrayIcon::event(event);
 }

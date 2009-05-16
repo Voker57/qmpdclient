@@ -403,10 +403,12 @@ void PreferencesDialog::initTrayIconPage() {
 	trayIconCheck->setChecked(Config::instance()->trayIconEnabled());
 	startHiddenCheck->setChecked(Config::instance()->startHidden());
 	minToTrayCheck->setChecked(Config::instance()->minimizeToTray());
+	songInfoCheck->setChecked(Config::instance()->extendedSongInfoEnabled());
 
 	connect(trayIconCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setTrayIconEnabled(bool)));
 	connect(minToTrayCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setMinimizeToTray(bool)));
 	connect(startHiddenCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setStartHidden(bool)));
+	connect(songInfoCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setExtendedSongInfoEnabled(bool)));
 }
 
 void PreferencesDialog::initLastFmPage() {
