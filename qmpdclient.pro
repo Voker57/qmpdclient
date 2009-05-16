@@ -111,6 +111,7 @@ HEADERS += \
 	src/timelabel.h \
 	src/timeslider.h \
 	src/trayicon.h \
+	src/traysonginfo.h \
 	src/verticalbutton.h
 
 SOURCES += \
@@ -179,6 +180,7 @@ SOURCES += \
 	src/timeslider.cpp \
 	src/trayicon.cpp \
 	src/verticalbutton.cpp
+	src/traysonginfo.cpp \
 
 MOC_DIR = .moc
 OBJECTS_DIR = .obj

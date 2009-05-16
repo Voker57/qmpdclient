@@ -85,6 +85,7 @@ public:
 	bool minimizeToTray() const;
 	bool startHidden() const;
 	bool trayIconEnabled() const;
+	bool extendedSongInfoEnabled() const;
 
 	// Dynamic playlist
 	int autoAddCount() const;
@@ -171,6 +172,7 @@ public slots:
 	void setMinimizeToTray(bool);
 	void setStartHidden(bool);
 	void setTrayIconEnabled(bool);
+	void setExtendedSongInfoEnabled(bool);
 
 	// Dynamic playlist
 	void setAutoAddCount(int);

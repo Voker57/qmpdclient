@@ -431,6 +431,10 @@ void Config::setTrayIconEnabled(bool e) {
 		emit trayIconChanged(e);
 }
 
+void Config::setExtendedSongInfoEnabled(bool e) {
+	setValue("/trayicon/songinfo", e);
+}
+
 void Config::setMinimizeToTray(bool e) {
 	setValue("/trayicon/minimizetotray", e);
 }
@@ -441,6 +445,10 @@ void Config::setStartHidden(bool e) {
 
 bool Config::trayIconEnabled() const {
 	return value("/trayicon/enable", true).toBool();
+}
+
+bool Config::extendedSongInfoEnabled() const {
+	return value("/trayicon/songinfo", true).toBool();
 }
 
 bool Config::minimizeToTray() const {

@@ -25,6 +25,7 @@
 class MPDSong;
 class QAction;
 class VolumeMenu;
+class TraySongInfo;
 
 class TrayIcon : public QSystemTrayIcon {
 	Q_OBJECT
@@ -46,6 +47,7 @@ private:
 	QAction *m_prevAction, *m_playAction, *m_pauseAction, *m_stopAction, *m_nextAction, *m_showHideAction, *m_quitAction;
 	QColor m_prevColor;
 	QPixmap m_connected, m_disconnected;
+	TraySongInfo *m_songInfoWidget;
 
 private slots:
 	void action(QSystemTrayIcon::ActivationReason);

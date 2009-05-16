@@ -1604,6 +1604,13 @@
                 </property>
                </widget>
               </item>
+	      <item>
+               <widget class="QCheckBox" name="songInfoCheck">
+                <property name="text">
+                 <string>Enable extended song info</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>
