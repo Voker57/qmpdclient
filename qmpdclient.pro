@@ -179,8 +179,8 @@ SOURCES += \
 	src/timelabel.cpp \
 	src/timeslider.cpp \
 	src/trayicon.cpp \
-	src/verticalbutton.cpp
-	src/traysonginfo.cpp \
+	src/verticalbutton.cpp \
+	src/traysonginfo.cpp
 
 MOC_DIR = .moc
 OBJECTS_DIR = .obj
