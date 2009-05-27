@@ -78,7 +78,7 @@
        <item>
         <widget class="QStackedWidget" name="widgetStack">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="connectionPage">
           <layout class="QVBoxLayout">
@@ -448,7 +448,7 @@
            <item>
             <widget class="QGroupBox" name="groupBox">
              <property name="title">
-              <string>Double click action</string>
+              <string>Double click / enter action</string>
              </property>
              <layout class="QVBoxLayout">
               <property name="spacing">
@@ -842,6 +842,9 @@
               </item>
               <item row="0" column="1">
                <widget class="QLineEdit" name="coverDirEdit">
+                <property name="inputMask">
+                 <string/>
+                </property>
                 <property name="text">
                  <string notr="true"/>
                 </property>
@@ -868,6 +871,9 @@
               </item>
               <item row="1" column="1">
                <widget class="QLineEdit" name="coverMaxHeight">
+                <property name="inputMask">
+                 <string/>
+                </property>
                 <property name="text">
                  <string notr="true">1024</string>
                 </property>
@@ -894,6 +900,9 @@
               </item>
               <item row="2" column="1">
                <widget class="QLineEdit" name="coverMaxWidth">
+                <property name="inputMask">
+                 <string/>
+                </property>
                 <property name="text">
                  <string notr="true">768</string>
                 </property>
@@ -935,6 +944,9 @@
              </property>
              <property name="checkable">
               <bool>true</bool>
+             </property>
+             <property name="checked">
+              <bool>false</bool>
              </property>
              <layout class="QGridLayout">
               <property name="margin">
@@ -1604,7 +1616,7 @@
                 </property>
                </widget>
               </item>
-	      <item>
+              <item>
                <widget class="QCheckBox" name="songInfoCheck">
                 <property name="text">
                  <string>Enable extended song info</string>
