@@ -127,3 +127,9 @@ void TYPE::mouseReleaseEvent(QMouseEvent *e) {
 	}
 	PARENT::mouseReleaseEvent(e);
 }
+
+void TYPE::keyPressEvent(QKeyEvent *e) {
+	if ((e->key() == Qt::Key_Return || e->key() == Qt::Key_Enter))
+		emit doubleClicked(QModelIndex());
+	PARENT::keyPressEvent(e);
+}

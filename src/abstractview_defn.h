@@ -28,6 +28,7 @@ protected:
 	void mouseMoveEvent(QMouseEvent *);
 	void mousePressEvent(QMouseEvent *);
 	void mouseReleaseEvent(QMouseEvent *);
+	void keyPressEvent(QKeyEvent *);
 	void paintEvent(QPaintEvent *);
 	void selectionChanged(const QItemSelection & = QItemSelection(), const QItemSelection & = QItemSelection());
 

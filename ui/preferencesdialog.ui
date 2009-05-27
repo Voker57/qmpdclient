@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>PreferencesDialog</class>
- <widget class="QWidget" name="PreferencesDialog" >
-  <property name="geometry" >
+ <widget class="QWidget" name="PreferencesDialog">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,133 +10,133 @@
     <height>431</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>Preferences</string>
   </property>
-  <layout class="QVBoxLayout" >
+  <layout class="QVBoxLayout">
    <item>
-    <widget class="QSplitter" name="splitter" >
-     <property name="orientation" >
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="childrenCollapsible" >
+     <property name="childrenCollapsible">
       <bool>false</bool>
      </property>
-     <widget class="QTreeWidget" name="categoryList" >
-      <property name="sizePolicy" >
-       <sizepolicy vsizetype="Expanding" hsizetype="Expanding" >
+     <widget class="QTreeWidget" name="categoryList">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
         <horstretch>1</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
-      <property name="minimumSize" >
+      <property name="minimumSize">
        <size>
         <width>150</width>
         <height>0</height>
        </size>
       </property>
-      <property name="indentation" >
+      <property name="indentation">
        <number>15</number>
       </property>
-      <property name="rootIsDecorated" >
+      <property name="rootIsDecorated">
        <bool>false</bool>
       </property>
-      <property name="uniformRowHeights" >
+      <property name="uniformRowHeights">
        <bool>true</bool>
       </property>
-      <property name="itemsExpandable" >
+      <property name="itemsExpandable">
        <bool>false</bool>
       </property>
       <column>
-       <property name="text" >
+       <property name="text">
         <string/>
        </property>
       </column>
      </widget>
-     <widget class="QWidget" name="layoutWidget" >
-      <layout class="QVBoxLayout" >
-       <property name="spacing" >
+     <widget class="QWidget" name="layoutWidget">
+      <layout class="QVBoxLayout">
+       <property name="spacing">
         <number>6</number>
        </property>
-       <property name="margin" >
+       <property name="margin">
         <number>0</number>
        </property>
        <item>
-        <widget class="QLabel" name="currentLabel" >
-         <property name="indent" >
+        <widget class="QLabel" name="currentLabel">
+         <property name="indent">
           <number>5</number>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QStackedWidget" name="widgetStack" >
-         <property name="currentIndex" >
-          <number>9</number>
+        <widget class="QStackedWidget" name="widgetStack">
+         <property name="currentIndex">
+          <number>2</number>
          </property>
-         <widget class="QWidget" name="connectionPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="connectionPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="groupBox_5" >
-             <property name="title" >
+            <widget class="QGroupBox" name="groupBox_5">
+             <property name="title">
               <string>Servers</string>
              </property>
-             <layout class="QVBoxLayout" >
-              <property name="spacing" >
+             <layout class="QVBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QTableView" name="serverList" >
-                <property name="selectionMode" >
+               <widget class="QTableView" name="serverList">
+                <property name="selectionMode">
                  <enum>QAbstractItemView::SingleSelection</enum>
                 </property>
-                <property name="selectionBehavior" >
+                <property name="selectionBehavior">
                  <enum>QAbstractItemView::SelectRows</enum>
                 </property>
                </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" >
-                <property name="spacing" >
+               <layout class="QHBoxLayout">
+                <property name="spacing">
                  <number>6</number>
                 </property>
-                <property name="margin" >
+                <property name="margin">
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QToolButton" name="upButton" >
-                  <property name="text" >
+                 <widget class="QToolButton" name="upButton">
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="arrowType" >
+                  <property name="arrowType">
                    <enum>Qt::UpArrow</enum>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QToolButton" name="downButton" >
-                  <property name="text" >
+                 <widget class="QToolButton" name="downButton">
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="arrowType" >
+                  <property name="arrowType">
                    <enum>Qt::DownArrow</enum>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <spacer>
-                  <property name="orientation" >
+                  <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
-                  <property name="sizeHint" stdset="0" >
+                  <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
                     <height>20</height>
@@ -144,15 +145,15 @@
                  </spacer>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="addButton" >
-                  <property name="text" >
+                 <widget class="QPushButton" name="addButton">
+                  <property name="text">
                    <string>A&amp;dd</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="deleteButton" >
-                  <property name="text" >
+                 <widget class="QPushButton" name="deleteButton">
+                  <property name="text">
                    <string>De&amp;lete</string>
                   </property>
                  </widget>
@@ -160,46 +161,46 @@
                </layout>
               </item>
               <item>
-               <widget class="QCheckBox" name="autoConnectCheck" >
-                <property name="text" >
+               <widget class="QCheckBox" name="autoConnectCheck">
+                <property name="text">
                  <string>A&amp;uto connect to first server on startup</string>
                 </property>
                </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" >
-                <property name="spacing" >
+               <layout class="QHBoxLayout">
+                <property name="spacing">
                  <number>6</number>
                 </property>
-                <property name="margin" >
+                <property name="margin">
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QLabel" name="label_4" >
-                  <property name="text" >
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
                    <string>Connection &amp;timeout:</string>
                   </property>
-                  <property name="buddy" >
+                  <property name="buddy">
                    <cstring>timeoutSpin</cstring>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSpinBox" name="timeoutSpin" />
+                 <widget class="QSpinBox" name="timeoutSpin"/>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_6" >
-                  <property name="text" >
+                 <widget class="QLabel" name="label_6">
+                  <property name="text">
                    <string>seconds</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <spacer>
-                  <property name="orientation" >
+                  <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
-                  <property name="sizeHint" stdset="0" >
+                  <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
                     <height>20</height>
@@ -214,13 +215,13 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Minimum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>10</height>
@@ -229,34 +230,34 @@
             </spacer>
            </item>
            <item>
-            <widget class="QGroupBox" name="reconnectCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="reconnectCheck">
+             <property name="title">
               <string>&amp;Reconnect to MPD if connection is lost</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <layout class="QHBoxLayout" >
-              <property name="spacing" >
+             <layout class="QHBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QLabel" name="reconnectLabel" >
-                <property name="text" >
+               <widget class="QLabel" name="reconnectLabel">
+                <property name="text">
                  <string>S&amp;econds between reconnect attempts:</string>
                 </property>
-                <property name="buddy" >
+                <property name="buddy">
                  <cstring>reconnectSpin</cstring>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="reconnectSpin" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+               <widget class="QSpinBox" name="reconnectSpin">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -265,10 +266,10 @@
               </item>
               <item>
                <spacer>
-                <property name="orientation" >
+                <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
-                <property name="sizeHint" stdset="0" >
+                <property name="sizeHint" stdset="0">
                  <size>
                   <width>10</width>
                   <height>10</height>
@@ -281,10 +282,10 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -294,65 +295,65 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="serverPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="serverPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="crossfadeCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="crossfadeCheck">
+             <property name="title">
               <string>Cross&amp;fade on song change</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <layout class="QHBoxLayout" >
-              <property name="spacing" >
+             <layout class="QHBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QLabel" name="crossfadeLabel" >
-                <property name="text" >
+               <widget class="QLabel" name="crossfadeLabel">
+                <property name="text">
                  <string>Cro&amp;ssfade for:</string>
                 </property>
-                <property name="buddy" >
+                <property name="buddy">
                  <cstring>crossfadeSpin</cstring>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QSpinBox" name="crossfadeSpin" >
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+               <widget class="QSpinBox" name="crossfadeSpin">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="toolTip" >
+                <property name="toolTip">
                  <string/>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_7" >
-                <property name="text" >
+               <widget class="QLabel" name="label_7">
+                <property name="text">
                  <string>seconds</string>
                 </property>
                </widget>
               </item>
               <item>
                <spacer>
-                <property name="orientation" >
+                <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
-                <property name="sizeHint" stdset="0" >
+                <property name="sizeHint" stdset="0">
                  <size>
                   <width>40</width>
                   <height>20</height>
@@ -365,13 +366,13 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Minimum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>10</height>
@@ -380,32 +381,32 @@
             </spacer>
            </item>
            <item>
-            <widget class="QGroupBox" name="groupBox_4" >
-             <property name="title" >
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="title">
               <string>Output devices</string>
              </property>
-             <layout class="QVBoxLayout" >
-              <property name="spacing" >
+             <layout class="QVBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QTreeWidget" name="outputList" >
-                <property name="rootIsDecorated" >
+               <widget class="QTreeWidget" name="outputList">
+                <property name="rootIsDecorated">
                  <bool>false</bool>
                 </property>
-                <property name="itemsExpandable" >
+                <property name="itemsExpandable">
                  <bool>false</bool>
                 </property>
                 <column>
-                 <property name="text" >
+                 <property name="text">
                   <string>Enabled</string>
                  </property>
                 </column>
                 <column>
-                 <property name="text" >
+                 <property name="text">
                   <string>Name</string>
                  </property>
                 </column>
@@ -416,10 +417,10 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -429,36 +430,36 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="lookAndFeelPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="lookAndFeelPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="groupBox" >
-             <property name="title" >
-              <string>Double click action</string>
+            <widget class="QGroupBox" name="groupBox">
+             <property name="title">
+              <string>Double click / enter action</string>
              </property>
-             <layout class="QVBoxLayout" >
-              <property name="spacing" >
+             <layout class="QVBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QRadioButton" name="playItemRadio" >
-                <property name="text" >
+               <widget class="QRadioButton" name="playItemRadio">
+                <property name="text">
                  <string>&amp;Play item</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="enqueueItemRadio" >
-                <property name="text" >
+               <widget class="QRadioButton" name="enqueueItemRadio">
+                <property name="text">
                  <string>&amp;Enqueue item</string>
                 </property>
                </widget>
@@ -468,13 +469,13 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Minimum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>10</height>
@@ -483,35 +484,35 @@
             </spacer>
            </item>
            <item>
-            <widget class="QCheckBox" name="alternatingCheck" >
-             <property name="text" >
+            <widget class="QCheckBox" name="alternatingCheck">
+             <property name="text">
               <string>A&amp;lternating row colors</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="autoResizeCheck" >
-             <property name="text" >
+            <widget class="QCheckBox" name="autoResizeCheck">
+             <property name="text">
               <string>A&amp;uto resize columns</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="opaqueCheck" >
-             <property name="text" >
+            <widget class="QCheckBox" name="opaqueCheck">
+             <property name="text">
               <string>Opa&amp;que splitter resizing</string>
              </property>
             </widget>
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Minimum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>10</height>
@@ -520,36 +521,36 @@
             </spacer>
            </item>
            <item>
-            <layout class="QHBoxLayout" >
-             <property name="spacing" >
+            <layout class="QHBoxLayout">
+             <property name="spacing">
               <number>6</number>
              </property>
-             <property name="margin" >
+             <property name="margin">
               <number>0</number>
              </property>
              <item>
-              <widget class="QLabel" name="label_5_3_2" >
-               <property name="text" >
+              <widget class="QLabel" name="label_5_3_2">
+               <property name="text">
                 <string>Font:</string>
                </property>
-               <property name="buddy" >
+               <property name="buddy">
                 <cstring>fontLine</cstring>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="fontLine" >
-               <property name="enabled" >
+              <widget class="QLineEdit" name="fontLine">
+               <property name="enabled">
                 <bool>true</bool>
                </property>
-               <property name="readOnly" >
+               <property name="readOnly">
                 <bool>true</bool>
                </property>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="fontButton" >
-               <property name="text" >
+              <widget class="QPushButton" name="fontButton">
+               <property name="text">
                 <string>C&amp;hoose...</string>
                </property>
               </widget>
@@ -558,10 +559,10 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>50</height>
@@ -571,30 +572,30 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="libraryPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="libraryPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="groupBox_6" >
-             <property name="title" >
+            <widget class="QGroupBox" name="groupBox_6">
+             <property name="title">
               <string>Filter songs by...</string>
              </property>
-             <layout class="QVBoxLayout" >
+             <layout class="QVBoxLayout">
               <item>
-               <widget class="QRadioButton" name="filterByBothRadio" >
-                <property name="text" >
+               <widget class="QRadioButton" name="filterByBothRadio">
+                <property name="text">
                  <string>selected &amp;artist and album</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QRadioButton" name="filterByAlbumRadio" >
-                <property name="text" >
+               <widget class="QRadioButton" name="filterByAlbumRadio">
+                <property name="text">
                  <string>selected al&amp;bum only</string>
                 </property>
                </widget>
@@ -604,13 +605,13 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Minimum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>10</height>
@@ -619,25 +620,25 @@
             </spacer>
            </item>
            <item>
-            <widget class="QCheckBox" name="showAllCheck" >
-             <property name="text" >
+            <widget class="QCheckBox" name="showAllCheck">
+             <property name="text">
               <string>&amp;Show 'All' and 'Not tagged' (Slow)</string>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QCheckBox" name="disregardTheCheck" >
-             <property name="text" >
+            <widget class="QCheckBox" name="disregardTheCheck">
+             <property name="text">
               <string>Disregard leading 'The ' when sorting</string>
              </property>
             </widget>
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -647,27 +648,27 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="directoriesPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="directoriesPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QCheckBox" name="recursiveViewCheck" >
-             <property name="text" >
+            <widget class="QCheckBox" name="recursiveViewCheck">
+             <property name="text">
               <string>&amp;Recursive directory view (Slow)</string>
              </property>
             </widget>
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -677,53 +678,53 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="playlistPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="playlistPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="groupBox_3" >
-             <property name="title" >
+            <widget class="QGroupBox" name="groupBox_3">
+             <property name="title">
               <string>Title format</string>
              </property>
-             <layout class="QVBoxLayout" >
-              <property name="spacing" >
+             <layout class="QVBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QLabel" name="titleFormatLabel" >
-                <property name="text" >
+               <widget class="QLabel" name="titleFormatLabel">
+                <property name="text">
                  <string/>
                 </property>
                </widget>
               </item>
               <item>
-               <layout class="QHBoxLayout" >
-                <property name="spacing" >
+               <layout class="QHBoxLayout">
+                <property name="spacing">
                  <number>6</number>
                 </property>
-                <property name="margin" >
+                <property name="margin">
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QLabel" name="label_2" >
-                  <property name="text" >
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
                    <string>Title &amp;format:</string>
                   </property>
-                  <property name="buddy" >
+                  <property name="buddy">
                    <cstring>titleFormatLine</cstring>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="titleFormatLine" />
+                 <widget class="QLineEdit" name="titleFormatLine"/>
                 </item>
                </layout>
               </item>
@@ -732,13 +733,13 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Minimum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>10</height>
@@ -747,18 +748,18 @@
             </spacer>
            </item>
            <item>
-            <widget class="QCheckBox" name="centerPlayingCheck" >
-             <property name="text" >
+            <widget class="QCheckBox" name="centerPlayingCheck">
+             <property name="text">
               <string>Center playing &amp;song</string>
              </property>
             </widget>
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -768,128 +769,128 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="iconsPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="iconsPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QListWidget" name="iconList" >
-             <property name="uniformItemSizes" >
+            <widget class="QListWidget" name="iconList">
+             <property name="uniformItemSizes">
               <bool>true</bool>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="iconLabel" />
+            <widget class="QLabel" name="iconLabel"/>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="stylesPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="stylesPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QListWidget" name="styleList" >
-             <property name="uniformItemSizes" >
+            <widget class="QListWidget" name="styleList">
+             <property name="uniformItemSizes">
               <bool>true</bool>
              </property>
             </widget>
            </item>
            <item>
-            <widget class="QLabel" name="styleLabel" />
+            <widget class="QLabel" name="styleLabel"/>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="coverArtPage" >
-          <layout class="QVBoxLayout" name="verticalLayout_3" >
+         <widget class="QWidget" name="coverArtPage">
+          <layout class="QVBoxLayout" name="verticalLayout_3">
            <item>
-            <widget class="QGroupBox" name="showCoverCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="showCoverCheck">
+             <property name="title">
               <string>Show album c&amp;over art</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <layout class="QGridLayout" name="gridLayout" >
-              <item row="0" column="0" >
-               <widget class="QLabel" name="label" >
-                <property name="text" >
+             <layout class="QGridLayout" name="gridLayout">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label">
+                <property name="text">
                  <string>&amp;Path to MPD music root:</string>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
-                <property name="buddy" >
+                <property name="buddy">
                  <cstring>coverDirEdit</cstring>
                 </property>
                </widget>
               </item>
-              <item row="0" column="1" >
-               <widget class="QLineEdit" name="coverDirEdit" >
-                <property name="inputMask" >
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="coverDirEdit">
+                <property name="inputMask">
                  <string/>
                 </property>
-                <property name="text" >
+                <property name="text">
                  <string/>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0" >
-               <widget class="QLabel" name="label_12" >
-                <property name="text" >
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_12">
+                <property name="text">
                  <string>Max Height:</string>
                 </property>
-                <property name="textFormat" >
+                <property name="textFormat">
                  <enum>Qt::PlainText</enum>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
-                <property name="buddy" >
+                <property name="buddy">
                  <cstring>coverMaxHeight</cstring>
                 </property>
                </widget>
               </item>
-              <item row="1" column="1" >
-               <widget class="QLineEdit" name="coverMaxHeight" >
-                <property name="inputMask" >
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="coverMaxHeight">
+                <property name="inputMask">
                  <string/>
                 </property>
-                <property name="text" >
+                <property name="text">
                  <string>1024</string>
                 </property>
                </widget>
               </item>
-              <item row="2" column="0" >
-               <widget class="QLabel" name="label_13" >
-                <property name="text" >
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_13">
+                <property name="text">
                  <string>Max Width:</string>
                 </property>
-                <property name="textFormat" >
+                <property name="textFormat">
                  <enum>Qt::PlainText</enum>
                 </property>
-                <property name="alignment" >
+                <property name="alignment">
                  <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
                 </property>
-                <property name="buddy" >
+                <property name="buddy">
                  <cstring>coverMaxWidth</cstring>
                 </property>
                </widget>
               </item>
-              <item row="2" column="1" >
-               <widget class="QLineEdit" name="coverMaxWidth" >
-                <property name="inputMask" >
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="coverMaxWidth">
+                <property name="inputMask">
                  <string/>
                 </property>
-                <property name="text" >
+                <property name="text">
                  <string>768</string>
                 </property>
                </widget>
@@ -899,10 +900,10 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -912,51 +913,51 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="dynamicPlaylistPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="dynamicPlaylistPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="autoAddCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="autoAddCheck">
+             <property name="title">
               <string>&amp;Fill up playlist with random songs</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>false</bool>
              </property>
-             <property name="checked" >
+             <property name="checked">
               <bool>false</bool>
              </property>
-             <layout class="QGridLayout" >
-              <property name="margin" >
+             <layout class="QGridLayout">
+              <property name="margin">
                <number>9</number>
               </property>
-              <property name="spacing" >
+              <property name="spacing">
                <number>6</number>
               </property>
-              <item row="0" column="0" >
-               <widget class="QLabel" name="autoAddPosSpinLabel" >
-                <property name="text" >
+              <item row="0" column="0">
+               <widget class="QLabel" name="autoAddPosSpinLabel">
+                <property name="text">
                  <string>&amp;When less than that songs left:</string>
                 </property>
-                <property name="buddy" >
+                <property name="buddy">
                  <cstring>autoAddPosSpin</cstring>
                 </property>
                </widget>
               </item>
-              <item row="0" column="1" >
-               <widget class="QSpinBox" name="autoAddPosSpin" />
+              <item row="0" column="1">
+               <widget class="QSpinBox" name="autoAddPosSpin"/>
               </item>
-              <item rowspan="2" row="0" column="2" >
+              <item row="0" column="2" rowspan="2">
                <spacer>
-                <property name="orientation" >
+                <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
-                <property name="sizeHint" stdset="0" >
+                <property name="sizeHint" stdset="0">
                  <size>
                   <width>10</width>
                   <height>10</height>
@@ -969,13 +970,13 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Minimum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>10</height>
@@ -984,18 +985,18 @@
             </spacer>
            </item>
            <item>
-            <widget class="QCheckBox" name="autoRemoveCheck" >
-             <property name="text" >
+            <widget class="QCheckBox" name="autoRemoveCheck">
+             <property name="text">
               <string>&amp;Remove played songs from playlist</string>
              </property>
             </widget>
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -1005,32 +1006,32 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="translationPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="translationPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="translationCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="translationCheck">
+             <property name="title">
               <string>Enable &amp;translations</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <layout class="QVBoxLayout" >
-              <property name="spacing" >
+             <layout class="QVBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QListWidget" name="localeList" >
-                <property name="uniformItemSizes" >
+               <widget class="QListWidget" name="localeList">
+                <property name="uniformItemSizes">
                  <bool>true</bool>
                 </property>
                </widget>
@@ -1040,51 +1041,51 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="notificationsPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="notificationsPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="notificationsCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="notificationsCheck">
+             <property name="title">
               <string>&amp;Enable notifications</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <layout class="QVBoxLayout" >
-              <property name="spacing" >
+             <layout class="QVBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <layout class="QHBoxLayout" >
-                <property name="spacing" >
+               <layout class="QHBoxLayout">
+                <property name="spacing">
                  <number>6</number>
                 </property>
-                <property name="margin" >
+                <property name="margin">
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QLabel" name="label_3" >
-                  <property name="text" >
+                 <widget class="QLabel" name="label_3">
+                  <property name="text">
                    <string>&amp;Notifier:</string>
                   </property>
-                  <property name="buddy" >
+                  <property name="buddy">
                    <cstring>notificationCombo</cstring>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="notificationCombo" >
-                  <property name="sizePolicy" >
-                   <sizepolicy vsizetype="Fixed" hsizetype="MinimumExpanding" >
+                 <widget class="QComboBox" name="notificationCombo">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
@@ -1095,13 +1096,13 @@
               </item>
               <item>
                <spacer>
-                <property name="orientation" >
+                <property name="orientation">
                  <enum>Qt::Vertical</enum>
                 </property>
-                <property name="sizeType" >
+                <property name="sizeType">
                  <enum>QSizePolicy::Minimum</enum>
                 </property>
-                <property name="sizeHint" stdset="0" >
+                <property name="sizeHint" stdset="0">
                  <size>
                   <width>20</width>
                   <height>10</height>
@@ -1110,39 +1111,39 @@
                </spacer>
               </item>
               <item>
-               <layout class="QHBoxLayout" >
-                <property name="spacing" >
+               <layout class="QHBoxLayout">
+                <property name="spacing">
                  <number>6</number>
                 </property>
-                <property name="margin" >
+                <property name="margin">
                  <number>0</number>
                 </property>
                 <item>
-                 <widget class="QLabel" name="label_5" >
-                  <property name="text" >
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
                    <string>&amp;Show for:</string>
                   </property>
-                  <property name="buddy" >
+                  <property name="buddy">
                    <cstring>notificationsTimeoutSpinner</cstring>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSpinBox" name="notificationsTimeoutSpinner" />
+                 <widget class="QSpinBox" name="notificationsTimeoutSpinner"/>
                 </item>
                 <item>
-                 <widget class="QLabel" name="label_9" >
-                  <property name="text" >
+                 <widget class="QLabel" name="label_9">
+                  <property name="text">
                    <string>seconds</string>
                   </property>
                  </widget>
                 </item>
                 <item>
                  <spacer>
-                  <property name="orientation" >
+                  <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
-                  <property name="sizeHint" stdset="0" >
+                  <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
                     <height>20</height>
@@ -1154,13 +1155,13 @@
               </item>
               <item>
                <spacer>
-                <property name="orientation" >
+                <property name="orientation">
                  <enum>Qt::Vertical</enum>
                 </property>
-                <property name="sizeType" >
+                <property name="sizeType">
                  <enum>QSizePolicy::Minimum</enum>
                 </property>
-                <property name="sizeHint" stdset="0" >
+                <property name="sizeHint" stdset="0">
                  <size>
                   <width>20</width>
                   <height>10</height>
@@ -1169,29 +1170,29 @@
                </spacer>
               </item>
               <item>
-               <widget class="QLabel" name="posLabel" >
-                <property name="text" >
+               <widget class="QLabel" name="posLabel">
+                <property name="text">
                  <string>Position</string>
                 </property>
                </widget>
               </item>
               <item>
-               <layout class="QGridLayout" >
-                <property name="margin" >
+               <layout class="QGridLayout">
+                <property name="margin">
                  <number>0</number>
                 </property>
-                <property name="spacing" >
+                <property name="spacing">
                  <number>6</number>
                 </property>
-                <item row="1" column="2" >
+                <item row="1" column="2">
                  <spacer>
-                  <property name="orientation" >
+                  <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
-                  <property name="sizeType" >
+                  <property name="sizeType">
                    <enum>QSizePolicy::Minimum</enum>
                   </property>
-                  <property name="sizeHint" stdset="0" >
+                  <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
                     <height>10</height>
@@ -1199,41 +1200,41 @@
                   </property>
                  </spacer>
                 </item>
-                <item row="4" column="3" >
-                 <widget class="QToolButton" name="bottomRight" >
-                  <property name="toolTip" >
+                <item row="4" column="3">
+                 <widget class="QToolButton" name="bottomRight">
+                  <property name="toolTip">
                    <string>Bottom-right</string>
                   </property>
-                  <property name="text" >
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="checkable" >
+                  <property name="checkable">
                    <bool>true</bool>
                   </property>
-                  <property name="autoExclusive" >
+                  <property name="autoExclusive">
                    <bool>true</bool>
                   </property>
                  </widget>
                 </item>
-                <item row="2" column="2" >
-                 <widget class="QLabel" name="desktopLabel" >
-                  <property name="text" >
+                <item row="2" column="2">
+                 <widget class="QLabel" name="desktopLabel">
+                  <property name="text">
                    <string>Desktop</string>
                   </property>
-                  <property name="alignment" >
+                  <property name="alignment">
                    <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
                 </item>
-                <item row="3" column="2" >
+                <item row="3" column="2">
                  <spacer>
-                  <property name="orientation" >
+                  <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
-                  <property name="sizeType" >
+                  <property name="sizeType">
                    <enum>QSizePolicy::Minimum</enum>
                   </property>
-                  <property name="sizeHint" stdset="0" >
+                  <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
                     <height>10</height>
@@ -1241,94 +1242,94 @@
                   </property>
                  </spacer>
                 </item>
-                <item rowspan="3" row="1" column="3" >
-                 <widget class="QToolButton" name="right" >
-                  <property name="sizePolicy" >
-                   <sizepolicy vsizetype="MinimumExpanding" hsizetype="Fixed" >
+                <item row="1" column="3" rowspan="3">
+                 <widget class="QToolButton" name="right">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
-                  <property name="toolTip" >
+                  <property name="toolTip">
                    <string>Right-middle</string>
                   </property>
-                  <property name="text" >
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="checkable" >
+                  <property name="checkable">
                    <bool>true</bool>
                   </property>
-                  <property name="autoExclusive" >
+                  <property name="autoExclusive">
                    <bool>true</bool>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="3" >
-                 <widget class="QToolButton" name="topRight" >
-                  <property name="toolTip" >
+                <item row="0" column="3">
+                 <widget class="QToolButton" name="topRight">
+                  <property name="toolTip">
                    <string>Top-right</string>
                   </property>
-                  <property name="text" >
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="checkable" >
+                  <property name="checkable">
                    <bool>true</bool>
                   </property>
-                  <property name="autoExclusive" >
+                  <property name="autoExclusive">
                    <bool>true</bool>
                   </property>
                  </widget>
                 </item>
-                <item row="4" column="2" >
-                 <widget class="QToolButton" name="bottom" >
-                  <property name="sizePolicy" >
-                   <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+                <item row="4" column="2">
+                 <widget class="QToolButton" name="bottom">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
-                  <property name="toolTip" >
+                  <property name="toolTip">
                    <string>Bottom-middle</string>
                   </property>
-                  <property name="text" >
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="checkable" >
+                  <property name="checkable">
                    <bool>true</bool>
                   </property>
-                  <property name="autoExclusive" >
+                  <property name="autoExclusive">
                    <bool>true</bool>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="2" >
-                 <widget class="QToolButton" name="top" >
-                  <property name="sizePolicy" >
-                   <sizepolicy vsizetype="Fixed" hsizetype="Minimum" >
+                <item row="0" column="2">
+                 <widget class="QToolButton" name="top">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
-                  <property name="toolTip" >
+                  <property name="toolTip">
                    <string>Top-middle</string>
                   </property>
-                  <property name="text" >
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="checkable" >
+                  <property name="checkable">
                    <bool>true</bool>
                   </property>
-                  <property name="autoExclusive" >
+                  <property name="autoExclusive">
                    <bool>true</bool>
                   </property>
                  </widget>
                 </item>
-                <item rowspan="5" row="0" column="4" >
+                <item row="0" column="4" rowspan="5">
                  <spacer>
-                  <property name="orientation" >
+                  <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
-                  <property name="sizeHint" stdset="0" >
+                  <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
                     <height>20</height>
@@ -1336,56 +1337,56 @@
                   </property>
                  </spacer>
                 </item>
-                <item rowspan="3" row="1" column="0" colspan="2" >
-                 <widget class="QToolButton" name="left" >
-                  <property name="sizePolicy" >
-                   <sizepolicy vsizetype="MinimumExpanding" hsizetype="Fixed" >
+                <item row="1" column="0" rowspan="3" colspan="2">
+                 <widget class="QToolButton" name="left">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Fixed" vsizetype="MinimumExpanding">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
                   </property>
-                  <property name="toolTip" >
+                  <property name="toolTip">
                    <string>Left-middle</string>
                   </property>
-                  <property name="text" >
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="checkable" >
+                  <property name="checkable">
                    <bool>true</bool>
                   </property>
-                  <property name="autoExclusive" >
+                  <property name="autoExclusive">
                    <bool>true</bool>
                   </property>
                  </widget>
                 </item>
-                <item row="0" column="0" colspan="2" >
-                 <widget class="QToolButton" name="topLeft" >
-                  <property name="toolTip" >
+                <item row="0" column="0" colspan="2">
+                 <widget class="QToolButton" name="topLeft">
+                  <property name="toolTip">
                    <string>Top-left</string>
                   </property>
-                  <property name="text" >
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="checkable" >
+                  <property name="checkable">
                    <bool>true</bool>
                   </property>
-                  <property name="autoExclusive" >
+                  <property name="autoExclusive">
                    <bool>true</bool>
                   </property>
                  </widget>
                 </item>
-                <item row="4" column="0" colspan="2" >
-                 <widget class="QToolButton" name="bottomLeft" >
-                  <property name="toolTip" >
+                <item row="4" column="0" colspan="2">
+                 <widget class="QToolButton" name="bottomLeft">
+                  <property name="toolTip">
                    <string>Bottom-left</string>
                   </property>
-                  <property name="text" >
+                  <property name="text">
                    <string/>
                   </property>
-                  <property name="checkable" >
+                  <property name="checkable">
                    <bool>true</bool>
                   </property>
-                  <property name="autoExclusive" >
+                  <property name="autoExclusive">
                    <bool>true</bool>
                   </property>
                  </widget>
@@ -1397,10 +1398,10 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>141</height>
@@ -1410,72 +1411,72 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="shortcutPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="shortcutPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QTableView" name="shortcutList" >
-             <property name="selectionMode" >
+            <widget class="QTableView" name="shortcutList">
+             <property name="selectionMode">
               <enum>QAbstractItemView::NoSelection</enum>
              </property>
             </widget>
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="tagGuesserPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="tagGuesserPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="tagGuesserCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="tagGuesserCheck">
+             <property name="title">
               <string>&amp;Enable tag guesser</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <layout class="QGridLayout" >
-              <property name="margin" >
+             <layout class="QGridLayout">
+              <property name="margin">
                <number>9</number>
               </property>
-              <property name="spacing" >
+              <property name="spacing">
                <number>6</number>
               </property>
-              <item row="1" column="1" >
-               <widget class="QLineEdit" name="testLine" />
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="testLine"/>
               </item>
-              <item row="0" column="0" >
-               <widget class="QLabel" name="label_8" >
-                <property name="text" >
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_8">
+                <property name="text">
                  <string>&amp;Guess pattern:</string>
                 </property>
-                <property name="buddy" >
+                <property name="buddy">
                  <cstring>patternLine</cstring>
                 </property>
                </widget>
               </item>
-              <item row="1" column="0" >
-               <widget class="QLabel" name="label_8_2" >
-                <property name="text" >
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_8_2">
+                <property name="text">
                  <string>&amp;Test filename:</string>
                 </property>
-                <property name="buddy" >
+                <property name="buddy">
                  <cstring>testLine</cstring>
                 </property>
                </widget>
               </item>
-              <item row="0" column="1" >
-               <widget class="QLineEdit" name="patternLine" >
-                <property name="toolTip" >
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="patternLine">
+                <property name="toolTip">
                  <string>%b = Band/Artist
 %a = Album
 %n = Track number
@@ -1490,13 +1491,13 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Minimum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>10</height>
@@ -1505,41 +1506,41 @@
             </spacer>
            </item>
            <item>
-            <widget class="QGroupBox" name="groupBox_2" >
-             <property name="title" >
+            <widget class="QGroupBox" name="groupBox_2">
+             <property name="title">
               <string>Guess results</string>
              </property>
-             <layout class="QVBoxLayout" >
-              <property name="spacing" >
+             <layout class="QVBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QLabel" name="trackLabel" >
-                <property name="text" >
+               <widget class="QLabel" name="trackLabel">
+                <property name="text">
                  <string>Track:</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="titleLabel" >
-                <property name="text" >
+               <widget class="QLabel" name="titleLabel">
+                <property name="text">
                  <string>Title:</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="albumLabel" >
-                <property name="text" >
+               <widget class="QLabel" name="albumLabel">
+                <property name="text">
                  <string>Album:</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="bandLabel" >
-                <property name="text" >
+               <widget class="QLabel" name="bandLabel">
+                <property name="text">
                  <string>Artist:</string>
                 </property>
                </widget>
@@ -1549,10 +1550,10 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -1562,44 +1563,44 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="trayIconPage" >
-          <layout class="QVBoxLayout" >
-           <property name="spacing" >
+         <widget class="QWidget" name="trayIconPage">
+          <layout class="QVBoxLayout">
+           <property name="spacing">
             <number>6</number>
            </property>
-           <property name="margin" >
+           <property name="margin">
             <number>9</number>
            </property>
            <item>
-            <widget class="QGroupBox" name="trayIconCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="trayIconCheck">
+             <property name="title">
               <string>&amp;Enable tray icon</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <layout class="QVBoxLayout" >
-              <property name="spacing" >
+             <layout class="QVBoxLayout">
+              <property name="spacing">
                <number>6</number>
               </property>
-              <property name="margin" >
+              <property name="margin">
                <number>9</number>
               </property>
               <item>
-               <widget class="QCheckBox" name="minToTrayCheck" >
-                <property name="text" >
+               <widget class="QCheckBox" name="minToTrayCheck">
+                <property name="text">
                  <string>Close button &amp;minimizes to tray</string>
                 </property>
                </widget>
               </item>
               <item>
-               <widget class="QCheckBox" name="startHiddenCheck" >
-                <property name="text" >
+               <widget class="QCheckBox" name="startHiddenCheck">
+                <property name="text">
                  <string>Start QMPDClient &amp;hidden</string>
                 </property>
                </widget>
               </item>
-	      <item>
+              <item>
                <widget class="QCheckBox" name="songInfoCheck">
                 <property name="text">
                  <string>Enable extended song info</string>
@@ -1611,10 +1612,10 @@
            </item>
            <item>
             <spacer>
-             <property name="orientation" >
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -1624,41 +1625,41 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="lastFmPage" >
-          <layout class="QVBoxLayout" name="verticalLayout" >
+         <widget class="QWidget" name="lastFmPage">
+          <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QGroupBox" name="submitSongsToLastFmCheck" >
-             <property name="title" >
+            <widget class="QGroupBox" name="submitSongsToLastFmCheck">
+             <property name="title">
               <string>Submit played tracks to Last.Fm</string>
              </property>
-             <property name="checkable" >
+             <property name="checkable">
               <bool>true</bool>
              </property>
-             <property name="checked" >
+             <property name="checked">
               <bool>true</bool>
              </property>
-             <layout class="QVBoxLayout" name="verticalLayout_2" >
+             <layout class="QVBoxLayout" name="verticalLayout_2">
               <item>
-               <layout class="QHBoxLayout" name="horizontalLayout" >
+               <layout class="QHBoxLayout" name="horizontalLayout">
                 <item>
-                 <widget class="QLabel" name="label_10" >
-                  <property name="text" >
+                 <widget class="QLabel" name="label_10">
+                  <property name="text">
                    <string>Username:</string>
                   </property>
-                  <property name="buddy" >
+                  <property name="buddy">
                    <cstring>lastFmUsernameEdit</cstring>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QLineEdit" name="lastFmUsernameEdit" />
+                 <widget class="QLineEdit" name="lastFmUsernameEdit"/>
                 </item>
                 <item>
-                 <spacer name="horizontalSpacer" >
-                  <property name="orientation" >
+                 <spacer name="horizontalSpacer">
+                  <property name="orientation">
                    <enum>Qt::Horizontal</enum>
                   </property>
-                  <property name="sizeHint" stdset="0" >
+                  <property name="sizeHint" stdset="0">
                    <size>
                     <width>40</width>
                     <height>20</height>
@@ -1669,33 +1670,33 @@
                </layout>
               </item>
               <item>
-               <widget class="QGroupBox" name="groupBox_7" >
-                <property name="title" >
+               <widget class="QGroupBox" name="groupBox_7">
+                <property name="title">
                  <string>Password</string>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_4" >
+                <layout class="QVBoxLayout" name="verticalLayout_4">
                  <item>
-                  <widget class="QLineEdit" name="lastFmPasswordEdit" >
-                   <property name="echoMode" >
+                  <widget class="QLineEdit" name="lastFmPasswordEdit">
+                   <property name="echoMode">
                     <enum>QLineEdit::Password</enum>
                    </property>
                   </widget>
                  </item>
                  <item>
-                  <layout class="QHBoxLayout" name="horizontalLayout_2" >
+                  <layout class="QHBoxLayout" name="horizontalLayout_2">
                    <item>
-                    <widget class="QRadioButton" name="lastFmPlainPasswordRadio" >
-                     <property name="text" >
+                    <widget class="QRadioButton" name="lastFmPlainPasswordRadio">
+                     <property name="text">
                       <string>Plain</string>
                      </property>
-                     <property name="checked" >
+                     <property name="checked">
                       <bool>true</bool>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QRadioButton" name="lastFmMd5PasswordRadio" >
-                     <property name="text" >
+                    <widget class="QRadioButton" name="lastFmMd5PasswordRadio">
+                     <property name="text">
                       <string>MD5</string>
                      </property>
                     </widget>
@@ -1703,8 +1704,8 @@
                   </layout>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButton" >
-                   <property name="text" >
+                  <widget class="QPushButton" name="pushButton">
+                   <property name="text">
                     <string>Calculate MD5</string>
                    </property>
                   </widget>
@@ -1713,33 +1714,33 @@
                </widget>
               </item>
               <item>
-               <widget class="QGroupBox" name="groupBox_8" >
-                <property name="enabled" >
+               <widget class="QGroupBox" name="groupBox_8">
+                <property name="enabled">
                  <bool>true</bool>
                 </property>
-                <property name="sizePolicy" >
-                 <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                   <horstretch>0</horstretch>
                   <verstretch>150</verstretch>
                  </sizepolicy>
                 </property>
-                <property name="minimumSize" >
+                <property name="minimumSize">
                  <size>
                   <width>0</width>
                   <height>0</height>
                  </size>
                 </property>
-                <property name="title" >
+                <property name="title">
                  <string>Timer</string>
                 </property>
-                <property name="flat" >
+                <property name="flat">
                  <bool>false</bool>
                 </property>
-                <property name="checkable" >
+                <property name="checkable">
                  <bool>false</bool>
                 </property>
-                <widget class="QSlider" name="lastFmScrobblerTimerSlider" >
-                 <property name="geometry" >
+                <widget class="QSlider" name="lastFmScrobblerTimerSlider">
+                 <property name="geometry">
                   <rect>
                    <x>170</x>
                    <y>40</y>
@@ -1747,21 +1748,21 @@
                    <height>23</height>
                   </rect>
                  </property>
-                 <property name="minimum" >
+                 <property name="minimum">
                   <number>50</number>
                  </property>
-                 <property name="maximum" >
+                 <property name="maximum">
                   <number>100</number>
                  </property>
-                 <property name="value" >
+                 <property name="value">
                   <number>50</number>
                  </property>
-                 <property name="orientation" >
+                 <property name="orientation">
                   <enum>Qt::Horizontal</enum>
                  </property>
                 </widget>
-                <widget class="QLabel" name="label_11" >
-                 <property name="geometry" >
+                <widget class="QLabel" name="label_11">
+                 <property name="geometry">
                   <rect>
                    <x>10</x>
                    <y>40</y>
@@ -1769,18 +1770,18 @@
                    <height>18</height>
                   </rect>
                  </property>
-                 <property name="minimumSize" >
+                 <property name="minimumSize">
                   <size>
                    <width>0</width>
                    <height>0</height>
                   </size>
                  </property>
-                 <property name="text" >
+                 <property name="text">
                   <string>Percent of song played:</string>
                  </property>
                 </widget>
-                <widget class="QSpinBox" name="lastFmScrobblerTimerSpiner" >
-                 <property name="geometry" >
+                <widget class="QSpinBox" name="lastFmScrobblerTimerSpiner">
+                 <property name="geometry">
                   <rect>
                    <x>300</x>
                    <y>37</y>
@@ -1788,10 +1789,10 @@
                    <height>28</height>
                   </rect>
                  </property>
-                 <property name="minimum" >
+                 <property name="minimum">
                   <number>50</number>
                  </property>
-                 <property name="maximum" >
+                 <property name="maximum">
                   <number>100</number>
                  </property>
                 </widget>
@@ -1801,14 +1802,14 @@
             </widget>
            </item>
            <item>
-            <spacer name="verticalSpacer" >
-             <property name="orientation" >
+            <spacer name="verticalSpacer">
+             <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
-             <property name="sizeType" >
+             <property name="sizeType">
               <enum>QSizePolicy::Maximum</enum>
              </property>
-             <property name="sizeHint" stdset="0" >
+             <property name="sizeHint" stdset="0">
               <size>
                <width>20</width>
                <height>40</height>
@@ -1821,8 +1822,8 @@
         </widget>
        </item>
        <item>
-        <widget class="Line" name="line_2" >
-         <property name="orientation" >
+        <widget class="Line" name="line_2">
+         <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
@@ -1832,19 +1833,19 @@
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="margin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
       <spacer>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
-       <property name="sizeHint" stdset="0" >
+       <property name="sizeHint" stdset="0">
         <size>
          <width>131</width>
          <height>31</height>
@@ -1853,8 +1854,8 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="closeButton" >
-       <property name="text" >
+      <widget class="QPushButton" name="closeButton">
+       <property name="text">
         <string>&amp;Close</string>
        </property>
       </widget>
@@ -1909,11 +1910,11 @@
    <receiver>PreferencesDialog</receiver>
    <slot>hashLastFmPassword()</slot>
    <hints>
-    <hint type="sourcelabel" >
+    <hint type="sourcelabel">
      <x>252</x>
      <y>194</y>
     </hint>
-    <hint type="destinationlabel" >
+    <hint type="destinationlabel">
      <x>254</x>
      <y>0</y>
     </hint>
