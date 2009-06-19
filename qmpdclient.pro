@@ -182,6 +182,10 @@ SOURCES += \
 	src/verticalbutton.cpp \
 	src/traysonginfo.cpp
 
+# translations
+LANG_PATH = $$PWD/lang
+TRANSLATIONS = $$LANG_PATH/ru_RU.ts $$LANG_PATH/de_DE.ts  $$LANG_PATH/it_IT.ts  $$LANG_PATH/nn_NO.ts $$LANG_PATH/pt_BR.ts  $$LANG_PATH/sv_SE.ts  $$LANG_PATH/uk_UA.ts  $$LANG_PATH/zh_TW.ts $$LANG_PATH/fr_FR.ts $$LANG_PATH/nl_NL.ts $$LANG_PATH/no_NO.ts   $$LANG_PATH/tr_TR.ts  $$LANG_PATH/zh_CN.ts $$LANG_PATH/cs_CZ.ts
+
 MOC_DIR = .moc
 OBJECTS_DIR = .obj
 RCC_DIR = .res
@@ -231,3 +235,12 @@ unix {
 	icons.path = $$PREFIX/share/icons
 	INSTALLS += desktop_file icons
 }
+translations.commands = lrelease $$TRANSLATIONS
+translations.files = lang/*.qm
+translations.path = $$PREFIX/share/QMPDClient/translations
+
+INSTALLS += translations
+
+# update translations (make translate)
+QMAKE_EXTRA_TARGETS += translate
+translate.commands = lupdate $$PWD/qmpdclient.pro -ts $$TRANSLATIONS;
