@@ -157,7 +157,7 @@ static int mpd_connect(mpd_Connection * connection, const char * host, int port,
 	error = getaddrinfo(host, service, &hints, &addrinfo);
 
 	if (error) {
-		snprintf(connection->errorStr, MPD_BUFFER_MAX_LENGTH,
+		snprintf(connection->errorStr, MPD_ERRORSTR_MAX_LENGTH,
 			 "host \"%s\" not found: %s",
 			 host, gai_strerror(error));
 		connection->error = MPD_ERROR_UNKHOST;
@@ -196,7 +196,7 @@ static int mpd_connect(mpd_Connection * connection, const char * host, int port,
 	freeaddrinfo(addrinfo);
 
 	if (connection->sock < 0) {
-		snprintf(connection->errorStr, MPD_BUFFER_MAX_LENGTH,
+		snprintf(connection->errorStr, MPD_ERRORSTR_MAX_LENGTH,
 			 "problems connecting to \"%s\" on port"
 			 " %i: %s", host, port, strerror(errno));
 		connection->error = MPD_ERROR_CONNPORT;
@@ -216,7 +216,7 @@ static int mpd_connect(mpd_Connection * connection, const char * host, int port,
 	struct sockaddr_in sin;
 
 	if(!(he=gethostbyname(host))) {
-		snprintf(connection->errorStr, MPD_BUFFER_MAX_LENGTH,
+		snprintf(connection->errorStr,MPD_ERRORSTR_MAX_LENGTH,
 			 "host \"%s\" not found", host);
 		connection->error = MPD_ERROR_UNKHOST;
 		return -1;
@@ -333,7 +333,7 @@ static int mpd_parseWelcome(mpd_Connection * connection, const char * host, int 
 	int i;
 
 	if(strncmp(output,MPD_WELCOME_MESSAGE,strlen(MPD_WELCOME_MESSAGE))) {
-		snprintf(connection->errorStr, MPD_BUFFER_MAX_LENGTH,
+		snprintf(connection->errorStr, MPD_ERRORSTR_MAX_LENGTH,
 			 "mpd not running on port %i on host \"%s\"",
 			 port, host);
 		connection->error = MPD_ERROR_NOTMPD;
@@ -396,7 +396,7 @@ static int mpd_connect_un(mpd_Connection * connection,
 		close(connection->sock);
 		connection->sock = 0;
 
-		snprintf(connection->errorStr,MPD_BUFFER_MAX_LENGTH,
+		snprintf(connection->errorStr,MPD_ERRORSTR_MAX_LENGTH,
 			 "problems connecting to \"%s\": %s",
 			 host, strerror(errno));
 		connection->error = MPD_ERROR_CONNPORT;
@@ -477,7 +477,7 @@ mpd_Connection * mpd_newConnection(const char * host, int port, float timeout) {
 			return connection;
 		}
 		else {
-			snprintf(connection->errorStr, MPD_BUFFER_MAX_LENGTH,
+			snprintf(connection->errorStr, MPD_ERRORSTR_MAX_LENGTH,
 				 "timeout in attempting to get a response from"
 				 " \"%s\" on port %i",
 				 host, port);
@@ -1463,7 +1463,7 @@ int mpd_sendAddIdCommand(mpd_Connection *connection, const char *file)
 		retval = atoi(string);
 		free(string);
 	}
-	
+
 	return retval;
 }
 
