@@ -27,6 +27,7 @@
 
 LyricsDialog::LyricsDialog(QWidget *parent) : QDialog(parent) {
 	setupUi(this);
+	setAttribute(Qt::WA_DeleteOnClose);
 	lyricsBrowser->setOpenLinks(false);
 	m_http = new QHttp("lyricwiki.org", 80, this);
 	connect(m_http, SIGNAL(requestFinished(int,bool)), this, SLOT(gotResponse(int,bool)));
