@@ -39,7 +39,6 @@ public slots:
 private slots:
 	void setSong(const MPDSong &);
 	void showCoverArtChanged(bool);
-	void showLyricsDialog();
 
 private:
 	CoverArtDialog *m_coverArt;

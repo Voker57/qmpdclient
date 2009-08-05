@@ -31,8 +31,9 @@
 #include <QDir>
 #include <QUrl>
 
-ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), m_coverArt(new CoverArtDialog(this)), m_lyricsDialog(0), m_lastFm(new LastFmSubmitter(this)) {
+ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), 	m_coverArt(new CoverArtDialog(this)), 	m_lyricsDialog(new LyricsDialog(this)), m_lastFm(new LastFmSubmitter(this)) {
 	Q_ASSERT(m_coverArt);
+	Q_ASSERT(m_lyricsDialog);
 	Q_ASSERT(m_lastFm);
 	setupUi(this);
 	coverArtButton->setVisible(false);
@@ -52,7 +53,7 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), m_coverArt(new Co
 	connect(MPD::instance(), SIGNAL(playingSongUpdated(const MPDSong &)), this, SLOT(setSong(const MPDSong &)));
 	connect(Config::instance(), SIGNAL(showCoverArtChanged(bool)), this, SLOT(showCoverArtChanged(bool)));
 	connect(coverArtButton, SIGNAL(clicked()), m_coverArt, SLOT(show()));
-	connect(lyricsButton, SIGNAL(clicked()), this, SLOT(showLyricsDialog()));
+	connect(lyricsButton, SIGNAL(clicked()), m_lyricsDialog, SLOT(show()));
 	connect(m_lastFm, SIGNAL(infoMsg(QString)), this, SIGNAL(infoMsg(QString)));
 
 	// Short cuts
@@ -109,7 +110,9 @@ void ControlPanel::setSong(const MPDSong &s) {
 	artistLabel->setText(artist);
 
 	if (Config::instance()->submitSongsToLastFm()) m_lastFm->setSong(s);
-	if (m_lyricsDialog) m_lyricsDialog->setSong(s);
+	m_lyricsDialog->setSong(s);
+
+	if (!m_lyricsDialog->isHidden()) m_lyricsDialog->updateLyrics();
 
 	if (Config::instance()->showCoverArt()) {
 		m_coverArt->setSong(s);
@@ -124,10 +127,4 @@ void ControlPanel::setSong(const MPDSong &s) {
 
 void ControlPanel::showCoverArtChanged(bool a) {
 	coverArtButton->setVisible(a && m_coverArt->hasCoverArt());
-}
-
-void ControlPanel::showLyricsDialog() {
-    m_lyricsDialog = new LyricsDialog(this);
-    m_lyricsDialog->setSong(MPDSong());
-    m_lyricsDialog->show();
 }
