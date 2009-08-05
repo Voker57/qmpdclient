@@ -28,7 +28,7 @@
 LyricsDialog::LyricsDialog(QWidget *parent) : QDialog(parent) {
 	setupUi(this);
 	lyricsBrowser->setOpenLinks(false);
-	m_http = new QHttp("lyricwiki.org", 80, this);
+	m_http = new QHttp("dump.bitcheese.net", 80, this);
 	connect(m_http, SIGNAL(requestFinished(int,bool)), this, SLOT(gotResponse(int,bool)));
 }
 
@@ -43,7 +43,7 @@ void LyricsDialog::updateLyrics() {
 	artistEdit->setText(m_artist);
 	titleEdit->setText(m_title);
 	lyricsBrowser->setPlainText(tr("Getting lyrics from server..."));
-	QUrl req("http://lyricwiki.org/api.php");
+	QUrl req("http://dump.bitcheese.net/lwiki.php");
 	req.addQueryItem("func", "getSong");
 	req.addQueryItem("artist", m_artist);
 	req.addQueryItem("song", m_title);
