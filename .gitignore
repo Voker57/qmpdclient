@@ -1,6 +1,11 @@
 .ui
-*.moc
-*.res
-*.obj
+.moc
+.res
+.obj
 *~
+/Makefile*
+/qtc-gdbmacros
+/qmpdclient.pro.user
+/qmpdclient
+/lang/*.qm
 tags
