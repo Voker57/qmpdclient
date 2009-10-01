@@ -67,7 +67,9 @@ void QMPDClient::ungrabKeys() {
 }
 
 bool QMPDClient::winEventFilter(MSG *m, long *result) {
-	Q_ASSERT(m_mainWindow);
+	//Q_ASSERT(m_mainWindow);
+	if (!m_mainWindow)
+		return false;
 	if(m->message != WM_HOTKEY)
 		return false;
 
