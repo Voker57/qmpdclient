@@ -16,7 +16,7 @@ DEFINES += NAMEVER='"\\"QMPDClient \
     $$VERSION\\""'
 DEFINES += VERSION='"\\"$$VERSION\\""'
 INCLUDEPATH += src
-QT += network
+QT += network xml xmlpatterns
 
 FORMS += ui/aboutdialog.ui \
     ui/addradiodialog.ui \
@@ -31,6 +31,7 @@ FORMS += ui/aboutdialog.ui \
     ui/playlistspanel.ui \
     ui/preferencesdialog.ui \
     ui/radiopanel.ui \
+    ui/shoutcastpanel.ui \
     ui/lyricsdialog.ui
 
 HEADERS += src/aafilter.h \
@@ -97,6 +98,9 @@ HEADERS += src/aafilter.h \
     src/servermodel.h \
     src/shortcutmodel.h \
     src/shortcuts.h \
+    src/shoutcastpanel.h \
+    src/shoutcastview.h \
+    src/shoutcastmodel.h \
     src/songview.h \
     src/stringlistmodel.h \
     src/stringlistview.h \
@@ -166,6 +170,9 @@ SOURCES += src/aafilter.cpp \
     src/servermodel.cpp \
     src/shortcutmodel.cpp \
     src/shortcuts.cpp \
+    src/shoutcastmodel.cpp \
+    src/shoutcastpanel.cpp \
+    src/shoutcastview.cpp \
     src/songview.cpp \
     src/stringlistmodel.cpp \
     src/stringlistview.cpp \

@@ -35,6 +35,7 @@
 #include "richtext.h"
 #include "serverinfo.h"
 #include "shortcuts.h"
+#include "shoutcastpanel.h"
 #include "trayicon.h"
 #include <QCloseEvent>
 #include <QDesktopWidget>
@@ -66,6 +67,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	m_libraryTab = rightBar->addPanel(m_libraryPanel = new LibraryPanel);
 	m_directoriesTab = rightBar->addPanel(new DirectoryPanel);
 	m_radioTab = rightBar->addPanel(new RadioPanel);
+	m_shoutcastTab = rightBar->addPanel(new ShoutcastPanel);
 	m_playlistsTab = rightBar->addPanel(new PlaylistsPanel);
 
 	// For icon changes
@@ -74,6 +76,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	m_playlistTab->setObjectName("playlistTab");
 	m_playlistsTab->setObjectName("playlistsTab");
 	m_directoriesTab->setObjectName("directoriesTab");
+	m_shoutcastTab->setObjectName("shoutcastTab");
 
 	// Signals and slots
 	connect(MPDConnection::instance(), SIGNAL(connected(const ServerInfo &)), this, SLOT(connectionChanged()));
@@ -127,12 +130,14 @@ void MainWindow::updateTranslation() {
 	Q_ASSERT(m_directoriesTab);
 	Q_ASSERT(m_radioTab);
 	Q_ASSERT(m_playlistsTab);
+	Q_ASSERT(m_shoutcastTab);
 	Q_ASSERT(m_hideKey);
 	m_playlistTab->setText(tr("&Playlist"));
 	m_libraryTab->setText(tr("&Library"));
 	m_directoriesTab->setText(tr("&Directories"));
 	m_radioTab->setText(tr("&Internet Radio"));
 	m_playlistsTab->setText(tr("Pla&ylists"));
+	m_shoutcastTab->setText(tr("&Shoutcast Directory"));
 	m_hideKey->setWhatsThis(tr("Minimize to tray"));
 	setStats(m_stats);
 }
