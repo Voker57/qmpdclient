@@ -20,26 +20,21 @@
 #ifndef SHOUTCASTVIEW_H
 #define SHOUTCASTVIEW_H
 
-#include "abstractview.h"
+#include <QTreeView>
 
 class ShoutcastModel;
-class FileView;
-class MPDDirectory;
+class QAction;
 
-class ShoutcastView : public AbstractTree {
+class ShoutcastView : public QTreeView {
 	Q_OBJECT
 public:
 	ShoutcastView(QWidget *);
-	void setFileView(FileView *);
 
 public slots:
 	void updateTranslation();
 
 
 private:
-
 	ShoutcastModel *m_model;
-	FileView *m_fileView;
-	QAction *m_enqueueAction, *m_informationAction, *m_rescanAction, *m_playAction;
 };
 #endif

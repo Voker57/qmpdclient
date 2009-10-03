@@ -21,12 +21,11 @@
 #define SHOUTCASTMODEL_H
 
 #include <QStandardItemModel>
-#include "abstractmodel.h"
 
 class QNetworkAccessManager;
 class QNetworkReply;
 
-class ShoutcastModel : public QStandardItemModel, public AbstractModel {
+class ShoutcastModel : public QStandardItemModel {
 	Q_OBJECT
 public:
 	ShoutcastModel(QObject *parent = 0);

@@ -19,44 +19,16 @@
 
 #include "config.h"
 #include "shoutcastmodel.h"
-#include "fileview.h"
 #include "iconmanager.h"
-#include "mpdcache.h"
-#include "mpddirectory.h"
-#include "mpdsonglist.h"
 #include "shoutcastview.h"
 #include <QMenu>
 
-ShoutcastView::ShoutcastView(QWidget *parent) : AbstractTree(parent) {
-	Q_ASSERT(m_menu);
+ShoutcastView::ShoutcastView(QWidget *parent) : QTreeView(parent) {
 	setObjectName("shoutcastview");
 	setModel(m_model = new ShoutcastModel(this));
 	m_model->refresh();
-
-	// playlist m_menu
-	m_enqueueAction = addMenuAction("enqueue", this, SLOT(enqueue()));
-	m_playAction = addMenuAction("play", this, SLOT(play()));
-	m_menu->addSeparator();
-	m_rescanAction = addMenuAction("rescan", this, SLOT(rescan()));
-	m_menu->addSeparator();
-	m_informationAction = addMenuAction("information", this, SLOT(information()));
-
-	connect(MPDCache::instance(), SIGNAL(directoriesUpdated(const MPDDirectory &)), this, SLOT(setRoot(const MPDDirectory &)));
-
-	clearSelection();
-}
-
-void ShoutcastView::setFileView(FileView *fw) {
-	m_fileView = fw;
+	expandAll();
 }
 
 void ShoutcastView::updateTranslation() {
-	Q_ASSERT(m_enqueueAction);
-	Q_ASSERT(m_informationAction);
-	Q_ASSERT(m_rescanAction);
-	Q_ASSERT(m_playAction);
-	m_enqueueAction->setText(tr("&Enqueue"));
-	m_informationAction->setText(tr("&Information..."));
-	m_rescanAction->setText(tr("&Rescan directory"));
-	m_playAction->setText(tr("&Play"));
 }

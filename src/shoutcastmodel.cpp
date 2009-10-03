@@ -61,7 +61,6 @@ void ShoutcastModel::replyFinished(QNetworkReply *reply)
 	foreach(QString s, genres)
 	{
 		QStandardItem * item = new QStandardItem(s);
-		item->appendRow(new QStandardItem("Test " + s));
 		root->appendRow(item);
 		qDebug() << s;
 	}

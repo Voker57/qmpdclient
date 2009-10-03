@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/" >
+        <file>genres.xml</file>
+        <file>stations.xml</file>
+    </qresource>
+</RCC>
