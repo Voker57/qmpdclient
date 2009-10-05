@@ -12,7 +12,8 @@ class ShoutcastTest : public QObject {
 private slots:
 	void requireGenreParsingToWork();
 	void requireStationListParsingToWork();
-	void requireQueryingAStationURIMakesItEndUpInPendingList();
+	void requireQueryingAStationURIDownloadsTheStationList();
+	void requireThatFetchingAGenreURIResultsInAGenreListDownload();
 };
 
 void ShoutcastTest::requireGenreParsingToWork() {
@@ -53,10 +54,10 @@ void ShoutcastTest::requireStationListParsingToWork() {
 	QCOMPARE(s.tuneIn(), QString("/sbin/tunein-station.pls"));
 }
 
-void ShoutcastTest::requireQueryingAStationURIMakesItEndUpInPendingList()
+void ShoutcastTest::requireQueryingAStationURIDownloadsTheStationList()
 {
 	ShoutcastFetcher f;
-	f.fetch("Pop", QUrl(":stations.xml"));
+	f.fetchStations("Pop", QUrl(":stations.xml"));
 	QSignalSpy spy(&f, SIGNAL(newStationsAvailable(const QString &)));
 	int i = 1000;
 	while (spy.count() == 0 && i--)
@@ -66,6 +67,21 @@ void ShoutcastTest::requireQueryingAStationURIMakesItEndUpInPendingList()
 	ShoutcastStationList l = f.stationsForKeyword("Pop");
 	ShoutcastStation s = l.takeFirst();
 	QCOMPARE(s.name(), QString(".977 The Hitz Channel"));
+}
+
+void ShoutcastTest::requireThatFetchingAGenreURIResultsInAGenreListDownload()
+{
+	ShoutcastFetcher f;
+	f.fetchGenres(QUrl(":genres.xml"));
+	QSignalSpy spy(&f, SIGNAL(genresAvailable()));
+	int i = 1000;
+	while (spy.count() == 0 && i--)
+		QTest::qWait(1);
+	QVERIFY(i);
+
+	QStringList expected;
+	expected << "Web" << "Whatever" << "Wir" << "Word";
+	QCOMPARE(expected, f.genres());
 }
 
 #include "shoutcasttest.moc"

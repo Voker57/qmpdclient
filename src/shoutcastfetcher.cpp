@@ -21,7 +21,7 @@ ShoutcastFetcher::ShoutcastFetcher(QObject * parent)
 				this, SLOT(replyFinished(QNetworkReply*)));
 }
 
-void ShoutcastFetcher::fetch(const QString & keyWord, const QUrl & uri)
+void ShoutcastFetcher::fetchStations(const QString & keyWord, const QUrl & uri)
 {
 	if (m_pendingUrlAndKeyWords.contains(uri) && m_pendingUrlAndKeyWords[uri] != keyWord)
 	{
@@ -29,6 +29,11 @@ void ShoutcastFetcher::fetch(const QString & keyWord, const QUrl & uri)
 		return;
 	}
 	m_pendingUrlAndKeyWords[uri] = keyWord;
+	m_networkManager->get(QNetworkRequest(uri));
+}
+
+void ShoutcastFetcher::fetchGenres(const QUrl & uri)
+{
 	m_networkManager->get(QNetworkRequest(uri));
 }
 

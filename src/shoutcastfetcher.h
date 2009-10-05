@@ -16,8 +16,10 @@ public:
 	QStringList genres() const;
 	ShoutcastStationList stationsForKeyword(const QString & keyWord) const;
 	bool hasStationsForKeyword(const QString & keyWord) const;
-	void fetch(const QString & keyWord, const QUrl & uri);
-signals:
+	void fetchStations(const QString & keyWord, const QUrl & uri);
+	void fetchGenres(const QUrl & uri);
+
+	signals:
 	void genresAvailable();
 	void newStationsAvailable(const QString keyWord);
 	void errorFetching(QNetworkReply::NetworkError error, const QString & errorString);
