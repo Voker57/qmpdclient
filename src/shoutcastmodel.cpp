@@ -18,57 +18,56 @@
  */
 
 #include "shoutcastmodel.h"
+#include "shoutcastfetcher.h"
 #include <QList>
-#include <QNetworkReply>
-#include <QNetworkAccessManager>
-#include <QDomDocument>
-#include <QXmlQuery>
 #include <QDebug>
-#include <QBuffer>
+#include <QUrl>
+#include <QEvent>
 
 namespace
 {
 	int maxSize = 200000;
+	const QString genresURL = "http://yp.shoutcast.com/sbin/newxml.phtml";
+	const QString stationsForGenreURL = "http://yp.shoutcast.com/sbin/newxml.phtml?genre=";
 }
 
 ShoutcastModel::ShoutcastModel(QObject *parent)
-: QStandardItemModel(parent),
-  m_networkManager(new QNetworkAccessManager(this)) {
+: QStandardItemModel(parent), m_fetcher(new ShoutcastFetcher(this)) {
 	setObjectName("shoutcastmodel");
-
-	connect(m_networkManager, SIGNAL(finished(QNetworkReply*)),
-			this, SLOT(replyFinished(QNetworkReply*)));
+	connect(m_fetcher, SIGNAL(genresAvailable()), this, SLOT(genresAvailable()));
+	connect(m_fetcher, SIGNAL(newStationsAvailable(const QString &)),
+			this, SLOT(newStationsAvailable(const QString &)));
+	setColumnCount(3);
+	setHorizontalHeaderLabels(QStringList() << tr("Name") << tr("Bitrate") << tr("Listeners"));
 }
 
-void ShoutcastModel::replyFinished(QNetworkReply *reply)
-{
-	// Using read() putting the content into a QBuffer to workaround
-	// some strange hangs occuring if passing IO device directly into
-	// QXmlQuery object.
-	QByteArray content = reply->read(maxSize);
-	QBuffer buf(&content);
-	buf.open(QIODevice::ReadOnly);
-	QXmlQuery q;
-	q.bindVariable("glist", &buf);
-	q.setQuery("for $i in doc($glist)/genrelist/genre/@name return string($i)");
-	QStringList genres;
-	bool res = q.evaluateTo(&genres);
-	if (!res)
-		return;
-	clear();
-	QStandardItem * root = new QStandardItem("Genres");
-
-	foreach(QString s, genres)
-	{
-		QStandardItem * item = new QStandardItem(s);
-		root->appendRow(item);
-		qDebug() << s;
+void ShoutcastModel::genresAvailable() {
+	foreach(const QString & genre, m_fetcher->genres()) {
+		QStandardItem * i = new QStandardItem(genre);
+		i->appendRow(new QStandardItem(tr("Please wait...")));
+		appendRow(i);
 	}
-	appendRow(root);
 }
 
-void ShoutcastModel::refresh()
-{
-	//m_networkManager->get(QNetworkRequest(QUrl("http://yp.shoutcast.com/sbin/newxml.phtml")));
-	m_networkManager->get(QNetworkRequest(QUrl("file:///C:/Users/Magne.Pelle/Documents/git/qmpdclient/newxml.phtml.xml")));
+void ShoutcastModel::newStationsAvailable(const QString & keyWord) {
+	QList<QStandardItem *> genreItemList = findItems(keyWord);
+	Q_ASSERT(genreItemList.count() == 1);
+	QStandardItem * genreItem = genreItemList[0];
+	genreItem->removeRows(0, genreItem->rowCount());
+	foreach(const ShoutcastStation & station, m_fetcher->stationsForKeyword(keyWord)) {
+		QStandardItem * bitRate = new QStandardItem(QString::number(station.bitRate()) + tr(" bps"));
+		QStandardItem * listeners = new QStandardItem(QString::number(station.listeners()));
+		QStandardItem * name = new QStandardItem(station.name());
+		genreItem->appendRow(QList<QStandardItem * >() << name << bitRate << listeners);
+	}
+	//QMetaObject::invokeMethod(parent(), "resizeColumnToContents", Q_ARG(int, 0));
 }
+
+void ShoutcastModel::downloadGenres() {
+	m_fetcher->fetchGenres(QUrl(genresURL));
+}
+
+void ShoutcastModel::downloadStationsForGenre(const QString & genre) {
+	m_fetcher->fetchStations(genre, stationsForGenreURL + genre);
+}
+

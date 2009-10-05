@@ -22,13 +22,23 @@
 #include "iconmanager.h"
 #include "shoutcastview.h"
 #include <QMenu>
+#include <QDebug>
 
 ShoutcastView::ShoutcastView(QWidget *parent) : QTreeView(parent) {
 	setObjectName("shoutcastview");
 	setModel(m_model = new ShoutcastModel(this));
-	m_model->refresh();
-	expandAll();
+	connect(this, SIGNAL(expanded(const QModelIndex &)), this, SLOT(expanded(const QModelIndex &)));
 }
 
 void ShoutcastView::updateTranslation() {
+}
+
+void ShoutcastView::showEvent(QShowEvent * /*event*/) {
+	m_model->downloadGenres();
+}
+
+void ShoutcastView::expanded(const QModelIndex & expandedItem)
+{
+	qDebug() << expandedItem.data() << " expanded";
+	m_model->downloadStationsForGenre(expandedItem.data().toString());
 }

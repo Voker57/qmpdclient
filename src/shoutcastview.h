@@ -29,11 +29,12 @@ class ShoutcastView : public QTreeView {
 	Q_OBJECT
 public:
 	ShoutcastView(QWidget *);
-
 public slots:
 	void updateTranslation();
-
-
+private slots:
+	void expanded(const QModelIndex & expandedItem);
+protected:
+	virtual void showEvent(QShowEvent * event);
 private:
 	ShoutcastModel *m_model;
 };

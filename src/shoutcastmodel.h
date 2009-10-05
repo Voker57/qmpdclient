@@ -21,19 +21,20 @@
 #define SHOUTCASTMODEL_H
 
 #include <QStandardItemModel>
-
-class QNetworkAccessManager;
-class QNetworkReply;
+class QShowEvent;
+class ShoutcastFetcher;
 
 class ShoutcastModel : public QStandardItemModel {
 	Q_OBJECT
 public:
 	ShoutcastModel(QObject *parent = 0);
-	void refresh();
+	void downloadGenres();
+	void downloadStationsForGenre(const QString & genre);
 private slots:
-	void replyFinished(QNetworkReply *reply);
+	void genresAvailable();
+	void newStationsAvailable(const QString & keyWord);
 private:
-	QNetworkAccessManager * m_networkManager;
+	ShoutcastFetcher * m_fetcher;
 };
 
 #endif

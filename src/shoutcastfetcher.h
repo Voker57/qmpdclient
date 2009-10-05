@@ -19,9 +19,9 @@ public:
 	void fetchStations(const QString & keyWord, const QUrl & uri);
 	void fetchGenres(const QUrl & uri);
 
-	signals:
+signals:
 	void genresAvailable();
-	void newStationsAvailable(const QString keyWord);
+	void newStationsAvailable(const QString & keyWord);
 	void errorFetching(QNetworkReply::NetworkError error, const QString & errorString);
 
 public slots:

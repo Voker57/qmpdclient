@@ -101,6 +101,8 @@ HEADERS += src/aafilter.h \
     src/shoutcastpanel.h \
     src/shoutcastview.h \
     src/shoutcastmodel.h \
+    src/shoutcastfetcher.h \
+    src/shoutcaststation.h \
     src/songview.h \
     src/stringlistmodel.h \
     src/stringlistview.h \
@@ -173,6 +175,8 @@ SOURCES += src/aafilter.cpp \
     src/shoutcastmodel.cpp \
     src/shoutcastpanel.cpp \
     src/shoutcastview.cpp \
+    src/shoutcastfetcher.cpp \
+    src/shoutcaststation.cpp \
     src/songview.cpp \
     src/stringlistmodel.cpp \
     src/stringlistview.cpp \

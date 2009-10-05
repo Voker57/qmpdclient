@@ -46,7 +46,10 @@
    <item>
     <widget class="ShoutcastView" name="shoutcastView">
      <property name="enabled">
-      <bool>false</bool>
+      <bool>true</bool>
+     </property>
+     <property name="editTriggers">
+      <set>QAbstractItemView::NoEditTriggers</set>
      </property>
      <property name="dragDropMode">
       <enum>QAbstractItemView::DragOnly</enum>
@@ -55,20 +58,32 @@
       <enum>QAbstractItemView::ExtendedSelection</enum>
      </property>
      <property name="rootIsDecorated">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="uniformRowHeights">
       <bool>true</bool>
      </property>
      <property name="itemsExpandable">
-      <bool>false</bool>
+      <bool>true</bool>
      </property>
      <property name="sortingEnabled">
       <bool>true</bool>
      </property>
+     <property name="animated">
+      <bool>false</bool>
+     </property>
      <property name="allColumnsShowFocus">
       <bool>true</bool>
      </property>
+     <property name="headerHidden">
+      <bool>false</bool>
+     </property>
+     <attribute name="headerMinimumSectionSize">
+      <number>100</number>
+     </attribute>
+     <attribute name="headerMinimumSectionSize">
+      <number>100</number>
+     </attribute>
     </widget>
    </item>
    <item>
