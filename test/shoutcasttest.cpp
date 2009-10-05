@@ -2,6 +2,7 @@
 //#include <shoutcastview.h>
 #include "shoutcastfetcher.h"
 #include "shoutcaststation.h"
+#include "plsfile.h"
 #include <QTest>
 #include <QFile>
 #include <QStringList>
@@ -14,6 +15,7 @@ private slots:
 	void requireStationListParsingToWork();
 	void requireQueryingAStationURIDownloadsTheStationList();
 	void requireThatFetchingAGenreURIResultsInAGenreListDownload();
+	void requireThatURLsGetScrapedFromPlaylistFiles();
 };
 
 void ShoutcastTest::requireGenreParsingToWork() {
@@ -74,7 +76,7 @@ void ShoutcastTest::requireThatFetchingAGenreURIResultsInAGenreListDownload()
 	ShoutcastFetcher f;
 	f.fetchGenres(QUrl(":genres.xml"));
 	QSignalSpy spy(&f, SIGNAL(genresAvailable()));
-	int i = 1000;
+	int i = 100;
 	while (spy.count() == 0 && i--)
 		QTest::qWait(1);
 	QVERIFY(i);
@@ -82,6 +84,19 @@ void ShoutcastTest::requireThatFetchingAGenreURIResultsInAGenreListDownload()
 	QStringList expected;
 	expected << "Web" << "Whatever" << "Wir" << "Word";
 	QCOMPARE(expected, f.genres());
+}
+
+void ShoutcastTest::requireThatURLsGetScrapedFromPlaylistFiles()
+{
+	PlsFile p(QUrl(":playlist.txt"));
+	QSignalSpy spy(&p, SIGNAL(ready()));
+	int i = 100;
+	while (spy.count() == 0 && i--)
+		QTest::qWait(1);
+	QVERIFY(i);
+	QCOMPARE(p.urls().count(), 22);
+	QCOMPARE(p.urls().at(0), QUrl("http://scfire-ntc-aa04.stream.aol.com:80/stream/1074"));
+	QCOMPARE(p.urls().at(21), QUrl("http://scfire-ntc-aa02.stream.aol.com:80/stream/1074"));
 }
 
 #include "shoutcasttest.moc"
