@@ -5,6 +5,7 @@
 #include <QTest>
 #include <QFile>
 #include <QStringList>
+#include <QSignalSpy>
 
 class ShoutcastTest : public QObject {
 	Q_OBJECT
@@ -55,8 +56,16 @@ void ShoutcastTest::requireStationListParsingToWork() {
 void ShoutcastTest::requireQueryingAStationURIMakesItEndUpInPendingList()
 {
 	ShoutcastFetcher f;
-	f.fetch("Pop", QUrl("file://:stations.xml"));
-	// ...
+	f.fetch("Pop", QUrl(":stations.xml"));
+	QSignalSpy spy(&f, SIGNAL(newStationsAvailable(const QString &)));
+	int i = 1000;
+	while (spy.count() == 0 && i--)
+		QTest::qWait(1);
+	QVERIFY(i);
+	QCOMPARE(spy[0][0].toString(), QString("Pop"));
+	ShoutcastStationList l = f.stationsForKeyword("Pop");
+	ShoutcastStation s = l.takeFirst();
+	QCOMPARE(s.name(), QString(".977 The Hitz Channel"));
 }
 
 #include "shoutcasttest.moc"

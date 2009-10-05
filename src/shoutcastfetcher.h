@@ -6,6 +6,8 @@
 #include <QMap>
 #include <QSet>
 #include <QUrl>
+#include <QNetworkReply>
+class QNetworkAccessManager;
 
 class ShoutcastFetcher : public QObject {
 	Q_OBJECT
@@ -15,14 +17,22 @@ public:
 	ShoutcastStationList stationsForKeyword(const QString & keyWord) const;
 	bool hasStationsForKeyword(const QString & keyWord) const;
 	void fetch(const QString & keyWord, const QUrl & uri);
+signals:
+	void genresAvailable();
+	void newStationsAvailable(const QString keyWord);
+	void errorFetching(QNetworkReply::NetworkError error, const QString & errorString);
+
 public slots:
 	void genresAvailable(QIODevice * openInputDevice);
 	void newStationsAvailable(QIODevice * openInputDevice, const QString & keyword);
+private slots:
+	void replyFinished(QNetworkReply * reply);
 private:
 	QStringList m_genres;
 	QMap<QString, ShoutcastStationList> m_keywordStationMapping;
 	QMap<QUrl, QString> m_pendingUrlAndKeyWords;
 	bool m_success;
+	QNetworkAccessManager * m_networkManager;
 };
 
 #endif /* SHOUCASTFETCHER_H_ */
