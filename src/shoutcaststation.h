@@ -3,7 +3,7 @@
 
 #include <QString>
 #include <QSharedPointer>
-
+#include <QMetaType>
 template<typename T> class QList;
 
 class SCStationImpl
@@ -37,6 +37,7 @@ public:
 	ShoutcastStation(QString name, int id, int bitRate,
 			QString genre, int listeners, QString mimeType, QString currentTrack,
 			QString tuneIn);
+	ShoutcastStation();
 	QString name() const;
 	int id() const;
 	int bitRate() const;
@@ -45,9 +46,15 @@ public:
 	QString mimeType() const;
 	QString currentTrack() const;
 	QString tuneIn() const;
+	bool isValid() const;
+	bool operator==(const ShoutcastStation & other) const;
 private:
 	QSharedPointer<const SCStationImpl> m_impl;
 };
+
+Q_DECLARE_METATYPE(ShoutcastStation);
+
+bool operator<(const ShoutcastStation & lhs, const ShoutcastStation & rhs);
 
 typedef QList<ShoutcastStation> ShoutcastStationList;
 

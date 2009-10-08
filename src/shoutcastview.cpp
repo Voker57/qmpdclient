@@ -21,6 +21,7 @@
 #include "shoutcastmodel.h"
 #include "iconmanager.h"
 #include "shoutcastview.h"
+#include "shoutcaststation.h"
 #include <QMenu>
 #include <QDebug>
 
@@ -28,6 +29,7 @@ ShoutcastView::ShoutcastView(QWidget *parent) : QTreeView(parent) {
 	setObjectName("shoutcastview");
 	setModel(m_model = new ShoutcastModel(this));
 	connect(this, SIGNAL(expanded(const QModelIndex &)), this, SLOT(expanded(const QModelIndex &)));
+	setColumnWidth(0, 300);
 }
 
 void ShoutcastView::updateTranslation() {
@@ -40,5 +42,9 @@ void ShoutcastView::showEvent(QShowEvent * /*event*/) {
 void ShoutcastView::expanded(const QModelIndex & expandedItem)
 {
 	qDebug() << expandedItem.data() << " expanded";
-	m_model->downloadStationsForGenre(expandedItem.data().toString());
+	if (!expandedItem.parent().isValid())
+		m_model->downloadStationsForGenre(expandedItem.data().toString());
+	else
+		m_model->downloadPlaylistForStation(
+				qvariant_cast<ShoutcastStation>(expandedItem.data(ShoutcastModel::StationRole)));
 }

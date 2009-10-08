@@ -85,6 +85,7 @@ HEADERS += src/aafilter.h \
     src/playlistmodel.h \
     src/playlistspanel.h \
     src/playlistsview.h \
+    src/plsfile.h \
     src/preferencesdialog.h \
     src/qmpdclient.h \
     src/playlistpanel.h \
@@ -163,6 +164,7 @@ SOURCES += src/aafilter.cpp \
     src/playlistspanel.cpp \
     src/playlistsview.cpp \
     src/plconview.cpp \
+    src/plsfile.cpp \
     src/preferencesdialog.cpp \
     src/qmpdclient.cpp \
     src/radiopanel.cpp \

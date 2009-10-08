@@ -20,21 +20,30 @@
 #ifndef SHOUTCASTMODEL_H
 #define SHOUTCASTMODEL_H
 
-#include <QStandardItemModel>
 class QShowEvent;
 class ShoutcastFetcher;
+#include "shoutcaststation.h"
+#include <QStandardItemModel>
+#include <QPointer>
 
 class ShoutcastModel : public QStandardItemModel {
 	Q_OBJECT
 public:
+	enum
+	{
+		StationRole = Qt::UserRole + 1
+	};
 	ShoutcastModel(QObject *parent = 0);
 	void downloadGenres();
 	void downloadStationsForGenre(const QString & genre);
+	void downloadPlaylistForStation(const ShoutcastStation & station);
 private slots:
 	void genresAvailable();
 	void newStationsAvailable(const QString & keyWord);
+	void playlistAvailable(const ShoutcastStation & station);
 private:
 	ShoutcastFetcher * m_fetcher;
+	QMap<ShoutcastStation, QStandardItem* > m_stationToStandardItemMap;
 };
 
 #endif

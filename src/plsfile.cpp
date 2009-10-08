@@ -11,11 +11,28 @@ namespace
 const int maxSize = 100000;
 }
 
-PlsFile::PlsFile(const QUrl & url) {
+PlsFile::PlsFile(const QUrl & url, QObject * parent) : QObject(parent), m_url(url) {
 	QNetworkAccessManager * manager = new QNetworkAccessManager(this);
 	connect(manager, SIGNAL(finished(QNetworkReply*)),
 			this, SLOT(newDataAvailable(QNetworkReply*)));
 	manager->get(QNetworkRequest(url));
+	qRegisterMetaType<PlsFile>();
+}
+
+PlsFile::PlsFile(const PlsFile & rhs)
+: m_urls(rhs.m_urls)
+{
+	qRegisterMetaType<PlsFile>();
+}
+
+PlsFile::PlsFile()
+{
+	qRegisterMetaType<PlsFile>();
+}
+
+QUrl PlsFile::url() const
+{
+	return m_url;
 }
 
 QList<QUrl> PlsFile::urls() const
@@ -32,5 +49,5 @@ void PlsFile::newDataAvailable(QNetworkReply * reply)
 	     m_urls << QUrl(re.cap(1));
 	     pos += re.matchedLength();
 	}
-	emit ready();
+	emit ready(this);
 }

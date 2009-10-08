@@ -15,7 +15,8 @@ private slots:
 	void requireStationListParsingToWork();
 	void requireQueryingAStationURIDownloadsTheStationList();
 	void requireThatFetchingAGenreURIResultsInAGenreListDownload();
-	void requireThatURLsGetScrapedFromPlaylistFiles();
+	void requireThatURLsGetScrapedFromPlaylistFilesAfterDownload();
+	void requireThatFetchingAPlaylistForAStationResultsInThePlaylistBeingDownloaded();
 };
 
 void ShoutcastTest::requireGenreParsingToWork() {
@@ -32,7 +33,7 @@ void ShoutcastTest::requireStationListParsingToWork() {
 	QFile file(":stations.xml");
 	file.open(QIODevice::ReadOnly);
 	ShoutcastFetcher f;
-	f.newStationsAvailable(&file, "Rock");
+	f.newStationsAvailable("domain.com", &file, "Rock");
 	ShoutcastStationList l = f.stationsForKeyword("Rock");
 
 	ShoutcastStation s = l.takeFirst();
@@ -43,7 +44,7 @@ void ShoutcastTest::requireStationListParsingToWork() {
 	QCOMPARE(s.listeners(), 8483);
 	QCOMPARE(s.mimeType(), QString("audio/mpeg"));
 	QCOMPARE(s.currentTrack(), QString("Flo rida - Low"));
-	QCOMPARE(s.tuneIn(), QString("/sbin/tunein-station.pls"));
+	QCOMPARE(s.tuneIn(), QString("http://domain.com/sbin/tunein-station.pls"));
 
 	s = l.takeFirst();
 	QCOMPARE(s.name(), QString("#MUSIK.MAIN"));
@@ -53,7 +54,7 @@ void ShoutcastTest::requireStationListParsingToWork() {
 	QCOMPARE(s.listeners(), 6124);
 	QCOMPARE(s.mimeType(), QString("audio/mpeg"));
 	QCOMPARE(s.currentTrack(), QString(""));
-	QCOMPARE(s.tuneIn(), QString("/sbin/tunein-station.pls"));
+	QCOMPARE(s.tuneIn(), QString("http://domain.com/sbin/tunein-station.pls"));
 }
 
 void ShoutcastTest::requireQueryingAStationURIDownloadsTheStationList()
@@ -61,8 +62,8 @@ void ShoutcastTest::requireQueryingAStationURIDownloadsTheStationList()
 	ShoutcastFetcher f;
 	f.fetchStations("Pop", QUrl(":stations.xml"));
 	QSignalSpy spy(&f, SIGNAL(newStationsAvailable(const QString &)));
-	int i = 1000;
-	while (spy.count() == 0 && i--)
+	int i = 100;
+	while (spy.count() == 0 && --i)
 		QTest::qWait(1);
 	QVERIFY(i);
 	QCOMPARE(spy[0][0].toString(), QString("Pop"));
@@ -77,7 +78,7 @@ void ShoutcastTest::requireThatFetchingAGenreURIResultsInAGenreListDownload()
 	f.fetchGenres(QUrl(":genres.xml"));
 	QSignalSpy spy(&f, SIGNAL(genresAvailable()));
 	int i = 100;
-	while (spy.count() == 0 && i--)
+	while (spy.count() == 0 && --i)
 		QTest::qWait(1);
 	QVERIFY(i);
 
@@ -86,17 +87,34 @@ void ShoutcastTest::requireThatFetchingAGenreURIResultsInAGenreListDownload()
 	QCOMPARE(expected, f.genres());
 }
 
-void ShoutcastTest::requireThatURLsGetScrapedFromPlaylistFiles()
+void ShoutcastTest::requireThatURLsGetScrapedFromPlaylistFilesAfterDownload()
 {
 	PlsFile p(QUrl(":playlist.txt"));
-	QSignalSpy spy(&p, SIGNAL(ready()));
+	QCOMPARE(p.url(), QUrl(":playlist.txt"));
+	QSignalSpy spy(&p, SIGNAL(ready(PlsFile*)));
 	int i = 100;
-	while (spy.count() == 0 && i--)
+	while (spy.count() == 0 && --i)
 		QTest::qWait(1);
 	QVERIFY(i);
 	QCOMPARE(p.urls().count(), 22);
 	QCOMPARE(p.urls().at(0), QUrl("http://scfire-ntc-aa04.stream.aol.com:80/stream/1074"));
 	QCOMPARE(p.urls().at(21), QUrl("http://scfire-ntc-aa02.stream.aol.com:80/stream/1074"));
+}
+
+void ShoutcastTest::requireThatFetchingAPlaylistForAStationResultsInThePlaylistBeingDownloaded()
+{
+	ShoutcastStation s("NRK", 3, 128, "Rock", 3, "audio/mpeg", "Metallica - Barbiegirl",
+			":playlist.txt");
+	ShoutcastFetcher f;
+	f.fetchPlaylistsForStation(s);
+	QSignalSpy spy(&f, SIGNAL(playlistAvailable()));
+	int i = 100;
+	while (spy.count() == 0 && --i)
+		QTest::qWait(1);
+	QVERIFY(i);
+
+	QList<QUrl> pl = f.playlistForStation(s);
+	QCOMPARE(pl.count(), 22);
 }
 
 #include "shoutcasttest.moc"

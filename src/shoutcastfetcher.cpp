@@ -37,6 +37,14 @@ void ShoutcastFetcher::fetchGenres(const QUrl & uri)
 	m_networkManager->get(QNetworkRequest(uri));
 }
 
+void ShoutcastFetcher::fetchPlaylistsForStation(const ShoutcastStation & station)
+{
+	qDebug() << "fetching" << station.tuneIn();
+	PlsFile * f = new PlsFile(station.tuneIn(), this);
+	connect(f, SIGNAL(ready(PlsFile*)), this, SLOT(playlistDownloaded(PlsFile*)));
+	m_pendingPlaylistUrlsForStation[f->url()] = station;
+}
+
 void ShoutcastFetcher::replyFinished(QNetworkReply * reply)
 {
 	QNetworkReply::NetworkError e = reply->error();
@@ -45,15 +53,24 @@ void ShoutcastFetcher::replyFinished(QNetworkReply * reply)
 		emit errorFetching(e, reply->errorString());
 		qDebug() << e << reply->errorString();
 	}
-	else if (!m_pendingUrlAndKeyWords.contains(reply->url()))
+	else if (m_pendingUrlAndKeyWords.contains(reply->url()))
 	{
-		genresAvailable(reply);
+		QString keyWord = m_pendingUrlAndKeyWords.take(reply->url());
+		newStationsAvailable(reply->url().host(), reply, keyWord);
 	}
 	else
 	{
-		QString keyWord = m_pendingUrlAndKeyWords.take(reply->url());
-		newStationsAvailable(reply, keyWord);
+		genresAvailable(reply);
 	}
+}
+
+void ShoutcastFetcher::playlistDownloaded(PlsFile * file)
+{
+	ShoutcastStation s = m_pendingPlaylistUrlsForStation.take(file->url());
+	m_stationPlaylistMapping[s] = QSharedPointer<PlsFile>(file);
+	qDebug() << file->url() << file->urls().count();
+	file->setParent(0);
+	emit playlistAvailable(s);
 }
 
 void ShoutcastFetcher::genresAvailable(QIODevice * openInputDevice)
@@ -71,7 +88,8 @@ void ShoutcastFetcher::genresAvailable(QIODevice * openInputDevice)
 	emit genresAvailable();
 }
 
-void ShoutcastFetcher::newStationsAvailable(QIODevice * openInputDevice, const QString & keyWord)
+void ShoutcastFetcher::newStationsAvailable(const QString & host,
+		QIODevice * openInputDevice, const QString & keyWord)
 {
 	// Using read() putting the content into a QBuffer to workaround
 	// some strange hang if passing IO device directly into
@@ -90,8 +108,10 @@ void ShoutcastFetcher::newStationsAvailable(QIODevice * openInputDevice, const Q
 	ShoutcastStationList & sl = m_keywordStationMapping[keyWord];
 	for (QStringList::const_iterator iter = strings.constBegin(); iter != strings.constEnd(); iter += 8)
 	{
+		QString tuneIn = "http://" + host + *(iter + 7) + "?id=" + *(iter + 1);
 		ShoutcastStation s(*iter, (*(iter + 1)).toInt(), (*(iter + 2)).toInt(),
-						   *(iter + 3), (*(iter + 4)).toInt(), *(iter + 5), *(iter + 6), *(iter + 7));
+						   *(iter + 3), (*(iter + 4)).toInt(), *(iter + 5), *(iter + 6),
+						   tuneIn);
 		sl.append(s);
 	}
 	emit newStationsAvailable(keyWord);
@@ -107,8 +127,19 @@ bool ShoutcastFetcher::hasStationsForKeyword(const QString & key) const
 	return m_keywordStationMapping.contains(key);
 }
 
+bool ShoutcastFetcher::hasPlaylistsForStation(const ShoutcastStation & station) const
+{
+	return m_stationPlaylistMapping.contains(station);
+}
+
 ShoutcastStationList ShoutcastFetcher::stationsForKeyword(const QString & key) const
 {
 	Q_ASSERT(hasStationsForKeyword(key));
 	return m_keywordStationMapping[key];
+}
+
+QList<QUrl> ShoutcastFetcher::playlistForStation(const ShoutcastStation & station) const
+{
+	Q_ASSERT(hasPlaylistsForStation(station));
+	return m_stationPlaylistMapping[station]->urls();
 }
