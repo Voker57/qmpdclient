@@ -67,13 +67,26 @@ void ShoutcastModel::newStationsAvailable(const QString & keyWord) {
 		QStandardItem * name = new QStandardItem(station.name());
 		name->setData(qVariantFromValue(station), StationRole);
 		genreItem->appendRow(QList<QStandardItem * >() << name << bitRate << listeners);
-		m_stationToStandardItemMap[station] = name;
 		name->appendRow(new QStandardItem(tr("Please wait")));
 	}
 }
 
 void ShoutcastModel::playlistAvailable(const ShoutcastStation & station) {
-	QStandardItem * stationItem = m_stationToStandardItemMap[station];
+	QList<QStandardItem*> stdItems = findItems("*", Qt::MatchWildcard|Qt::MatchRecursive, 0);
+	qDebug() << Q_FUNC_INFO << stdItems.count();
+	QStandardItem * stationItem = 0;
+	qDebug() << "Looking for " << station.name() << station.id();
+	foreach(QStandardItem * item, stdItems) {
+		ShoutcastStation s = qvariant_cast<ShoutcastStation>(item->data(StationRole));
+		if (!s.isValid())
+			continue;
+		qDebug() << s.name() << s.id();
+		if (s == station) {
+			qDebug() << "Match";
+			stationItem = item;
+			break;
+		}
+	}
 	qDebug() << "Playlist available for station " << station.name();
 	Q_ASSERT(stationItem);
 	if (!stationItem)

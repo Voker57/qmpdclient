@@ -50,7 +50,6 @@ private slots:
 	void playlistAvailable(const ShoutcastStation & station);
 private:
 	ShoutcastFetcher * m_fetcher;
-	QMap<ShoutcastStation, QStandardItem* > m_stationToStandardItemMap;
 };
 
 #endif
