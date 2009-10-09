@@ -51,6 +51,9 @@
      <property name="editTriggers">
       <set>QAbstractItemView::NoEditTriggers</set>
      </property>
+     <property name="dragEnabled">
+      <bool>true</bool>
+     </property>
      <property name="dragDropMode">
       <enum>QAbstractItemView::DragOnly</enum>
      </property>
@@ -78,9 +81,6 @@
      <property name="headerHidden">
       <bool>false</bool>
      </property>
-     <attribute name="headerMinimumSectionSize">
-      <number>100</number>
-     </attribute>
      <attribute name="headerMinimumSectionSize">
       <number>100</number>
      </attribute>

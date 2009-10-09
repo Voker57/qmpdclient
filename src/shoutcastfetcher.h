@@ -30,11 +30,10 @@ signals:
 	void playlistAvailable(const ShoutcastStation & station);
 	void errorFetching(QNetworkReply::NetworkError error, const QString & errorString);
 
-public slots:
+private slots:
 	void genresAvailable(QIODevice * openInputDevice);
 	void newStationsAvailable(const QString & host,
 			QIODevice * openInputDevice, const QString & keyword);
-private slots:
 	void replyFinished(QNetworkReply * reply);
 	void playlistDownloaded(PlsFile * file);
 private:

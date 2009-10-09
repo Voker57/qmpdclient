@@ -28,6 +28,7 @@ class ShoutcastFetcher;
 #include <QPointer>
 class MPDSongList;
 class MPDSong;
+class QMimeData;
 
 class ShoutcastModel : public QStandardItemModel, public AbstractModel {
 	Q_OBJECT
@@ -40,7 +41,9 @@ public:
 	void downloadGenres();
 	void downloadStationsForGenre(const QString & genre);
 	void downloadPlaylistForStation(const ShoutcastStation & station);
-	MPDSongList selectedSongs(const QModelIndexList & list);
+	MPDSongList songs(const QModelIndexList & list) const;
+	virtual QMimeData *mimeData(const QModelIndexList &indexes) const;
+
 private slots:
 	void genresAvailable();
 	void newStationsAvailable(const QString & keyWord);

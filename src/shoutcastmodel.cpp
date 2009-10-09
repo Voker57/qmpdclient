@@ -26,6 +26,7 @@
 #include <QDebug>
 #include <QUrl>
 #include <QEvent>
+#include <QMimeData>
 
 namespace
 {
@@ -100,14 +101,30 @@ void ShoutcastModel::downloadPlaylistForStation(const ShoutcastStation & station
 	m_fetcher->fetchPlaylistsForStation(station);
 }
 
-MPDSongList ShoutcastModel::selectedSongs(const QModelIndexList & list) {
+MPDSongList ShoutcastModel::songs(const QModelIndexList & list) const {
 	MPDSongList l;
 	foreach(const QModelIndex & index, list) {
 		QString str = data(index).toString();
-		if (QUrl(str).isValid()) {
+		if (QUrl(str).toString().contains("http://")) {
 			qDebug() << "Found URL " << str;
 			l << MPDSong::createStream(str, str);
 		}
 	}
 	return l;
+}
+
+QMimeData *ShoutcastModel::mimeData(const QModelIndexList &indexes) const {
+	if (isDragDisabled())
+		return 0;
+	QByteArray encodedData;
+	QDataStream stream(&encodedData, QIODevice::WriteOnly);
+	MPDSongList songsFromIndexes = songs(indexes);
+	if (songsFromIndexes.empty())
+		return 0;
+	foreach (MPDSong song, songsFromIndexes) {
+		stream << song;
+	}
+	QMimeData *mimeData = new QMimeData;
+	mimeData->setData("qmpdclient/song", encodedData);
+	return mimeData;
 }

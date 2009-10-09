@@ -35,7 +35,6 @@ ShoutcastView::ShoutcastView(QWidget *parent) : AbstractTree(parent) {
 	m_playAction = addMenuAction("play", this, SLOT(play()));
 	m_menu->addSeparator();
 	m_informationAction = addMenuAction("information", this, SLOT(information()));
-	setDragEnabled(true);
 }
 
 void ShoutcastView::updateTranslation() {
@@ -46,7 +45,7 @@ void ShoutcastView::updateTranslation() {
 
 MPDSongList ShoutcastView::selectedSongs() const {
 	Q_ASSERT(m_model);
-	return m_model->selectedSongs(selectedIndexes());
+	return m_model->songs(selectedIndexes());
 }
 
 void ShoutcastView::showEvent(QShowEvent * /*event*/) {

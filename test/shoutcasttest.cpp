@@ -5,6 +5,7 @@
 #include "plsfile.h"
 #include <QTest>
 #include <QFile>
+#include <QMetaObject>
 #include <QStringList>
 #include <QSignalSpy>
 
@@ -23,7 +24,7 @@ void ShoutcastTest::requireGenreParsingToWork() {
 	QFile file(":genres.xml");
 	file.open(QIODevice::ReadOnly);
 	ShoutcastFetcher f;
-	f.genresAvailable(&file);
+	QMetaObject::invokeMethod(&f, "genresAvailable", Qt::DirectConnection, Q_ARG(QIODevice*, &file));
 	QStringList expected;
 	expected << "Web" << "Whatever" << "Wir" << "Word";
 	QCOMPARE(expected, f.genres());
@@ -33,7 +34,9 @@ void ShoutcastTest::requireStationListParsingToWork() {
 	QFile file(":stations.xml");
 	file.open(QIODevice::ReadOnly);
 	ShoutcastFetcher f;
-	f.newStationsAvailable("domain.com", &file, "Rock");
+	QMetaObject::invokeMethod(&f, "newStationsAvailable", Qt::DirectConnection,
+			Q_ARG(QString, QString("domain.com")), Q_ARG(QIODevice*, &file),
+			Q_ARG(QString, QString("Rock")));
 	ShoutcastStationList l = f.stationsForKeyword("Rock");
 
 	ShoutcastStation s = l.takeFirst();
