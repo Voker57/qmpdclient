@@ -22,17 +22,31 @@
 #include "iconmanager.h"
 #include "shoutcastview.h"
 #include "shoutcaststation.h"
+#include "mpdsonglist.h"
 #include <QMenu>
 #include <QDebug>
 
-ShoutcastView::ShoutcastView(QWidget *parent) : QTreeView(parent) {
+ShoutcastView::ShoutcastView(QWidget *parent) : AbstractTree(parent) {
 	setObjectName("shoutcastview");
 	setModel(m_model = new ShoutcastModel(this));
 	connect(this, SIGNAL(expanded(const QModelIndex &)), this, SLOT(expanded(const QModelIndex &)));
 	setColumnWidth(0, 300);
+	m_enqueueAction = addMenuAction("enqueue", this, SLOT(enqueue()));
+	m_playAction = addMenuAction("play", this, SLOT(play()));
+	m_menu->addSeparator();
+	m_informationAction = addMenuAction("information", this, SLOT(information()));
+	setDragEnabled(true);
 }
 
 void ShoutcastView::updateTranslation() {
+	m_enqueueAction->setText(tr("&Enqueue"));
+	m_informationAction->setText(tr("&Information..."));
+	m_playAction->setText(tr("&Play"));
+}
+
+MPDSongList ShoutcastView::selectedSongs() const {
+	Q_ASSERT(m_model);
+	return m_model->selectedSongs(selectedIndexes());
 }
 
 void ShoutcastView::showEvent(QShowEvent * /*event*/) {

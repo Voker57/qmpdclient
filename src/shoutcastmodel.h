@@ -23,10 +23,13 @@
 class QShowEvent;
 class ShoutcastFetcher;
 #include "shoutcaststation.h"
+#include "abstractmodel.h"
 #include <QStandardItemModel>
 #include <QPointer>
+class MPDSongList;
+class MPDSong;
 
-class ShoutcastModel : public QStandardItemModel {
+class ShoutcastModel : public QStandardItemModel, public AbstractModel {
 	Q_OBJECT
 public:
 	enum
@@ -37,6 +40,7 @@ public:
 	void downloadGenres();
 	void downloadStationsForGenre(const QString & genre);
 	void downloadPlaylistForStation(const ShoutcastStation & station);
+	MPDSongList selectedSongs(const QModelIndexList & list);
 private slots:
 	void genresAvailable();
 	void newStationsAvailable(const QString & keyWord);

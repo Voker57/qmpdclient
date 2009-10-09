@@ -44,7 +44,7 @@ void ShoutcastTest::requireStationListParsingToWork() {
 	QCOMPARE(s.listeners(), 8483);
 	QCOMPARE(s.mimeType(), QString("audio/mpeg"));
 	QCOMPARE(s.currentTrack(), QString("Flo rida - Low"));
-	QCOMPARE(s.tuneIn(), QString("http://domain.com/sbin/tunein-station.pls"));
+	QCOMPARE(s.tuneIn(), QString("http://domain.com/sbin/tunein-station.pls?id=6956"));
 
 	s = l.takeFirst();
 	QCOMPARE(s.name(), QString("#MUSIK.MAIN"));
@@ -54,7 +54,7 @@ void ShoutcastTest::requireStationListParsingToWork() {
 	QCOMPARE(s.listeners(), 6124);
 	QCOMPARE(s.mimeType(), QString("audio/mpeg"));
 	QCOMPARE(s.currentTrack(), QString(""));
-	QCOMPARE(s.tuneIn(), QString("http://domain.com/sbin/tunein-station.pls"));
+	QCOMPARE(s.tuneIn(), QString("http://domain.com/sbin/tunein-station.pls?id=491"));
 }
 
 void ShoutcastTest::requireQueryingAStationURIDownloadsTheStationList()
@@ -107,7 +107,7 @@ void ShoutcastTest::requireThatFetchingAPlaylistForAStationResultsInThePlaylistB
 			":playlist.txt");
 	ShoutcastFetcher f;
 	f.fetchPlaylistsForStation(s);
-	QSignalSpy spy(&f, SIGNAL(playlistAvailable()));
+	QSignalSpy spy(&f, SIGNAL(playlistAvailable(const ShoutcastStation &)));
 	int i = 100;
 	while (spy.count() == 0 && --i)
 		QTest::qWait(1);

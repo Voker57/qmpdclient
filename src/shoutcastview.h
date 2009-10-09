@@ -20,12 +20,13 @@
 #ifndef SHOUTCASTVIEW_H
 #define SHOUTCASTVIEW_H
 
+#include "abstractview.h"
 #include <QTreeView>
 
 class ShoutcastModel;
 class QAction;
 
-class ShoutcastView : public QTreeView {
+class ShoutcastView : public AbstractTree {
 	Q_OBJECT
 public:
 	ShoutcastView(QWidget *);
@@ -35,7 +36,9 @@ private slots:
 	void expanded(const QModelIndex & expandedItem);
 protected:
 	virtual void showEvent(QShowEvent * event);
+	virtual MPDSongList selectedSongs() const;
 private:
 	ShoutcastModel *m_model;
+	QAction *m_enqueueAction, *m_informationAction, *m_playAction;
 };
 #endif

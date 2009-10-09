@@ -20,6 +20,8 @@
 #include "shoutcastmodel.h"
 #include "shoutcastfetcher.h"
 #include "shoutcaststation.h"
+#include "mpdsong.h"
+#include "mpdsonglist.h"
 #include <QList>
 #include <QDebug>
 #include <QUrl>
@@ -80,6 +82,7 @@ void ShoutcastModel::playlistAvailable(const ShoutcastStation & station) {
 	{
 		qDebug() << url;
 		QStandardItem * playListItem = new QStandardItem(url.toString());
+		playListItem->setDragEnabled(true);
 		stationItem->appendRow(playListItem);
 	}
 }
@@ -95,4 +98,16 @@ void ShoutcastModel::downloadStationsForGenre(const QString & genre) {
 void ShoutcastModel::downloadPlaylistForStation(const ShoutcastStation & station)
 {
 	m_fetcher->fetchPlaylistsForStation(station);
+}
+
+MPDSongList ShoutcastModel::selectedSongs(const QModelIndexList & list) {
+	MPDSongList l;
+	foreach(const QModelIndex & index, list) {
+		QString str = data(index).toString();
+		if (QUrl(str).isValid()) {
+			qDebug() << "Found URL " << str;
+			l << MPDSong::createStream(str, str);
+		}
+	}
+	return l;
 }

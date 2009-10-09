@@ -3,7 +3,7 @@ PREFIX = /usr/local
 
 # Most people need not muck about below here
 #!contains(QT_MAJOR_VERSION, 4):error(QMPDClient requires Qt 4)
-CONFIG += qt
+CONFIG += qt debug
 
 # addition ldflags for release build
 QMAKE_LFLAGS_RELEASE += -O2 -g0 -s
