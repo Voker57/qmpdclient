@@ -5,7 +5,7 @@
 #include <QByteArray>
 #include <QBuffer>
 #include <QUrl>
-#include <QDebug>
+//#include <QDebug>
 #include <QNetworkAccessManager>
 #include <QNetworkRequest>
 
@@ -39,7 +39,7 @@ void ShoutcastFetcher::fetchGenres(const QUrl & uri)
 
 void ShoutcastFetcher::fetchPlaylistsForStation(const ShoutcastStation & station)
 {
-	qDebug() << "fetching" << station.tuneIn();
+	//qDebug() << "fetching" << station.tuneIn();
 	PlsFile * f = new PlsFile(station.tuneIn(), this);
 	connect(f, SIGNAL(ready(PlsFile*)), this, SLOT(playlistDownloaded(PlsFile*)));
 	m_pendingPlaylistUrlsForStation[f->url()] = station;
@@ -51,7 +51,7 @@ void ShoutcastFetcher::replyFinished(QNetworkReply * reply)
 	if (e != QNetworkReply::NoError)
 	{
 		emit errorFetching(e, reply->errorString());
-		qDebug() << e << reply->errorString();
+		//qDebug() << e << reply->errorString();
 	}
 	else if (m_pendingUrlAndKeyWords.contains(reply->url()))
 	{
@@ -68,7 +68,7 @@ void ShoutcastFetcher::playlistDownloaded(PlsFile * file)
 {
 	ShoutcastStation s = m_pendingPlaylistUrlsForStation.take(file->url());
 	m_stationPlaylistMapping[s] = QSharedPointer<PlsFile>(file);
-	qDebug() << file->url() << file->urls().count();
+	//qDebug() << file->url() << file->urls().count();
 	file->setParent(0);
 	emit playlistAvailable(s);
 }

@@ -23,7 +23,7 @@
 #include "mpdsong.h"
 #include "mpdsonglist.h"
 #include <QList>
-#include <QDebug>
+//#include <QDebug>
 #include <QUrl>
 #include <QEvent>
 #include <QMimeData>
@@ -73,28 +73,27 @@ void ShoutcastModel::newStationsAvailable(const QString & keyWord) {
 
 void ShoutcastModel::playlistAvailable(const ShoutcastStation & station) {
 	QList<QStandardItem*> stdItems = findItems("*", Qt::MatchWildcard|Qt::MatchRecursive, 0);
-	qDebug() << Q_FUNC_INFO << stdItems.count();
 	QStandardItem * stationItem = 0;
-	qDebug() << "Looking for " << station.name() << station.id();
+	//qDebug() << Q_FUNC_INFO << stdItems.count() << "Looking for " << station.name() << station.id();
 	foreach(QStandardItem * item, stdItems) {
 		ShoutcastStation s = qvariant_cast<ShoutcastStation>(item->data(StationRole));
 		if (!s.isValid())
 			continue;
-		qDebug() << s.name() << s.id();
+		//qDebug() << s.name() << s.id();
 		if (s == station) {
-			qDebug() << "Match";
+			//qDebug() << "Match";
 			stationItem = item;
 			break;
 		}
 	}
-	qDebug() << "Playlist available for station " << station.name();
+	//qDebug() << "Playlist available for station " << station.name();
 	Q_ASSERT(stationItem);
 	if (!stationItem)
 		return;
 	stationItem->removeRows(0, stationItem->rowCount());
 	foreach(const QUrl & url, m_fetcher->playlistForStation(station))
 	{
-		qDebug() << url;
+		//qDebug() << url;
 		QStandardItem * playListItem = new QStandardItem(url.toString());
 		playListItem->setDragEnabled(true);
 		stationItem->appendRow(playListItem);
@@ -119,7 +118,7 @@ MPDSongList ShoutcastModel::songs(const QModelIndexList & list) const {
 	foreach(const QModelIndex & index, list) {
 		QString str = data(index).toString();
 		if (QUrl(str).toString().contains("http://")) {
-			qDebug() << "Found URL " << str;
+			//qDebug() << "Found URL " << str;
 			l << MPDSong::createStream(str, str);
 		}
 	}

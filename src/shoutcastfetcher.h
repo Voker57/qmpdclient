@@ -39,9 +39,9 @@ private slots:
 private:
 	QStringList m_genres;
 	QMap<QString, ShoutcastStationList> m_keywordStationMapping;
-	QMap<QUrl, QString> m_pendingUrlAndKeyWords;
 	QMap<ShoutcastStation, QSharedPointer<PlsFile> > m_stationPlaylistMapping;
 	QMap<QUrl, ShoutcastStation> m_pendingPlaylistUrlsForStation;
+	QMap<QUrl, QString> m_pendingUrlAndKeyWords;
 	bool m_success;
 	QNetworkAccessManager * m_networkManager;
 };

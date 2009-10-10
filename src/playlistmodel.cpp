@@ -25,7 +25,6 @@
 #include <QApplication>
 #include <QFont>
 #include <QMimeData>
-#include <QDebug>
 
 PlaylistModel::PlaylistModel(QObject *p) : MPDSongModel(p, 0),
 		m_topDrop(false) {
@@ -168,19 +167,15 @@ MPDSongList PlaylistModel::decodeSongs(const QMimeData *m, QString format) const
 
 bool PlaylistModel::dropMimeData(const QMimeData *data, Qt::DropAction, int row, int, const QModelIndex &index) {
 	Q_ASSERT(data);
-	qDebug() << Q_FUNC_INFO;
 	QString format;
 	foreach(QString m, mimeTypes()) {
-		qDebug() << "Has MIME format" << m;
 		if (data->hasFormat(m)) {
 			format = m;
 			break;
 		}
 	}
-	if (format.isEmpty()) {
-		qDebug() << "Not accepted";
+	if (format.isEmpty())
 		return false;
-	}
 
 	int dropPos;
 	if (row != -1)
@@ -207,7 +202,6 @@ bool PlaylistModel::dropMimeData(const QMimeData *data, Qt::DropAction, int row,
 			++dropPos;
 		MPD::instance()->addSongs(songs, true, dropPos);
 	}
-	qDebug() << "Accepted!";
 	return true;
 }
 

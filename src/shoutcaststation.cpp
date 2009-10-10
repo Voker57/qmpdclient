@@ -1,5 +1,5 @@
 #include "shoutcaststation.h"
-#include <QDebug>
+//#include <QDebug>
 #include <QMetaType>
 
 ShoutcastStation::ShoutcastStation(QString name, int id, int bitRate,

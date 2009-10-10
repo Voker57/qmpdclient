@@ -24,7 +24,7 @@
 #include "shoutcaststation.h"
 #include "mpdsonglist.h"
 #include <QMenu>
-#include <QDebug>
+//#include <QDebug>
 
 ShoutcastView::ShoutcastView(QWidget *parent) : AbstractTree(parent) {
 	setObjectName("shoutcastview");
@@ -54,7 +54,7 @@ void ShoutcastView::showEvent(QShowEvent * /*event*/) {
 
 void ShoutcastView::expanded(const QModelIndex & expandedItem)
 {
-	qDebug() << expandedItem.data() << " expanded";
+	//qDebug() << expandedItem.data() << " expanded";
 	if (!expandedItem.parent().isValid())
 		m_model->downloadStationsForGenre(expandedItem.data().toString());
 	else

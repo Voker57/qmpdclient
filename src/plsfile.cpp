@@ -1,7 +1,7 @@
 #include "plsfile.h"
 #include <QNetworkAccessManager>
 #include <QRegExp>
-#include <QDebug>
+//#include <QDebug>
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QStringList>
