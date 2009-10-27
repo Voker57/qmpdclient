@@ -38,7 +38,6 @@ set(QMPDClient_srcs
 	src/idealbar.cpp
 	src/idealsplitter.cpp
 	src/jumptosongdialog.cpp
-	src/lastfmsubmitter.cpp
 	src/libmpdclient.c
 	src/librarypanel.cpp
 	src/lineedit.cpp
@@ -59,7 +58,6 @@ set(QMPDClient_srcs
 	src/mpdstatus.cpp
 	src/notifications.cpp
 	src/passivepopup.cpp
-	src/pausabletimer.cpp
 	src/playlistitemdelegate.cpp
 	src/playlistmodel.cpp
 	src/playlistpanel.cpp
@@ -117,7 +115,6 @@ set(QMPDClient_hdrs
 	src/idealbar.h
 	src/idealsplitter.h
 	src/jumptosongdialog.h
-	src/lastfmsubmitter.h
 	src/libmpdclient.h
 	src/librarypanel.h
 	src/lineedit.h
@@ -141,7 +138,6 @@ set(QMPDClient_hdrs
 	src/mpdstatus.h
 	src/notifications.h
 	src/passivepopup.h
-	src/pausabletimer.h
 	src/playlistitemdelegate.h
 	src/playlistmodel.h
 	src/playlistpanel.h
