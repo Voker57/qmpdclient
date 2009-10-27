@@ -249,7 +249,7 @@ ADD_CUSTOM_COMMAND (OUTPUT
 	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 	)
 
-add_definitions(-DNAMEVER="${NAMEVER}" -DPREFIX=${INSTALL_PREFIX} -DVERSION="${VERSION}")
+add_definitions(-DNAMEVER="${NAMEVER}" -DPREFIX="${CMAKE_INSTALL_PREFIX}" -DVERSION="${VERSION}")
 
 add_executable(qmpdclient ${QMPDClient_srcs} ${QMPDClient_ppd_hdrs} ${QMPDClient_ppd_uis} ${QMPDClient_ppd_res} ${COMPILED_TRANSLATIONS})
 
