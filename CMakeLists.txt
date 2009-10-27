@@ -3,15 +3,7 @@ cmake_minimum_required(VERSION 2.6)
 find_package(Qt4 4.4.0 COMPONENTS QtCore QtGui QtNetwork REQUIRED QtDBus)
 include(${QT_USE_FILE})
 
-if(NOT DEFINED INSTALL_PREFIX)
-	set(INSTALL_PREFIX "/usr/local")
-endif()
-
-# Modifiable
-
-#
-
-if (NOT DEFINED VERSION)
+if(NOT DEFINED VERSION)
 	find_program (GIT_CMD git)
 	execute_process (COMMAND "${GIT_CMD}" describe
 		OUTPUT_VARIABLE VERSION
@@ -221,8 +213,53 @@ qt4_wrap_ui(QMPDClient_ppd_uis ${QMPDClient_uis})
 include_directories (${CMAKE_CURRENT_BINARY_DIR}
 	src)
 
+SET (TRANSLATIONS
+	lang/cs_CZ.ts
+	lang/de_DE.ts
+	lang/fr_FR.ts
+	lang/it_IT.ts
+	lang/nl_NL.ts
+	lang/nn_NO.ts
+	lang/no_NO.ts
+	lang/pt_BR.ts
+	lang/ru_RU.ts
+	lang/sv_SE.ts
+	lang/tr_TR.ts
+	lang/uk_UA.ts
+	lang/zh_CN.ts
+	lang/zh_TW.ts)
+
+SET (COMPILED_TRANSLATIONS
+	lang/cs_CZ.qm
+	lang/de_DE.qm
+	lang/fr_FR.qm
+	lang/it_IT.qm
+	lang/nl_NL.qm
+	lang/nn_NO.qm
+	lang/no_NO.qm
+	lang/pt_BR.qm
+	lang/ru_RU.qm
+	lang/sv_SE.qm
+	lang/tr_TR.qm
+	lang/uk_UA.qm
+	lang/zh_CN.qm
+	lang/zh_TW.qm)
+
+
+ADD_CUSTOM_COMMAND (OUTPUT
+	${COMPILED_TRANSLATIONS}
+	COMMAND "${QT_LRELEASE_EXECUTABLE}" ${TRANSLATIONS}
+	DEPENDS ${TRANSLATIONS}
+	WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+	)
+
 add_definitions(-DNAMEVER="${NAMEVER}" -DPREFIX=${INSTALL_PREFIX} -DVERSION="${VERSION}")
 
-add_executable(qmpdclient ${QMPDClient_srcs} ${QMPDClient_ppd_hdrs} ${QMPDClient_ppd_uis} ${QMPDClient_ppd_res})
+add_executable(qmpdclient ${QMPDClient_srcs} ${QMPDClient_ppd_hdrs} ${QMPDClient_ppd_uis} ${QMPDClient_ppd_res} ${COMPILED_TRANSLATIONS})
 
 target_link_libraries(qmpdclient ${QT_LIBRARIES})
+
+install(FILES ${COMPILED_TRANSLATIONS} DESTINATION share/QMPDClient/translations)
+install(TARGETS qmpdclient DESTINATION bin)
+install(FILES qmpdclient.desktop DESTINATION share/applications)
+install(FILES icons/qmpdclient64.png DESTINATION share/icons)
