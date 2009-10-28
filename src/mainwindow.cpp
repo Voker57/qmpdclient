@@ -302,7 +302,7 @@ void MainWindow::playlistUpdated(const MPDSongList &list)
 	unsigned long tsecs = 0;
 	for(MPDSongList::const_iterator it = list.constBegin(); it != list.constEnd(); ++it)
 	{
-		tsecs+=(*it).secs();
+		tsecs+=abs((*it).secs());
 	}
 	const int day = tsecs / (60 * 60 * 24);
 	tsecs -= day * 60 * 60 * 24;
