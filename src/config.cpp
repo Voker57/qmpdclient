@@ -43,7 +43,7 @@ Config::Config() :
 	QString execPath = QCoreApplication::applicationDirPath();
 	QString prefix = execPath.section("/", 0, -2);
 #ifdef Q_WS_WIN
-	m_systemPath = prefix + "/";
+	m_systemPath = execPath;
 	m_userPath = m_cachePath;
 #else
 	m_systemPath = prefix + "/share/QMPDClient/";

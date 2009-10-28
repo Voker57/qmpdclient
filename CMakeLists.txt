@@ -255,9 +255,12 @@ add_executable(qmpdclient ${QMPDClient_srcs} ${QMPDClient_ppd_hdrs} ${QMPDClient
 
 target_link_libraries(qmpdclient ${QT_LIBRARIES})
 
-install(FILES ${COMPILED_TRANSLATIONS} DESTINATION share/QMPDClient/translations)
 install(TARGETS qmpdclient DESTINATION bin)
 if(UNIX)
 	install(FILES qmpdclient.desktop DESTINATION share/applications)
 	install(FILES icons/qmpdclient64.png DESTINATION share/icons)
+	install(FILES ${COMPILED_TRANSLATIONS} DESTINATION share/QMPDClient/translations)
+endif()
+if(WIN32)
+	install(FILES ${COMPILED_TRANSLATIONS} DESTINATION translations)
 endif()
