@@ -17,7 +17,7 @@
     </message>
     <message>
         <source>&amp;Thanks to</source>
-        <translation>&amp;Благодарность</translation>
+        <translation>&amp;Благодарности</translation>
     </message>
     <message>
         <source>&amp;License agreement</source>
@@ -212,31 +212,31 @@
     <name>LastFmSubmitter</name>
     <message>
         <source>Will scrobble this track.</source>
-        <translation>Этот трек будет скробблен.</translation>
+        <translation type="obsolete">Этот трек будет скробблен.</translation>
     </message>
     <message>
         <source>Scrobbling %1 songs...</source>
-        <translation>Скробблинг композиций в количестве %1...</translation>
+        <translation type="obsolete">Скробблинг композиций в количестве %1...</translation>
     </message>
     <message>
         <source>Successfully scrobbled</source>
-        <translation>Скробблинг прошёл успешено</translation>
+        <translation type="obsolete">Скробблинг прошёл успешено</translation>
     </message>
     <message>
         <source>Last.Fm authentication failed: check your credentials</source>
-        <translation>Аутентификация на Last.Fm завершилась ошибкой: проверьте свои данные</translation>
+        <translation type="obsolete">Аутентификация на Last.Fm завершилась ошибкой: проверьте свои данные</translation>
     </message>
     <message>
         <source>Cannot submit to Last.Fm: system clock is skewed</source>
-        <translation>Немозможно отправить на Last.Fm: системное время искажено</translation>
+        <translation type="obsolete">Немозможно отправить на Last.Fm: системное время искажено</translation>
     </message>
     <message>
         <source>Now Playing sent</source>
-        <translation>Проигрываемая композиция отправлена на Last.Fm</translation>
+        <translation type="obsolete">Проигрываемая композиция отправлена на Last.Fm</translation>
     </message>
     <message>
         <source>Last.Fm error: %1</source>
-        <translation>Ошибка Last.Fm: %1</translation>
+        <translation type="obsolete">Ошибка Last.Fm: %1</translation>
     </message>
 </context>
 <context>
@@ -552,10 +552,6 @@
         <translation>Найти текущую песню в библиотеке...</translation>
     </message>
     <message>
-        <source>Ctrl+O</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>Library:  %1 %2, %3 %4, %5 %6. (%7 %8 %9 %10 %11 %12) </source>
         <translation>Библиотека: %1 %2, %3 %4, %5 %6. (%7 %8 %9 %10 %11 %12) </translation>
     </message>
@@ -578,6 +574,10 @@
     <message>
         <source>%1 seconds.</source>
         <translation>%1 секунд.</translation>
+    </message>
+    <message>
+        <source>Ctrl+O</source>
+        <translation></translation>
     </message>
 </context>
 <context>
@@ -1212,10 +1212,6 @@ Overwrite?</source>
         <translation>&amp;Закрыть</translation>
     </message>
     <message>
-        <source>Last.Fm</source>
-        <translation></translation>
-    </message>
-    <message>
         <source>&amp;Fill up playlist with random songs</source>
         <translation>&amp;Заполнить список случайными композициями</translation>
     </message>
@@ -1229,7 +1225,7 @@ Overwrite?</source>
     </message>
     <message>
         <source>Username:</source>
-        <translation>Пользователь:</translation>
+        <translation type="obsolete">Пользователь:</translation>
     </message>
     <message>
         <source>Password:</source>
@@ -1277,31 +1273,31 @@ Overwrite?</source>
     </message>
     <message>
         <source>Submit played tracks to Last.Fm</source>
-        <translation>Передавать проигранные треки на Last.Fm</translation>
+        <translation type="obsolete">Передавать проигранные треки на Last.Fm</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation>Пароль</translation>
+        <translation type="obsolete">Пароль</translation>
     </message>
     <message>
         <source>Plain</source>
-        <translation>Открытым текстом</translation>
+        <translation type="obsolete">Открытым текстом</translation>
     </message>
     <message>
         <source>MD5</source>
-        <translation>MD5</translation>
+        <translation type="obsolete">MD5</translation>
     </message>
     <message>
         <source>Calculate MD5</source>
-        <translation>Вычислить MD5</translation>
+        <translation type="obsolete">Вычислить MD5</translation>
     </message>
     <message>
         <source>Timer</source>
-        <translation>Таймер</translation>
+        <translation type="obsolete">Таймер</translation>
     </message>
     <message>
         <source>Percent of song played:</source>
-        <translation>Процентов от песни проиграно:</translation>
+        <translation type="obsolete">Процентов от песни проиграно:</translation>
     </message>
 </context>
 <context>
@@ -1530,7 +1526,8 @@ Overwrite?</source>
     </message>
     <message>
         <source>Volume</source>
-        <translation>Громкость</translation>
+        <translation>
+Громкость</translation>
     </message>
 </context>
 <context>
