@@ -11,7 +11,7 @@ QMAKE_LFLAGS_RELEASE += -O2 -g0 -s
 # CONFIG -= debug # Needed to avoid console on win32
 TEMPLATE = app
 RESOURCES = qmpdclient.qrc
-VERSION = 1.1.1
+VERSION = 1.1.2
 DEFINES += NAMEVER='"\\"QMPDClient \
     $$VERSION\\""'
 DEFINES += VERSION='"\\"$$VERSION\\""'
