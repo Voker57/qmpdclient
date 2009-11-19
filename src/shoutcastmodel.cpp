@@ -49,6 +49,7 @@ ShoutcastModel::ShoutcastModel(QObject *parent)
 }
 
 void ShoutcastModel::genresAvailable() {
+	removeRows(0, rowCount());
 	foreach(const QString & genre, m_fetcher->genres()) {
 		QStandardItem * i = new QStandardItem(genre);
 		i->appendRow(new QStandardItem(tr("Please wait...")));
@@ -61,6 +62,7 @@ void ShoutcastModel::newStationsAvailable(const QString & keyWord) {
 	Q_ASSERT(genreItemList.count() == 1);
 	QStandardItem * genreItem = genreItemList[0];
 	genreItem->removeRows(0, genreItem->rowCount());
+	Q_ASSERT(genreItem->rowCount() == 0);
 	foreach(const ShoutcastStation & station, m_fetcher->stationsForKeyword(keyWord)) {
 		QStandardItem * bitRate = new QStandardItem(QString::number(station.bitRate()) + tr(" bps"));
 		QStandardItem * listeners = new QStandardItem(QString::number(station.listeners()));
