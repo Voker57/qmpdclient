@@ -49,7 +49,8 @@ MPDSongList ShoutcastView::selectedSongs() const {
 }
 
 void ShoutcastView::showEvent(QShowEvent * /*event*/) {
-	m_model->downloadGenres();
+	if (!m_model->rowCount())
+		m_model->downloadGenres();
 }
 
 void ShoutcastView::expanded(const QModelIndex & expandedItem)
