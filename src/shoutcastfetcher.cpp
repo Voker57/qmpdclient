@@ -23,9 +23,13 @@ ShoutcastFetcher::ShoutcastFetcher(QObject * parent)
 
 void ShoutcastFetcher::fetchStations(const QString & keyWord, const QUrl & uri)
 {
-	if (m_pendingUrlAndKeyWords.contains(uri) && m_pendingUrlAndKeyWords[uri] != keyWord)
-	{
-		Q_ASSERT(!"Asked twice for same uri with different keywords");
+	//qDebug() << "Fetch stations" << keyWord << " / " << uri;
+	if (m_pendingUrlAndKeyWords.contains(uri)) {
+		if (m_pendingUrlAndKeyWords[uri] != keyWord)
+		{
+			Q_ASSERT(!"Asked twice for same uri with different keywords");
+		}
+		//qDebug() << "Double request for " << uri << " / " << keyWord;
 		return;
 	}
 	m_pendingUrlAndKeyWords[uri] = keyWord;
@@ -41,6 +45,10 @@ void ShoutcastFetcher::fetchPlaylistsForStation(const ShoutcastStation & station
 {
 	//qDebug() << "fetching" << station.tuneIn();
 	PlsFile * f = new PlsFile(station.tuneIn(), this);
+	if (m_pendingPlaylistUrlsForStation.contains(f->url())) {
+		//qDebug() << "Ignoring second request for " << station.name();
+		return;
+	}
 	connect(f, SIGNAL(ready(PlsFile*)), this, SLOT(playlistDownloaded(PlsFile*)));
 	m_pendingPlaylistUrlsForStation[f->url()] = station;
 }
