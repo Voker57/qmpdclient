@@ -34,6 +34,7 @@ public slots:
 	void updateTranslation();
 private slots:
 	void expanded(const QModelIndex & expandedItem);
+	void doubleClicked(const QModelIndex & selectedItem);
 protected:
 	virtual void showEvent(QShowEvent * event);
 	virtual MPDSongList selectedSongs() const;

@@ -23,6 +23,7 @@
 #include "shoutcastview.h"
 #include "shoutcaststation.h"
 #include "mpdsonglist.h"
+#include "mpd.h"
 #include <QMenu>
 //#include <QDebug>
 
@@ -35,6 +36,12 @@ ShoutcastView::ShoutcastView(QWidget *parent) : AbstractTree(parent) {
 	m_playAction = addMenuAction("play", this, SLOT(play()));
 	m_menu->addSeparator();
 	m_informationAction = addMenuAction("information", this, SLOT(information()));
+	bool r = connect(this, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(doubleClicked(const QModelIndex &)));
+	Q_ASSERT(r);
+}
+
+void ShoutcastView::doubleClicked(const QModelIndex &) {
+	MPD::instance()->addSongs(selectedSongs(), Config::instance()->enqueue());
 }
 
 void ShoutcastView::updateTranslation() {
