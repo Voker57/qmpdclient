@@ -86,6 +86,7 @@ void ShoutcastFetcher::genresAvailable(QIODevice * openInputDevice)
 	// Using read() putting the content into a QBuffer to workaround
 	// some strange hang if passing IO device directly into
 	// QXmlQuery object.
+	m_genres.clear();
 	QByteArray content = openInputDevice->read(maxSize);
 	QBuffer buf(&content);
 	buf.open(QIODevice::ReadOnly);
