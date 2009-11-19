@@ -105,6 +105,7 @@ void ShoutcastFetcher::newStationsAvailable(const QString & host,
 			   "        string($i/@lc), string($i/@mt), string($i/@ct), string($tunein))");
 	QStringList strings;
 	q.evaluateTo(&strings);
+	m_keywordStationMapping[keyWord].clear();
 	ShoutcastStationList & sl = m_keywordStationMapping[keyWord];
 	for (QStringList::const_iterator iter = strings.constBegin(); iter != strings.constEnd(); iter += 8)
 	{
