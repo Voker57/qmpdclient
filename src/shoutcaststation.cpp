@@ -4,8 +4,13 @@
 
 ShoutcastStation::ShoutcastStation(QString name, int id, int bitRate,
 		QString genre, int listeners, QString mimeType, QString currentTrack, QString tuneIn)
-: m_impl(new SCStationImpl(name, id, bitRate, genre, listeners, mimeType, currentTrack, tuneIn))
+: m_impl(0)
 {
+	SCStationImpl * data = new SCStationImpl(name, id, bitRate,
+			genre, listeners, mimeType, currentTrack, tuneIn);
+	// Initializing it here because doing it in the init-lisy caused some strange
+	// Shared pointer panic to trigger. Could it be a QSharedPointer bug?! -mpz
+	m_impl = QSharedPointer<SCStationImpl>(data);
 	qRegisterMetaType<ShoutcastStation>("ShoutcastStation");
 }
 

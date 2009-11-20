@@ -23,9 +23,13 @@ ShoutcastFetcher::ShoutcastFetcher(QObject * parent)
 
 void ShoutcastFetcher::fetchStations(const QString & keyWord, const QUrl & uri)
 {
-	if (m_pendingUrlAndKeyWords.contains(uri) && m_pendingUrlAndKeyWords[uri] != keyWord)
-	{
-		Q_ASSERT(!"Asked twice for same uri with different keywords");
+	//qDebug() << "Fetch stations" << keyWord << " / " << uri;
+	if (m_pendingUrlAndKeyWords.contains(uri)) {
+		if (m_pendingUrlAndKeyWords[uri] != keyWord)
+		{
+			Q_ASSERT(!"Asked twice for same uri with different keywords");
+		}
+		//qDebug() << "Double request for " << uri << " / " << keyWord;
 		return;
 	}
 	m_pendingUrlAndKeyWords[uri] = keyWord;
@@ -41,6 +45,10 @@ void ShoutcastFetcher::fetchPlaylistsForStation(const ShoutcastStation & station
 {
 	//qDebug() << "fetching" << station.tuneIn();
 	PlsFile * f = new PlsFile(station.tuneIn(), this);
+	if (m_pendingPlaylistUrlsForStation.contains(f->url())) {
+		//qDebug() << "Ignoring second request for " << station.name();
+		return;
+	}
 	connect(f, SIGNAL(ready(PlsFile*)), this, SLOT(playlistDownloaded(PlsFile*)));
 	m_pendingPlaylistUrlsForStation[f->url()] = station;
 }
@@ -78,6 +86,7 @@ void ShoutcastFetcher::genresAvailable(QIODevice * openInputDevice)
 	// Using read() putting the content into a QBuffer to workaround
 	// some strange hang if passing IO device directly into
 	// QXmlQuery object.
+	m_genres.clear();
 	QByteArray content = openInputDevice->read(maxSize);
 	QBuffer buf(&content);
 	buf.open(QIODevice::ReadOnly);
@@ -105,6 +114,7 @@ void ShoutcastFetcher::newStationsAvailable(const QString & host,
 			   "        string($i/@lc), string($i/@mt), string($i/@ct), string($tunein))");
 	QStringList strings;
 	q.evaluateTo(&strings);
+	m_keywordStationMapping[keyWord].clear();
 	ShoutcastStationList & sl = m_keywordStationMapping[keyWord];
 	for (QStringList::const_iterator iter = strings.constBegin(); iter != strings.constEnd(); iter += 8)
 	{

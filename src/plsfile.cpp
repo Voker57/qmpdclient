@@ -20,7 +20,7 @@ PlsFile::PlsFile(const QUrl & url, QObject * parent) : QObject(parent), m_url(ur
 }
 
 PlsFile::PlsFile(const PlsFile & rhs)
-: m_urls(rhs.m_urls)
+: QObject(rhs.parent()), m_urls(rhs.m_urls)
 {
 	qRegisterMetaType<PlsFile>();
 }
