@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<stationlist>
-<tunein base="/sbin/tunein-station.pls"/>
-<station name=".977 The Hitz Channel" mt="audio/mpeg" id="6956" br="128" genre="Pop Rock Top 40" ct="Flo rida - Low" lc="8483"/>
-<station name="#MUSIK.MAIN" mt="audio/mpeg" id="491" br="128" genre="80S POP ROCK TOP 40 WORLD" ct="" lc="6124"/>
-</stationlist>
