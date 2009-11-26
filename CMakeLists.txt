@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 2.6)
 
-find_package(Qt4 4.4.0 COMPONENTS QtCore QtGui QtNetwork REQUIRED QtDBus)
+find_package(Qt4 4.4.0 COMPONENTS QtCore QtGui QtNetwork QtXml QtXmlPatterns REQUIRED QtDBus)
+
 SET (QT_USE_QTNETWORK TRUE)
+SET (QT_USE_QTXMLPATTERNS TRUE)
+SET (QT_USE_QTXML TRUE)
 
 if(NOT DEFINED VERSION)
 	find_program (GIT_CMD git)
@@ -67,6 +70,7 @@ set(QMPDClient_srcs
 	src/playlistsview.cpp
 	src/playlistview.cpp
 	src/plconview.cpp
+	src/plsfile.cpp
 	src/preferencesdialog.cpp
 	src/qmpdclient.cpp
 	src/radiopanel.cpp
@@ -76,6 +80,11 @@ set(QMPDClient_srcs
 	src/servermodel.cpp
 	src/shortcutmodel.cpp
 	src/shortcuts.cpp
+	src/shoutcastmodel.cpp
+	src/shoutcastpanel.cpp
+	src/shoutcastview.cpp
+	src/shoutcastfetcher.cpp
+	src/shoutcaststation.cpp
 	src/songview.cpp
 	src/stringlistmodel.cpp
 	src/stringlistview.cpp
@@ -149,6 +158,7 @@ set(QMPDClient_hdrs
 	src/playlistsview.h
 	src/playlistview.h
 	src/plconview.h
+	src/plsfile.h
 	src/preferencesdialog.h
 	src/qmpdclient.h
 	src/radiopanel.h
@@ -159,6 +169,11 @@ set(QMPDClient_hdrs
 	src/servermodel.h
 	src/shortcutmodel.h
 	src/shortcuts.h
+	src/shoutcastpanel.h
+	src/shoutcastview.h
+	src/shoutcastmodel.h
+	src/shoutcastfetcher.h
+	src/shoutcaststation.h
 	src/songview.h
 	src/stringlistmodel.h
 	src/stringlistview.h
@@ -184,7 +199,8 @@ SET(QMPDClient_uis
 	ui/playlistpanel.ui
 	ui/playlistspanel.ui
 	ui/preferencesdialog.ui
-	ui/radiopanel.ui)
+	ui/radiopanel.ui
+	ui/shoutcastpanel.ui)
 
 if(UNIX)
 	if(NOT MAC)

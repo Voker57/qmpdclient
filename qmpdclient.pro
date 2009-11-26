@@ -3,7 +3,7 @@ PREFIX = /usr/local
 
 # Most people need not muck about below here
 #!contains(QT_MAJOR_VERSION, 4):error(QMPDClient requires Qt 4)
-CONFIG += qt
+CONFIG += qt debug
 
 # addition ldflags for release build
 QMAKE_LFLAGS_RELEASE += -O2 -g0 -s
@@ -16,7 +16,7 @@ DEFINES += NAMEVER='"\\"QMPDClient \
     $$VERSION\\""'
 DEFINES += VERSION='"\\"$$VERSION\\""'
 INCLUDEPATH += src
-QT += network
+QT += network xml xmlpatterns
 
 FORMS += ui/aboutdialog.ui \
     ui/addradiodialog.ui \
@@ -31,6 +31,7 @@ FORMS += ui/aboutdialog.ui \
     ui/playlistspanel.ui \
     ui/preferencesdialog.ui \
     ui/radiopanel.ui \
+    ui/shoutcastpanel.ui \
     ui/lyricsdialog.ui
 
 HEADERS += src/aafilter.h \
@@ -84,6 +85,7 @@ HEADERS += src/aafilter.h \
     src/playlistmodel.h \
     src/playlistspanel.h \
     src/playlistsview.h \
+    src/plsfile.h \
     src/preferencesdialog.h \
     src/qmpdclient.h \
     src/playlistpanel.h \
@@ -97,6 +99,11 @@ HEADERS += src/aafilter.h \
     src/servermodel.h \
     src/shortcutmodel.h \
     src/shortcuts.h \
+    src/shoutcastpanel.h \
+    src/shoutcastview.h \
+    src/shoutcastmodel.h \
+    src/shoutcastfetcher.h \
+    src/shoutcaststation.h \
     src/songview.h \
     src/stringlistmodel.h \
     src/stringlistview.h \
@@ -157,6 +164,7 @@ SOURCES += src/aafilter.cpp \
     src/playlistspanel.cpp \
     src/playlistsview.cpp \
     src/plconview.cpp \
+    src/plsfile.cpp \
     src/preferencesdialog.cpp \
     src/qmpdclient.cpp \
     src/radiopanel.cpp \
@@ -166,6 +174,11 @@ SOURCES += src/aafilter.cpp \
     src/servermodel.cpp \
     src/shortcutmodel.cpp \
     src/shortcuts.cpp \
+    src/shoutcastmodel.cpp \
+    src/shoutcastpanel.cpp \
+    src/shoutcastview.cpp \
+    src/shoutcastfetcher.cpp \
+    src/shoutcaststation.cpp \
     src/songview.cpp \
     src/stringlistmodel.cpp \
     src/stringlistview.cpp \

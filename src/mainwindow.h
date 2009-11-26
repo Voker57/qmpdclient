@@ -74,7 +74,12 @@ private:
 	QLabel *m_playlistStatsLabel;
 	QList<QAction*> m_actions;
 	QProgressBar *m_progressBar;
-	QPushButton *m_playlistTab, *m_libraryTab, *m_directoriesTab, *m_radioTab, *m_playlistsTab;
+	QPushButton *m_playlistTab;
+	QPushButton *m_libraryTab;
+	QPushButton *m_directoriesTab;
+	QPushButton *m_radioTab;
+	QPushButton *m_playlistsTab;
+	QPushButton *m_shoutcastTab;
 	QShortcut *m_hideKey;
 	TrayIcon *m_trayIcon;
 	LibraryPanel *m_libraryPanel;
