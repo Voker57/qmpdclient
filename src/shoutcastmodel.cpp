@@ -33,7 +33,24 @@ namespace
 	int maxSize = 200000;
 	const QString genresURL = "http://yp.shoutcast.com/sbin/newxml.phtml";
 	const QString stationsForGenreURL = "http://yp.shoutcast.com/sbin/newxml.phtml?genre=";
-}
+
+	class LeadingIntSortedStandardItem : public QStandardItem
+	{
+	public:
+		LeadingIntSortedStandardItem(const QString & s);
+		virtual bool operator<(const QStandardItem & rhs) const;
+	};
+
+	LeadingIntSortedStandardItem::LeadingIntSortedStandardItem(const QString & s)
+	: QStandardItem(s) {}
+
+	bool LeadingIntSortedStandardItem::operator<(const QStandardItem & rhs) const {
+		int lhsInt = data(Qt::DisplayRole).toString().split(' ')[0].toInt();
+		int rhsInt = rhs.data(Qt::DisplayRole).toString().split(' ')[0].toInt();
+		return lhsInt < rhsInt;
+	}
+
+} // anonymous namespace
 
 ShoutcastModel::ShoutcastModel(QObject *parent)
 : QStandardItemModel(parent), m_fetcher(new ShoutcastFetcher(this)) {
@@ -64,8 +81,8 @@ void ShoutcastModel::newStationsAvailable(const QString & keyWord) {
 	genreItem->removeRows(0, genreItem->rowCount());
 	Q_ASSERT(genreItem->rowCount() == 0);
 	foreach(const ShoutcastStation & station, m_fetcher->stationsForKeyword(keyWord)) {
-		QStandardItem * bitRate = new QStandardItem(QString::number(station.bitRate()) + tr(" bps"));
-		QStandardItem * listeners = new QStandardItem(QString::number(station.listeners()));
+		QStandardItem * bitRate = new LeadingIntSortedStandardItem(QString::number(station.bitRate()) + tr(" bps"));
+		QStandardItem * listeners = new LeadingIntSortedStandardItem(QString::number(station.listeners()));
 		QStandardItem * name = new QStandardItem(station.name());
 		name->setData(qVariantFromValue(station), StationRole);
 		genreItem->appendRow(QList<QStandardItem * >() << name << bitRate << listeners);
