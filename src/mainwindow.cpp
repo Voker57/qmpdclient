@@ -240,19 +240,13 @@ void MainWindow::setStats(const MPDStats &stats) {
 	const int hour = secs / (60 * 60);
 	secs -= hour * 60 * 60;
 	const int min = secs / 60;
-	m_statsLabel->setText(tr("Library:  %1 %2, %3 %4, %5 %6. (%7 %8 %9 %10 %11 %12) ")
-						  .arg(stats.numberOfArtists())
-						  .arg(tr("artists"))
-						  .arg(stats.numberOfAlbums())
-						  .arg(tr("albums"))
-						  .arg(stats.numberOfSongs())
-						  .arg(tr("songs"))
-						  .arg(day)
-						  .arg(tr("days"))
-						  .arg(hour)
-						  .arg(tr("hours"))
-						  .arg(min)
-						  .arg(tr("minutes")));
+	m_statsLabel->setText(tr("Library:  %1, %2, %3. (%4 %5 %6 ) ")
+						  .arg(tr("%n artists","",stats.numberOfArtists()))
+						  .arg(tr("%n albums","",stats.numberOfAlbums()))
+						  .arg(tr("%n songs","",stats.numberOfSongs()))
+						  .arg(tr("%n days","",day))
+						  .arg(tr("%n hours","",hour))
+						  .arg(tr("%n minutes","",min)));
 	m_stats = stats;
 }
 
@@ -343,9 +337,9 @@ void MainWindow::playlistUpdated(const MPDSongList &list)
 	const int min = tsecs / 60;
 	tsecs -= min*60;
 	QString txt = tr("Playlist: ");
-	if(day) txt += tr("%1 days, ").arg(day);
-	if(hour) txt += tr("%1 hours, ").arg(hour);
-	if(min) txt += tr("%1 minutes, ").arg(min);
-	txt += tr("%1 seconds.").arg(tsecs);
+	if(day) txt += tr("%n days, ","",day);
+	if(hour) txt += tr("%n hours, ","",hour);
+	if(min) txt += tr("%n minutes, ","",min);
+	txt += tr("%n seconds.","",tsecs);
 	m_playlistStatsLabel->setText(txt);
 }
