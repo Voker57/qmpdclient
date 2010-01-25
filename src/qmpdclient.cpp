@@ -34,6 +34,11 @@
 #include <QTranslator>
 #include <QWheelEvent>
 
+#ifdef WITH_DBUS
+#include "qdbus_adaptor.h"
+#include <QDBusConnection>
+#endif
+
 QMPDClient::QMPDClient(int &argc, char **argv) : QApplication(argc, argv),
 		m_mainWindow(0),
 		m_translator(0),
@@ -68,6 +73,13 @@ QMPDClient::QMPDClient(int &argc, char **argv) : QApplication(argc, argv),
 	new Reconnect(this);
 	new Shortcuts(m_mainWindow);
 	grabKeys();
+
+#ifdef WITH_DBUS
+	// DBus
+	MainApplicationAdaptor *ad = new MainApplicationAdaptor(this);
+	QDBusConnection::sessionBus().registerService("net.bitcheese.QMPDClient");
+	QDBusConnection::sessionBus().registerObject("/MainApplication", this);
+#endif
 
 	// Install event filter to pick up wheel over tray icon
 	installEventFilter(this);
@@ -214,6 +226,10 @@ QList<QPointer<QObject> > QMPDClient::safeChildren() {
 
 void QMPDClient::commitData(QSessionManager & manager) {
 	Config::instance()->sync();
+}
+
+void QMPDClient::toggleMainWindow() {
+	m_mainWindow->showHide();
 }
 
 int g_debugLevel = 0; // Reference to global debug variable declared in debug.h

@@ -42,13 +42,15 @@ public:
 #endif
 	void commitData(QSessionManager & manager);
 
+public slots:
+	void toggleMainWindow();
+
 private slots:
 	void alternatingChanged(bool);
 	void fontChanged(const QFont &);
 	void iconSetChanged();
 	void localeChanged(const QString &);
 	void opaqueResizeChanged(bool);
-
 private:
 	QList<QPointer<QObject> > safeChildren();
 	void grabKeys();

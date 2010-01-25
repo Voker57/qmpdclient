@@ -218,7 +218,10 @@ unix {
         contains(QT_CONFIG, dbus) {
             message(DBus notifier: enabled)
             CONFIG += qdbus
-            SOURCES += src/notifications_dbus.cpp
+            SOURCES += src/notifications_dbus.cpp \
+            	src/qdbus_adaptor.cpp
+            HEADERS += src/qdbus_adaptor.h
+            DEFINES += WITH_DBUS
         }
         else {
             message(DBus notifier: disabled (Qt is not compiled with dbus support))
