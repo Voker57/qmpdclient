@@ -216,7 +216,7 @@ unix {
 
         # Check for dbus support
         contains(QT_CONFIG, dbus) {
-            message(DBus notifier: enabled)
+            message(DBus: enabled)
             CONFIG += qdbus
             SOURCES += src/notifications_dbus.cpp \
             	src/qdbus_adaptor.cpp
@@ -224,7 +224,7 @@ unix {
             DEFINES += WITH_DBUS
         }
         else {
-            message(DBus notifier: disabled (Qt is not compiled with dbus support))
+            message(DBus: disabled (Qt is not compiled with dbus support))
             SOURCES += src/notifications_nodbus.cpp
         }
     }
