@@ -117,7 +117,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	serverListChanged(Config::instance()->servers());
 	splitter->restore(Config::instance()->mainSplitterSizes());
 	resize(Config::instance()->windowSize());
-	if (!m_trayIcon->isVisible() || !Config::instance()->trayIconEnabled() || !Config::instance()->startHidden())
+	if (!m_trayIcon->isVisible() || !Config::instance()->trayIconEnabled() || !Config::instance()->startHidden() || !Config::instance()->minimizeToTray())
 		show();
 	rightStack->setCurrentIndex(Config::instance()->rightBarTab());
 }
