@@ -52,13 +52,13 @@ QMPDClient::QMPDClient(int &argc, char **argv) : QApplication(argc, argv),
 
 	// Create mainwin
 	m_mainWindow = new MainWindow;
-	connect(this, SIGNAL(lastWindowClosed()), this, SLOT(quit()));
 	alternatingChanged(Config::instance()->alternatingRowColors());
 	fontChanged(Config::instance()->font());
 	iconSetChanged();
 	localeChanged(Config::instance()->localeFile()); // Retranslate dynamic parts
 	opaqueResizeChanged(Config::instance()->opaqueResize());
 	setStyleSheet(Config::instance()->style());
+	setQuitOnLastWindowClosed(false);
 
 	connect(Config::instance(), SIGNAL(alternatingChanged(bool)), this, SLOT(alternatingChanged(bool)));
 	connect(Config::instance(), SIGNAL(fontChanged(const QFont &)), this, SLOT(fontChanged(const QFont &)));
