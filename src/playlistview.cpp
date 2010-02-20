@@ -75,7 +75,7 @@ PlaylistView::PlaylistView(QWidget *parent) : AbstractList(parent) {
 	connect(m_repeatAction, SIGNAL(toggled(bool)), MPD::instance(), SLOT(setRepeat(bool)));
 	// Disconnect the default action in AbstractList
 	disconnect(this, SIGNAL(activated(const QModelIndex &)), this, SLOT(activated(const QModelIndex &)));
-	connect(this, SIGNAL(activated(const QModelIndex &)), this, SLOT(indexActivated(const QModelIndex &)));
+	connect(this, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(indexActivated(const QModelIndex &)));
 
 	m_focusKey = new QShortcut(Qt::ALT | Qt::SHIFT | Qt::Key_P, this, SLOT(setFocus()));
 	m_focusKey->setObjectName("focusPlaylistKey");
