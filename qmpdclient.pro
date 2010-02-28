@@ -202,7 +202,7 @@ UI_DIR = .ui
 
 # Platform specific
 win32 {
-    debug:CONFIG += console
+#   debug:CONFIG += console
     LIBS += -lws2_32
     RC_FILE = icons/resource.rc
     SOURCES += src/qmpdclient_win.cpp \
