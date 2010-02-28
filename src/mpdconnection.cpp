@@ -77,7 +77,7 @@ void MPDConnection::connectToMPD(const ServerInfo &server) {
 	setCaller("MPDConnection::connectToMPD", "mpd_newConnection");
 	d->connection = mpd_newConnection(server.address().toUtf8(), server.port(), Config::instance()->timeoutTime());
 	if (!finishCommand()) {
-		disconnectFromMPD(QString(tr("Could not connect to server")) + QString("%1:%2").arg(server.address()).arg(server.port()));
+		disconnectFromMPD(tr("Could not connect to server %1:%2").arg(server.address()).arg(server.port()));
 		return;
 	}
 
