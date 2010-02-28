@@ -373,11 +373,17 @@ QString Config::locale() const {
 QString Config::localeFile() const {
 	const QString tmp = locale();
 	if (tmp.isEmpty()) {
-		const QString filename = QLocale::system().name() + ".qm";
-		const QDir systemDir(systemPath() + "translations", "??_??.qm");
+		QString filename = QLocale::system().name() + ".qm";
+		const QDir systemDir(systemPath() + "translations", "*.qm");
 		if (systemDir.entryList(QDir::Files | QDir::Readable).contains(filename))
 			return systemDir.absolutePath() + "/" + filename;
-		const QDir userDir(userPath() + "translations", "??_??.qm");
+		const QDir userDir(userPath() + "translations", "*.qm");
+		if (userDir.entryList(QDir::Files | QDir::Readable).contains(filename))
+			return userDir.absolutePath() + "/" + filename;
+		// If failed, try to find language only
+		filename = QLocale::system().name().left(2) + ".qm";
+		if (systemDir.entryList(QDir::Files | QDir::Readable).contains(filename))
+			return systemDir.absolutePath() + "/" + filename;
 		if (userDir.entryList(QDir::Files | QDir::Readable).contains(filename))
 			return userDir.absolutePath() + "/" + filename;
 	}

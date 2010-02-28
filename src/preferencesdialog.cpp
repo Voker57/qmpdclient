@@ -302,10 +302,10 @@ void PreferencesDialog::initLanguagePage() {
 
 	// Find all translations
 	QFileInfoList translations;
-	QDir localDir(Config::instance()->userPath() + "translations", "??_??.qm");
+	QDir localDir(Config::instance()->userPath() + "translations", "*.qm");
 	if (localDir.exists())
 		translations << localDir.entryInfoList(QDir::Files | QDir::Readable);
-	QDir systemDir(Config::instance()->systemPath() + "translations", "??_??.qm");
+	QDir systemDir(Config::instance()->systemPath() + "translations", "*.qm");
 	if (systemDir.exists())
 		translations << systemDir.entryInfoList(QDir::Files | QDir::Readable);
 
