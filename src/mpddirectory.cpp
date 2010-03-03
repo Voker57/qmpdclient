@@ -59,7 +59,7 @@ MPDDirectory::MPDDirectory(const MPDDirectory &other) : d(other.d) {}
 MPDDirectory::~MPDDirectory() {}
 
 bool MPDDirectory::isNull() const {
-	return d == NULL;
+	return !d;
 }
 
 MPDDirectoryPointer *MPDDirectory::pointer() const {

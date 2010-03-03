@@ -55,7 +55,7 @@ public:
 	MPDDirectory &operator=(const MPDDirectory &);
 
 private:
-	QSharedDataPointer<MPDDirectoryPrivate> d;
+	QExplicitlySharedDataPointer<MPDDirectoryPrivate> d;
 };
 
 class MPDDirectoryPointer {
