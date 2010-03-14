@@ -16,17 +16,17 @@
     <message>
         <location filename="../ui/aboutdialog.ui" line="87"/>
         <source>A&amp;uthors</source>
-        <translation>A&amp;uto??i</translation>
+        <translation>A&amp;utoři</translation>
     </message>
     <message>
         <location filename="../ui/aboutdialog.ui" line="103"/>
         <source>&amp;Thanks to</source>
-        <translation>&amp;Pod??kov??n?? </translation>
+        <translation>&amp;Poděkování </translation>
     </message>
     <message>
         <location filename="../ui/aboutdialog.ui" line="119"/>
         <source>&amp;License agreement</source>
-        <translation>&amp;Licen??n?? ujedn??n??</translation>
+        <translation>&amp;Licenční ujednání</translation>
     </message>
     <message>
         <location filename="../ui/aboutdialog.ui" line="159"/>
@@ -39,7 +39,7 @@
     <message>
         <location filename="../src/abstractview_impl.h" line="91"/>
         <source>Not connected</source>
-        <translation>Nep??ipojeno</translation>
+        <translation>Nepřipojeno</translation>
     </message>
 </context>
 <context>
@@ -48,12 +48,12 @@
         <location filename="../ui/addradiodialog.ui" line="21"/>
         <location filename="../ui/addradiodialog.ui" line="44"/>
         <source>New radio station</source>
-        <translation>Nov?? stanice r??dia</translation>
+        <translation>Nová stanice rádia</translation>
     </message>
     <message>
         <location filename="../ui/addradiodialog.ui" line="88"/>
         <source>Title:</source>
-        <translation>N??zev:</translation>
+        <translation>Název:</translation>
     </message>
     <message>
         <location filename="../ui/addradiodialog.ui" line="95"/>
@@ -68,7 +68,7 @@
     <message>
         <location filename="../ui/addradiodialog.ui" line="151"/>
         <source>&amp;Cancel</source>
-        <translation>Z&amp;ru??it</translation>
+        <translation>Z&amp;rušit</translation>
     </message>
 </context>
 <context>
@@ -76,33 +76,33 @@
     <message>
         <location filename="../src/controlpanel.cpp" line="77"/>
         <source>Seek forward</source>
-        <translation>Vp??ed</translation>
+        <translation>Vpřed</translation>
     </message>
     <message>
         <location filename="../src/controlpanel.cpp" line="78"/>
         <source>Seek backward</source>
-        <translation>Zp??t</translation>
+        <translation>Zpět</translation>
     </message>
     <message>
         <location filename="../src/controlpanel.cpp" line="79"/>
         <source>Increase volume</source>
-        <translation>Zv????it hlasitost</translation>
+        <translation>Zvýšit hlasitost</translation>
     </message>
     <message>
         <location filename="../src/controlpanel.cpp" line="80"/>
         <source>Decrease volume</source>
-        <translation>Sn????it hlasitost</translation>
+        <translation>Snížit hlasitost</translation>
     </message>
     <message>
         <location filename="../src/controlpanel.cpp" line="85"/>
         <source>Not connected</source>
         <comment>qmpdclient is not connected to MPD</comment>
-        <translation>Nep??ipojeno</translation>
+        <translation>Nepřipojeno</translation>
     </message>
     <message>
         <location filename="../ui/controlpanel.ui" line="39"/>
         <source>Skip to previous song</source>
-        <translation>P??esko??it na p??edchoz?? skladbu</translation>
+        <translation>Přeskočit na předchozí skladbu</translation>
     </message>
     <message>
         <location filename="../ui/controlpanel.ui" line="42"/>
@@ -142,7 +142,7 @@
     <message>
         <location filename="../ui/controlpanel.ui" line="103"/>
         <source>Skip to next song</source>
-        <translation>P??esko??it na dal???? skladbu</translation>
+        <translation>Přeskočit na další skladbu</translation>
     </message>
     <message>
         <location filename="../ui/controlpanel.ui" line="106"/>
@@ -152,7 +152,7 @@
     <message>
         <location filename="../ui/controlpanel.ui" line="287"/>
         <source>Lyrics</source>
-        <translation>Text p??sn??</translation>
+        <translation>Text písně</translation>
     </message>
 </context>
 <context>
@@ -169,7 +169,7 @@
     <message>
         <location filename="../src/directoryview.cpp" line="57"/>
         <source>&amp;Enqueue</source>
-        <translation>&amp;Za??adit do fronty</translation>
+        <translation>&amp;Zařadit do fronty</translation>
     </message>
     <message>
         <location filename="../src/directoryview.cpp" line="58"/>
@@ -179,7 +179,7 @@
     <message>
         <location filename="../src/directoryview.cpp" line="59"/>
         <source>&amp;Rescan directory</source>
-        <translation>&amp;Znovu prohledat adres????</translation>
+        <translation>&amp;Znovu prohledat adresář</translation>
     </message>
     <message>
         <location filename="../src/directoryview.cpp" line="60"/>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../ui/jumptosongdialog.ui" line="14"/>
         <source>Jump to song</source>
-        <translation>Sko??it na skladbu</translation>
+        <translation>Skočit na skladbu</translation>
     </message>
     <message>
         <location filename="../ui/jumptosongdialog.ui" line="34"/>
@@ -202,12 +202,12 @@
     <message>
         <location filename="../ui/jumptosongdialog.ui" line="77"/>
         <source>&amp;Jump</source>
-        <translation>&amp;Sko??it</translation>
+        <translation>&amp;Skočit</translation>
     </message>
     <message>
         <location filename="../ui/jumptosongdialog.ui" line="84"/>
         <source>&amp;Cancel</source>
-        <translation>&amp;Zru??it</translation>
+        <translation>&amp;Zrušit</translation>
     </message>
 </context>
 <context>
@@ -215,32 +215,32 @@
     <message>
         <location filename="../src/lastfmsubmitter.cpp" line="121"/>
         <source>Will scrobble this track.</source>
-        <translation>Prob??hn?? odesl??n?? t??to skladby.</translation>
+        <translation>Proběhně odeslání této skladby.</translation>
     </message>
     <message>
         <location filename="../src/lastfmsubmitter.cpp" line="134"/>
         <source>Scrobbling %1 songs...</source>
-        <translation>Pos??l?? se %1 skladeb...</translation>
+        <translation>Posílá se %1 skladeb...</translation>
     </message>
     <message>
         <location filename="../src/lastfmsubmitter.cpp" line="231"/>
         <source>Last.Fm authentication failed: check your credentials</source>
-        <translation>Last.Fm autentizace selhala: zkontrolujte sv?? p??ihla??ovac?? ??daje</translation>
+        <translation>Last.Fm autentizace selhala: zkontrolujte své přihlašovací údaje</translation>
     </message>
     <message>
         <location filename="../src/lastfmsubmitter.cpp" line="235"/>
         <source>Cannot submit to Last.Fm: system clock is skewed</source>
-        <translation>Nelze odeslat do Last.Fm: syst??mov?? hodiny jsou zkresleny</translation>
+        <translation>Nelze odeslat do Last.Fm: systémové hodiny jsou zkresleny</translation>
     </message>
     <message>
         <location filename="../src/lastfmsubmitter.cpp" line="245"/>
         <source>Successfully scrobbled</source>
-        <translation>??sp????n?? odesl??no</translation>
+        <translation>Úspěšně odesláno</translation>
     </message>
     <message>
         <location filename="../src/lastfmsubmitter.cpp" line="255"/>
         <source>Now Playing sent</source>
-        <translation>Pr??v?? hran?? skladba odesl??na</translation>
+        <translation>Právě hraná skladba odeslána</translation>
     </message>
     <message>
         <location filename="../src/lastfmsubmitter.cpp" line="268"/>
@@ -253,7 +253,7 @@
     <message>
         <location filename="../ui/librarypanel.ui" line="50"/>
         <source>&amp;Artist filter:</source>
-        <translation>Filtr &amp;um??lce:</translation>
+        <translation>Filtr &amp;umělce:</translation>
     </message>
     <message>
         <location filename="../ui/librarypanel.ui" line="99"/>
@@ -271,7 +271,7 @@
     <message>
         <location filename="../src/lineedit.cpp" line="49"/>
         <source>Clear the filter</source>
-        <translation>Vy??istit filtr</translation>
+        <translation>Vyčistit filtr</translation>
     </message>
 </context>
 <context>
@@ -279,7 +279,7 @@
     <message>
         <location filename="../src/lyricsdialog.cpp" line="44"/>
         <source>Getting lyrics from server...</source>
-        <translation>Stahov??n?? textu ze serveru...</translation>
+        <translation>Stahování textu ze serveru...</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="14"/>
@@ -289,12 +289,12 @@
     <message>
         <location filename="../ui/lyricsdialog.ui" line="22"/>
         <source>Artist</source>
-        <translation>Um??lec</translation>
+        <translation>Umělec</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="35"/>
         <source>Title</source>
-        <translation>N??zev</translation>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="48"/>
@@ -307,7 +307,7 @@
     <message>
         <location filename="../src/mpdcache.cpp" line="146"/>
         <source>Reading albums</source>
-        <translation>??ten?? alb</translation>
+        <translation>Čtení alb</translation>
     </message>
     <message>
         <location filename="../src/mpdcache.cpp" line="188"/>
@@ -316,12 +316,12 @@
         <location filename="../src/mpdcache_p.h" line="318"/>
         <location filename="../src/mpdcache_p.h" line="340"/>
         <source>Reading songs</source>
-        <translation>??ten?? skladeb</translation>
+        <translation>Čtení skladeb</translation>
     </message>
     <message>
         <location filename="../src/mpdcache.cpp" line="220"/>
         <source>Filtering songs</source>
-        <translation>Filtrov??n?? skladeb</translation>
+        <translation>Filtrování skladeb</translation>
     </message>
     <message>
         <location filename="../src/mpdcache_p.h" line="202"/>
@@ -329,19 +329,19 @@
         <location filename="../src/mpdcache_p.h" line="261"/>
         <location filename="../src/mpdcache_p.h" line="285"/>
         <source>Caching songs</source>
-        <translation>Ukl??d??n?? skladeb do vyrovn??vac?? pam??ti</translation>
+        <translation>Ukládání skladeb do vyrovnávací paměti</translation>
     </message>
 </context>
 <context>
     <name>MPDConnection</name>
     <message>
         <source>Could not connect to server</source>
-        <translation type="obsolete">Nepoda??ilo se p??ipojit na server</translation>
+        <translation type="obsolete">Nepodařilo se připojit na server</translation>
     </message>
     <message>
         <location filename="../src/mpdconnection.cpp" line="80"/>
         <source>Could not connect to server %1:%2</source>
-        <translation>Nepoda??ilo se p??ipojit na server %1:%2</translation>
+        <translation>Nepodařilo se připojit na server %1:%2</translation>
     </message>
     <message>
         <location filename="../src/mpdconnection.cpp" line="87"/>
@@ -354,7 +354,7 @@
     <message>
         <location filename="../src/mpdsongview.cpp" line="64"/>
         <source>&amp;Enqueue</source>
-        <translation>&amp;Za??adit do fronty</translation>
+        <translation>&amp;Zařadit do fronty</translation>
     </message>
     <message>
         <location filename="../src/mpdsongview.cpp" line="65"/>
@@ -382,12 +382,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="137"/>
         <source>&amp;Directories</source>
-        <translation>&amp;Adres????e</translation>
+        <translation>&amp;Adresáře</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="138"/>
         <source>&amp;Internet Radio</source>
-        <translation>&amp;Internetov?? r??dio</translation>
+        <translation>&amp;Internetové rádio</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="139"/>
@@ -397,12 +397,12 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="140"/>
         <source>&amp;Shoutcast Directory</source>
-        <translation>S&amp;houtcast adres????</translation>
+        <translation>S&amp;houtcast adresář</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="141"/>
         <source>Minimize to tray</source>
-        <translation>Minimalizovat do syst??mov?? li??ty</translation>
+        <translation>Minimalizovat do systémové lišty</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="188"/>
@@ -413,7 +413,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="207"/>
         <source>Connect to first server</source>
-        <translation>P??ipojit k prvn??mu serveru</translation>
+        <translation>Připojit k prvnímu serveru</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="208"/>
@@ -429,9 +429,9 @@
         <location filename="../src/mainwindow.cpp" line="244"/>
         <source>%n artists</source>
         <translation>
-            <numerusform>%n um??lec</numerusform>
-            <numerusform>%n um??lci</numerusform>
-            <numerusform>%n um??lc??</numerusform>
+            <numerusform>%n umělec</numerusform>
+            <numerusform>%n umělci</numerusform>
+            <numerusform>%n umělců</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -458,7 +458,7 @@
         <translation>
             <numerusform>%n den</numerusform>
             <numerusform>%n dny</numerusform>
-            <numerusform>%n dn??</numerusform>
+            <numerusform>%n dnů</numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -485,7 +485,7 @@
         <translation>
             <numerusform>%n den, </numerusform>
             <numerusform>%n dny, </numerusform>
-            <numerusform>%n dn??, </numerusform>
+            <numerusform>%n dnů, </numerusform>
         </translation>
     </message>
     <message numerus="yes">
@@ -510,9 +510,9 @@
         <location filename="../src/mainwindow.cpp" line="343"/>
         <source>%n seconds.</source>
         <translation>
-            <numerusform>%n vte??ina.</numerusform>
-            <numerusform>%n vte??iny.</numerusform>
-            <numerusform>%n vte??in.</numerusform>
+            <numerusform>%n vteřina.</numerusform>
+            <numerusform>%n vteřiny.</numerusform>
+            <numerusform>%n vteřin.</numerusform>
         </translation>
     </message>
     <message>
@@ -521,7 +521,7 @@
     </message>
     <message>
         <source>artists</source>
-        <translation type="obsolete">um??lc??</translation>
+        <translation type="obsolete">umělců</translation>
     </message>
     <message>
         <source>albums</source>
@@ -533,7 +533,7 @@
     </message>
     <message>
         <source>days</source>
-        <translation type="obsolete">dn??</translation>
+        <translation type="obsolete">dnů</translation>
     </message>
     <message>
         <source>hours</source>
@@ -546,7 +546,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="290"/>
         <source>Done</source>
-        <translation>Dokon??eno</translation>
+        <translation>Dokončeno</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="339"/>
@@ -555,7 +555,7 @@
     </message>
     <message>
         <source>%1 days, </source>
-        <translation type="obsolete">%1 dn??, </translation>
+        <translation type="obsolete">%1 dnů, </translation>
     </message>
     <message>
         <source>%1 hours, </source>
@@ -567,7 +567,7 @@
     </message>
     <message>
         <source>%1 seconds.</source>
-        <translation type="obsolete">%1 vte??in.</translation>
+        <translation type="obsolete">%1 vteřin.</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="89"/>
@@ -577,12 +577,12 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="93"/>
         <source>&amp;Connect to...</source>
-        <translation>&amp;P??ipojit k...</translation>
+        <translation>&amp;Připojit k...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="108"/>
         <source>&amp;Help</source>
-        <translation>&amp;N??pov??da</translation>
+        <translation>&amp;Nápověda</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="127"/>
@@ -649,13 +649,13 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="177"/>
         <source>L&amp;ocate current song</source>
-        <translation>&amp;Naj??t aktu??ln?? skladbu</translation>
+        <translation>&amp;Najít aktuální skladbu</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="180"/>
         <location filename="../ui/mainwindow.ui" line="183"/>
         <source>Locate current song in library...</source>
-        <translation>Naj??t aktu??ln?? skladbu v knihovn??...</translation>
+        <translation>Najít aktuální skladbu v knihovně...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="186"/>
@@ -665,13 +665,13 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="191"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;Nastaven??...</translation>
+        <translation>&amp;Nastavení...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="194"/>
         <location filename="../ui/mainwindow.ui" line="197"/>
         <source>Show preferences dialog...</source>
-        <translation>Uk??zat dialog s nastaven??m...</translation>
+        <translation>Ukázat dialog s nastavením...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="200"/>
@@ -681,13 +681,13 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="208"/>
         <source>&amp;Quit</source>
-        <translation>&amp;Ukon??it</translation>
+        <translation>&amp;Ukončit</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="211"/>
         <location filename="../ui/mainwindow.ui" line="214"/>
         <source>Quit QMPDClient</source>
-        <translation>Ukon??it QMPDClient</translation>
+        <translation>Ukončit QMPDClient</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="217"/>
@@ -712,17 +712,17 @@
     <message>
         <location filename="../ui/metainfodialog.ui" line="96"/>
         <source>Track #:</source>
-        <translation>????slo skladby:</translation>
+        <translation>Číslo skladby:</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="103"/>
         <source>Artist:</source>
-        <translation>Um??lec:</translation>
+        <translation>Umělec:</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="117"/>
         <source>Title:</source>
-        <translation>N??zev:</translation>
+        <translation>Název:</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="138"/>
@@ -732,7 +732,7 @@
     <message>
         <location filename="../ui/metainfodialog.ui" line="173"/>
         <source>Length:</source>
-        <translation>D??lka:</translation>
+        <translation>Délka:</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="194"/>
@@ -752,7 +752,7 @@
     <message>
         <location filename="../ui/metainfodialog.ui" line="215"/>
         <source>Genre:</source>
-        <translation>????nr:</translation>
+        <translation>Žánr:</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="229"/>
@@ -762,7 +762,7 @@
     <message>
         <location filename="../ui/metainfodialog.ui" line="236"/>
         <source>Comment:</source>
-        <translation>Koment????:</translation>
+        <translation>Komentář:</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="250"/>
@@ -772,12 +772,12 @@
     <message>
         <location filename="../ui/metainfodialog.ui" line="299"/>
         <source>&amp;Previous</source>
-        <translation>&amp;P??edchoz??</translation>
+        <translation>&amp;Předchozí</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="312"/>
         <source>&amp;Next</source>
-        <translation>&amp;Dal????</translation>
+        <translation>&amp;Další</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="335"/>
@@ -790,47 +790,47 @@
     <message>
         <location filename="../ui/playlistpanel.ui" line="55"/>
         <source>Toggle random mode</source>
-        <translation>P??epnout n??hodn?? re??im</translation>
+        <translation>Přepnout náhodný režim</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="68"/>
         <source>Toggle repeat playlist</source>
-        <translation>P??epnout opakov??n?? seznamu skladeb</translation>
+        <translation>Přepnout opakování seznamu skladeb</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="81"/>
         <source>Toggle dynamic playlist</source>
-        <translation>P??epnout dynamick?? seznam skladeb</translation>
+        <translation>Přepnout dynamický seznam skladeb</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="113"/>
         <source>Jump to song...</source>
-        <translation>Sko??it na skladbu...</translation>
+        <translation>Skočit na skladbu...</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="129"/>
         <source>Shuffle playlist</source>
-        <translation>Zam??chat seznam skladeb</translation>
+        <translation>Zamíchat seznam skladeb</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="142"/>
         <source>Save playlist...</source>
-        <translation>Ulo??it seznam skladeb...</translation>
+        <translation>Uložit seznam skladeb...</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="174"/>
         <source>Remove selected songs from playlist</source>
-        <translation>Odstranit ze seznamu skladeb ozna??en?? skladby</translation>
+        <translation>Odstranit ze seznamu skladeb označené skladby</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="187"/>
         <source>Remove all but selected songs from playlist</source>
-        <translation>Odstranit ze seznamu skladeb v??e krom?? vybran??ch skladeb</translation>
+        <translation>Odstranit ze seznamu skladeb vše kromě vybraných skladeb</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="197"/>
         <source>Remove all songs from playlist</source>
-        <translation>Odstranit ze seznamu skladeb v??echny skladby</translation>
+        <translation>Odstranit ze seznamu skladeb všechny skladby</translation>
     </message>
 </context>
 <context>
@@ -838,7 +838,7 @@
     <message>
         <location filename="../src/playlistview.cpp" line="96"/>
         <source>&amp;Crop playlist</source>
-        <translation>O????znout &amp;seznam skladeb</translation>
+        <translation>Oříznout &amp;seznam skladeb</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="97"/>
@@ -848,7 +848,7 @@
     <message>
         <location filename="../src/playlistview.cpp" line="98"/>
         <source>J&amp;ump to song...</source>
-        <translation>S&amp;ko??it na skladbu...</translation>
+        <translation>S&amp;kočit na skladbu...</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="99"/>
@@ -859,7 +859,7 @@
     <message>
         <location filename="../src/playlistview.cpp" line="100"/>
         <source>Ra&amp;ndom play</source>
-        <translation>&amp;N??hodn?? re??im</translation>
+        <translation>&amp;Náhodný režim</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="101"/>
@@ -869,27 +869,27 @@
     <message>
         <location filename="../src/playlistview.cpp" line="102"/>
         <source>Remove &amp;all</source>
-        <translation>Odstranit &amp;v??e</translation>
+        <translation>Odstranit &amp;vše</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="103"/>
         <source>Re&amp;peat play</source>
-        <translation>&amp;Re??im opakov??n??</translation>
+        <translation>&amp;Režim opakování</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="104"/>
         <source>&amp;Save playlist...</source>
-        <translation>&amp;Ulo??it seznam skladeb...</translation>
+        <translation>&amp;Uložit seznam skladeb...</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="105"/>
         <source>S&amp;huffle playlist</source>
-        <translation>&amp;Zam??chat seznam skladeb</translation>
+        <translation>&amp;Zamíchat seznam skladeb</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="106"/>
         <source>Add to queue</source>
-        <translation>P??idat do fronty</translation>
+        <translation>Přidat do fronty</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="107"/>
@@ -900,18 +900,18 @@
     <message>
         <location filename="../src/playlistview.cpp" line="108"/>
         <source>Focus playlist</source>
-        <translation>Zam????it seznam skladeb</translation>
+        <translation>Zaměřit seznam skladeb</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="197"/>
         <location filename="../src/playlistview.cpp" line="211"/>
         <source>Save playlist as...</source>
-        <translation>Ulo??it seznam skladeb jako...</translation>
+        <translation>Uložit seznam skladeb jako...</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="198"/>
         <source>Playlist name:</source>
-        <translation>N??zev seznamu skladeb:</translation>
+        <translation>Název seznamu skladeb:</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="205"/>
@@ -922,15 +922,15 @@
         <location filename="../src/playlistview.cpp" line="206"/>
         <source>A playlist with that name already exists.
 Overwrite?</source>
-        <translation>Seznam skladeb s t??mto jm??nem ji?? existuje.
-P??epsat?</translation>
+        <translation>Seznam skladeb s tímto jménem již existuje.
+Přepsat?</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="210"/>
         <source>A playlist with that name already exists.
 Please use another name:</source>
-        <translation>Seznam skladeb s t??mto n??zvem ji?? existuje.
-Pou??ijte pros??m jin?? n??zev:</translation>
+        <translation>Seznam skladeb s tímto názvem již existuje.
+Použijte prosím jiný název:</translation>
     </message>
 </context>
 <context>
@@ -950,7 +950,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/playlistspanel.ui" line="194"/>
         <source>Delete selected playlists</source>
-        <translation>Smazat vybran?? seznamy skladeb</translation>
+        <translation>Smazat vybrané seznamy skladeb</translation>
     </message>
     <message>
         <location filename="../ui/playlistspanel.ui" line="197"/>
@@ -972,23 +972,23 @@ Pou??ijte pros??m jin?? n??zev:</translation>
         <location filename="../src/preferencesdialog.cpp" line="272"/>
         <location filename="../src/preferencesdialog.cpp" line="492"/>
         <source>Default style</source>
-        <translation>V??choz?? styl</translation>
+        <translation>Výchozí styl</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="305"/>
         <location filename="../src/preferencesdialog.cpp" line="494"/>
         <source>Use system locale</source>
-        <translation>Pou????t syst??mov?? nastaven?? lokalizace</translation>
+        <translation>Použít systémové nastavení lokalizace</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="462"/>
         <source>Connection</source>
-        <translation>Spojen??</translation>
+        <translation>Spojení</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="463"/>
         <source>Look and feel</source>
-        <translation>Vzhled a chov??n??</translation>
+        <translation>Vzhled a chování</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="464"/>
@@ -998,7 +998,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="465"/>
         <source>Directories</source>
-        <translation>Adres????e</translation>
+        <translation>Adresáře</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="466"/>
@@ -1013,7 +1013,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="468"/>
         <source>Cover art</source>
-        <translation>Obr??zek alba</translation>
+        <translation>Obrázek alba</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="469"/>
@@ -1023,27 +1023,27 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="470"/>
         <source>Dynamic playlist</source>
-        <translation>Dynamick?? seznam skladeb</translation>
+        <translation>Dynamický seznam skladeb</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="471"/>
         <source>Notifications</source>
-        <translation>Upozorn??n??</translation>
+        <translation>Upozornění</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="472"/>
         <source>Shortcuts</source>
-        <translation>Kl??vesov?? zkratky</translation>
+        <translation>Klávesové zkratky</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="473"/>
         <source>Tag guesser</source>
-        <translation>H??d??n?? tag??</translation>
+        <translation>Hádání tagů</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="474"/>
         <source>Tray icon</source>
-        <translation>Ikona v syst??mov?? li??t??</translation>
+        <translation>Ikona v systémové liště</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="475"/>
@@ -1054,7 +1054,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
         <location filename="../src/preferencesdialog.cpp" line="480"/>
         <location filename="../src/preferencesdialog.cpp" line="532"/>
         <source>Title</source>
-        <translation>N??zev</translation>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="480"/>
@@ -1065,7 +1065,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
         <location filename="../src/preferencesdialog.cpp" line="481"/>
         <location filename="../src/preferencesdialog.cpp" line="529"/>
         <source>Artist</source>
-        <translation>Um??lec</translation>
+        <translation>Umělec</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="481"/>
@@ -1081,7 +1081,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="482"/>
         <source>Filename</source>
-        <translation>N??zev souboru</translation>
+        <translation>Název souboru</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="483"/>
@@ -1097,7 +1097,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="484"/>
         <source>Genre</source>
-        <translation>????nr</translation>
+        <translation>Žánr</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="490"/>
@@ -1107,17 +1107,17 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="514"/>
         <source>bold</source>
-        <translation>tu??n??</translation>
+        <translation>tučně</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="516"/>
         <source>italic</source>
-        <translation>kurz??va</translation>
+        <translation>kurzíva</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="14"/>
         <source>Preferences</source>
-        <translation>Nastaven??</translation>
+        <translation>Nastavení</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="87"/>
@@ -1127,7 +1127,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="150"/>
         <source>A&amp;dd</source>
-        <translation>&amp;P????dat</translation>
+        <translation>&amp;Přídat</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="157"/>
@@ -1137,44 +1137,44 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="166"/>
         <source>A&amp;uto connect to first server on startup</source>
-        <translation>P??i s&amp;tartu automaticky p??ipojit k prvn??mu serveru</translation>
+        <translation>Při s&amp;tartu automaticky připojit k prvnímu serveru</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="181"/>
         <source>Connection &amp;timeout:</source>
-        <translation>??asov?? &amp;limit spojen??:</translation>
+        <translation>Časový &amp;limit spojení:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="194"/>
         <location filename="../ui/preferencesdialog.ui" line="347"/>
         <location filename="../ui/preferencesdialog.ui" line="1137"/>
         <source>seconds</source>
-        <translation>vte??in</translation>
+        <translation>vteřin</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="235"/>
         <source>&amp;Reconnect to MPD if connection is lost</source>
-        <translation>Z&amp;novu p??ipojit k MPD p??i ztr??t?? spojen??</translation>
+        <translation>Z&amp;novu připojit k MPD při ztrátě spojení</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="250"/>
         <source>S&amp;econds between reconnect attempts:</source>
-        <translation>Po??et &amp;vte??in p??ed pokusem o p??ipojen??:</translation>
+        <translation>Počet &amp;vteřin před pokusem o připojení:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="309"/>
         <source>Cross&amp;fade on song change</source>
-        <translation>&amp;Prol??nat p??i zm??n?? skladby</translation>
+        <translation>&amp;Prolínat při změně skladby</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="324"/>
         <source>Cro&amp;ssfade for:</source>
-        <translation>&amp;Doba prol??n??n??:</translation>
+        <translation>&amp;Doba prolínání:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="386"/>
         <source>Output devices</source>
-        <translation>V??stupn?? za????zen??</translation>
+        <translation>Výstupní zařízení</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="405"/>
@@ -1184,7 +1184,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="410"/>
         <source>Name</source>
-        <translation>N??zev</translation>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="444"/>
@@ -1194,32 +1194,32 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="456"/>
         <source>&amp;Play item</source>
-        <translation>&amp;P??ehr??t polo??ku</translation>
+        <translation>&amp;Přehrát položku</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="463"/>
         <source>&amp;Enqueue item</source>
-        <translation>Za??adit do &amp;fronty</translation>
+        <translation>Zařadit do &amp;fronty</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="489"/>
         <source>A&amp;lternating row colors</source>
-        <translation>&amp;St????daj??c?? se barva ????dk??</translation>
+        <translation>&amp;Střídající se barva řádků</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="496"/>
         <source>A&amp;uto resize columns</source>
-        <translation>&amp;Automaticky zm??nit ??????ku sloupc??</translation>
+        <translation>&amp;Automaticky změnit šířku sloupců</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="503"/>
         <source>Opa&amp;que splitter resizing</source>
-        <translation>&amp;Nepr??hledn?? zm??na velikosti odd??lova??e</translation>
+        <translation>&amp;Neprůhledná změna velikosti oddělovače</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="534"/>
         <source>Font:</source>
-        <translation>P??smo:</translation>
+        <translation>Písmo:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="554"/>
@@ -1234,57 +1234,57 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="592"/>
         <source>selected &amp;artist and album</source>
-        <translation>vybran??ho &amp;um??lce a alba</translation>
+        <translation>vybraného &amp;umělce a alba</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="599"/>
         <source>selected al&amp;bum only</source>
-        <translation>pouze vybran??ho &amp;alba</translation>
+        <translation>pouze vybraného &amp;alba</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="625"/>
         <source>&amp;Show &apos;All&apos; and &apos;Not tagged&apos; (Slow)</source>
-        <translation>&amp;Ukazovat &apos;V??e&apos; a &apos;Neotagov??no&apos; (pomal??)</translation>
+        <translation>&amp;Ukazovat &apos;Vše&apos; a &apos;Neotagováno&apos; (pomalé)</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="632"/>
         <source>Disregard leading &apos;The &apos; when sorting</source>
-        <translation>Ignorovat po????te??n?? &apos;The &apos; p??i ??azen??</translation>
+        <translation>Ignorovat počáteční &apos;The &apos; při řazení</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="662"/>
         <source>&amp;Recursive directory view (Slow)</source>
-        <translation>&amp;Rekurzivn?? adres????ov?? pohled (pomal??)</translation>
+        <translation>&amp;Rekurzivní adresářový pohled (pomalé)</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="692"/>
         <source>Title format</source>
-        <translation>Form??t n??zvu</translation>
+        <translation>Formát názvu</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="719"/>
         <source>Title &amp;format:</source>
-        <translation>&amp;Form??t n??zvu:</translation>
+        <translation>&amp;Formát názvu:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="753"/>
         <source>Center playing &amp;song</source>
-        <translation>&amp;Vyst??edit hraj??c?? skladbu</translation>
+        <translation>&amp;Vystředit hrající skladbu</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="817"/>
         <source>Show album c&amp;over art</source>
-        <translation>&amp;Ukazovat obr??zek alba</translation>
+        <translation>&amp;Ukazovat obrázek alba</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="826"/>
         <source>&amp;Path to MPD music root:</source>
-        <translation>&amp;Cesta k hudebn?? MPD ko??enov?? slo??ce:</translation>
+        <translation>&amp;Cesta k hudební MPD kořenové složce:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="849"/>
         <source>Max Height:</source>
-        <translation>Maxim??ln?? v????ka:</translation>
+        <translation>Maximální výška:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="868"/>
@@ -1294,7 +1294,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="875"/>
         <source>Max Width:</source>
-        <translation>Maxim??ln?? ??????ka:</translation>
+        <translation>Maximální šířka:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="894"/>
@@ -1304,32 +1304,32 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="927"/>
         <source>&amp;Fill up playlist with random songs</source>
-        <translation>&amp;Naplnit seznam soubor?? n??hodn??mi skladbami</translation>
+        <translation>&amp;Naplnit seznam souborů náhodnými skladbami</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="945"/>
         <source>&amp;When less than that songs left:</source>
-        <translation>&amp;Pokud zb??v?? m??n?? skladeb ne??:</translation>
+        <translation>&amp;Pokud zbývá méně skladeb než:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="990"/>
         <source>&amp;Remove played songs from playlist</source>
-        <translation>&amp;Odstranit p??ehran?? skladby z seznamu skladeb</translation>
+        <translation>&amp;Odstranit přehrané skladby z seznamu skladeb</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1020"/>
         <source>Enable &amp;translations</source>
-        <translation>&amp;Povolit p??eklady</translation>
+        <translation>&amp;Povolit překlady</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1055"/>
         <source>&amp;Enable notifications</source>
-        <translation>&amp;Povolit upozorn??n??</translation>
+        <translation>&amp;Povolit upozornění</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1078"/>
         <source>&amp;Notifier:</source>
-        <translation>&amp;Upozor??ova??:</translation>
+        <translation>&amp;Upozorňovač:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1124"/>
@@ -1354,32 +1354,32 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1254"/>
         <source>Right-middle</source>
-        <translation>Vpravo uprost??ed</translation>
+        <translation>Vpravo uprostřed</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1270"/>
         <source>Top-right</source>
-        <translation>Vpravo naho??e</translation>
+        <translation>Vpravo nahoře</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1292"/>
         <source>Bottom-middle</source>
-        <translation>Dole uprost??ed</translation>
+        <translation>Dole uprostřed</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1314"/>
         <source>Top-middle</source>
-        <translation>Naho??e uprost??ed</translation>
+        <translation>Nahoře uprostřed</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1349"/>
         <source>Left-middle</source>
-        <translation>Vlevo uprost??ed</translation>
+        <translation>Vlevo uprostřed</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1365"/>
         <source>Top-left</source>
-        <translation>Vlevo naho??e</translation>
+        <translation>Vlevo nahoře</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1381"/>
@@ -1389,17 +1389,17 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1442"/>
         <source>&amp;Enable tag guesser</source>
-        <translation>&amp;Povolit h??d??n?? tag??</translation>
+        <translation>&amp;Povolit hádání tagů</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1460"/>
         <source>&amp;Guess pattern:</source>
-        <translation>&amp;Vzor pro h??d??n??:</translation>
+        <translation>&amp;Vzor pro hádání:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1470"/>
         <source>&amp;Test filename:</source>
-        <translation>N??zev &amp;testovac??ho souboru:</translation>
+        <translation>Název &amp;testovacího souboru:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1480"/>
@@ -1409,17 +1409,17 @@ Pou??ijte pros??m jin?? n??zev:</translation>
 %t = Title
 %i = Ignore part of file name
 </source>
-        <translation>%b = Skupina/Um??lec
+        <translation>%b = Skupina/Umělec
 %a = Album
-%n = ????slo skladby
-%t = N??zev
-%i = Ignorovat ????st jm??na souboru
+%n = Číslo skladby
+%t = Název
+%i = Ignorovat část jména souboru
 </translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1511"/>
         <source>Guess results</source>
-        <translation>V??sledek h??d??n??</translation>
+        <translation>Výsledek hádání</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1523"/>
@@ -1429,7 +1429,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1530"/>
         <source>Title:</source>
-        <translation>N??zev:</translation>
+        <translation>Název:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1537"/>
@@ -1439,37 +1439,37 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1544"/>
         <source>Artist:</source>
-        <translation>Um??lec:</translation>
+        <translation>Umělec:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1577"/>
         <source>&amp;Enable tray icon</source>
-        <translation>&amp;Povolit ikonu v syst??mov?? li??t??</translation>
+        <translation>&amp;Povolit ikonu v systémové liště</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1592"/>
         <source>Close button &amp;minimizes to tray</source>
-        <translation>Zav??rac?? tla????tko &amp;minimalizuje do syst??mov?? li??ty</translation>
+        <translation>Zavírací tlačítko &amp;minimalizuje do systémové lišty</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1599"/>
         <source>Start QMPDClient &amp;hidden</source>
-        <translation>&amp;Startovat QMPDClient schovan??</translation>
+        <translation>&amp;Startovat QMPDClient schovaný</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1606"/>
         <source>Enable extended song info</source>
-        <translation>Povolit roz??????en?? informace o skladb??</translation>
+        <translation>Povolit rozšířené informace o skladbě</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1633"/>
         <source>Submit played tracks to Last.Fm</source>
-        <translation>Odes??lat hran?? skladby do Last.Fm</translation>
+        <translation>Odesílat hrané skladby do Last.Fm</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1647"/>
         <source>Username:</source>
-        <translation>U??ivatelsk?? jm??no:</translation>
+        <translation>Uživatelské jméno:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1675"/>
@@ -1479,7 +1479,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1690"/>
         <source>Plain</source>
-        <translation>Prost?? text</translation>
+        <translation>Prostý text</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1700"/>
@@ -1489,22 +1489,22 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1709"/>
         <source>Calculate MD5</source>
-        <translation>Spo????tat MD5</translation>
+        <translation>Spočítat MD5</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1734"/>
         <source>Timer</source>
-        <translation>??asova??</translation>
+        <translation>Časovač</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1780"/>
         <source>Percent of song played:</source>
-        <translation>Procent skladby odehr??no:</translation>
+        <translation>Procent skladby odehráno:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1859"/>
         <source>&amp;Close</source>
-        <translation>&amp;Zav????t</translation>
+        <translation>&amp;Zavřít</translation>
     </message>
 </context>
 <context>
@@ -1512,18 +1512,18 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/coverartdialog.cpp" line="51"/>
         <source>No cover art found.</source>
-        <translation>????dn?? obr??zek alba nebyl nalezen.</translation>
+        <translation>Žádný obrázek alba nebyl nalezen.</translation>
     </message>
     <message>
         <location filename="../src/directorymodel.cpp" line="64"/>
         <source>Directory</source>
         <comment>This is used as the header of directory-tree in directory view</comment>
-        <translation>Adres????</translation>
+        <translation>Adresář</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="150"/>
         <source>Title</source>
-        <translation>N??zev</translation>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="152"/>
@@ -1533,7 +1533,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/headerview.cpp" line="154"/>
         <source>Artist</source>
-        <translation>Um??lec</translation>
+        <translation>Umělec</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="156"/>
@@ -1543,7 +1543,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/headerview.cpp" line="158"/>
         <source>Length</source>
-        <translation>D??lka</translation>
+        <translation>Délka</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="160"/>
@@ -1553,12 +1553,12 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/headerview.cpp" line="162"/>
         <source>Filename</source>
-        <translation>N??zev souboru</translation>
+        <translation>Název souboru</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="164"/>
         <source>Genre</source>
-        <translation>????nr</translation>
+        <translation>Žánr</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="166"/>
@@ -1568,7 +1568,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/headerview.cpp" line="168"/>
         <source>Comment</source>
-        <translation>Koment????</translation>
+        <translation>Komentář</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="170"/>
@@ -1589,7 +1589,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
         <location filename="../src/mpddirectory.cpp" line="158"/>
         <source>Root</source>
         <comment>This is the name of the root directory in the directory browser</comment>
-        <translation>Ko??enov?? adres????</translation>
+        <translation>Kořenový adresář</translation>
     </message>
     <message>
         <location filename="../src/playlistsview.cpp" line="79"/>
@@ -1604,7 +1604,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/servermodel.cpp" line="95"/>
         <source>Name</source>
-        <translation>N??zev</translation>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../src/servermodel.cpp" line="97"/>
@@ -1636,18 +1636,18 @@ Pou??ijte pros??m jin?? n??zev:</translation>
         <location filename="../src/stringlistmodel.cpp" line="55"/>
         <source>Not tagged</source>
         <comment>This is the second item in the artist and album views, meaning &quot;Songs belonging to no artist or no albums&quot;</comment>
-        <translation>Neotagov??no</translation>
+        <translation>Neotagováno</translation>
     </message>
     <message>
         <location filename="../src/stringlistmodel.cpp" line="53"/>
         <source>All</source>
         <comment>This is the first item in the artist and album views, meaning &quot;All artists&quot; or &quot;All albums&quot;</comment>
-        <translation>V??e</translation>
+        <translation>Vše</translation>
     </message>
     <message>
         <location filename="../src/trayicon.cpp" line="192"/>
         <source>Not tagged</source>
-        <translation>Neotagov??no</translation>
+        <translation>Neotagováno</translation>
     </message>
 </context>
 <context>
@@ -1661,22 +1661,22 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../ui/radiopanel.ui" line="127"/>
         <source>Add new radio station...</source>
-        <translation>P??idat stanici r??dia...</translation>
+        <translation>Přidat stanici rádia...</translation>
     </message>
     <message>
         <location filename="../ui/radiopanel.ui" line="130"/>
         <source>&amp;New radio station...</source>
-        <translation>&amp;Nov?? stanice r??dia...</translation>
+        <translation>&amp;Nová stanice rádia...</translation>
     </message>
     <message>
         <location filename="../ui/radiopanel.ui" line="140"/>
         <source>Delete selected radio stations</source>
-        <translation>Smazat vybran?? stanice r??dia</translation>
+        <translation>Smazat vybrané stanice rádia</translation>
     </message>
     <message>
         <location filename="../ui/radiopanel.ui" line="143"/>
         <source>D&amp;elete radio stations</source>
-        <translation>&amp;Smazat stanice r??dia</translation>
+        <translation>&amp;Smazat stanice rádia</translation>
     </message>
 </context>
 <context>
@@ -1684,7 +1684,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/radioview.cpp" line="58"/>
         <source>&amp;New...</source>
-        <translation>&amp;Nov??...</translation>
+        <translation>&amp;Nová...</translation>
     </message>
     <message>
         <location filename="../src/radioview.cpp" line="59"/>
@@ -1697,22 +1697,22 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/shoutcastmodel.cpp" line="64"/>
         <source>Name</source>
-        <translation>N??zev</translation>
+        <translation>Název</translation>
     </message>
     <message>
         <location filename="../src/shoutcastmodel.cpp" line="64"/>
         <source>Bitrate</source>
-        <translation>Datov?? tok</translation>
+        <translation>Datový tok</translation>
     </message>
     <message>
         <location filename="../src/shoutcastmodel.cpp" line="64"/>
         <source>Listeners</source>
-        <translation>Poslucha????</translation>
+        <translation>Posluchačů</translation>
     </message>
     <message>
         <location filename="../src/shoutcastmodel.cpp" line="72"/>
         <source>Please wait...</source>
-        <translation>??ekejte pros??m???</translation>
+        <translation>Čekejte prosím…</translation>
     </message>
     <message>
         <location filename="../src/shoutcastmodel.cpp" line="84"/>
@@ -1722,7 +1722,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/shoutcastmodel.cpp" line="89"/>
         <source>Please wait</source>
-        <translation>??ekejte pros??m</translation>
+        <translation>Čekejte prosím</translation>
     </message>
 </context>
 <context>
@@ -1730,7 +1730,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/shoutcastview.cpp" line="48"/>
         <source>&amp;Enqueue</source>
-        <translation>&amp;Za??adit do fronty</translation>
+        <translation>&amp;Zařadit do fronty</translation>
     </message>
     <message>
         <location filename="../src/shoutcastview.cpp" line="49"/>
@@ -1748,7 +1748,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/stringlistview.cpp" line="126"/>
         <source>&amp;Enqueue</source>
-        <translation>&amp;Za??adit do fronty</translation>
+        <translation>&amp;Zařadit do fronty</translation>
     </message>
     <message>
         <location filename="../src/stringlistview.cpp" line="127"/>
@@ -1766,7 +1766,7 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/timeslider.cpp" line="55"/>
         <source>Streaming</source>
-        <translation>P??ehr??v??n?? proudu</translation>
+        <translation>Přehrávání proudu</translation>
     </message>
 </context>
 <context>
@@ -1779,12 +1779,12 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/trayicon.cpp" line="126"/>
         <source>Show</source>
-        <translation>Uk??zat</translation>
+        <translation>Ukázat</translation>
     </message>
     <message>
         <location filename="../src/trayicon.cpp" line="137"/>
         <source>Previuos</source>
-        <translation>P??edchoz??</translation>
+        <translation>Předchozí</translation>
     </message>
     <message>
         <location filename="../src/trayicon.cpp" line="138"/>
@@ -1804,12 +1804,12 @@ Pou??ijte pros??m jin?? n??zev:</translation>
     <message>
         <location filename="../src/trayicon.cpp" line="141"/>
         <source>Next</source>
-        <translation>Dal????</translation>
+        <translation>Další</translation>
     </message>
     <message>
         <location filename="../src/trayicon.cpp" line="142"/>
         <source>Quit</source>
-        <translation>Ukon??it</translation>
+        <translation>Ukončit</translation>
     </message>
     <message>
         <location filename="../src/trayicon.cpp" line="143"/>
