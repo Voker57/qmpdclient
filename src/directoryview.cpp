@@ -77,7 +77,7 @@ void DirectoryView::setRoot(const MPDDirectory &root) {
 
 MPDSongList DirectoryView::selectedSongs() const {
 	Q_ASSERT(m_model);
-	return MPDCache::instance()->songsByDirectories(m_model->directories(selectedIndexes()));
+	return MPDCache::instance()->songsByDirectories(m_model->directories(selectedIndexes()), true);
 }
 
 void DirectoryView::rescan() {
