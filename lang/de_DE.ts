@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="1.1">
+<!DOCTYPE TS>
+<TS version="2.0" language="de_DE">
 <context>
     <name>AboutDialog</name>
     <message>
@@ -150,13 +151,13 @@
     <message>
         <location filename="../ui/controlpanel.ui" line="287"/>
         <source>Lyrics</source>
-        <translation type="unfinished"></translation>
+        <translation>Lyrics</translation>
     </message>
 </context>
 <context>
     <name>DirectoryPanel</name>
     <message>
-        <location filename="" line="0"/>
+        <location filename="../ui/controlpanel.ui" line="0"/>
         <source>&amp;Filter:</source>
         <translation type="obsolete">&amp;Filter:</translation>
     </message>
@@ -164,7 +165,8 @@
         <location filename="../ui/directorypanel.ui" line="96"/>
         <source>&amp;Filter:</source>
         <comment>Filter directory contents</comment>
-        <translation type="unfinished">&amp;Filter:</translation>
+        <translatorcomment>&amp;Filter:</translatorcomment>
+        <translation>&amp;Filter:</translation>
     </message>
 </context>
 <context>
@@ -244,27 +246,27 @@
     <message>
         <location filename="../src/lyricsdialog.cpp" line="45"/>
         <source>Getting lyrics from server...</source>
-        <translation type="unfinished"></translation>
+        <translation>Lade Lyrics vom Server ...</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="14"/>
         <source>Dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Dialog</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="22"/>
         <source>Artist</source>
-        <translation type="unfinished">Künstler</translation>
+        <translation>Künstler</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="35"/>
         <source>Title</source>
-        <translation type="unfinished">Titel</translation>
+        <translation>Titel</translation>
     </message>
     <message>
         <location filename="../ui/lyricsdialog.ui" line="48"/>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Suche</translation>
     </message>
 </context>
 <context>
@@ -295,12 +297,12 @@
     <message>
         <location filename="../src/mpdconnection.cpp" line="80"/>
         <source>Could not connect to server</source>
-        <translation type="unfinished"></translation>
+        <translation>Verbindung zum Server nicht möglich</translation>
     </message>
     <message>
         <location filename="../src/mpdconnection.cpp" line="87"/>
         <source>Authentication failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Anmeldung fehlgeschlegen</translation>
     </message>
 </context>
 <context>
@@ -374,6 +376,41 @@
         <translation>Ctrl+C</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="238"/>
+        <source>Library:  %1 %2, %3 %4, %5 %6. (%7 %8 %9 %10 %11 %12) </source>
+        <translation>Bibliothek:  %1 %2, %3 %4, %5 %6. (%7 %8 %9 %10 %11 %12) </translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="240"/>
+        <source>artists</source>
+        <translation>Künstler</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="242"/>
+        <source>albums</source>
+        <translation>Alben</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="244"/>
+        <source>songs</source>
+        <translation>Titel</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="246"/>
+        <source>days</source>
+        <translation>Tage</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="248"/>
+        <source>hours</source>
+        <translation>Stunden</translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="250"/>
+        <source>minutes</source>
+        <translation>Minuten</translation>
+    </message>
+    <message>
         <location filename="../ui/mainwindow.ui" line="146"/>
         <source>&amp;Disconnect</source>
         <translation>&amp;Trennen</translation>
@@ -414,34 +451,9 @@
         <translation>Ctrl+Q</translation>
     </message>
     <message>
-        <location filename="../src/mainwindow.cpp" line="236"/>
-        <source>artists</source>
-        <translation>Künstler</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.cpp" line="238"/>
-        <source>albums</source>
-        <translation>Alben</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.cpp" line="240"/>
-        <source>songs</source>
-        <translation>Lieder</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.cpp" line="242"/>
-        <source>days</source>
-        <translation>Tage</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.cpp" line="244"/>
-        <source>hours</source>
-        <translation>Stunden</translation>
-    </message>
-    <message>
-        <location filename="../src/mainwindow.cpp" line="246"/>
-        <source>minutes</source>
-        <translation>Minuten</translation>
+        <location filename="../ui/mainwindow.ui" line="200"/>
+        <source>L&amp;ocate current song</source>
+        <translation>aktuellen Titel l&amp;okalisieren</translation>
     </message>
     <message>
         <location filename="../src/mainwindow.cpp" line="126"/>
@@ -479,6 +491,31 @@
         <translation>&amp;MPD</translation>
     </message>
     <message>
+        <location filename="../src/mainwindow.cpp" line="340"/>
+        <source>Playlist: </source>
+        <translation>Playlist: </translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="341"/>
+        <source>%1 days, </source>
+        <translation>%1 Tag(e), </translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="342"/>
+        <source>%1 hours, </source>
+        <translation>%1 Stunde(n), </translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="342"/>
+        <source>%1 minutes, </source>
+        <translation>%1 Minute(n), </translation>
+    </message>
+    <message>
+        <location filename="../src/mainwindow.cpp" line="343"/>
+        <source>%1 seconds.</source>
+        <translation>%1 Sekunde(n).</translation>
+    </message>
+    <message>
         <location filename="../src/mainwindow.cpp" line="279"/>
         <source>Done</source>
         <translation>Fertig</translation>
@@ -506,7 +543,7 @@
     <message>
         <location filename="../src/mainwindow.cpp" line="198"/>
         <source>Connect to first server</source>
-        <translation type="unfinished"></translation>
+        <translation>Zum ersten Server verbinden</translation>
     </message>
 </context>
 <context>
@@ -687,7 +724,7 @@
         <location filename="../src/playlistview.cpp" line="100"/>
         <source>Ctrl+U</source>
         <comment>This is the shortcut for &apos;Jump to song in playlist&apos;</comment>
-        <translation>Strg+U</translation>
+        <translation>Ctrl+U</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="101"/>
@@ -729,13 +766,14 @@ Bite geben sie einen anderen Namen an:</translation>
     <message>
         <location filename="../src/playlistview.cpp" line="207"/>
         <source>Attention!</source>
-        <translation type="unfinished"></translation>
+        <translation>Achtung!</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="208"/>
         <source>A playlist with that name already exists.
 Overwrite?</source>
-        <translation type="unfinished"></translation>
+        <translation>Eine Playlist mit diesem Namen existiert bereits.
+Überschreiben?</translation>
     </message>
 </context>
 <context>
@@ -751,12 +789,12 @@ Overwrite?</source>
         <translation>&amp;Listen löschen</translation>
     </message>
     <message>
-        <location filename="" line="0"/>
+        <location filename="../ui/playlistspanel.ui" line="0"/>
         <source>Fil&amp;ter:</source>
         <translation type="obsolete">Listen fil&amp;tern:</translation>
     </message>
     <message>
-        <location filename="" line="0"/>
+        <location filename="../ui/playlistspanel.ui" line="0"/>
         <source>&amp;Filter:</source>
         <translation type="obsolete">&amp;Filter:</translation>
     </message>
@@ -764,13 +802,13 @@ Overwrite?</source>
         <location filename="../ui/playlistspanel.ui" line="59"/>
         <source>Fil&amp;ter:</source>
         <comment>Filter the list of saved playlists</comment>
-        <translation type="unfinished">Listen fil&amp;tern:</translation>
+        <translation>Listen fil&amp;tern:</translation>
     </message>
     <message>
         <location filename="../ui/playlistspanel.ui" line="126"/>
         <source>&amp;Filter:</source>
         <comment>Filter the contents of saved playlists</comment>
-        <translation type="unfinished">&amp;Filter:</translation>
+        <translation>&amp;Filter:</translation>
     </message>
 </context>
 <context>
@@ -989,7 +1027,7 @@ Overwrite?</source>
         <translation>Benac&amp;hrichtigungen aktivieren</translation>
     </message>
     <message>
-        <location filename="" line="0"/>
+        <location filename="../ui/preferencesdialog.ui" line="0"/>
         <source>A&amp;dd random songs to playlist</source>
         <translation type="obsolete">&amp;Zufällige Titelauswahl zur Wiedergabeliste hinzufügen</translation>
     </message>
@@ -1019,12 +1057,12 @@ Overwrite?</source>
         <translation>&amp;Dateiname testen:</translation>
     </message>
     <message>
-        <location filename="" line="0"/>
+        <location filename="../ui/preferencesdialog.ui" line="0"/>
         <source>&amp;When playing song (from end):</source>
         <translation type="obsolete">&amp;Bei Wiedergabe eines Titels (vom Ende):</translation>
     </message>
     <message>
-        <location filename="" line="0"/>
+        <location filename="../ui/preferencesdialog.ui" line="0"/>
         <source>&amp;Number of songs to add:</source>
         <translation type="obsolete">A&amp;nzahl hinzuzufügender Titel:</translation>
     </message>
@@ -1231,57 +1269,107 @@ Overwrite?</source>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="460"/>
         <source>Cover art</source>
-        <translation type="unfinished"></translation>
+        <translation>Cover Art</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="467"/>
         <source>Last.Fm</source>
-        <translation type="unfinished"></translation>
+        <translation>Last.Fm</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="810"/>
         <source>Show album c&amp;over art</source>
-        <translation type="unfinished"></translation>
+        <translation>Album C&amp;over Art anzeigen</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="819"/>
         <source>&amp;Path to MPD music root:</source>
-        <translation type="unfinished"></translation>
+        <translation>&amp;Pfad zum MPD Musikverzeichnis:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="842"/>
         <source>Max Height:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. Höhe:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="868"/>
         <source>Max Width:</source>
-        <translation type="unfinished"></translation>
+        <translation>Max. Breite:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="920"/>
         <source>&amp;Fill up playlist with random songs</source>
-        <translation type="unfinished"></translation>
+        <translation>Playlist mit zufälligen Songs auf&amp;füllen</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="935"/>
         <source>&amp;When less than that songs left:</source>
-        <translation type="unfinished"></translation>
+        <translation>Falls &amp;weniger als:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1616"/>
         <source>Submit played songs to Last.Fm</source>
-        <translation type="unfinished"></translation>
+        <translation>Abgespielte Songs an Last.Fm übertragen (scrobbeln)</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1630"/>
         <source>Username:</source>
-        <translation type="unfinished"></translation>
+        <translation>Benutzername:</translation>
     </message>
     <message>
-        <location filename="../ui/preferencesdialog.ui" line="1647"/>
+        <location filename="../src/config.cpp" line="83"/>
         <source>Password:</source>
-        <translation type="unfinished"></translation>
+        <translation>Passwort:</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="444"/>
+        <source>Double click / enter action</source>
+        <translation>Aktion bei Doppelklick / Enter</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="632"/>
+        <source>Disregard leading &apos;The &apos; when sorting</source>
+        <translation>Führendes &apos;The &apos; beim Sortieren außer Acht lassen</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="1606"/>
+        <source>Enable extended song info</source>
+        <translation>Erweiterte Titelinformationen</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="1780"/>
+        <source>Percent of song played:</source>
+        <translation>Prozent des Titels gespielt:</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="1734"/>
+        <source>Timer</source>
+        <translation>Timer</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="1675"/>
+        <source>Password</source>
+        <translation>Passwort</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="1633"/>
+        <source>Submit played tracks to Last.Fm</source>
+        <translation>Gerade gespielte Titel an Last.Fm übermitteln (scrobblen)</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="1709"/>
+        <source>Calculate MD5</source>
+        <translation>MD5 berechnen</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="1690"/>
+        <source>Plain</source>
+        <translation>Klartext</translation>
+    </message>
+    <message>
+        <location filename="../ui/preferencesdialog.ui" line="1700"/>
+        <source>MD5</source>
+        <translation>MD5</translation>
     </message>
 </context>
 <context>
@@ -1418,12 +1506,12 @@ Overwrite?</source>
     <message>
         <location filename="../src/coverartdialog.cpp" line="56"/>
         <source>No cover art found.</source>
-        <translation type="unfinished"></translation>
+        <translation>Keine Cover Art gefunden.</translation>
     </message>
     <message>
         <location filename="../src/trayicon.cpp" line="185"/>
         <source>Not tagged</source>
-        <translation type="unfinished">kein Tag</translation>
+        <translation>kein Tag</translation>
     </message>
 </context>
 <context>
@@ -1449,7 +1537,7 @@ Overwrite?</source>
         <translation>W&amp;ebradios löschen</translation>
     </message>
     <message>
-        <location filename="" line="0"/>
+        <location filename="../ui/radiopanel.ui" line="0"/>
         <source>&amp;Filter:</source>
         <translation type="obsolete">&amp;Filter:</translation>
     </message>
@@ -1457,7 +1545,7 @@ Overwrite?</source>
         <location filename="../ui/radiopanel.ui" line="51"/>
         <source>&amp;Filter:</source>
         <comment>Filter radio stations</comment>
-        <translation type="unfinished">&amp;Filter:</translation>
+        <translation>&amp;Filter:</translation>
     </message>
 </context>
 <context>
@@ -1550,7 +1638,7 @@ Overwrite?</source>
     <message>
         <location filename="../src/trayicon.cpp" line="139"/>
         <source>Volume</source>
-        <translation type="unfinished"></translation>
+        <translation>Lautstärke</translation>
     </message>
 </context>
 </TS>
