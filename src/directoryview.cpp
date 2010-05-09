@@ -63,7 +63,7 @@ void DirectoryView::updateTranslation() {
 void DirectoryView::selectionChanged(const QItemSelection &s, const QItemSelection &u) {
 	Q_ASSERT(m_fileView);
 	AbstractTree::selectionChanged(s, u);
-	m_fileView->setSongs(selectedSongs());
+	m_fileView->setSongs(selectedSongsShallow());
 }
 
 void DirectoryView::setRoot(const MPDDirectory &root) {
@@ -73,6 +73,11 @@ void DirectoryView::setRoot(const MPDDirectory &root) {
 	// Expand root
 	setExpanded(m_model->index(0, 0, QModelIndex()), true);
 	setCurrentIndex(m_model->index(0, 0));
+}
+
+MPDSongList DirectoryView::selectedSongsShallow() const {
+	Q_ASSERT(m_model);
+	return MPDCache::instance()->songsByDirectories(m_model->directories(selectedIndexes()));
 }
 
 MPDSongList DirectoryView::selectedSongs() const {

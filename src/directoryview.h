@@ -32,6 +32,8 @@ public:
 	DirectoryView(QWidget *);
 	void setFileView(FileView *);
 	MPDSongList selectedSongs() const;
+	// Non-recursive
+	MPDSongList selectedSongsShallow() const;
 
 public slots:
 	void updateTranslation();
