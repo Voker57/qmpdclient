@@ -18,7 +18,6 @@
  */
 
 #include "config.h"
-#include "jumptosongdialog.h"
 #include "mpd.h"
 #include "mpdcache.h"
 #include "mpdconnection.h"
@@ -40,9 +39,6 @@ PlaylistView::PlaylistView(QWidget *parent) : AbstractList(parent) {
 	m_model->setPattern(Config::instance()->playlistPattern());
 
 	// playlist menu
-	m_jumpToAction = addMenuAction("jumpTo", this, SLOT(jumpToSong()), false);
-	addAction(m_jumpToAction); // Needed for shortcut key to work
-	m_menu->addSeparator();
 	m_queueAction = addMenuAction("queue", this, SLOT(queueSelectedSong()));
 	addAction(m_queueAction); // Needed for shortcut key to work
 
@@ -84,7 +80,6 @@ PlaylistView::PlaylistView(QWidget *parent) : AbstractList(parent) {
 void PlaylistView::updateTranslation() {
 	Q_ASSERT(m_cropAction);
 	Q_ASSERT(m_informationAction);
-	Q_ASSERT(m_jumpToAction);
 	Q_ASSERT(m_randomAction);
 	Q_ASSERT(m_removeAction);
 	Q_ASSERT(m_clearAction);
@@ -95,8 +90,6 @@ void PlaylistView::updateTranslation() {
 	Q_ASSERT(m_focusKey);
 	m_cropAction->setText(tr("&Crop playlist"));
 	m_informationAction->setText(tr("&Information..."));
-	m_jumpToAction->setText(tr("J&ump to song..."));
-	m_jumpToAction->setShortcut(tr("Ctrl+U", "This is the shortcut for 'Jump to song in playlist'"));
 	m_randomAction->setText(tr("Ra&ndom play"));
 	m_removeAction->setText(tr("&Remove"));
 	m_clearAction->setText(tr("Remove &all"));
@@ -215,16 +208,6 @@ void PlaylistView::savePlaylist() {
 	}
 }
 
-void PlaylistView::jumpToSong() {
-	JumpToSongDialog *search = new JumpToSongDialog(this, m_model->songs(), m_model->playingSong());
-	if (search->exec() == QDialog::Accepted) {
-		MPD::instance()->jumpPlaylistSong(search->jumpSong());
-		if (Config::instance()->scrollToPlaying())
-			scrollTo(m_model->indexOfSong(search->jumpSong()), QAbstractItemView::PositionAtCenter);
-	}
-	delete search;
-}
-
 MPDSongList PlaylistView::selectedSongs() const {
 	Q_ASSERT(m_model);
 	return m_model->songs(selectedIndexes());
@@ -279,4 +262,8 @@ void PlaylistView::dragLeaveEvent(QDragLeaveEvent *e) {
 // Queue
 void PlaylistView::queueSelectedSong() {
 	m_model->toggleQueue(selectedIndexes());
+}
+
+void PlaylistView::setFilter(const QString &needle) {
+	m_model->setFilter(needle);
 }

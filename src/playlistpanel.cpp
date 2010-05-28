@@ -37,15 +37,22 @@ PlaylistPanel::PlaylistPanel() {
 	connect(cropButton, SIGNAL(clicked()), playlistView, SLOT(cropItems()));
 	connect(removeButton, SIGNAL(clicked()), playlistView, SLOT(removeItems()));
 	connect(saveAsButton, SIGNAL(clicked()), playlistView, SLOT(savePlaylist()));
-	connect(jumpToButton, SIGNAL(clicked()), playlistView, SLOT(jumpToSong()));
 	connect(clearButton, SIGNAL(clicked()), MPD::instance(), SLOT(clearPlaylist()));
 	connect(shuffleButton, SIGNAL(clicked()), MPD::instance(), SLOT(shufflePlaylist()));
 
 	// Toggle actions
 	connect(playlistView, SIGNAL(toggleActions(bool)), removeButton, SLOT(setEnabled(bool)));
 	connect(playlistView, SIGNAL(toggleActions(bool)), cropButton, SLOT(setEnabled(bool)));
+	
+	// Filter
+	connect(filter, SIGNAL(textChanged(const QString &)), this, SLOT(updateFilter(const QString &)));
 }
 
 void PlaylistPanel::updateTranslation() {
 	retranslateUi(this);
+}
+
+void PlaylistPanel::updateFilter(const QString &needle) {
+	playlistView->setFilter(needle);
+	playlistView->setCurrentIndex(playlistView->model()->index(0, 0));
 }

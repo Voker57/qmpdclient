@@ -32,6 +32,7 @@ class PlaylistView : public AbstractList {
 public:
 	PlaylistView(QWidget *);
 	MPDSongList selectedSongs() const;
+	void setFilter(const QString &);
 
 public slots:
 	void updateTranslation();
@@ -42,7 +43,6 @@ signals:
 private slots:
 	void cropItems();
 	void indexActivated(const QModelIndex &);
-	void jumpToSong();
 	void playlistPatternChanged(const QString &);
 	void removeItems();
 	void savePlaylist();
@@ -61,7 +61,7 @@ private:
 
 	bool m_hidden;
 	PlaylistModel *m_model;
-	QAction *m_clearAction, *m_cropAction, *m_informationAction, *m_jumpToAction, *m_randomAction;
+	QAction *m_clearAction, *m_cropAction, *m_informationAction,  *m_randomAction;
 	QAction *m_removeAction, *m_repeatAction, *m_saveAction, *m_shuffleAction;
 	QAction *m_queueAction;
 	QLine m_dropLine;
