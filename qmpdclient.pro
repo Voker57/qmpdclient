@@ -29,7 +29,6 @@ FORMS += \
 	ui/controlpanel.ui \
 	ui/coverartdialog.ui \
 	ui/directorypanel.ui \
-   	ui/jumptosongdialog.ui \
 	ui/librarypanel.ui \
 	ui/mainwindow.ui \
    	ui/metainfodialog.ui \
@@ -63,7 +62,6 @@ HEADERS += \
 	src/iconmanager.h \
 	src/idealbar.h \
 	src/idealsplitter.h \
-   	src/jumptosongdialog.h \
 	src/libmpdclient.h \
 	src/librarypanel.h \
 	src/lineedit.h \
@@ -135,7 +133,6 @@ SOURCES += \
 	src/iconmanager.cpp \
 	src/idealbar.cpp \
 	src/idealsplitter.cpp \
-   	src/jumptosongdialog.cpp \
 	src/libmpdclient.c \
 	src/librarypanel.cpp \
 	src/lineedit.cpp \

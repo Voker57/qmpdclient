@@ -30,6 +30,7 @@ public:
 
 public slots:
 	void updateTranslation();
+	void updateFilter(const QString &);
 
 };
 #endif
