@@ -183,12 +183,14 @@ void PreferencesDialog::initLookAndFeelPage() {
 	opaqueCheck->setChecked(Config::instance()->opaqueResize());
 	alternatingCheck->setChecked(Config::instance()->alternatingRowColors());
 	disregardTheCheck->setChecked(Config::instance()->disregardLeadingThe());
+        transientSettingsCheck->setChecked(Config::instance()->saveTransientSettings());
 
 	connect(enqueueItemRadio, SIGNAL(toggled(bool)), Config::instance(), SLOT(setEnqueue(bool)));
 	connect(alternatingCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAlternatingRowColors(bool)));
 	connect(autoResizeCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAutoResizeColumns(bool)));
 	connect(opaqueCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setOpaqueResize(bool)));
 	connect(disregardTheCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setDisregardLeadingThe(bool)));
+        connect(transientSettingsCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setSaveTransientSettings(bool)));
 }
 
 void PreferencesDialog::initIconSetPage() {

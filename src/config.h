@@ -112,13 +112,14 @@ public:
 	void setMainSplitterSizes(const QByteArray &);
 	void setPlaylistsSplitterSizes(const QByteArray &);
 	void setRightBarTab(int);
-	int rightBarTab();
 	void setWindowSize(const QSize &);
+        bool saveTransientSettings() const;
 	QByteArray directorySplitterSizes() const;
 	QByteArray libraryHSplitterSizes() const;
 	QByteArray libraryVSplitterSizes() const;
 	QByteArray mainSplitterSizes() const;
 	QByteArray playlistsSplitterSizes() const;
+        int rightBarTab();
 	QSize windowSize() const;
 
 	// View's properties
@@ -139,6 +140,7 @@ public slots:
 	void setTimeoutTime(int);
 
 	// Look and feel
+        void setSaveTransientSettings(bool);
 	void setAlternatingRowColors(bool);
 	void setAutoResizeColumns(bool);
 	void setEnqueue(bool);
