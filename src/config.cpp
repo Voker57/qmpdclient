@@ -523,40 +523,62 @@ bool Config::autoRemoveSongs() const {
 /*
  * Window and splitter sizes
  */
+void Config::setSaveTransientSettings(bool value) {
+    return setValue("/qmpdlcient/saveTransient", value);
+}
+
 void Config::setWindowSize(const QSize &s) {
+    if(this->saveTransientSettings()) {
 	setValue("/qmpdclient/windowsize", s);
+    }
 }
 
 void Config::setRightBarTab(int t) {
+    if(this->saveTransientSettings()) {
 	setValue("/qmpdclient/righttab", t);
-}
-
-int Config::rightBarTab() {
-	return value("/qmpdclient/righttab").toInt();
+    }
 }
 
 void Config::setDirectorySplitterSizes(const QByteArray &l) {
+    if(this->saveTransientSettings()) {
 	setValue("/qmpdclient/directorysplittersizes", l);
+    }
 }
 
 void Config::setLibraryHSplitterSizes(const QByteArray &l) {
+    if(this->saveTransientSettings()) {
 	setValue("/qmpdclient/libraryhsplittersizes", l);
+    }
 }
 
 void Config::setLibraryVSplitterSizes(const QByteArray &l) {
+    if(this->saveTransientSettings()) {
 	setValue("/qmpdclient/libraryvsplittersizes", l);
+    }
 }
 
 void Config::setMainSplitterSizes(const QByteArray &l) {
+    if(this->saveTransientSettings()) {
 	setValue("/qmpdclient/mainsplittersizes", l);
+    }
 }
 
 void Config::setPlaylistsSplitterSizes(const QByteArray &l) {
+    if(this->saveTransientSettings()) {
 	setValue("/qmpdclient/playlistssplittersizes", l);
+    }
+}
+
+bool Config::saveTransientSettings() const {
+    return value("/qmpdlcient/saveTransient", true).toBool();
 }
 
 QSize Config::windowSize() const {
 	return value("/qmpdclient/windowsize", QSize(800, 600)).toSize();
+}
+
+int Config::rightBarTab() {
+        return value("/qmpdclient/righttab").toInt();
 }
 
 QByteArray Config::directorySplitterSizes() const {
