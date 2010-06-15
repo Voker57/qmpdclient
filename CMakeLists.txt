@@ -37,7 +37,6 @@ set(QMPDClient_srcs
 	src/iconmanager.cpp
 	src/idealbar.cpp
 	src/idealsplitter.cpp
-	src/jumptosongdialog.cpp
 	src/libmpdclient.c
 	src/librarypanel.cpp
 	src/lineedit.cpp
@@ -114,7 +113,6 @@ set(QMPDClient_hdrs
 	src/iconmanager.h
 	src/idealbar.h
 	src/idealsplitter.h
-	src/jumptosongdialog.h
 	src/libmpdclient.h
 	src/librarypanel.h
 	src/lineedit.h
@@ -172,7 +170,6 @@ SET(QMPDClient_uis
 	ui/controlpanel.ui
 	ui/coverartdialog.ui
 	ui/directorypanel.ui
-	ui/jumptosongdialog.ui
 	ui/librarypanel.ui
 	ui/lyricsdialog.ui
 	ui/mainwindow.ui
