@@ -335,10 +335,12 @@ void PreferencesDialog::initLanguagePage() {
 
 void PreferencesDialog::initDynamicPlaylistPage() {
 	autoAddCheck->setChecked(Config::instance()->autoAddSongs());
+	autoAddAlbumsCheck->setChecked(Config::instance()->autoAddAlbums());
 	autoAddPosSpin->setValue(Config::instance()->autoAddPos());
 	autoRemoveCheck->setChecked(Config::instance()->autoRemoveSongs());
 
 	connect(autoAddCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAutoAddSongs(bool)));
+	connect(autoAddAlbumsCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAutoAddAlbums(bool)));
 	connect(autoAddPosSpin, SIGNAL(valueChanged(int)), Config::instance(), SLOT(setAutoAddPos(int)));
 	connect(autoRemoveCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setAutoRemoveSongs(bool)));
 }
