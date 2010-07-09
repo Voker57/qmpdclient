@@ -21,6 +21,7 @@
 #include "dynamicplaylist.h"
 #include "mpd.h"
 #include "mpdcache.h"
+#include <QStringList>
 
 DynamicPlaylist::DynamicPlaylist(QObject *parent) : QObject(parent) {
 	setObjectName("dynamicplaylist");
@@ -38,7 +39,19 @@ void DynamicPlaylist::autoAdd(const MPDSong &song) {
 		return;
 
 	if (m_playlist.indexOf(song) >= m_playlist.size() - (1 + Config::instance()->autoAddPos())) {
-		MPDSongList add = MPDCache::instance()->randomSongs(1 + Config::instance()->autoAddPos() - (m_playlist.size() - m_playlist.indexOf(song)));
+		MPDSongList add = MPDSongList();
+		if(Config::instance()->autoAddAlbums())
+		{
+			QStringList albums = MPDCache::instance()->albumsByArtists(QStringList(QString()));
+			if(!albums.empty())
+			{
+				int rnd = qrand() % albums.size();
+				QStringList album = albums.mid(rnd, 1);
+				add = MPDCache::instance()->songsByAlbums(album);
+			}
+		} else {
+			add = MPDCache::instance()->randomSongs(1 + Config::instance()->autoAddPos() - (m_playlist.size() - m_playlist.indexOf(song)));
+		}
 		MPD::instance()->addSongs(add);
 	}
 }

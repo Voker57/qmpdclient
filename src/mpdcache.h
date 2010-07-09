@@ -34,6 +34,7 @@ public:
 	static MPDCache *instance();
 	~MPDCache();
 	QStringList albumsByArtists(const QStringList &);
+	MPDSongList songsByAlbums(const QStringList &);
 	MPDSongList songsByDirectories(const QList<MPDDirectory> &, bool = false);
 	MPDSongList songsByAA(const AAFilter &);
 	MPDSongList songsByPlaylists(const MPDSongList &);

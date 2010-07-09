@@ -312,3 +312,8 @@ MPDSongList MPDCache::randomSongs(int n) {
 		songs << MPDSong::createTest(d->files.at(qrand() % d->files.size()));
 	return songs;
 }
+
+MPDSongList MPDCache::songsByAlbums(const QStringList &ss)
+{
+	return d->songsByAlbums(ss);
+}

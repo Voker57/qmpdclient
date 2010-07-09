@@ -496,6 +496,11 @@ void Config::setAutoAddSongs(bool a) {
 	emit autoAddSongsChanged(a);
 }
 
+void Config::setAutoAddAlbums(bool a) {
+	setValue("/dynamicplaylist/albums", a);
+	emit autoAddAlbumsChanged(a);
+}
+
 void Config::setAutoAddCount(int c) {
 	setValue("/dynamicplaylist/count", c);
 }
@@ -510,6 +515,10 @@ void Config::setAutoRemoveSongs(bool r) {
 
 bool Config::autoAddSongs() const {
 	return value("/dynamicplaylist/add", false).toBool();
+}
+
+bool Config::autoAddAlbums() const {
+	return value("/dynamicplaylist/albums", false).toBool();
 }
 
 int Config::autoAddPos() const {

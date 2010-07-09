@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>550</width>
+    <width>575</width>
     <height>421</height>
    </rect>
   </property>
@@ -78,7 +78,7 @@
        <item>
         <widget class="QStackedWidget" name="widgetStack">
          <property name="currentIndex">
-          <number>2</number>
+          <number>9</number>
          </property>
          <widget class="QWidget" name="connectionPage">
           <layout class="QVBoxLayout">
@@ -975,7 +975,7 @@
               <item row="0" column="1">
                <widget class="QSpinBox" name="autoAddPosSpin"/>
               </item>
-              <item row="0" column="2" rowspan="2">
+              <item row="0" column="2" rowspan="3">
                <spacer>
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
@@ -987,6 +987,13 @@
                  </size>
                 </property>
                </spacer>
+              </item>
+              <item row="1" column="0">
+               <widget class="QCheckBox" name="autoAddAlbumsCheck">
+                <property name="text">
+                 <string>&amp;Add whole albums</string>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>

@@ -91,6 +91,7 @@ public:
 	int autoAddCount() const;
 	int autoAddPos() const;
 	bool autoAddSongs() const;
+	bool autoAddAlbums() const;
 	bool autoRemoveSongs() const;
 
 	// Tag guesser
@@ -180,6 +181,7 @@ public slots:
 	void setAutoAddCount(int);
 	void setAutoAddPos(int);
 	void setAutoAddSongs(bool);
+	void setAutoAddAlbums(bool);
 	void setAutoRemoveSongs(bool);
 
 	// Tag guesser
@@ -202,6 +204,7 @@ signals:
 	void styleChanged(const QString &);
 	void trayIconChanged(bool);
 	void autoAddSongsChanged(bool);
+	void autoAddAlbumsChanged(bool);
 
 private:
 	Config();
