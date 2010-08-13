@@ -16,7 +16,7 @@ DEFINES += NAMEVER='"\\"QMPDClient \
     $$VERSION\\""'
 DEFINES += VERSION='"\\"$$VERSION\\""'
 INCLUDEPATH += src
-QT += network xml xmlpatterns
+QT += network xml xmlpatterns webkit
 
 FORMS += ui/aboutdialog.ui \
     ui/addradiodialog.ui \

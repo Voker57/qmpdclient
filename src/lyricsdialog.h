@@ -24,7 +24,6 @@
 #include "ui_lyricsdialog.h"
 
 class MPDSong;
-class QHttp;
 
 class LyricsDialog : public QDialog, private Ui::LyricsDialog {
 	Q_OBJECT
@@ -33,12 +32,10 @@ public:
 	void setSong(const MPDSong &);
 	void updateLyrics();
 private:
-	QHttp * m_http;
 	QString m_artist, m_title;
 public slots:
 	void show();
 private slots:
-	void gotResponse(int, bool);
 	void setUserSong();
 };
 #endif

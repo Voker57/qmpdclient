@@ -52,10 +52,23 @@
     </layout>
    </item>
    <item>
-    <widget class="QTextBrowser" name="lyricsBrowser"/>
+    <widget class="QWebView" name="lyricsBrowser">
+     <property name="url">
+      <url>
+       <string>about:blank</string>
+      </url>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QWebView</class>
+   <extends>QWidget</extends>
+   <header>QtWebKit/QWebView</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections>
   <connection>
