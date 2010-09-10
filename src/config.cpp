@@ -698,3 +698,11 @@ bool Config::disregardLeadingThe() const {
 void Config::setDisregardLeadingThe(bool b) {
 	setValue("/looknfeel/respectleadingthe", !b);
 }
+
+QString Config::lastFmServer() const {
+	return value("/lastfm/server", "post.audioscrobbler.com").toString();
+}
+
+void Config::setLastFmServer(const QString &s) {
+	setValue("/lastfm/server", s);
+}

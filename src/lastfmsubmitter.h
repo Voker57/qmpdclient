@@ -28,6 +28,7 @@
 #include <QQueue>
 #include <QPair>
 #include <QObject>
+#include <QUrl>
 
 class QNetworkAccessManager;
 class QNetworkReply;
@@ -47,7 +48,6 @@ protected:
 	QString m_session;
 	QString m_npUrl;
 	QString m_subUrl;
-	QString m_hsUrl;
 	int m_currentStarted;	
 	QNetworkAccessManager * m_netAccess;
 	QQueue<QPair<MPDSong, int> > m_songQueue, m_lastScrobbledSongs;
@@ -72,6 +72,7 @@ private:
 	void readScrobblerCache();
 	void writeScrobblerCache();
 	void createScrobblerCacheFileIfRequired();
+	QUrl handshakeUrl();
 };
 
 #endif // LASTFMSUBMITTER_H

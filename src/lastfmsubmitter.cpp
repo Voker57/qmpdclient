@@ -40,7 +40,6 @@ LastFmSubmitter::LastFmSubmitter(QObject * parent) : QObject(parent) {
 	m_awaitingScrob = false;	
 	m_failed = 0;
 	m_session = "";
-	m_hsUrl="http://post.audioscrobbler.com/";
 	m_npUrl = ""; // we will get it after handshake
 	m_subUrl = ""; // we will get it after handshake
 	m_hardFailTimer = new QTimer(this);
@@ -182,12 +181,19 @@ QByteArray LastFmSubmitter::getPasswordHash() {
 	return passwordHash;
 }
 
+QUrl LastFmSubmitter::handshakeUrl() {
+	QUrl url = QUrl();
+	url.setScheme("http");
+	url.setHost(Config::instance()->lastFmServer());
+	return url;
+}
+
 void LastFmSubmitter::doHandshake() {
 	if (m_hardFailTimer->isActive() || m_awaitingHS) {
 		//qDebug("handshaking delayed");
 		return;
 	}
-	QUrl hsUrl = QUrl(m_hsUrl);
+	QUrl hsUrl = handshakeUrl();
 	hsUrl.addQueryItem("hs", "true");
 	hsUrl.addQueryItem("p", "1.2.1");
 	hsUrl.addQueryItem("c", "qmn");
@@ -213,7 +219,7 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 
 	bool handled= false;
 	// Is this is a handshake reply?
-	if(reqUrl.toString()==m_hsUrl)
+	if(reqUrl==handshakeUrl())
 	{
 		m_awaitingHS = false;
 		if(data.size() >= 4 && data[0]=="OK")

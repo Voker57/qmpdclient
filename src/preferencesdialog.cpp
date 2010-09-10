@@ -422,6 +422,7 @@ void PreferencesDialog::initLastFmPage() {
 	lastFmPasswordEdit->setText(Config::instance()->lastFmPassword());
 	lastFmScrobblerTimerSlider->setValue(Config::instance()->lastFmScrobblerTimer());
 	lastFmScrobblerTimerSpiner->setValue(Config::instance()->lastFmScrobblerTimer());
+	lastFmServerEdit->setText(Config::instance()->lastFmServer());
 	connect(lastFmUsernameEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmUsername(QString)));
 	connect(lastFmPasswordEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmPassword(QString)));
 	connect(submitSongsToLastFmCheck, SIGNAL(toggled(bool)), Config::instance(), SLOT(setSubmitSongsToLastFm(bool)));
@@ -430,6 +431,7 @@ void PreferencesDialog::initLastFmPage() {
 	connect(lastFmScrobblerTimerSlider, SIGNAL(sliderMoved(int)), this, SLOT(setLastFmSpiner(int)));
 	connect(lastFmScrobblerTimerSlider, SIGNAL(sliderMoved(int)), Config::instance(), SLOT(setLastFmScrobblerTimer(int)));
 	connect(lastFmScrobblerTimerSpiner, SIGNAL(valueChanged(int)), Config::instance(), SLOT(setLastFmScrobblerTimer(int)));
+	connect(lastFmServerEdit, SIGNAL(textChanged(QString)), Config::instance(), SLOT(setLastFmServer(QString)));
 }
 
 PreferencesDialog::~PreferencesDialog() {
