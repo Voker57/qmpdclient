@@ -666,9 +666,9 @@ void PreferencesDialog::hashLastFmPassword() {
 }
 
 void PreferencesDialog::setLastFmSlider(int value) {
-    lastFmScrobblerTimerSlider->setValue(value);
+	lastFmScrobblerTimerSlider->setValue(value);
 }
 
 void PreferencesDialog::setLastFmSpiner(int value) {
-    lastFmScrobblerTimerSpiner->setValue(value);
+	lastFmScrobblerTimerSpiner->setValue(value);
 }
