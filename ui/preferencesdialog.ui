@@ -1838,6 +1838,24 @@ p, li { white-space: pre-wrap; }
                  <item>
                   <widget class="QLineEdit" name="lastFmServerEdit"/>
                  </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout_3">
+                   <item>
+                    <widget class="QPushButton" name="setLibreFmServerButton">
+                     <property name="text">
+                      <string>Last.fm</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="setLastFmServerButton">
+                     <property name="text">
+                      <string>Libre.fm</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
                 </layout>
                </widget>
               </item>
@@ -1954,8 +1972,8 @@ p, li { white-space: pre-wrap; }
    <slot>hashLastFmPassword()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>252</x>
-     <y>194</y>
+     <x>677</x>
+     <y>303</y>
     </hint>
     <hint type="destinationlabel">
      <x>254</x>
@@ -1963,8 +1981,42 @@ p, li { white-space: pre-wrap; }
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>setLibreFmServerButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>setLastFmServer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>538</x>
+     <y>540</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>441</x>
+     <y>6</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>setLastFmServerButton</sender>
+   <signal>clicked()</signal>
+   <receiver>PreferencesDialog</receiver>
+   <slot>setLibreFmServer()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>746</x>
+     <y>543</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>673</x>
+     <y>5</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>hashLastFmPassword()</slot>
+  <slot>setLibreFmServer()</slot>
+  <slot>setLastFmServer()</slot>
  </slots>
 </ui>

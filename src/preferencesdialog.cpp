@@ -672,3 +672,11 @@ void PreferencesDialog::setLastFmSlider(int value) {
 void PreferencesDialog::setLastFmSpiner(int value) {
 	lastFmScrobblerTimerSpiner->setValue(value);
 }
+
+void PreferencesDialog::setLastFmServer() {
+	lastFmServerEdit->setText("post.audioscrobbler.com");
+}
+
+void PreferencesDialog::setLibreFmServer() {
+	lastFmServerEdit->setText("turtle.libre.fm");
+}

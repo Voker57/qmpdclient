@@ -54,6 +54,8 @@ private slots:
 	void hashLastFmPassword();
 	void setLastFmSlider(int);
 	void setLastFmSpiner(int);
+	void setLastFmServer();
+	void setLibreFmServer();
 
 private:
 	void initCategoryList();
