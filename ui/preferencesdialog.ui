@@ -895,7 +895,7 @@
                  <string/>
                 </property>
                 <property name="text">
-                 <string>768</string>
+                 <string notr="true"/>
                 </property>
                </widget>
               </item>
