@@ -77,7 +77,7 @@
           </size>
          </property>
          <property name="currentIndex">
-          <number>15</number>
+          <number>8</number>
          </property>
          <widget class="QWidget" name="connectionPage">
           <layout class="QVBoxLayout">
@@ -882,6 +882,16 @@
                 </property>
                </widget>
               </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="coverMaxWidth">
+                <property name="inputMask">
+                 <string/>
+                </property>
+                <property name="text">
+                 <string>768</string>
+                </property>
+               </widget>
+              </item>
               <item row="2" column="0">
                <widget class="QLabel" name="label_13">
                 <property name="text">
@@ -898,13 +908,26 @@
                 </property>
                </widget>
               </item>
-              <item row="2" column="1">
-               <widget class="QLineEdit" name="coverMaxWidth">
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_15">
+                <property name="text">
+                 <string>Filename format:</string>
+                </property>
+                <property name="textFormat">
+                 <enum>Qt::PlainText</enum>
+                </property>
+                <property name="alignment">
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="coverFilenameFormat">
                 <property name="inputMask">
-                 <string/>
+                 <string notr="true"/>
                 </property>
                 <property name="text">
-                 <string>768</string>
+                 <string notr="true">*.jpg, *.jpeg, *.png, *.gif</string>
                 </property>
                </widget>
               </item>

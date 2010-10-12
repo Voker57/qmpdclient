@@ -66,6 +66,7 @@ public:
 	QString coverArtDir() const;
 	QString coverArtMaxHeight() const;
 	QString coverArtMaxWidth() const;
+	QString coverArtFilenameFormat() const;
 
 	// Shortcuts
 	QString shortcut(const QString &) const;
@@ -163,6 +164,7 @@ public slots:
 	void setCoverArtDir(const QString &);
 	void setCoverMaxHeight(const QString &);
 	void setCoverMaxWidth(const QString &);
+	void setCoverFilenameFormat(const QString &);
 
 	// Shortcuts
 	void setOriginalShortcut(const QString &action, const QString &shortcut);

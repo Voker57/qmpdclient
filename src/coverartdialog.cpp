@@ -40,7 +40,15 @@ void CoverArtDialog::setSong(const MPDSong &s) {
 
 	imageDir.setFilter(QDir::Files | QDir::Hidden | QDir::NoDotAndDotDot | QDir::Readable);
 	imageDir.setSorting(QDir::Name);
-	imageDir.setNameFilters(QStringList() << "*.jpg" << "*.jpeg" << "*.gif" << "*.png");
+	QStringList formatList = Config::instance()->coverArtFilenameFormat().split(',', QString::SkipEmptyParts);
+	QStringList::iterator it;
+	for (it = formatList.begin(); it != formatList.end(); ++it) {
+		*it = (*it).trimmed();
+	}
+	imageDir.setNameFilters(formatList);
+	if (imageDir.entryInfoList().count() == 0) {
+		imageDir.setNameFilters(QStringList() << "*.jpg" << "*.jpeg" << "*.gif" << "*.png");
+	}
 
 	const QString imageFile = imageDir.entryInfoList().value(0).absoluteFilePath();
 
