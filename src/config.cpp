@@ -186,6 +186,10 @@ void Config::setCoverMaxWidth(const QString &width) {
 	setValue("/coverart/max_width", width);
 }
 
+void Config::setCoverFilenameFormat(const QString &format) {
+	setValue("/coverart/filename_format", format);
+}
+
 void Config::setFont(const QFont &font) {
 	setValue("/looknfeel/font", font);
 	emit fontChanged(font);
@@ -244,6 +248,11 @@ QString Config::coverArtMaxHeight() const {
 QString Config::coverArtMaxWidth() const {
 	QString mw = value("/coverart/max_width", "768").toString();
 	return mw;
+}
+
+QString Config::coverArtFilenameFormat() const {
+	QString format = value("/coverart/filename_format", "*.jpg, *.jpeg, *.png, *.gif").toString();
+	return format;
 }
 
 bool Config::opaqueResize() const {
