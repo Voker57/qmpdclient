@@ -71,11 +71,11 @@ private:
 
 TrayIcon::TrayIcon(QWidget *parent) : QSystemTrayIcon(parent),
 #ifndef Q_WS_X11
-		m_connected(":/icons/qmpdclient16.png"),
-		m_disconnected(":/icons/qmpdclient16d.png")
+		m_connected(":/icons/16x16/qmpdclient.png"),
+		m_disconnected(":/icons/16x16/qmpdclientd.png")
 #else
-		m_connected(":/icons/qmpdclient22.png"),
-		m_disconnected(":/icons/qmpdclient22d.png")
+		m_connected(":/icons/22x22/qmpdclient.png"),
+		m_disconnected(":/icons/22x22/qmpdclientd.png")
 #endif
 {
 	setObjectName("trayicon");
@@ -161,7 +161,7 @@ void TrayIcon::setSong(const MPDSong &s) {
 		setToolTip(msg);
 #else
 		QString tooltip = "<html><body>";
-		tooltip += "<table><tr><td><img src=':/icons/qmpdclient48.png'></td><td valign='middle'>";
+		tooltip += "<table><tr><td><img src=':/icons/48x48/qmpdclient.png'></td><td valign='middle'>";
 		tooltip += QString("&nbsp;%1</td></tr></table>").arg(NAMEVER);
 		tooltip += QString("<b>%1</b>").arg(msg);
 		tooltip += "</body></html>";
@@ -175,7 +175,7 @@ void TrayIcon::setSong(const MPDSong &s) {
 	setToolTip(expandMacros(s, Config::instance()->playlistPattern()));
 #else
 	QString tooltip = "<html><body><table>";
-	tooltip += "<tr><td rowspan='%1' valign='middle'><img src=':/icons/qmpdclient48.png' /></td>";
+	tooltip += "<tr><td rowspan='%1' valign='middle'><img src=':/icons/48x48/qmpdclient.png' /></td>";
 	tooltip += "<td valign='middle' align='center'>%2</td></tr>";
 
 	// Make nice tooltip

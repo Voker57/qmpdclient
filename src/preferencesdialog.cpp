@@ -110,7 +110,7 @@ void PreferencesDialog::initCategoryList() {
 	d->shortcutsItem = new QTreeWidgetItem(categoryList);
 	d->tagguesserItem = new QTreeWidgetItem(categoryList);
 	d->trayIconItem = new QTreeWidgetItem(categoryList);
-	d->trayIconItem->setIcon(0, QIcon(":/icons/qmpdclient16.png"));
+	d->trayIconItem->setIcon(0, QIcon(":/icons/16x16/qmpdclient.png"));
 
 	// Make item-index relations
 	for (int i = 0, index = 0; i < categoryList->topLevelItemCount(); i++, index++) {

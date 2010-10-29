@@ -27,7 +27,7 @@ AboutDialog::AboutDialog(QWidget *parent) : QDialog(parent) {
 	setAttribute(Qt::WA_DeleteOnClose, true);
 
 	titleLabel->setText(NAMEVER);
-	pixmapLabel->setPixmap(QPixmap(":/icons/qmpdclient22.png"));
+	pixmapLabel->setPixmap(QPixmap(":/icons/22x22/qmpdclient.png"));
 
 	connect(okButton, SIGNAL(clicked()), this, SLOT(accept()));
 

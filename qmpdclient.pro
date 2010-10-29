@@ -225,9 +225,17 @@ unix {
 unix {
 	desktop_file.files = qmpdclient.desktop
 	desktop_file.path = $$PREFIX/share/applications
-	icons.files = icons/qmpdclient64.png
-	icons.path = $$PREFIX/share/icons
-	INSTALLS += desktop_file icons
+	icon64.files = icons/64x64/qmpdclient.png
+	icon64.path = $$PREFIX/share/icons/hicolor/64x64/apps/
+	icon48.files = icons/48x48/qmpdclient.png
+	icon48.path = $$PREFIX/share/icons/hicolor/48x48/apps/
+	icon22.files = icons/22x22/qmpdclient.png
+	icon22.path = $$PREFIX/share/icons/hicolor/22x22/apps/
+	icon16.files = icons/16x16/qmpdclient.png
+	icon16.path = $$PREFIX/share/icons/hicolor/16x16/apps/
+	iconsvg.files = icons/svg/qmpdclient.svg
+	iconsvg.path = $$PREFIX/share/icons/hicolor/scalable/apps/
+	INSTALLS += desktop_file icon64 icon48 icon22 icon16 iconsvg
 }
 translations.commands = lrelease $$TRANSLATIONS
 translations.files = lang/*.qm

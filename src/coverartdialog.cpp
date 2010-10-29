@@ -17,6 +17,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <QDir>
 #include "coverartdialog.h"
 #include "config.h"
 #include "mpdsong.h"
@@ -48,6 +49,7 @@ void CoverArtDialog::setSong(const MPDSong &s) {
 	if (imageDir.entryInfoList().count() == 0) {
 		imageDir.setNameFilters(QStringList() << "*.jpg" << "*.jpeg" << "*.gif" << "*.png");
 	}
+	
 	const QString imageFile = imageDir.entryInfoList().value(0).absoluteFilePath();
 
 	setWindowTitle(QString("file:/").append(imageFile));

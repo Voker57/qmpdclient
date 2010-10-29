@@ -63,7 +63,7 @@ void Notifications::notify(const QString &text) {
 		if (icon.height() > 64) icon = icon.scaledToHeight(64, Qt::SmoothTransformation);
 		if (icon.width() > 64) icon = icon.scaledToWidth(64, Qt::SmoothTransformation);
 	} else {
-		icon = QPixmap(":/icons/qmpdclient48.png");
+		icon = QPixmap(":/icons/48x48/qmpdclient.png");
 	}
 
 	PassivePopup::Position pos = static_cast<PassivePopup::Position>(Config::instance()->notificationsPosition());
