@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-find_package(Qt4 4.3.0 COMPONENTS QtCore QtGui QtNetwork REQUIRED QtDBus)
+find_package(Qt4 4.3.0 COMPONENTS QtCore QtGui QtNetwork REQUIRED QtDBus X11)
 SET (QT_USE_QTNETWORK TRUE)
 
 if(NOT DEFINED VERSION)
