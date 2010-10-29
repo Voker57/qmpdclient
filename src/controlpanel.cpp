@@ -20,7 +20,6 @@
 #include "config.h"
 #include "controlpanel.h"
 #include "coverartdialog.h"
-#include "lyricsdialog.h"
 #include "mpd.h"
 #include "mpdconnection.h"
 #include "mpdsong.h"
@@ -31,9 +30,8 @@
 #include <QUrl>
 
 ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent),
-		m_coverArt(new CoverArtDialog(this)), m_lyricsDialog(new LyricsDialog(this)) {
+		m_coverArt(new CoverArtDialog(this)) {
 	Q_ASSERT(m_coverArt);
-	Q_ASSERT(m_lyricsDialog);
 	setupUi(this);
 	coverArtButton->setVisible(false);
 
@@ -52,7 +50,6 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent),
 	connect(MPD::instance(), SIGNAL(playingSongUpdated(const MPDSong &)), this, SLOT(setSong(const MPDSong &)));
 	connect(Config::instance(), SIGNAL(showCoverArtChanged(bool)), this, SLOT(showCoverArtChanged(bool)));
 	connect(coverArtButton, SIGNAL(clicked()), m_coverArt, SLOT(show()));
-	connect(lyricsButton, SIGNAL(clicked()), m_lyricsDialog, SLOT(show()));
 
 	// Short cuts
 	m_fwdKey = new QShortcut(Qt::CTRL | Qt::Key_Right, this);
@@ -105,8 +102,6 @@ void ControlPanel::setSong(const MPDSong &s) {
 	titleLabel->setText(title);
 	artistLabel->setText(artist);
 
-	m_lyricsDialog->setSong(s);
-	if(!m_lyricsDialog->isHidden()) m_lyricsDialog->updateLyrics();
 	if (Config::instance()->showCoverArt()) {
 		m_coverArt->setSong(s);
 		if (m_coverArt->hasCoverArt()) {

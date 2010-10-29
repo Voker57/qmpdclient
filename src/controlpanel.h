@@ -23,7 +23,6 @@
 #include "ui_controlpanel.h"
 
 class CoverArtDialog;
-class LyricsDialog;
 class MPDSong;
 class QShortcut;
 
@@ -41,7 +40,6 @@ private slots:
 
 private:
 	CoverArtDialog *m_coverArt;
-	LyricsDialog *m_lyricsDialog;
 	QShortcut *m_fwdKey, *m_rwdKey, *m_volUpKey, *m_volDnKey;
 };
 #endif

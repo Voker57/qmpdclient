@@ -36,7 +36,6 @@ FORMS += \
 	ui/playlistspanel.ui \
    	ui/preferencesdialog.ui \
 	ui/radiopanel.ui \
-	ui/lyricsdialog.ui
 
 HEADERS += \
 	src/aafilter.h \
@@ -51,7 +50,6 @@ HEADERS += \
    	src/config.h \
 	src/controlpanel.h \
 	src/coverartdialog.h \
-	src/lyricsdialog.h \
 	src/debug.h \
    	src/directorymodel.h \
 	src/directorypanel.h \
@@ -123,7 +121,6 @@ SOURCES += \
    	src/config.cpp \
 	src/controlpanel.cpp \
 	src/coverartdialog.cpp \
-	src/lyricsdialog.cpp \
    	src/directorymodel.cpp \
 	src/directorypanel.cpp \
    	src/directoryview.cpp \

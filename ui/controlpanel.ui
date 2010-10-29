@@ -281,13 +281,6 @@
      </property>
     </spacer>
    </item>
-   <item rowspan="2" row="0" column="7" >
-    <widget class="QPushButton" name="lyricsButton" >
-     <property name="text" >
-      <string>Lyrics</string>
-     </property>
-    </widget>
-   </item>
   </layout>
  </widget>
  <customwidgets>

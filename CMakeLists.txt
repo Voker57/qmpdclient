@@ -40,7 +40,6 @@ set(QMPDClient_srcs
 	src/libmpdclient.c
 	src/librarypanel.cpp
 	src/lineedit.cpp
-	src/lyricsdialog.cpp
 	src/mainwindow.cpp
 	src/metainfodialog.cpp
 	src/mpdcache.cpp
@@ -116,7 +115,6 @@ set(QMPDClient_hdrs
 	src/libmpdclient.h
 	src/librarypanel.h
 	src/lineedit.h
-	src/lyricsdialog.h
 	src/macroexpander.h
 	src/mainwindow.h
 	src/metainfodialog.h
@@ -171,7 +169,6 @@ SET(QMPDClient_uis
 	ui/coverartdialog.ui
 	ui/directorypanel.ui
 	ui/librarypanel.ui
-	ui/lyricsdialog.ui
 	ui/mainwindow.ui
 	ui/metainfodialog.ui
 	ui/playlistpanel.ui
