@@ -81,12 +81,12 @@
         <file>icons/oxygen/view-media-playlist.png</file>
         <file>icons/oxygen/view-refresh.png</file>
         <file>icons/oxygen/x-media-podcast.png</file>
-        <file>icons/qmpdclient16.png</file>
-        <file>icons/qmpdclient16d.png</file>
-        <file>icons/qmpdclient22.png</file>
-        <file>icons/qmpdclient22d.png</file>
-        <file>icons/qmpdclient48.png</file>
-        <file>icons/qmpdclient64.png</file>
+        <file>icons/16x16/qmpdclient.png</file>
+        <file>icons/16x16/qmpdclientd.png</file>
+        <file>icons/22x22/qmpdclient.png</file>
+        <file>icons/22x22/qmpdclientd.png</file>
+        <file>icons/48x48/qmpdclient.png</file>
+        <file>icons/64x64/qmpdclient.png</file>
         <file>icons/svg/qmpdclient.svg</file>
     </qresource>
 </RCC>

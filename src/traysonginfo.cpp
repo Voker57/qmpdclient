@@ -16,7 +16,7 @@ void TraySongInfo::initializeGui() {
 	QGridLayout *ly = new QGridLayout(this);
 	//
 	lblMpdClientLogo = new QLabel(this);
-	lblMpdClientLogo->setPixmap(QPixmap(":/icons/qmpdclient48.png"));
+	lblMpdClientLogo->setPixmap(QPixmap(":/icons/48x48/qmpdclient.png"));
 	ly->addWidget(lblMpdClientLogo, 0, 0, 2, 1);
 
 	lblSongInfo = new QLabel(this);

@@ -49,7 +49,7 @@ void CoverArtDialog::setSong(const MPDSong &s) {
 	if (imageDir.entryInfoList().count() == 0) {
 		imageDir.setNameFilters(QStringList() << "*.jpg" << "*.jpeg" << "*.gif" << "*.png");
 	}
-
+	
 	const QString imageFile = imageDir.entryInfoList().value(0).absoluteFilePath();
 
 	setWindowTitle(QString("file:/").append(imageFile));

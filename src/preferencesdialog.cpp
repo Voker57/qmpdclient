@@ -114,7 +114,7 @@ void PreferencesDialog::initCategoryList() {
 	d->shortcutsItem = new QTreeWidgetItem(categoryList);
 	d->tagguesserItem = new QTreeWidgetItem(categoryList);
 	d->trayIconItem = new QTreeWidgetItem(categoryList);
-	d->trayIconItem->setIcon(0, QIcon(":/icons/qmpdclient16.png"));
+	d->trayIconItem->setIcon(0, QIcon(":/icons/16x16/qmpdclient.png"));
 	d->lastFmItem = new QTreeWidgetItem(categoryList);
 	d->lastFmItem->setIcon(0, QIcon(":/icons/as.png"));
 

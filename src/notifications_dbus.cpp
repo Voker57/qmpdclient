@@ -43,7 +43,7 @@ bool Notifications::notifyDBus(const QString &text) {
 	QString member = "Notify";
 	QVariantList params;
 	params << qApp->applicationName() << static_cast<unsigned int>(0);
-	params << "/home/h/Projects/qmpdclient/qmpdclient/icons/qmpdclient22.png";
+	params << "/usr/share/icons/hicolor/22x22/apps/qmpdclient.png";
 	params << qApp->applicationName() << text;
 	params << QStringList() << QMap<QString, QVariant>() << Config::instance()->notificationsTimeout()*1000;
 	QDBusMessage reply = m_interface->callWithArgumentList(QDBus::Block, member, params);
