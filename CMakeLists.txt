@@ -235,6 +235,7 @@ include_directories (${CMAKE_CURRENT_BINARY_DIR}
 SET (TRANSLATIONS
 	lang/cs_CZ.ts
 	lang/de_DE.ts
+	lang/es_ES.ts
 	lang/fr_FR.ts
 	lang/it_IT.ts
 	lang/nl_NL.ts
@@ -251,6 +252,7 @@ SET (TRANSLATIONS
 SET (COMPILED_TRANSLATIONS
 	lang/cs_CZ.qm
 	lang/de_DE.qm
+	lang/es_ES.qm
 	lang/fr_FR.qm
 	lang/it_IT.qm
 	lang/nl_NL.qm

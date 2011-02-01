@@ -190,7 +190,7 @@ SOURCES += src/aafilter.cpp \
 
 # translations
 LANG_PATH = $$PWD/lang
-TRANSLATIONS = $$LANG_PATH/ru_RU.ts $$LANG_PATH/de_DE.ts  $$LANG_PATH/it_IT.ts  $$LANG_PATH/nn_NO.ts $$LANG_PATH/pt_BR.ts  $$LANG_PATH/sv_SE.ts  $$LANG_PATH/uk_UA.ts  $$LANG_PATH/zh_TW.ts $$LANG_PATH/fr_FR.ts $$LANG_PATH/nl_NL.ts $$LANG_PATH/no_NO.ts   $$LANG_PATH/tr_TR.ts  $$LANG_PATH/zh_CN.ts $$LANG_PATH/cs_CZ.ts
+TRANSLATIONS = $$LANG_PATH/ru_RU.ts $$LANG_PATH/de_DE.ts  $$LANG_PATH/it_IT.ts  $$LANG_PATH/nn_NO.ts $$LANG_PATH/pt_BR.ts  $$LANG_PATH/sv_SE.ts  $$LANG_PATH/uk_UA.ts  $$LANG_PATH/zh_TW.ts $$LANG_PATH/fr_FR.ts $$LANG_PATH/nl_NL.ts $$LANG_PATH/no_NO.ts   $$LANG_PATH/tr_TR.ts  $$LANG_PATH/zh_CN.ts $$LANG_PATH/cs_CZ.ts $$LANG_PATH/es_ES.ts
 
 MOC_DIR = .moc
 OBJECTS_DIR = .obj
@@ -251,7 +251,7 @@ unix {
 	INSTALLS += desktop_file icon64 icon48 icon22 icon16 iconsvg
 }
 translations.commands = lrelease $$TRANSLATIONS
-translations.files = lang/*.qm
+translations.files = lang/cs_CZ.qm lang/de_DE.qm lang/es_ES.qm lang/fr_FR.qm lang/it_IT.qm lang/nl_NL.qm lang/nn_NO.qm lang/no_NO.qm lang/pt_BR.qm lang/ru_RU.qm lang/sv_SE.qm lang/tr_TR.qm lang/uk_UA.qm lang/zh_CN.qm lang/zh_TW.qm
 translations.path = $$PREFIX/share/QMPDClient/translations
 
 INSTALLS += translations
