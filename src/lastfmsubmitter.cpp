@@ -211,6 +211,13 @@ void LastFmSubmitter::doHandshake() {
 
 void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 	//qDebug("gotNetReply...");
+
+	if (reply->error() != QNetworkReply::NoError)
+	{
+		//qDebug() << "Error:" << reply->errorString();
+		return;
+	}
+
 	QStringList data = QString(reply->readAll()).split("\n");
 	if(data.size()==0)
 		return;
