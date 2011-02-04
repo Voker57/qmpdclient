@@ -185,6 +185,7 @@ QUrl LastFmSubmitter::handshakeUrl() {
 	QUrl url = QUrl();
 	url.setScheme("http");
 	url.setHost(Config::instance()->lastFmServer());
+	url.setPath("/");
 	return url;
 }
 
