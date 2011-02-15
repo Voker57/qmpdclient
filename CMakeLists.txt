@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
+find_package(X11 REQUIRED)
 find_package(Qt4 4.4.0 COMPONENTS QtCore QtGui QtNetwork QtXml QtXmlPatterns REQUIRED QtDBus X11)
 
 SET (QT_USE_QTNETWORK TRUE)
@@ -278,7 +279,7 @@ add_definitions(-DNAMEVER="${NAMEVER}" -DPREFIX="${CMAKE_INSTALL_PREFIX}" -DVERS
 
 add_executable(qmpdclient ${QMPDClient_srcs} ${QMPDClient_ppd_hdrs} ${QMPDClient_ppd_uis} ${QMPDClient_ppd_res} ${COMPILED_TRANSLATIONS})
 
-target_link_libraries(qmpdclient ${QT_LIBRARIES})
+target_link_libraries(qmpdclient ${X11_X11_LIB} ${QT_LIBRARIES})
 
 install(TARGETS qmpdclient DESTINATION bin)
 if(UNIX)
