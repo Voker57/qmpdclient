@@ -210,7 +210,7 @@ win32 {
 unix {
     !mac {
         SOURCES += src/qmpdclient_x11.cpp
-
+        LIBS += -lX11
         # Check for dbus support
         contains(QT_CONFIG, dbus) {
             message(DBus: enabled)
