@@ -24,6 +24,8 @@
 
 LyricsDialog::LyricsDialog(QWidget *parent) : QDialog(parent) {
 	setupUi(this);
+	m_lyricsManager = new QNetworkAccessManager(this);
+	m_lyricsReply = 0;
 }
 
 void LyricsDialog::show() {
@@ -32,16 +34,42 @@ void LyricsDialog::show() {
 }
 
 void LyricsDialog::updateLyrics() {
+	if(m_lyricsReply)
+	{
+		m_lyricsReply->abort();
+		m_lyricsReply = 0;
+	}
 	setWindowTitle(QString("Lyrics: %1 by %2").arg(m_title, m_artist));
 	artistEdit->setText(m_artist);
 	titleEdit->setText(m_title);
 	lyricsBrowser->setHtml(tr("Getting lyrics from server..."));
-	QUrl req("http://www.lyricsplugin.com/winamp03/plugin/");
-	req.addQueryItem("artist", m_artist);
-	req.addQueryItem("title", m_title);
-	lyricsBrowser->setUrl(req);
+	QByteArray ba_artist = QUrl::toPercentEncoding(m_artist.replace(" ", "_"));
+	QByteArray ba_title = QUrl::toPercentEncoding(m_title.replace(" ", "_"));
+	QUrl url(QString("http://lyrics.wikia.com/" + QString(ba_artist) + ":" + QString(ba_title)));
+	m_lyricsReply = m_lyricsManager->get(QNetworkRequest(url));
+	connect(m_lyricsReply, SIGNAL(finished()), this, SLOT(updateLyricsText()));
+	connect(m_lyricsReply, SIGNAL(error(QNetworkReply::NetworkError)), this, SLOT(errorLyricsText(QNetworkReply::NetworkError)));
+
 }
 
+void LyricsDialog::updateLyricsText() {
+	QString html = QString(((QNetworkReply *)sender())->readAll());
+	QRegExp wittyRegexp("<div class='lyricbox'><div class='rtMatcher'>.*</div>(.*)<!--");
+	wittyRegexp.setMinimal(true);
+	if(wittyRegexp.indexIn(html) > -1)
+	{
+		lyricsBrowser->setText(wittyRegexp.cap(1));
+	} else
+	{
+		lyricsBrowser->setText(QString("No text found"));
+	}
+	m_lyricsReply = 0;
+}
+
+void LyricsDialog::errorLyricsText(QNetworkReply::NetworkError code) {
+	lyricsBrowser->setText(QString("Error retrieving lyrics (%1)").arg(code));
+	m_lyricsReply = 0;
+}
 
 void LyricsDialog::setSong(const MPDSong &s) {
 	m_artist=s.artist();

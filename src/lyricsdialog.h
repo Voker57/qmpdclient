@@ -22,6 +22,8 @@
 #define LYRICS_DIALOG_H
 
 #include "ui_lyricsdialog.h"
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
 
 class MPDSong;
 
@@ -33,8 +35,12 @@ public:
 	void updateLyrics();
 private:
 	QString m_artist, m_title;
+	QNetworkReply *m_lyricsReply;
+	QNetworkAccessManager *m_lyricsManager;
 public slots:
 	void show();
+	void updateLyricsText();
+	void errorLyricsText(QNetworkReply::NetworkError);
 private slots:
 	void setUserSong();
 };
