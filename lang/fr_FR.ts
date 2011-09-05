@@ -5,12 +5,12 @@
     <message>
         <location filename="../ui/aboutdialog.ui" line="15"/>
         <source>About QMPDClient</source>
-        <translation>Ã propos de QMPDClient</translation>
+        <translation>À propos de QMPDClient</translation>
     </message>
     <message>
         <location filename="../ui/aboutdialog.ui" line="71"/>
         <source>&amp;About</source>
-        <translation>&amp;Ã Propos</translation>
+        <translation>&amp;À Propos</translation>
     </message>
     <message>
         <location filename="../ui/aboutdialog.ui" line="87"/>
@@ -38,7 +38,7 @@
     <message>
         <location filename="../src/abstractview_impl.h" line="96"/>
         <source>Not connected</source>
-        <translation>Non connectÃ©</translation>
+        <translation>Non connecté</translation>
     </message>
 </context>
 <context>
@@ -95,12 +95,12 @@
         <location filename="../src/controlpanel.cpp" line="89"/>
         <source>Not connected</source>
         <comment>qmpdclient is not connected to MPD</comment>
-        <translation>Non connectÃ©</translation>
+        <translation>Non connecté</translation>
     </message>
     <message>
         <location filename="../ui/controlpanel.ui" line="39"/>
         <source>Skip to previous song</source>
-        <translation>Morceau prÃ©cÃ©dent</translation>
+        <translation>Morceau précédent</translation>
     </message>
     <message>
         <location filename="../ui/controlpanel.ui" line="42"/>
@@ -182,7 +182,7 @@
     <message>
         <location filename="../src/directoryview.cpp" line="59"/>
         <source>&amp;Rescan directory</source>
-        <translation>&amp;Rescanner rÃ©pertoire</translation>
+        <translation>&amp;Rescanner répertoire</translation>
     </message>
     <message>
         <location filename="../src/directoryview.cpp" line="60"/>
@@ -416,12 +416,12 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="124"/>
         <source>&amp;About...</source>
-        <translation>Ã &amp;Propos...</translation>
+        <translation>À &amp;Propos...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="127"/>
         <source>About...</source>
-        <translation>Ã Propos...</translation>
+        <translation>À Propos...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="130"/>
@@ -431,12 +431,12 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="135"/>
         <source>About &amp;Qt...</source>
-        <translation>Ã Propos de &amp;Qt...</translation>
+        <translation>À Propos de &amp;Qt...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="138"/>
         <source>About Qt...</source>
-        <translation>Ã Propos de Qt...</translation>
+        <translation>À Propos de Qt...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="141"/>
@@ -451,7 +451,7 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="152"/>
         <source>Disconnect from server</source>
-        <translation>DÃ©connexion du serveur</translation>
+        <translation>Déconnexion du serveur</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="155"/>
@@ -476,12 +476,12 @@
     <message>
         <location filename="../ui/mainwindow.ui" line="174"/>
         <source>&amp;Preferences...</source>
-        <translation>&amp;PrÃ©fÃ©rences...</translation>
+        <translation>&amp;Préférences...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="180"/>
         <source>Show preferences dialog...</source>
-        <translation>Voir l&apos;Ã©cran des prÃ©fÃ©rences...</translation>
+        <translation>Voir l&apos;écran des préférences...</translation>
     </message>
     <message>
         <location filename="../ui/mainwindow.ui" line="183"/>
@@ -545,7 +545,7 @@
     <message>
         <location filename="../ui/metainfodialog.ui" line="195"/>
         <source>Length:</source>
-        <translation>DurÃ©e:</translation>
+        <translation>Durée:</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="216"/>
@@ -580,12 +580,12 @@
     <message>
         <location filename="../ui/metainfodialog.ui" line="272"/>
         <source>Performer:</source>
-        <translation>InterprÃšte:</translation>
+        <translation>Interprète:</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="330"/>
         <source>&amp;Previous</source>
-        <translation>&amp;PrÃ©cÃ©dent</translation>
+        <translation>&amp;Précédent</translation>
     </message>
     <message>
         <location filename="../ui/metainfodialog.ui" line="343"/>
@@ -603,12 +603,12 @@
     <message>
         <location filename="../ui/playlistpanel.ui" line="55"/>
         <source>Toggle random mode</source>
-        <translation>Basculer le mode alÃ©atoire</translation>
+        <translation>Basculer le mode aléatoire</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="68"/>
         <source>Toggle repeat playlist</source>
-        <translation>Basculer la rÃ©pÃ©tition de la liste de lecture</translation>
+        <translation>Basculer la répétition de la liste de lecture</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="97"/>
@@ -618,7 +618,7 @@
     <message>
         <location filename="../ui/playlistpanel.ui" line="110"/>
         <source>Shuffle playlist</source>
-        <translation>DÃ©sordonner la liste de lecture</translation>
+        <translation>Désordonner la liste de lecture</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="123"/>
@@ -628,12 +628,12 @@
     <message>
         <location filename="../ui/playlistpanel.ui" line="155"/>
         <source>Remove selected songs from playlist</source>
-        <translation>Enlever les morceaux sÃ©lectionnÃ©s de la liste de lecture</translation>
+        <translation>Enlever les morceaux sélectionnés de la liste de lecture</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="168"/>
         <source>Remove all but selected songs from playlist</source>
-        <translation>Tout enlever sauf les morceaux sÃ©lectionnÃ©s de la liste de lecture</translation>
+        <translation>Tout enlever sauf les morceaux sélectionnés de la liste de lecture</translation>
     </message>
     <message>
         <location filename="../ui/playlistpanel.ui" line="178"/>
@@ -646,7 +646,7 @@
     <message>
         <location filename="../src/playlistview.cpp" line="97"/>
         <source>&amp;Crop playlist</source>
-        <translation>RÃ©&amp;colter la liste de lecture</translation>
+        <translation>Ré&amp;colter la liste de lecture</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="98"/>
@@ -667,7 +667,7 @@
     <message>
         <location filename="../src/playlistview.cpp" line="101"/>
         <source>Ra&amp;ndom play</source>
-        <translation>Lecture alÃ©at&amp;oire</translation>
+        <translation>Lecture aléat&amp;oire</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="102"/>
@@ -692,12 +692,12 @@
     <message>
         <location filename="../src/playlistview.cpp" line="106"/>
         <source>S&amp;huffle playlist</source>
-        <translation>&amp;MÃ©langer la liste de lecture</translation>
+        <translation>&amp;Mélanger la liste de lecture</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="107"/>
         <source>Add to queue</source>
-        <translation>Ajouter Ã  la file d&apos;attente</translation>
+        <translation>Ajouter à la file d&apos;attente</translation>
     </message>
     <message>
         <location filename="../src/playlistview.cpp" line="108"/>
@@ -723,7 +723,7 @@
         <location filename="../src/playlistview.cpp" line="212"/>
         <source>A playlist with that name already exists.
 Please use another name:</source>
-        <translation>Une liste de lecture de ce nom existe dÃ©ja.
+        <translation>Une liste de lecture de ce nom existe déja.
 Utilisez un autre nom:</translation>
     </message>
     <message>
@@ -753,7 +753,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/playlistspanel.ui" line="194"/>
         <source>Delete selected playlists</source>
-        <translation>Effacer les listes de lecture sÃ©lectionnÃ©es</translation>
+        <translation>Effacer les listes de lecture sélectionnées</translation>
     </message>
     <message>
         <location filename="../ui/playlistspanel.ui" line="197"/>
@@ -786,12 +786,12 @@ Overwrite?</source>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="484"/>
         <source>Default style</source>
-        <translation>Style par dÃ©faut</translation>
+        <translation>Style par défaut</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="486"/>
         <source>Use system locale</source>
-        <translation>Utiliser la localisation systÃšme</translation>
+        <translation>Utiliser la localisation système</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="454"/>
@@ -811,7 +811,7 @@ Overwrite?</source>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="457"/>
         <source>Directories</source>
-        <translation>RÃ©pertoires</translation>
+        <translation>Répertoires</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="458"/>
@@ -846,7 +846,7 @@ Overwrite?</source>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="465"/>
         <source>Tag guesser</source>
-        <translation>Devineur d&apos;Ã©tiquettes</translation>
+        <translation>Devineur d&apos;étiquettes</translation>
     </message>
     <message>
         <location filename="../src/preferencesdialog.cpp" line="466"/>
@@ -916,7 +916,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="14"/>
         <source>Preferences</source>
-        <translation>PrÃ©fÃ©rences</translation>
+        <translation>Préférences</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="87"/>
@@ -936,12 +936,12 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="166"/>
         <source>A&amp;uto connect to first server on startup</source>
-        <translation>Connexion a&amp;utomatique au premier serveur lors du dÃ©marage</translation>
+        <translation>Connexion a&amp;utomatique au premier serveur lors du démarage</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="181"/>
         <source>Connection &amp;timeout:</source>
-        <translation>DÃ©lai de conne&amp;xion:</translation>
+        <translation>Délai de conne&amp;xion:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1127"/>
@@ -966,7 +966,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="324"/>
         <source>Cro&amp;ssfade for:</source>
-        <translation>DurÃ©e du f&amp;ondu:</translation>
+        <translation>Durée du f&amp;ondu:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="386"/>
@@ -976,7 +976,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="405"/>
         <source>Enabled</source>
-        <translation>ActivÃ©</translation>
+        <translation>Activé</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="410"/>
@@ -1011,7 +1011,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="503"/>
         <source>Opa&amp;que splitter resizing</source>
-        <translation>Redimentionnement opa&amp;que des sÃ©parations</translation>
+        <translation>Redimensionnement opa&amp;que des séparations</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="534"/>
@@ -1031,22 +1031,22 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="592"/>
         <source>selected &amp;artist and album</source>
-        <translation>&amp;artiste et album sÃ©lectionnÃ©s</translation>
+        <translation>&amp;artiste et album sélectionnés</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="599"/>
         <source>selected al&amp;bum only</source>
-        <translation>al&amp;bum sÃ©lectionnÃ© uniquement</translation>
+        <translation>al&amp;bum sélectionné uniquement</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="625"/>
         <source>&amp;Show &apos;All&apos; and &apos;Not tagged&apos; (Slow)</source>
-        <translation>&amp;Montrer &apos;Tous&apos; et &apos;Non annotÃ©s&apos; (Lent)</translation>
+        <translation>&amp;Montrer &apos;Tous&apos; et &apos;Non annotés&apos; (Lent)</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="655"/>
         <source>&amp;Recursive directory view (Slow)</source>
-        <translation>Vue &amp;rÃ©cursive des rÃ©pertoires (Lent)</translation>
+        <translation>Vue &amp;récursive des répertoires (Lent)</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="685"/>
@@ -1066,7 +1066,7 @@ Overwrite?</source>
     <message>
         <location filename="ui/preferencesdialog.ui" line="846"/>
         <source>A&amp;dd random songs to playlist</source>
-        <translation type="obsolete">Ajo&amp;uter des morceaux alÃ©atoires Ã  la liste de lecture</translation>
+        <translation type="obsolete">Ajo&amp;uter des morceaux aléatoires à la liste de lecture</translation>
     </message>
     <message>
         <location filename="ui/preferencesdialog.ui" line="861"/>
@@ -1076,7 +1076,7 @@ Overwrite?</source>
     <message>
         <location filename="ui/preferencesdialog.ui" line="881"/>
         <source>&amp;Number of songs to add:</source>
-        <translation type="obsolete">&amp;Nombre de morceaux Ã  ajouter:</translation>
+        <translation type="obsolete">&amp;Nombre de morceaux à ajouter:</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="980"/>
@@ -1156,7 +1156,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1432"/>
         <source>&amp;Enable tag guesser</source>
-        <translation>Activ&amp;er le devineur d&apos;Ã©tiquettes</translation>
+        <translation>Activ&amp;er le devineur d&apos;étiquettes</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1450"/>
@@ -1178,7 +1178,7 @@ Overwrite?</source>
 </source>
         <translation>%b = Groupe/Artiste
 %a = Album
-%n = NumÃ©ro de piste
+%n = Numéro de piste
 %t = Titre
 %i = Ignorer cette parti du nom de fichier
 </translation>
@@ -1186,7 +1186,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1501"/>
         <source>Guess results</source>
-        <translation>RÃ©sultats des devinettes</translation>
+        <translation>Résultats des devinettes</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1513"/>
@@ -1221,7 +1221,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1589"/>
         <source>Start QMPDClient &amp;hidden</source>
-        <translation>DÃ©marer QMPDClient cac&amp;hÃ©</translation>
+        <translation>Démarrer QMPDClient cac&amp;hé</translation>
     </message>
     <message>
         <location filename="../ui/preferencesdialog.ui" line="1718"/>
@@ -1290,7 +1290,7 @@ Overwrite?</source>
         <location filename="../src/directorymodel.cpp" line="64"/>
         <source>Directory</source>
         <comment>This is used as the header of directory-tree in directory view</comment>
-        <translation>RÃ©pertoire</translation>
+        <translation>Répertoire</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="150"/>
@@ -1315,7 +1315,7 @@ Overwrite?</source>
     <message>
         <location filename="../src/headerview.cpp" line="158"/>
         <source>Length</source>
-        <translation>DurÃ©e</translation>
+        <translation>Durée</translation>
     </message>
     <message>
         <location filename="../src/headerview.cpp" line="160"/>
@@ -1355,7 +1355,7 @@ Overwrite?</source>
     <message>
         <location filename="../src/headerview.cpp" line="174"/>
         <source>Performer</source>
-        <translation>InterprÃšte</translation>
+        <translation>Interprète</translation>
     </message>
     <message>
         <location filename="../src/mpddirectory.cpp" line="158"/>
@@ -1407,7 +1407,7 @@ Overwrite?</source>
         <location filename="../src/stringlistmodel.cpp" line="51"/>
         <source>Not tagged</source>
         <comment>This is the second item in the artist and album views, meaning &quot;Songs belonging to no artist or no albums&quot;</comment>
-        <translation>Aucune Ã©tiquette</translation>
+        <translation>Aucune étiquette</translation>
     </message>
     <message>
         <location filename="../src/stringlistmodel.cpp" line="49"/>
@@ -1423,7 +1423,7 @@ Overwrite?</source>
     <message>
         <location filename="../src/trayicon.cpp" line="185"/>
         <source>Not tagged</source>
-        <translation type="unfinished">Aucune Ã©tiquette</translation>
+        <translation type="unfinished">Aucune étiquette</translation>
     </message>
 </context>
 <context>
@@ -1446,7 +1446,7 @@ Overwrite?</source>
     <message>
         <location filename="../ui/radiopanel.ui" line="140"/>
         <source>Delete selected radio stations</source>
-        <translation>Effacer les radios sÃ©lectionnÃ©es</translation>
+        <translation>Effacer les radios sélectionnées</translation>
     </message>
     <message>
         <location filename="../ui/radiopanel.ui" line="143"/>
@@ -1514,7 +1514,7 @@ Overwrite?</source>
     <message>
         <location filename="../src/trayicon.cpp" line="133"/>
         <source>Previuos</source>
-        <translation>PrÃ©cÃ©dent</translation>
+        <translation>Précédent</translation>
     </message>
     <message>
         <location filename="../src/trayicon.cpp" line="134"/>
@@ -1545,7 +1545,7 @@ Overwrite?</source>
         <location filename="../src/trayicon.cpp" line="151"/>
         <source>Not playing</source>
         <comment>This is for the trayicon tooltip, indicating that no song is playing</comment>
-        <translation>Ã l&apos;arret</translation>
+        <translation>À l&apos;arret</translation>
     </message>
     <message>
         <location filename="../src/trayicon.cpp" line="139"/>
