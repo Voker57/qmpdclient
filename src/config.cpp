@@ -677,7 +677,7 @@ bool Config::lastFmHashedPassword() const {
 }
 
 int Config::lastFmScrobblerTimer() const {
-	return value("/lastfm/scrobblertimer").toInt();
+	return value("/lastfm/scrobblertimer", 50).toInt();
 }
 
 void Config::setSubmitSongsToLastFm(bool b) {
