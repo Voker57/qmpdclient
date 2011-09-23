@@ -222,6 +222,7 @@ signals:
 	void trayIconChanged(bool);
 	void autoAddSongsChanged(bool);
 	void autoAddAlbumsChanged(bool);
+	void submitSongsToLastFmChanged(bool);
 
 private:
 	Config();

@@ -681,6 +681,7 @@ int Config::lastFmScrobblerTimer() const {
 }
 
 void Config::setSubmitSongsToLastFm(bool b) {
+	emit submitSongsToLastFmChanged(b);
 	setValue("/lastfm/submit", b);
 }
 

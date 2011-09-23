@@ -1,7 +1,8 @@
-<ui version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>ControlPanel</class>
- <widget class="QWidget" name="ControlPanel" >
-  <property name="geometry" >
+ <widget class="QWidget" name="ControlPanel">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
@@ -9,141 +10,141 @@
     <height>63</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string/>
   </property>
-  <layout class="QGridLayout" >
-   <property name="margin" >
+  <layout class="QGridLayout">
+   <property name="margin">
     <number>1</number>
    </property>
-   <property name="spacing" >
+   <property name="spacing">
     <number>0</number>
    </property>
-   <item row="0" column="0" >
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+   <item row="0" column="0">
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="margin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
-      <widget class="QToolButton" name="prevButton" >
-       <property name="minimumSize" >
+      <widget class="QToolButton" name="prevButton">
+       <property name="minimumSize">
         <size>
          <width>42</width>
          <height>28</height>
         </size>
        </property>
-       <property name="whatsThis" >
+       <property name="whatsThis">
         <string>Skip to previous song</string>
        </property>
-       <property name="shortcut" >
+       <property name="shortcut">
         <string>Ctrl+PgUp</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="playButton" >
-       <property name="minimumSize" >
+      <widget class="QToolButton" name="playButton">
+       <property name="minimumSize">
         <size>
          <width>42</width>
          <height>28</height>
         </size>
        </property>
-       <property name="whatsThis" >
+       <property name="whatsThis">
         <string>Play</string>
        </property>
-       <property name="shortcut" >
+       <property name="shortcut">
         <string>Ctrl+Ins</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="pauseButton" >
-       <property name="minimumSize" >
+      <widget class="QToolButton" name="pauseButton">
+       <property name="minimumSize">
         <size>
          <width>42</width>
          <height>28</height>
         </size>
        </property>
-       <property name="whatsThis" >
+       <property name="whatsThis">
         <string>Pause</string>
        </property>
-       <property name="shortcut" >
+       <property name="shortcut">
         <string>Ctrl+Home</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="stopButton" >
-       <property name="minimumSize" >
+      <widget class="QToolButton" name="stopButton">
+       <property name="minimumSize">
         <size>
          <width>42</width>
          <height>28</height>
         </size>
        </property>
-       <property name="whatsThis" >
+       <property name="whatsThis">
         <string>Stop</string>
        </property>
-       <property name="shortcut" >
+       <property name="shortcut">
         <string>Ctrl+End</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QToolButton" name="nextButton" >
-       <property name="minimumSize" >
+      <widget class="QToolButton" name="nextButton">
+       <property name="minimumSize">
         <size>
          <width>42</width>
          <height>28</height>
         </size>
        </property>
-       <property name="whatsThis" >
+       <property name="whatsThis">
         <string>Skip to next song</string>
        </property>
-       <property name="shortcut" >
+       <property name="shortcut">
         <string>Ctrl+PgDown</string>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="0" column="11" >
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+   <item row="0" column="11">
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="margin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
-      <widget class="QLabel" name="volumeLabel" />
+      <widget class="QLabel" name="volumeLabel"/>
      </item>
      <item>
-      <widget class="QSlider" name="volumeSlider" >
-       <property name="maximum" >
+      <widget class="QSlider" name="volumeSlider">
+       <property name="maximum">
         <number>100</number>
        </property>
-       <property name="orientation" >
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
     </layout>
    </item>
-   <item row="1" column="0" >
-    <layout class="QHBoxLayout" >
-     <property name="spacing" >
+   <item row="2" column="0">
+    <layout class="QHBoxLayout">
+     <property name="spacing">
       <number>6</number>
      </property>
-     <property name="margin" >
+     <property name="margin">
       <number>0</number>
      </property>
      <item>
-      <widget class="QLabel" name="timeLabel" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Minimum" hsizetype="Minimum" >
+      <widget class="QLabel" name="timeLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -151,19 +152,19 @@
       </widget>
      </item>
      <item>
-      <widget class="TimeLabel" name="elapsedLabel" />
+      <widget class="TimeLabel" name="elapsedLabel"/>
      </item>
      <item>
-      <widget class="TimeSlider" name="timeSlider" >
-       <property name="orientation" >
+      <widget class="TimeSlider" name="timeSlider">
+       <property name="orientation">
         <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="TotalTimeLabel" name="totalLabel" >
-       <property name="sizePolicy" >
-        <sizepolicy vsizetype="Preferred" hsizetype="Minimum" >
+      <widget class="TotalTimeLabel" name="totalLabel">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
@@ -172,15 +173,15 @@
      </item>
     </layout>
    </item>
-   <item rowspan="2" row="0" column="10" >
+   <item row="0" column="10" rowspan="3">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Minimum</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>16</width>
        <height>20</height>
@@ -188,47 +189,34 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="11" >
-    <spacer>
-     <property name="orientation" >
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0" >
-      <size>
-       <width>108</width>
-       <height>30</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="0" column="2" colspan="5" >
-    <widget class="QLabel" name="titleLabel" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+   <item row="0" column="2" colspan="5">
+    <widget class="QLabel" name="titleLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>10</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="frameShape" >
+     <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
-     <property name="lineWidth" >
+     <property name="lineWidth">
       <number>1</number>
      </property>
-     <property name="alignment" >
+     <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
    </item>
-   <item rowspan="2" row="0" column="1" >
+   <item row="0" column="1" rowspan="3">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Minimum</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>16</width>
        <height>20</height>
@@ -236,44 +224,44 @@
      </property>
     </spacer>
    </item>
-   <item row="1" column="2" colspan="5" >
-    <widget class="QLabel" name="artistLabel" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+   <item row="2" column="2" colspan="5">
+    <widget class="QLabel" name="artistLabel">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>211</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="frameShape" >
+     <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
-     <property name="alignment" >
+     <property name="alignment">
       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
    </item>
-   <item rowspan="2" row="0" column="9" >
-    <widget class="QPushButton" name="coverArtButton" >
-     <property name="sizePolicy" >
-      <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+   <item row="0" column="9" rowspan="3">
+    <widget class="QPushButton" name="coverArtButton">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
-     <property name="flat" >
+     <property name="flat">
       <bool>true</bool>
      </property>
     </widget>
    </item>
-   <item rowspan="2" row="0" column="8" >
+   <item row="0" column="8" rowspan="3">
     <spacer>
-     <property name="orientation" >
+     <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <property name="sizeType" >
+     <property name="sizeType">
       <enum>QSizePolicy::Minimum</enum>
      </property>
-     <property name="sizeHint" stdset="0" >
+     <property name="sizeHint" stdset="0">
       <size>
        <width>10</width>
        <height>20</height>
@@ -281,10 +269,17 @@
      </property>
     </spacer>
    </item>
-   <item rowspan="2" row="0" column="7" >
-    <widget class="QPushButton" name="lyricsButton" >
-     <property name="text" >
+   <item row="0" column="7" rowspan="3">
+    <widget class="QPushButton" name="lyricsButton">
+     <property name="text">
       <string>Lyrics</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="11">
+    <widget class="QCheckBox" name="scrobbleCheckBox">
+     <property name="text">
+      <string>Scrobble</string>
      </property>
     </widget>
    </item>

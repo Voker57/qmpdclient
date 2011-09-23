@@ -55,7 +55,11 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), 	m_coverArt(new C
 	connect(coverArtButton, SIGNAL(clicked()), m_coverArt, SLOT(show()));
 	connect(lyricsButton, SIGNAL(clicked()), m_lyricsDialog, SLOT(show()));
 	connect(m_lastFm, SIGNAL(infoMsg(QString)), this, SIGNAL(infoMsg(QString)));
-
+	connect(scrobbleCheckBox, SIGNAL(toggled(bool)), Config::instance(), SLOT(setSubmitSongsToLastFm(bool)));
+	connect(Config::instance(), SIGNAL(submitSongsToLastFmChanged(bool)), scrobbleCheckBox, SLOT(setChecked(bool)));
+	
+	scrobbleCheckBox->setChecked(Config::instance()->submitSongsToLastFm());
+	
 	// Short cuts
 	m_fwdKey = new QShortcut(Qt::CTRL | Qt::Key_Right, this);
 	m_rwdKey = new QShortcut(Qt::CTRL | Qt::Key_Left, this);
