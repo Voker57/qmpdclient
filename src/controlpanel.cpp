@@ -65,14 +65,26 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), 	m_coverArt(new C
 	m_rwdKey = new QShortcut(Qt::CTRL | Qt::Key_Left, this);
 	m_volUpKey = new QShortcut(Qt::CTRL | Qt::Key_Up, this);
 	m_volDnKey = new QShortcut(Qt::CTRL | Qt::Key_Down, this);
+	m_stopMultKey = new QShortcut(Qt::Key_MediaStop, this);
+	m_togglePlayMultKey = new QShortcut(Qt::Key_MediaPlay, this);
+	m_fwdMultKey = new QShortcut(Qt::Key_MediaNext, this);
+	m_rwdMultKey = new QShortcut(Qt::Key_MediaPrevious, this);
 	m_fwdKey->setObjectName("nextSongKey");
 	m_rwdKey->setObjectName("prevSongKey");
 	m_volUpKey->setObjectName("volumeUpKey");
 	m_volDnKey->setObjectName("volumeDownKey");
+	m_stopMultKey->setObjectName("stopKey");
+	m_togglePlayMultKey->setObjectName("togglePlayKey");
+	m_fwdMultKey->setObjectName("nextSongMultimediaKey");
+	m_rwdMultKey->setObjectName("prevSongMultimediaKey");
 	connect(m_fwdKey, SIGNAL(activated()), MPD::instance(), SLOT(seekForward()));
 	connect(m_rwdKey, SIGNAL(activated()), MPD::instance(), SLOT(seekBackward()));
 	connect(m_volUpKey, SIGNAL(activated()), MPD::instance(), SLOT(volumeUp()));
 	connect(m_volDnKey, SIGNAL(activated()), MPD::instance(), SLOT(volumeDown()));
+	connect(m_stopMultKey, SIGNAL(activated()), MPD::instance(), SLOT(stop()));
+	connect(m_togglePlayMultKey, SIGNAL(activated()), MPD::instance(), SLOT(togglePlay()));
+	connect(m_fwdMultKey, SIGNAL(activated()), MPD::instance(), SLOT(next()));
+	connect(m_rwdMultKey, SIGNAL(activated()), MPD::instance(), SLOT(prev()));
 	setSong(MPDSong());
 }
 
