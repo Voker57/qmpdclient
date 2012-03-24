@@ -290,6 +290,7 @@ if(UNIX)
 endif()
 if(WIN32)
 	target_link_libraries(qmpdclient ws2_32)
+	set_target_properties(qmpdclient PROPERTIES WIN32_EXECUTABLE TRUE)
 endif()
 
 install(TARGETS qmpdclient DESTINATION bin)
