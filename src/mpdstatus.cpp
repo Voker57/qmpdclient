@@ -73,7 +73,7 @@ MPDStatus::MPDStatus(const MPDStatus &other) : d(other.d) {}
 MPDStatus::~MPDStatus() {}
 
 
-int MPDStatus::MPDStatus::volume() const {
+int MPDStatus::volume() const {
 	Q_ASSERT(d);
 	return d->volume;
 }

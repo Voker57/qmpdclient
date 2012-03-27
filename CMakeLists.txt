@@ -11,6 +11,10 @@ SET (QT_USE_QTNETWORK TRUE)
 SET (QT_USE_QTXMLPATTERNS TRUE)
 SET (QT_USE_QTXML TRUE)
 
+if(WIN32)
+	SET (QT_USE_QTMAIN TRUE)
+endif()
+
 if(NOT DEFINED VERSION)
 	find_program (GIT_CMD git)
 	execute_process (COMMAND "${GIT_CMD}" describe

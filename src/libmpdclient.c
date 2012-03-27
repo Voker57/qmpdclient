@@ -30,23 +30,32 @@
    SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
+#ifdef _MSC_VER
+#  define _CRT_SECURE_NO_DEPRECATE 1
+#  define _CRT_NONSTDC_NO_DEPRECATE 1
+#endif
+
 #include "libmpdclient.h"
 
 #include <errno.h>
 #include <ctype.h>
 #include <sys/types.h>
 #include <stdio.h>
-#include <sys/param.h>
 #include <string.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <limits.h>
+
+#ifdef _MSC_VER
+#  define snprintf _snprintf
+#endif
 
 #ifdef WIN32
 #  include <ws2tcpip.h>
 #  include <winsock.h>
 #else
+#  include <sys/param.h>
+#  include <unistd.h>
 #  include <netinet/in.h>
 #  include <arpa/inet.h>
 #  include <sys/socket.h>
