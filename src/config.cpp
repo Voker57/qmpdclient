@@ -41,11 +41,11 @@ Config::Config() :
 
 	// Path for system wide, and user's data files
 	QString execPath = QCoreApplication::applicationDirPath();
-	QString prefix = execPath.section("/", 0, -2);
 #ifdef Q_WS_WIN
-	m_systemPath = execPath;
+	m_systemPath = execPath + "/";
 	m_userPath = m_cachePath;
 #else
+	QString prefix = execPath.section("/", 0, -2);
 	m_systemPath = prefix + "/share/QMPDClient/";
 	m_userPath = QDir::homePath() + "/.local/share/QMPDClient/";
 #endif

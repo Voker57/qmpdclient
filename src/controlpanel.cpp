@@ -37,6 +37,7 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), 	m_coverArt(new C
 	Q_ASSERT(m_lastFm);
 	setupUi(this);
 	coverArtButton->setVisible(false);
+	updateVolume(-1);
 
 	connect(prevButton, SIGNAL(clicked()), MPD::instance(), SLOT(prev()));
 	connect(playButton, SIGNAL(clicked()), MPD::instance(), SLOT(play()));
@@ -46,7 +47,7 @@ ControlPanel::ControlPanel(QWidget *parent) : QWidget(parent), 	m_coverArt(new C
 	connect(volumeSlider, SIGNAL(valueChanged(int)), MPD::instance(), SLOT(setVolume(int)));
 	connect(timeSlider, SIGNAL(timeChanged(int)), MPD::instance(), SLOT(seek(int)));
 	connect(timeSlider, SIGNAL(valueChanged(int)), elapsedLabel, SLOT(setTime(int)));
-	connect(MPD::instance(), SIGNAL(volumeUpdated(int)), volumeSlider, SLOT(setValue(int)));
+	connect(MPD::instance(), SIGNAL(volumeUpdated(int)), this, SLOT(updateVolume(int)));
 	connect(MPD::instance(), SIGNAL(timeUpdated(int, int)), elapsedLabel, SLOT(setTime(int, int)));
 	connect(MPD::instance(), SIGNAL(timeUpdated(int, int)), totalLabel, SLOT(setTime(int, int)));
 	connect(MPD::instance(), SIGNAL(timeUpdated(int, int)), timeSlider, SLOT(setTime(int, int)));
@@ -144,3 +145,17 @@ void ControlPanel::setSong(const MPDSong &s) {
 void ControlPanel::showCoverArtChanged(bool a) {
 	coverArtButton->setVisible(a && m_coverArt->hasCoverArt());
 }
+
+void ControlPanel::updateVolume(int volume) {
+	if (volume < 0) {
+		volumeLabel->setEnabled(false);
+		volumeSlider->setEnabled(false);
+		volumeSlider->setValue(0);
+	}
+	else {
+		volumeLabel->setEnabled(true);
+		volumeSlider->setEnabled(true);
+		volumeSlider->setValue(volume);
+	}
+}
+

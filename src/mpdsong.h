@@ -26,6 +26,11 @@ class QRegExp;
 struct MPDSongPrivate;
 struct mpd_InfoEntity;
 
+// wingdi.h defines this to 0
+#ifdef ERROR
+#  undef ERROR
+#endif
+
 class MPDSong {
 public:
 	enum Type { ERROR, SONG, STREAM, PLAYLIST, PLAYLISTSONG, PLAYLISTSTREAM, UNKNOWN };

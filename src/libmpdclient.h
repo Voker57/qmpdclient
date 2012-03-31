@@ -35,9 +35,11 @@
 
 #ifdef WIN32
 #  define __W32API_USE_DLLIMPORT__ 1
+#  include <winsock2.h> /* for timeval */
+#else
+#  include <sys/time.h>
 #endif
 
-#include <sys/time.h>
 #include <stdarg.h>
 #define MPD_BUFFER_MAX_LENGTH	50000
 #define MPD_ERRORSTR_MAX_LENGTH	1000
