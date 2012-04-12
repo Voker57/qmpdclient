@@ -230,7 +230,7 @@ endif()
 
 if(WIN32)
 	list(APPEND QMPDClient_srcs src/notifications_nodbus.cpp
-			src/qmpdclient_win.cpp)
+			src/qmpdclient_win.cpp icons/resource.rc)
 endif()
 
 include(${QT_USE_FILE})

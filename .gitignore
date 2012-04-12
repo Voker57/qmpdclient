@@ -9,3 +9,4 @@
 /qmpdclient
 /lang/*.qm
 build
+/CMakeLists.txt.user
