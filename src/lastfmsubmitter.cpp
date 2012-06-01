@@ -112,7 +112,8 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s) {
 	data += QString("l=%1&").arg(s.secs() >0 ? QString::number(s.secs()) : "100");
 	data += QString("n=%1").arg(QString(QUrl::toPercentEncoding(s.track())));
 	//qDebug() << data;
-	QNetworkRequest request(QUrl(m_npUrl));
+	QUrl url(m_npUrl);
+	QNetworkRequest request(url);
 	request.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 	m_netAccess->post(request, data.toAscii());
 }
@@ -154,7 +155,8 @@ void LastFmSubmitter::scrobbleQueued() {
 	if (i>0) {
 		//qDebug() << "sending scrobble to " << m_subUrl.toAscii();
 		//qDebug() << "data: " << data.toAscii();
-		QNetworkRequest request(QUrl(m_subUrl));
+		QUrl url(m_subUrl);
+		QNetworkRequest request(url);
 		request.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
 		m_netAccess->post(request, data.toAscii());
 		m_awaitingScrob = true;
