@@ -33,7 +33,7 @@ public:
 	PlaylistView(QWidget *);
 	MPDSongList selectedSongs() const;
 	void setFilter(const QString &);
-
+   PlaylistModel *model();
 public slots:
 	void updateTranslation();
 

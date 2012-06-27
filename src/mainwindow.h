@@ -30,6 +30,7 @@ class QProgressBar;
 class QShortcut;
 class LibraryPanel;
 class MPDSongList;
+class PlaylistPanel;
 
 class MainWindow : public QMainWindow, private Ui::MainWindow {
 	Q_OBJECT
@@ -83,5 +84,6 @@ private:
 	QShortcut *m_hideKey;
 	TrayIcon *m_trayIcon;
 	LibraryPanel *m_libraryPanel;
+	PlaylistPanel *m_playlistPanel;
 };
 #endif

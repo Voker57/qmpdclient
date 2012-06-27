@@ -267,3 +267,8 @@ void PlaylistView::queueSelectedSong() {
 void PlaylistView::setFilter(const QString &needle) {
 	m_model->setFilter(needle);
 }
+
+PlaylistModel *PlaylistView::model()
+{
+   return m_model;
+}

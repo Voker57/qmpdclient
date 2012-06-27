@@ -37,6 +37,7 @@
 #include "shortcuts.h"
 #include "shoutcastpanel.h"
 #include "trayicon.h"
+#include "playlistmodel.h"
 #include <QCloseEvent>
 #include <QDesktopWidget>
 #include <QProgressBar>
@@ -63,7 +64,7 @@ MainWindow::MainWindow() : QMainWindow(0) {
 	// Ideal style vertical tabbars
 	leftBar->link(leftStack, splitter);
 	rightBar->link(rightStack, splitter);
-	m_playlistTab = leftBar->addPanel(new PlaylistPanel, true);
+	m_playlistTab = leftBar->addPanel(m_playlistPanel = new PlaylistPanel, true);
 	m_libraryTab = rightBar->addPanel(m_libraryPanel = new LibraryPanel);
 	m_directoriesTab = rightBar->addPanel(new DirectoryPanel);
 	m_radioTab = rightBar->addPanel(new RadioPanel);
@@ -321,6 +322,11 @@ void MainWindow::locateCurrentSong() {
 	// Get current song name, album, artist and go update stuff
 	m_libraryPanel->artistView->selectString(m_song.artist());
 	m_libraryPanel->albumView->selectString(m_song.album());
+
+	// Scroll playlist
+	QModelIndex idx = m_playlistPanel->playlistView->model()->indexOfSong(m_playlistPanel->playlistView->model()->playingSong());
+	m_playlistPanel->playlistView->scrollTo(idx);
+	m_playlistPanel->playlistView->selectionModel()->select(idx, QItemSelectionModel::SelectCurrent);
 }
 
 void MainWindow::playlistUpdated(const MPDSongList &list)

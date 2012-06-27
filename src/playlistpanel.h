@@ -22,7 +22,7 @@
 
 #include "ui_playlistpanel.h"
 
-class PlaylistPanel : public QWidget, private Ui::PlaylistPanel {
+class PlaylistPanel : public QWidget, public Ui::PlaylistPanel {
 	Q_OBJECT
 
 public:
