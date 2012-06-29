@@ -18,6 +18,7 @@
  */
 
 #include "playlistpanel.h"
+#include "playlistmodel.h"
 #include "mpd.h"
 #include "config.h"
 
