@@ -24,7 +24,7 @@
 #include "stringlistview.h"
 #include "mpd.h"
 #include "config.h"
-#include <QMap>
+#include <QMultiMap>
 #include <QMenu>
 #include <QItemSelectionModel>
 
@@ -89,7 +89,7 @@ QString StringListView::normalizeString(const QString l) {
  */
 QStringList StringListView::sort(const QStringList &strings, bool normalize) {
 	// Recommended way to have arbitrary sorting from QT docs
-	QMap<QString, QString> map;
+	QMultiMap<QString, QString> map;
 	foreach (QString str, strings) {
 		if (normalize)
 			map.insert(StringListView::normalizeString(str.toLower()), str);
