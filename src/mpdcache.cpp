@@ -270,7 +270,7 @@ void MPDCache::deletePlaylist(const QString &playlistName) {
 
 	mpd_beginList();
 	foreach(MPDSong s, d->playlistMap.keys()) {
-		mpd_call(MPDCache::deletePlaylists, Rm, playlistName.toAscii());
+        mpd_call(MPDCache::deletePlaylists, Rm, playlistName.toLatin1());
 	}
 
 	mpd_endList();

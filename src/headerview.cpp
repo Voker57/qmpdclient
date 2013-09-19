@@ -27,7 +27,7 @@ const int HEADER_FORMAT = 108;
 
 HeaderView::HeaderView(QWidget *p) : QHeaderView(Qt::Horizontal, p),
 		m_menu(new QMenu(this)) {
-	setMovable(true);
+    setSectionsMovable(true);
 	connect(Config::instance(), SIGNAL(autoResizeChanged(bool)), this, SLOT(autoResizeChanged(bool)));
 }
 
@@ -40,7 +40,7 @@ void HeaderView::mouseReleaseEvent(QMouseEvent *e) {
 
 void HeaderView::autoResizeChanged(bool a) {
 	if (!a) {
-		setResizeMode(QHeaderView::Interactive);
+        setSectionResizeMode(QHeaderView::Interactive);
 		setStretchLastSection(true);
 		return;
 	}
@@ -52,9 +52,9 @@ void HeaderView::autoResizeChanged(bool a) {
 			continue;
 		Column col = m_columns.at(i);
 		if (col == TRACK || col == LENGTH || col == DATE)
-			setResizeMode(i, QHeaderView::ResizeToContents);
+            setSectionResizeMode(i, QHeaderView::ResizeToContents);
 		else
-			setResizeMode(i, QHeaderView::Stretch);
+            setSectionResizeMode(i, QHeaderView::Stretch);
 	}
 	setUpdatesEnabled(true);
 

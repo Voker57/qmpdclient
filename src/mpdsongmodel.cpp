@@ -146,7 +146,8 @@ void MPDSongModel::filter() {
 				m_visible << s;
 		}
 	}
-	reset();
+    beginResetModel();
+    endResetModel();
 }
 
 void MPDSongModel::sort(int column, Qt::SortOrder order) {

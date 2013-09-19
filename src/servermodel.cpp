@@ -113,7 +113,8 @@ int ServerModel::rowCount(const QModelIndex &index) const {
 void ServerModel::addServer() {
 	m_servers << ServerInfo("New server");
 	Config::instance()->setServers(m_servers);
-	reset();
+    beginResetModel();
+    endResetModel();
 }
 
 int ServerModel::size() const {
@@ -125,7 +126,8 @@ void ServerModel::deleteServer(const QModelIndex &in) {
 		return;
 	m_servers.removeAt(in.row());
 	Config::instance()->setServers(m_servers);
-	reset();
+    beginResetModel();
+    endResetModel();
 }
 
 bool ServerModel::moveUp(const QModelIndex &idx) {

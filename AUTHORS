@@ -1,11 +1,20 @@
+QMPDClient, an Qt-based MPD client.
+
 Håvard Tautra Knutsen
     havtknut@tihlde.org
+    http://havtknut.tihlde.org/qmpdclient/
     Main developer
 
 Voker57
     voker57@gmail.com
+    http://bitcheese.net/wiki/QMPDClient
     Developer, qmpdclient-ne maintainer
 
 Roman (Ky6uk) Nuritdinov
     ky6uk.kun@gmail.com
+    http://github.com/Ky6uk/qmpdclient-ng
     Developer
+
+Marian Beermann
+    qmpdclient@enkore,de
+    Developer (Qt 5 port)

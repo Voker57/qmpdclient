@@ -70,11 +70,11 @@ void QMPDClient::ungrabKeys() {
 	XUngrabKey(dpy, XF86AUDIO_VOLDN, 0, rootWindowId);
 }
 
-bool QMPDClient::x11EventFilter(XEvent *xevent) {
+bool QMPDClient::x11EventFilter(void *xevent) {
 	Q_ASSERT(m_mainWindow);
 	XKeyEvent *keyevent = (XKeyEvent *)xevent;
 
-	if (xevent->type != KeyRelease)
+    if (keyevent->type != KeyRelease)
 		return false;
 
 	switch (keyevent->keycode) {
