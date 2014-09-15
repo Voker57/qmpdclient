@@ -72,6 +72,7 @@ MPDSong::MPDSong(mpd_InfoEntity *entity) : d(new MPDSongPrivate) {
 		d->comment = QString::fromUtf8(song->comment);
 		d->genre = QString::fromUtf8(song->genre);
 		d->date = QString::fromUtf8(song->date);
+		d->disc = QString::fromUtf8(song->disc);
 		QTime t = QTime(0, 0).addSecs(d->secs);
 		d->time = t.toString(t.hour() > 0 ? "h:mm:ss" : "m:ss");
 	} else
