@@ -54,7 +54,7 @@ void LyricsDialog::updateLyrics() {
 
 void LyricsDialog::updateLyricsText() {
 	QString html = QString(((QNetworkReply *)sender())->readAll());
-	QRegExp wittyRegexp("<div class='lyricbox'><div class='rtMatcher'>.*</div>(.*)<!--");
+	QRegExp wittyRegexp("<div class='lyricbox'><script.*</script>(.*)<!--");
 	wittyRegexp.setMinimal(true);
 	if(wittyRegexp.indexIn(html) > -1)
 	{
