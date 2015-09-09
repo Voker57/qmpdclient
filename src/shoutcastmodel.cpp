@@ -31,8 +31,8 @@
 namespace
 {
 	int maxSize = 200000;
-	const QString genresURL = "http://yp.shoutcast.com/sbin/newxml.phtml";
-	const QString stationsForGenreURL = "http://yp.shoutcast.com/sbin/newxml.phtml?genre=";
+	const QString genresURL = "http://api.shoutcast.com/legacy/genrelist?k=fa1669MuiRPorUBw";
+	const QString stationsForGenreURL = "http://api.shoutcast.com/legacy/genrelist?k=fa1669MuiRPorUBw&genre=";
 
 	class LeadingIntSortedStandardItem : public QStandardItem
 	{

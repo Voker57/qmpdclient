@@ -32,8 +32,7 @@ signals:
 
 private slots:
 	void genresAvailable(QIODevice * openInputDevice);
-	void newStationsAvailable(const QString & host,
-			QIODevice * openInputDevice, const QString & keyword);
+	void newStationsAvailable(QIODevice * openInputDevice, const QString & keyword);
 	void replyFinished(QNetworkReply * reply);
 	void playlistDownloaded(PlsFile * file);
 private:

@@ -12,6 +12,7 @@
 namespace
 {
 const int maxSize = 1000000;
+const QString stationsURL = "http://yp.shoutcast.com/sbin/tunein-station.pls?id=";
 }
 
 ShoutcastFetcher::ShoutcastFetcher(QObject * parent)
@@ -64,7 +65,7 @@ void ShoutcastFetcher::replyFinished(QNetworkReply * reply)
 	else if (m_pendingUrlAndKeyWords.contains(reply->url()))
 	{
 		QString keyWord = m_pendingUrlAndKeyWords.take(reply->url());
-		newStationsAvailable(reply->url().host(), reply, keyWord);
+		newStationsAvailable(reply, keyWord);
 	}
 	else
 	{
@@ -97,8 +98,7 @@ void ShoutcastFetcher::genresAvailable(QIODevice * openInputDevice)
 	emit genresAvailable();
 }
 
-void ShoutcastFetcher::newStationsAvailable(const QString & host,
-		QIODevice * openInputDevice, const QString & keyWord)
+void ShoutcastFetcher::newStationsAvailable(QIODevice * openInputDevice, const QString & keyWord)
 {
 	// Using read() putting the content into a QBuffer to workaround
 	// some strange hang if passing IO device directly into
@@ -118,7 +118,7 @@ void ShoutcastFetcher::newStationsAvailable(const QString & host,
 	ShoutcastStationList & sl = m_keywordStationMapping[keyWord];
 	for (QStringList::const_iterator iter = strings.constBegin(); iter != strings.constEnd(); iter += 8)
 	{
-		QString tuneIn = "http://" + host + *(iter + 7) + "?id=" + *(iter + 1);
+		QString tuneIn = stationsURL + *(iter + 1);
 		ShoutcastStation s(*iter, (*(iter + 1)).toInt(), (*(iter + 2)).toInt(),
 						   *(iter + 3), (*(iter + 4)).toInt(), *(iter + 5), *(iter + 6),
 						   tuneIn);
