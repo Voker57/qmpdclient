@@ -31,7 +31,8 @@ StringListModel::StringListModel(QObject *parent) : QAbstractListModel(parent),
 
 void StringListModel::setShowAll(bool a) {
 	m_showAll = a;
-	reset();
+    beginResetModel();
+    endResetModel();
 }
 
 bool StringListModel::showAll() const{
@@ -102,7 +103,8 @@ QStringList StringListModel::stringList() const {
 
 void StringListModel::setStringList(const QStringList &strings) {
 	m_list = strings;
-	reset();
+    beginResetModel();
+    endResetModel();
 }
 
 int StringListModel::rowCount(const QModelIndex &index) const {

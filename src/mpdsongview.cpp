@@ -47,7 +47,7 @@ void MPDSongView::setHeaderView(HeaderView *header) {
 void MPDSongView::setSongs(const MPDSongList &songs) {
 	Q_ASSERT(m_model);
 	m_model->setSongs(songs);
-	if (header()->isClickable())
+    if (header()->sectionsClickable())
 		m_model->sort(header()->sortIndicatorSection(), header()->sortIndicatorOrder());
 }
 

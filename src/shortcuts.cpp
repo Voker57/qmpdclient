@@ -36,7 +36,7 @@ Shortcuts *Shortcuts::instance() {
 
 #define LOAD(GET, SET, OBJ) \
 do { \
-Config::instance()->setOriginalShortcut(OBJ->objectName(), OBJ->GET()); \
+    Config::instance()->setOriginalShortcut(OBJ->objectName(), OBJ->GET().toString()); \
 OBJ->SET(Config::instance()->shortcut(OBJ->objectName())); \
 m_objects << OBJ; \
 } while (0)

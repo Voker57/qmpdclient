@@ -43,6 +43,7 @@ QMPDClient::QMPDClient(int &argc, char **argv) : QApplication(argc, argv),
 		m_mainWindow(0),
 		m_translator(0),
 		m_qtTranslator(0) {
+	
 	setObjectName("qmpdclient");
 	setApplicationName("QMPDClient");
 	setOrganizationName("QMPDClient");

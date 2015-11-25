@@ -129,9 +129,9 @@ void PreferencesDialog::initCategoryList() {
 }
 
 void PreferencesDialog::initConnectionPage() {
-	serverList->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    serverList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 	serverList->verticalHeader()->setDefaultSectionSize(fontMetrics().height());
-	serverList->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+    serverList->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
 	serverList->verticalHeader()->hide();
 
 	serverList->setModel(d->serverModel = new ServerModel(this));
@@ -388,9 +388,9 @@ void PreferencesDialog::initNotificationsPage() {
 }
 
 void PreferencesDialog::initShortcutPage() {
-	shortcutList->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+    shortcutList->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 	shortcutList->verticalHeader()->setDefaultSectionSize(fontMetrics().height());
-	shortcutList->verticalHeader()->setResizeMode(QHeaderView::Fixed);
+    shortcutList->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
 	shortcutList->verticalHeader()->hide();
 
 	ShortcutModel *model = new ShortcutModel(this);
@@ -664,7 +664,7 @@ void PreferencesDialog::styleChanged(QListWidgetItem *i) {
 
 void PreferencesDialog::hashLastFmPassword() {
 	lastFmMd5PasswordRadio->setChecked(true);
-	lastFmPasswordEdit->setText(QCryptographicHash::hash(lastFmPasswordEdit->text().toAscii(), QCryptographicHash::Md5).toHex());
+    lastFmPasswordEdit->setText(QCryptographicHash::hash(lastFmPasswordEdit->text().toLatin1(), QCryptographicHash::Md5).toHex());
 }
 
 void PreferencesDialog::setLastFmSlider(int value) {

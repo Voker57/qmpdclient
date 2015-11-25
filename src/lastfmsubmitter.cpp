@@ -26,6 +26,7 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QUrl>
+#include <QUrlQuery>
 #include <QStringList>
 #include <QCryptographicHash>
 #include <QTimer>
@@ -115,7 +116,7 @@ void LastFmSubmitter::scrobbleNp(MPDSong & s) {
 	QUrl url(m_npUrl);
 	QNetworkRequest request(url);
 	request.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
-	m_netAccess->post(request, data.toAscii());
+	m_netAccess->post(request, data.toLatin1());
 }
 
 void LastFmSubmitter::scrobbleCurrent() {
@@ -153,12 +154,12 @@ void LastFmSubmitter::scrobbleQueued() {
 		++i;
 	}
 	if (i>0) {
-		//qDebug() << "sending scrobble to " << m_subUrl.toAscii();
-		//qDebug() << "data: " << data.toAscii();
+		//qDebug() << "sending scrobble to " << m_subUrl.toLatin1();
+		//qDebug() << "data: " << data.toLatin1();
 		QUrl url(m_subUrl);
 		QNetworkRequest request(url);
 		request.setRawHeader("Content-Type", "application/x-www-form-urlencoded");
-		m_netAccess->post(request, data.toAscii());
+		m_netAccess->post(request, data.toLatin1());
 		m_awaitingScrob = true;
 	}
 }
@@ -173,10 +174,10 @@ bool LastFmSubmitter::ensureHandshaked() {
 QByteArray LastFmSubmitter::getPasswordHash() {
 	QByteArray passwordHash;
 	if (Config::instance()->lastFmHashedPassword())
-		passwordHash = Config::instance()->lastFmPassword().toAscii();
+		passwordHash = Config::instance()->lastFmPassword().toLatin1();
 	else
 		passwordHash = QCryptographicHash::hash(
-			Config::instance()->lastFmPassword().toAscii(),
+			Config::instance()->lastFmPassword().toLatin1(),
 			QCryptographicHash::Md5).toHex();
 
 	//accomplish it with current time
@@ -201,13 +202,15 @@ void LastFmSubmitter::doHandshake() {
 		return;
 	}
 	QUrl hsUrl = handshakeUrl();
-	hsUrl.addQueryItem("hs", "true");
-	hsUrl.addQueryItem("p", "1.2.1");
-	hsUrl.addQueryItem("c", "qmn");
-	hsUrl.addQueryItem("v", VERSION);
-	hsUrl.addQueryItem("u", Config::instance()->lastFmUsername());
-	hsUrl.addQueryItem("t", QString::number(time(NULL)));
-	hsUrl.addQueryItem("a", getPasswordHash().toHex());
+    QUrlQuery q;
+    q.addQueryItem("hs", "true");
+    q.addQueryItem("p", "1.2.1");
+    q.addQueryItem("c", "qmn");
+    q.addQueryItem("v", VERSION);
+    q.addQueryItem("u", Config::instance()->lastFmUsername());
+    q.addQueryItem("t", QString::number(time(NULL)));
+    q.addQueryItem("a", getPasswordHash().toHex());
+    hsUrl.setQuery(q);
 
 	m_netAccess->get(QNetworkRequest(hsUrl));
 	//qDebug() << "handshake sent to " << hsUrl.toString();
@@ -228,8 +231,10 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 	if(data.size()==0)
 		return;
 	QUrl reqUrl = reply->url();
-	reqUrl.setQueryItems(QList<QPair<QString, QString> >());
-	//qDebug( (QString("reply from ")+reqUrl.toString()).toAscii().data());
+    QUrlQuery q;
+    q.setQueryItems(QList<QPair<QString, QString> >());
+    reqUrl.setQuery(q);
+	//qDebug( (QString("reply from ")+reqUrl.toString()).toLatin1().data());
 
 	bool handled= false;
 	// Is this is a handshake reply?
@@ -242,7 +247,7 @@ void LastFmSubmitter::gotNetReply(QNetworkReply * reply) {
 			m_session=data[1];
 			m_npUrl=data[2];
 			m_subUrl=data[3];
-			//qDebug( (QString("hsake result: npurl: ")+m_npUrl+" suburl: "+m_subUrl).toAscii().data());
+			//qDebug( (QString("hsake result: npurl: ")+m_npUrl+" suburl: "+m_subUrl).toLatin1().data());
 			if(m_npPending)
 				sendNowPlaying();
 		} else if(data[0]=="BADAUTH")

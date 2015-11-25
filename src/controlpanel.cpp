@@ -112,7 +112,7 @@ void ControlPanel::setSong(const MPDSong &s) {
 	const int titleWidth = isVisible() ? titleLabel->width() : width() - 200;
 //	const int artistWidth = isVisible() ? artistLabel->width() : width() - 200;
 
-	QString title = elideRichText("<h3>", s.title() , "</h3>", titleWidth);
+	//QString title = elideRichText("<h3>", s.title() , "</h3>", titleWidth);
 	QString artist = s.artist();
 	QString album = s.album();
 
@@ -123,7 +123,7 @@ void ControlPanel::setSong(const MPDSong &s) {
 	else if (!album.isEmpty())
 		artist += QString("<b>%1</b>").arg(album);
 
-	titleLabel->setText(title);
+	titleLabel->setText(s.title());
 	artistLabel->setText(artist);
 
 	if (Config::instance()->submitSongsToLastFm()) m_lastFm->setSong(s);

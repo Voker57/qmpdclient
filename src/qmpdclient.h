@@ -23,6 +23,7 @@
 #include <QApplication>
 #include <QPointer>
 #include <QSessionManager>
+#include <QX11Info>
 
 class MainWindow;
 class QTranslator;
@@ -32,10 +33,10 @@ class QMPDClient : public QApplication {
 public:
 	QMPDClient(int &, char **);
 	~QMPDClient();
-#ifdef Q_WS_X11
-	bool x11EventFilter(XEvent *);
-#else
-	bool eventFilter(QObject *, QEvent *);
+
+    bool eventFilter(QObject *, QEvent *);
+#ifdef Q_OS_LINUX
+    bool x11EventFilter(void *);
 #endif
 #ifdef Q_WS_WIN
 	bool winEventFilter(MSG *, long *);

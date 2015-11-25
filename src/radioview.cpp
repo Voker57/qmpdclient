@@ -77,7 +77,7 @@ void RadioView::newStation() {
 void RadioView::connected() {
 	Q_ASSERT(m_model);
 	m_model->setSongs(Config::instance()->radioStations());
-	if (header()->isClickable())
+    if (header()->sectionsClickable())
 		m_model->sort(header()->sortIndicatorSection(), header()->sortIndicatorOrder());
 	emit toggleNewAction(true);
 }
